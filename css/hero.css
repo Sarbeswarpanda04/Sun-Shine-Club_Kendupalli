@@ -219,7 +219,7 @@
 
     font-weight: 600;
 
-    margin-bottom: 30px;
+    margin-bottom: 3px;
 
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
@@ -237,7 +237,7 @@
 
     color: #fff;
 
-    margin-bottom: 20px;
+
 
     text-shadow:
         0 0 8px rgba(255, 255, 255, 0.6),
@@ -254,27 +254,11 @@
 
     font-weight: 500;
 
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 
     color: #ffffff;
 
     letter-spacing: 1px;
-}
-
-/*==============================
-      HERO DESCRIPTION
-==============================*/
-
-.hero p {
-    max-width: 760px;
-
-    margin: 0 auto 35px;
-
-    font-size: 1.08rem;
-
-    line-height: 1.9;
-
-    color: rgba(255, 255, 255, 0.95);
 }
 
 /*==============================
@@ -292,7 +276,7 @@
 
     padding: 14px 28px;
 
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 
     border-radius: 50px;
 
@@ -398,7 +382,7 @@
 
     gap:25px;
 
-    margin-top:70px;
+    margin-top:40px;
 
 }
 
