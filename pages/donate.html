@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/donate.css">
+    <link rel="stylesheet" href="../css/footer.css">
     <title>Donate - Sun Shine Club - Kendupalli</title>
 </head>
 
@@ -34,30 +36,972 @@
         </nav>
     </header>
     <main>
-        <section id="about">
-            <h2>About Us</h2>
-            <p>Sun Shine Club is a community organization dedicated to promoting wellness, fitness, and social
-                engagement in Kendupalli. We offer a variety of activities and events for members of all ages.</p>
-        </section>
-        <section id="activities">
-            <h2>Our Activities</h2>
-            <ul>
-                <li>Yoga and Meditation Classes</li>
-                <li>Sports Tournaments</li>
-                <li>Community Service Projects</li>
-                <li>Workshops and Seminars</li>
-            </ul>
-        </section>
-        <section id="join">
-            <h2>Join Us</h2>
-            <p>If you're interested in becoming a member of Sun Shine Club, please contact us at <a
-                    href="mailto:info@sunshineclub-kendupalli.org">info@sunshineclub-kendupalli.org</a>.</p>
-        </section>
-    </main>
+        <main>
 
+    <!-- ===========================
+            DONATE HERO
+    ============================ -->
+
+    <section class="donate-hero">
+
+        <div class="container">
+
+            <span class="hero-badge">
+                ❤️ Support Our Mission
+            </span>
+
+            <h1>Every Contribution Makes a Difference</h1>
+
+            <p>
+                Your generosity helps <strong>Sun Shine Club, Kendupalli</strong>
+                organize cultural festivals, youth development programs,
+                educational activities, social service initiatives,
+                environmental campaigns, and community welfare projects.
+                Every contribution brings positive change to our village
+                and helps us build a brighter future together.
+            </p>
+
+            <a href="#donation-options" class="btn btn-primary">
+                Donate Now
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ===========================
+            WHY DONATE
+    ============================ -->
+
+    <section class="why-donate">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>Why Your Donation Matters</h2>
+
+                <p>
+                    Every contribution directly supports our community
+                    and enables us to organize meaningful programs that
+                    benefit people of all ages.
+                </p>
+
+            </div>
+
+            <div class="donation-cards">
+
+                <div class="donation-card">
+
+                    <div class="icon">🎭</div>
+
+                    <h3>Cultural Programs</h3>
+
+                    <p>
+                        Help preserve our traditions through festivals,
+                        competitions, and cultural celebrations.
+                    </p>
+
+                </div>
+
+                <div class="donation-card">
+
+                    <div class="icon">📚</div>
+
+                    <h3>Education</h3>
+
+                    <p>
+                        Support educational workshops,
+                        awareness programs, and activities
+                        for children and youth.
+                    </p>
+
+                </div>
+
+                <div class="donation-card">
+
+                    <div class="icon">🌱</div>
+
+                    <h3>Environment</h3>
+
+                    <p>
+                        Sponsor tree plantation drives,
+                        cleanliness campaigns, and
+                        environmental awareness initiatives.
+                    </p>
+
+                </div>
+
+                <div class="donation-card">
+
+                    <div class="icon">🤝</div>
+
+                    <h3>Community Welfare</h3>
+
+                    <p>
+                        Assist families in need and
+                        support various social service
+                        activities throughout the year.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ===========================
+        DONATION OPTIONS
+    ============================ -->
+
+<!-- ===========================
+        DONATION PAYMENT
+=========================== -->
+
+<section class="donation-payment" id="donation-options">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>Support Sun Shine Club</h2>
+
+            <p>
+                Select a donation amount or enter your own amount.
+                After completing the UPI payment, submit your
+                transaction reference number so we can record your donation.
+            </p>
+
+        </div>
+
+        <form id="donationForm">
+
+            <!-- Donation Amount -->
+
+            <div class="form-group">
+
+                <label>Select Donation Amount</label>
+
+                <div class="amount-grid">
+
+                    <button
+                        type="button"
+                        class="amount-btn"
+                        data-amount="100">
+
+                        ₹100
+
+                    </button>
+
+                    <button
+                        type="button"
+                        class="amount-btn"
+                        data-amount="250">
+
+                        ₹250
+
+                    </button>
+
+                    <button
+                        type="button"
+                        class="amount-btn"
+                        data-amount="500">
+
+                        ₹500
+
+                    </button>
+
+                    <button
+                        type="button"
+                        class="amount-btn"
+                        data-amount="1000">
+
+                        ₹1000
+
+                    </button>
+
+                    <button
+                        type="button"
+                        class="amount-btn"
+                        data-amount="2500">
+
+                        ₹2500
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- Custom Amount -->
+
+            <div class="form-group">
+
+                <label for="customAmount">
+
+                    Or Enter Custom Amount
+
+                </label>
+
+                <input
+                    type="number"
+                    id="customAmount"
+                    name="amount"
+                    min="1"
+                    placeholder="Enter donation amount">
+
+            </div>
+
+            <!-- Donor Information -->
+
+            <div class="donor-form">
+
+                <div class="form-group">
+
+                    <label for="donorName">
+
+                        Full Name
+
+                    </label>
+
+                    <input
+                        type="text"
+                        id="donorName"
+                        placeholder="Enter your full name"
+                        required>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="donorEmail">
+
+                        Email Address
+
+                    </label>
+
+                    <input
+                        type="email"
+                        id="donorEmail"
+                        placeholder="Enter your email"
+                        required>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="donorMobile">
+
+                        Mobile Number
+
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="donorMobile"
+                        maxlength="10"
+                        placeholder="Enter mobile number"
+                        required>
+
+                </div>
+
+            </div>
+
+            <!-- Selected Amount -->
+
+            <div class="selected-box">
+
+                <h3>
+
+                    Selected Amount
+
+                </h3>
+
+                <h2 id="selectedAmount">
+
+                    ₹0
+
+                </h2>
+
+            </div>
+
+            <!-- Pay Button -->
+
+            <button
+                type="button"
+                id="payUPI"
+                class="btn btn-primary">
+
+                <i class="fas fa-mobile-alt"></i>
+
+                Pay via UPI
+
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+<!-- ===========================
+    PAYMENT CONFIRMATION
+=========================== -->
+
+<section
+    class="payment-confirmation"
+    id="paymentConfirmation"
+    style="display:none;">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+
+                Payment Confirmation
+
+            </h2>
+
+            <p>
+
+                After completing the payment, enter your
+                UPI Transaction Reference Number (UTR).
+
+            </p>
+
+        </div>
+
+        <form id="confirmationForm">
+
+            <div class="form-group">
+
+                <label>
+
+                    UPI Transaction Reference (UTR)
+
+                </label>
+
+                <input
+                    type="text"
+                    id="utr"
+                    placeholder="Example: 431287654321"
+                    required>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>
+
+                    Remarks (Optional)
+
+                </label>
+
+                <textarea
+                    id="remarks"
+                    rows="4"
+                    placeholder="Write your message..."></textarea>
+
+            </div>
+
+            <button
+                type="submit"
+                class="btn btn-primary">
+
+                Submit Donation Details
+
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+    <!-- ===========================
+            UPI DONATION
+    ============================ -->
+
+    <section class="upi-section">
+
+        <div class="container">
+
+            <div class="upi-card">
+
+                <h2>Donate via UPI</h2>
+
+                <img
+                    src="../assets/images/donation/qr-code.png"
+                    alt="Donation QR Code"
+                >
+
+                <h3>UPI ID</h3>
+
+                <p id="upi-id">
+                    sunshineclub@upi
+                </p>
+
+                <button class="copy-upi">
+
+                    Copy UPI ID
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ===========================
+            BANK DETAILS
+    ============================ -->
+
+    <section class="bank-details">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>Bank Transfer Details</h2>
+
+            </div>
+
+            <table>
+
+                <tr>
+
+                    <th>Account Name</th>
+
+                    <td>Sun Shine Club</td>
+
+                </tr>
+
+                <tr>
+
+                    <th>Bank Name</th>
+
+                    <td>State Bank of India</td>
+
+                </tr>
+
+                <tr>
+
+                    <th>Account Number</th>
+
+                    <td>XXXXXXXXXXXX</td>
+
+                </tr>
+
+                <tr>
+
+                    <th>IFSC Code</th>
+
+                    <td>SBIN000000</td>
+
+                </tr>
+
+                <tr>
+
+                    <th>Branch</th>
+
+                    <td>Bhapur</td>
+
+                </tr>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- ===========================
+            DONATION IMPACT
+    ============================ -->
+
+    <section class="impact">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>Your Impact</h2>
+
+                <p>
+                    Together, we continue making a positive
+                    difference in our community.
+                </p>
+
+            </div>
+
+            <div class="impact-grid">
+
+                <div class="impact-card">
+
+                    <h2 class="counter" data-target="150">
+                        0
+                    </h2>
+
+                    <span>Families Supported</span>
+
+                </div>
+
+                <div class="impact-card">
+
+                    <h2 class="counter" data-target="40">
+                        0
+                    </h2>
+
+                    <span>Events Organized</span>
+
+                </div>
+
+                <div class="impact-card">
+
+                    <h2 class="counter" data-target="1000">
+                        0
+                    </h2>
+
+                    <span>Lives Impacted</span>
+
+                </div>
+
+                <div class="impact-card">
+
+                    <h2 class="counter" data-target="500">
+                        0
+                    </h2>
+
+                    <span>Volunteers</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ===========================
+            THANK YOU
+    ============================ -->
+
+    <section class="thank-you">
+
+        <div class="container">
+
+            <h2>
+
+                Thank You For Your Support ❤️
+
+            </h2>
+
+            <p>
+
+                Every donation, regardless of the amount,
+                strengthens our mission to serve the people
+                of Kendupalli. Your generosity inspires us
+                to continue creating meaningful cultural,
+                educational, environmental, and social
+                initiatives for our community.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ===========================
+                FAQ
+    ============================ -->
+
+    <section class="donation-faq">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>Frequently Asked Questions</h2>
+
+            </div>
+
+            <details>
+
+                <summary>
+
+                    Is my donation secure?
+
+                </summary>
+
+                <p>
+
+                    Yes. All donations made through our
+                    official UPI ID or bank account are secure.
+
+                </p>
+
+            </details>
+
+            <details>
+
+                <summary>
+
+                    How is my donation used?
+
+                </summary>
+
+                <p>
+
+                    Donations support cultural festivals,
+                    youth programs, educational activities,
+                    community welfare, and environmental initiatives.
+
+                </p>
+
+            </details>
+
+            <details>
+
+                <summary>
+
+                    Can I donate any amount?
+
+                </summary>
+
+                <p>
+
+                    Absolutely. Every contribution,
+                    regardless of size, makes a valuable
+                    difference.
+
+                </p>
+
+            </details>
+
+            <details>
+
+                <summary>
+
+                    Can I volunteer instead of donating?
+
+                </summary>
+
+                <p>
+
+                    Yes! We welcome volunteers who wish to
+                    contribute their time and skills to our
+                    community initiatives.
+
+                </p>
+
+            </details>
+
+        </div>
+
+    </section>
+
+
+    <!-- ===========================
+            CONTACT CTA
+    ============================ -->
+
+    <section class="donation-contact">
+
+        <div class="container">
+
+            <h2>
+
+                Need Assistance?
+
+            </h2>
+
+            <p>
+
+                Have questions about donations or sponsorships?
+                We'd be happy to help. Reach out to our team for
+                more information.
+
+            </p>
+
+            <a
+                href="contact.html"
+                class="btn btn-primary"
+            >
+
+                Contact Us
+
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+    </main>
+    <!--=========================================
+                FOOTER
+==========================================-->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <!--==============================
+                ABOUT
+        ==============================-->
+
+        <div class="footer-about">
+
+            <div class="footer-logo">
+
+                <img src="../assets/logo/sun-shine-club-logo.png"
+                     alt="Sun Shine Club Logo">
+
+                <div>
+
+                    <h2>Sun Shine Club</h2>
+
+                    <span>Kendupalli, Odisha</span>
+
+                </div>
+
+            </div>
+
+            <p>
+
+                Sun Shine Club is a community organization committed to
+                promoting cultural heritage, social service, youth
+                empowerment, sports, education, environmental awareness,
+                and community development in Kendupalli.
+
+            </p>
+
+        </div>
+
+
+
+        <!--==============================
+                MAP
+        ==============================-->
+
+        <div class="footer-map">
+
+            <h3>Our Location</h3>
+
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3698.6226394507444!2d85.25195597510138!3d20.280392413061342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a188b003c73005b%3A0x96a924c6031760e6!2sSunshine%20Club%20Kendupalli!5e1!3m2!1sen!2sin!4v1784922621286!5m2!1sen!2sin"
+                loading="lazy"
+                allowfullscreen
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+
+        </div>
+
+
+
+        <!--==============================
+            QUICK LINKS
+        ==============================-->
+
+        <div class="footer-links">
+
+            <h3>Quick Links</h3>
+
+            <ul>
+
+                <li><a href="../index.html">Home</a></li>
+
+                <li><a href="../pages/about.html">About</a></li>
+
+                <li><a href="../pages/members.html">Members</a></li>
+
+                <li><a href="../pages/events.html">Events</a></li>
+
+                <li><a href="../pages/festivals.html">Festivals</a></li>
+
+                <li><a href="../pages/gallery.html">Gallery</a></li>
+
+                <li><a href="../pages/contact.html">Contact</a></li>
+
+                <li><a href="../pages/donate.html">Donate</a></li>
+
+            </ul>
+
+        </div>
+
+
+
+        <!--==============================
+            CONTACT DETAILS
+        ==============================-->
+
+        <div class="footer-contact">
+
+            <h3>Contact</h3>
+
+            <ul>
+
+                <li>
+
+                    <i class="fas fa-location-dot"></i>
+
+                    <span>
+
+                        Kendupalli, Barabati,
+                        Bhapur, Nayagarh,
+                        Odisha – 752077
+
+                    </span>
+
+                </li>
+
+                <li>
+
+                    <i class="fas fa-phone"></i>
+
+                    <a href="tel:+919876543210">
+
+                        +91 98765 43210
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <i class="fas fa-envelope"></i>
+
+                    <a href="mailto:sunshineclub@gmail.com">
+
+                        sunshineclub@gmail.com
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <i class="fas fa-clock"></i>
+
+                    <span>
+
+                        Mon – Sun
+                        <br>
+                        9:00 AM – 7:00 PM
+
+                    </span>
+
+                </li>
+
+            </ul>
+
+
+
+            <!--==============================
+                    SOCIAL
+            ==============================-->
+
+            <div class="footer-social">
+
+                <a href="#" aria-label="Facebook">
+
+                    <i class="fab fa-facebook-f"></i>
+
+                </a>
+
+                <a href="#" aria-label="Instagram">
+
+                    <i class="fab fa-instagram"></i>
+
+                </a>
+
+                <a href="#" aria-label="YouTube">
+
+                    <i class="fab fa-youtube"></i>
+
+                </a>
+
+                <a href="#" aria-label="WhatsApp">
+
+                    <i class="fab fa-whatsapp"></i>
+
+                </a>
+
+                <a href="#" aria-label="Email">
+
+                    <i class="fas fa-envelope"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!--==============================
+            FOOTER BOTTOM
+    ==============================-->
+
+    <div class="footer-bottom">
+
+        <p>
+
+            © <span id="year"></span>
+            <strong>Sun Shine Club</strong>.
+            All Rights Reserved.
+
+        </p>
+
+        <p>
+
+            Designed & Developed with
+            <i class="fas fa-heart"></i>
+            by
+
+            <a href="https://sarbeswarpanda.me"
+               target="_blank">
+
+                Sarbeswar Panda
+
+            </a>
+
+        </p>
+
+    </div>
+
+
+
+    <!--==============================
+            BACK TO TOP
+    ==============================-->
+
+    <button class="back-to-top">
+
+        <i class="fas fa-arrow-up"></i>
+
+    </button>
+
+</footer>
 
     <!-- JavaScript -->
     <script src="../js/navbar.js"></script>
+    <script src="../js/donate.js"></script>
+    <script src="../js/footer.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
 </body>
 
 </html>
