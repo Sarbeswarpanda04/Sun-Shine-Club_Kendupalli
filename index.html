@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/hero.css">
     <title>Sun Shine Club - Kendupalli</title>
 </head>
 
@@ -34,54 +35,156 @@
         </nav>
     </header>
     <main>
-        <section class="hero">
+        <!-- =========================
+     HERO SECTION START
+========================= -->
 
+        <section class="hero" id="home">
+
+            <!-- Background Image Slider -->
+            <div class="hero-slider">
+
+                <img src="assets/images/hero/hero1.jpg" alt="Sun Shine Club" class="bg-slide active">
+
+                <img src="assets/images/hero/hero2.jpg" alt="Festival Celebration" class="bg-slide">
+
+                <img src="assets/images/hero/hero3.jpg" alt="Community Event" class="bg-slide">
+
+                <img src="assets/images/hero/hero4.jpg" alt="Members" class="bg-slide">
+
+            </div>
+
+            <!-- Sunrise Gradient Overlay -->
+            <div class="hero-overlay"></div>
+
+            <!-- Floating Particles -->
+            <div class="particles">
+
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+            <!-- Hero Content -->
             <div class="hero-content">
 
                 <span class="hero-badge">
-                    ✨ Welcome to Sun Shine Club
+                    🌞 Welcome to Kendupalli's Community Club
                 </span>
 
                 <h1>
-                    Empowering Our Community,<br>
-                    Celebrating Every Moment Together
+                    Sun Shine Club
                 </h1>
 
+                <h3>
+                    Together We Celebrate • Together We Serve
+                </h3>
+
                 <p>
-                    Sun Shine Club - Kendupalli is a community organization dedicated to
-                    organizing festivals, cultural programs, sports activities, social
-                    service initiatives, and youth development for a brighter tomorrow.
+                    Sun Shine Club is a vibrant youth organization dedicated to
+                    organizing cultural festivals, social service activities,
+                    sports tournaments, environmental awareness programs,
+                    and community development initiatives in Kendupalli.
                 </p>
 
+                <div class="hero-location">
+
+                    📍 Kendupalli, Barabati, Bhapur,
+                    Nayagarh, Odisha – 752077
+
+                </div>
+
+                <!-- Buttons -->
+
                 <div class="hero-buttons">
+
                     <a href="pages/members.html" class="btn btn-primary">
-                        Become a Member
+
+                        👥 See Our Members
+
                     </a>
 
                     <a href="pages/donate.html" class="btn btn-secondary">
-                        Donate Now
+
+                        ❤️ Donate Now
+
                     </a>
+
+                </div>
+
+                <!-- Statistics -->
+
+                <div class="hero-stats">
+
+                    <div class="stat-card">
+
+                        <h2 class="counter" data-target="36">0</h2>
+
+                        <span>Members</span>
+
+                    </div>
+
+                    <div class="stat-card">
+
+                        <h2 class="counter" data-target="7">0</h2>
+
+                        <span>Years of Service</span>
+
+                    </div>
+
+                    <div class="stat-card">
+
+                        <h2 class="counter" data-target="25">0</h2>
+
+                        <span>Events Organized</span>
+
+                    </div>
+
+                    <div class="stat-card">
+
+                        <h2 class="counter" data-target="500">0</h2>
+
+                        <span>Happy Participants</span>
+
+                    </div>
+
                 </div>
 
             </div>
 
-            <div class="hero-slider">
+            <!-- Carousel Dots -->
 
-                <div class="slides">
+            <div class="slider-dots">
 
-                    <img src="assets/images/hero1.jpg" class="slide active" alt="Festival">
+                <span class="dot active"></span>
 
-                    <img src="assets/images/hero2.jpg" class="slide" alt="Club Event">
+                <span class="dot"></span>
 
-                    <img src="assets/images/hero3.jpg" class="slide" alt="Community">
+                <span class="dot"></span>
 
-                    <img src="assets/images/hero4.jpg" class="slide" alt="Celebration">
-
-                </div>
+                <span class="dot"></span>
 
             </div>
+
+            <!-- Scroll Down -->
+
+            <a href="#about" class="scroll-down">
+
+                <span></span>
+
+            </a>
 
         </section>
+
+        <!-- =========================
+     HERO SECTION END
+========================= -->
 
 
         <section id="about">
@@ -108,6 +211,7 @@
 
     <!-- JavaScript -->
     <script src="js/navbar.js"></script>
+    <script src="js/hero.js"></script>
 </body>
 
 </html>
