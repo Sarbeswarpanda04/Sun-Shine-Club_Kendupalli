@@ -1220,14 +1220,6 @@ font-size:1.2rem;
 
 }
 
-.hero p{
-
-font-size:.96rem;
-
-line-height:1.8;
-
-}
-
 .hero-location{
 
 padding:12px 20px;
@@ -1253,11 +1245,10 @@ max-width:320px;
 }
 
 .hero-stats{
-
-grid-template-columns:1fr;
-
-gap:20px;
-
+display:grid;
+grid-template-columns:repeat(2,1fr);
+height:auto;
+gap:10px;
 }
 
 .stat-card{
@@ -1297,14 +1288,13 @@ padding:90px 18px 60px;
 .hero-badge{
 
 font-size:.8rem;
-
 padding:12px 18px;
 
 }
 
 .hero h1{
 
-font-size:2.4rem;
+font-size:3rem;
 
 }
 
@@ -1314,11 +1304,6 @@ font-size:1rem;
 
 }
 
-.hero p{
-
-font-size:.9rem;
-
-}
 
 .hero-location{
 
@@ -1330,7 +1315,7 @@ padding:10px 16px;
 
 .stat-card h2{
 
-font-size:2.5rem;
+font-size:1.5rem;
 
 }
 
