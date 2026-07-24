@@ -1,6 +1,9 @@
 /* Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
+/* CSS Variables import "root.css" */
+@import url("root.css");
+
 *{
     margin:0;
     padding:0;
@@ -9,7 +12,9 @@
 }
 
 body{
+    background:var(--background);
     overflow-x:hidden;
+    color:var(--text);
 }
 
 /* HEADER */
@@ -19,9 +24,10 @@ header{
     top:0;
     width:100%;
     z-index:999;
-    background:rgba(255,255,255,.95);
+    background:rgba(248,247,255,.92);
     backdrop-filter:blur(10px);
-    box-shadow:0 4px 20px rgba(0,0,0,.08);
+    box-shadow:var(--shadow);
+    border-bottom:1px solid rgba(147,129,255,.12);
 }
 
 .navbar{
@@ -48,7 +54,7 @@ header{
 }
 
 .logo-container h2{
-    color:#0d6efd;
+    color:var(--primary);
     font-size:1.4rem;
     font-weight:700;
 }
@@ -58,7 +64,7 @@ header{
 .nav-links{
     display:flex;
     align-items:center;
-    gap:10px;
+    gap:8px;
     list-style:none;
 }
 
@@ -69,16 +75,17 @@ header{
 }
 
 .nav-links li a{
+    position: relative;
     display:block;
     padding:12px 18px;
-    color:#333;
+    color:var(--text);
     text-decoration:none;
-    transition:0.3s;
+    transition:all .3s ease;
 }
 
 /* Active Page */
 .nav-links li.is-active{
-    background:#699be5;
+    background:var(--primary);
     border-radius:20px;
 }
 
@@ -88,12 +95,13 @@ header{
 
 /* Hover */
 .nav-links li:hover{
-    background:#469fba;
+    background:var(--primary);
     border-radius:20px;
+    transform:translateY(-2px);
 }
 
 .nav-links li:hover a{
-    color:#fff;
+    color:white;
 }
 
 /* Underline Animation */
@@ -105,29 +113,27 @@ header{
     height:2px;
     left:50%;
     bottom:5px;
-    background:white;
+    background:var(--background);
     transition:.3s;
 }
 
-.nav-links a:hover::after,
-.nav-links a.active::after{
+.nav-links li:hover a::after,
+.nav-links li.is-active a::after{
     width:60%;
     left:20%;
 }
 
 /* Donate Button */
-
 .nav-links li:last-child a{
-    background:#ff9800;
-    color:#fff;
+    background:var(--accent-light);
+    color:var(--text);
+    border-radius:25px;
     font-weight:600;
-    border-radius:20px;
 }
 
 .nav-links li:last-child a:hover{
-    background:#ffffff;
-    color:#ff9800;
-    box-shadow:0 8px 18px rgba(255,123,0,.3);
+    background:var(--primary);
+    color:white;
 }
 
 /* Mobile Menu Button */
@@ -136,7 +142,7 @@ header{
     display:none;
     font-size:32px;
     cursor:pointer;
-    color:#0d6efd;
+    color:var(--primary);
 }
 
 /* Responsive */
