@@ -64,33 +64,36 @@ header{
 
 .nav-links li{
     list-style:none;
+    border-radius:8px;
+    transition:0.3s;
 }
 
-.nav-links a{
-    position:relative;
-    text-decoration:none;
+.nav-links li a{
+    display:block;
+    padding:12px 18px;
     color:#333;
-    font-weight:500;
-    padding:10px 18px;
-    border-radius:30px;
-    transition:.35s ease;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+/* Active Page */
+.nav-links li.is-active{
+    background:#699be5;
+    border-radius:20px;
+}
+
+.nav-links li.is-active a{
+    color:#fff;
 }
 
 /* Hover */
-
-.nav-links a:hover{
+.nav-links li:hover{
     background:#0d6efd;
-    color:#fff;
-    transform:translateY(-2px);
-    box-shadow:0 8px 18px rgba(13,110,253,.25);
+    border-radius:20px;
 }
 
-/* Active */
-
-.nav-links a.active{
-    background:#0d6efd;
+.nav-links li:hover a{
     color:#fff;
-    font-weight:600;
 }
 
 /* Underline Animation */
@@ -118,10 +121,12 @@ header{
     background:#ff9800;
     color:#fff;
     font-weight:600;
+    border-radius:20px;
 }
 
 .nav-links li:last-child a:hover{
-    background:#ff7b00;
+    background:#ffffff;
+    color:#ff9800;
     box-shadow:0 8px 18px rgba(255,123,0,.3);
 }
 
