@@ -2,6 +2,25 @@
             EVENTS PAGE
 =========================================*/
 
+.page-hero{
+    padding:180px 20px 100px;
+    background:linear-gradient(135deg,#9381FF,#B8B8FF);
+    text-align:center;
+    color:#fff;
+}
+
+.page-hero h1{
+    font-size:3rem;
+    font-weight:700;
+    margin-bottom:20px;
+}
+.container{
+    width:100%;
+    max-width:1200px;
+    margin:0 auto;
+    /* padding:0 30px; */
+}
+
 .events-section {
   padding: 100px 0;
   background: #f8f7ff;
@@ -208,6 +227,16 @@
 }
 
 @media (max-width: 768px) {
+    .page-hero{
+        padding:90px 20px 70px;
+    }
+    .page-hero h1{
+        font-size:2.2rem;
+    }
+
+    .page-hero p{
+        font-size:1rem;
+    }
   .events-section,
   .timeline-section,
   .about-cta {
