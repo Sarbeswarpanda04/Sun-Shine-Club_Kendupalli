@@ -1,0 +1,226 @@
+/*=========================================
+            ABOUT PAGE
+=========================================*/
+.container{
+    width:100%;
+    max-width:1200px;
+    margin:130px auto 0px auto;
+    padding:0 20px;
+}
+.about-section{
+    background:#F8F7FF;
+}
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.about-image img{
+    width:100%;
+    border-radius:20px;
+    box-shadow:0 20px 45px rgba(147,129,255,.20);
+    transition:.4s;
+}
+
+.about-image img:hover{
+    transform:scale(1.03);
+}
+
+.about-content h2{
+    font-size:2.5rem;
+    color:var(--primary);
+    margin-bottom:20px;
+}
+
+.about-content p{
+    color:#666;
+    line-height:1.9;
+    margin-bottom:20px;
+    font-size:1.05rem;
+}
+
+/*=========================================
+            FESTIVAL SECTION
+=========================================*/
+
+.festival-section{
+    padding:100px 0;
+    background:#F8F7FF;
+}
+
+/*=========================================
+            SECTION TITLE
+=========================================*/
+
+.section-title{
+    text-align:center;
+    max-width:800px;
+    margin:0 auto 60px;
+}
+
+.section-title h2{
+    font-size:2.5rem;
+    color:var(--primary);
+    margin-bottom:18px;
+    position:relative;
+    display:inline-block;
+}
+
+.section-title h2::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    bottom:-10px;
+    transform:translateX(-50%);
+    width:80px;
+    height:4px;
+    border-radius:50px;
+    background:linear-gradient(90deg,var(--primary),var(--primary-light));
+}
+
+.section-title p{
+    margin-top:30px;
+    font-size:1.05rem;
+    color:#666;
+    line-height:1.8;
+}
+
+/*=========================================
+            FESTIVAL GRID
+=========================================*/
+
+.festival-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:40px;
+}
+
+/*=========================================
+            FESTIVAL CARD
+=========================================*/
+
+.festival-card{
+    background:#fff;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 12px 35px rgba(147,129,255,.12);
+    transition:.35s ease;
+}
+
+.festival-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 20px 45px rgba(147,129,255,.25);
+}
+
+.festival-card img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+    transition:.4s;
+}
+
+.festival-card:hover img{
+    transform:scale(1.08);
+}
+
+.festival-content{
+    padding:30px;
+}
+
+.festival-content h3{
+    font-size:1.8rem;
+    color:var(--primary);
+    margin-bottom:15px;
+}
+
+.festival-content p{
+    color:#666;
+    line-height:1.8;
+    margin-bottom:25px;
+}
+
+/*=========================================
+            BUTTON
+=========================================*/
+
+.festival-content .btn{
+    display:inline-block;
+    padding:14px 28px;
+    background:var(--primary);
+    color:#fff;
+    text-decoration:none;
+    border-radius:10px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.festival-content .btn:hover{
+    background:#7A68F8;
+    transform:translateY(-3px);
+}
+
+
+
+
+/*=========================================
+        RESPONSIVE
+=========================================*/
+
+@media(max-width:992px){
+
+    .about-grid{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+    .festival-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .about-section{
+        padding:7px 0;
+    }
+
+    .about-content h2{
+        font-size:2rem;
+    }
+
+    .page-hero{
+        padding:90px 20px 70px;
+    }
+
+    .page-hero h1{
+        font-size:2.2rem;
+    }
+
+    .page-hero p{
+        font-size:1rem;
+    }
+
+    .festival-section{
+        padding:70px 0;
+    }
+
+    .section-title h2{
+        font-size:2rem;
+    }
+
+    .festival-card img{
+        height:220px;
+    }
+
+    .festival-content{
+        padding:20px;
+    }
+
+    .festival-content h3{
+        font-size:1.5rem;
+    }
+
+}
