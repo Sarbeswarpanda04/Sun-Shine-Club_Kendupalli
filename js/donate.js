@@ -6,28 +6,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     /*====================================
-            DONATION AMOUNT BUTTONS
-    ====================================*/
-const amountButtons = document.querySelectorAll(".amount-btn");
-
-
-    amountButtons.forEach(button => {
-
-        button.addEventListener("click", () => {
-
-            amountButtons.forEach(btn =>
-                btn.classList.remove("active")
-            );
-
-            button.classList.add("active");
-
-        });
-
-    });
-
-
-
-    /*====================================
             COPY UPI ID
     ====================================*/
 
@@ -404,6 +382,8 @@ emailjs.init({
 
 // ---------- DOM ----------
 
+const amountButtons = document.querySelectorAll(".amount-btn");
+
 const donationForm = document.getElementById("donationForm");
 
 const payButton = document.getElementById("payUPI");
@@ -591,6 +571,8 @@ function saveDonationData(){
 
 /*====================================
         SELECT DONATION AMOUNT
+        (single listener — handles both
+        the active state and the amount)
 ====================================*/
 
 amountButtons.forEach(button => {
@@ -706,11 +688,11 @@ payButton.addEventListener("click", () => {
 
 /*====================================
     SHOW PAYMENT CONFIRMATION
+    (fires once per payment attempt —
+    not on every window refocus)
 ====================================*/
 
-// If user returns after opening UPI
-
-window.addEventListener("focus", () => {
+function revealPaymentConfirmation(){
 
     if(
         sessionStorage.getItem("paymentInitiated") === "true"
@@ -726,9 +708,22 @@ window.addEventListener("focus", () => {
 
         });
 
+        // Only needs to happen once — remove the
+        // listener so re-focusing the tab later
+        // doesn't keep re-triggering the scroll.
+
+        window.removeEventListener(
+            "focus",
+            revealPaymentConfirmation
+        );
+
     }
 
-});
+}
+
+// If user returns after opening UPI
+
+window.addEventListener("focus", revealPaymentConfirmation);
 
 /*====================================================
             PAYMENT PART 2
@@ -782,11 +777,25 @@ confirmationForm.addEventListener("submit", function (e) {
 
     if (!validateUTR()) return;
 
-    isSubmitting = true;
-
     const submitBtn = confirmationForm.querySelector("button");
 
     const originalText = submitBtn.innerHTML;
+
+    // Guard: if EmailJS never loaded, fail fast and
+    // leave the button in its normal, clickable state
+    // instead of getting stuck mid-submit.
+
+    if (typeof emailjs === "undefined") {
+
+        showMessage(
+            "Email service is unavailable. Please try again shortly, or contact us directly."
+        );
+
+        return;
+
+    }
+
+    isSubmitting = true;
 
     submitBtn.disabled = true;
 
@@ -822,11 +831,6 @@ confirmationForm.addEventListener("submit", function (e) {
             sessionStorage.getItem("donationDate")
 
     };
-
-    if (typeof emailjs === "undefined") {
-    showMessage("Email service is unavailable.");
-    return;
-}
 
     emailjs.send(
 
