@@ -257,6 +257,7 @@ background: linear-gradient(210deg, rgb(250, 251, 250) 27%, rgba(204, 229, 255, 
 .festival-card{
     background:#f1f2e8;
     border-radius:20px;
+    border: 2px solid rgb(0, 179, 255);
     overflow:hidden;
     box-shadow:0 12px 35px rgba(147,129,255,.12);
     transition:.35s ease;
@@ -320,8 +321,8 @@ background: linear-gradient(210deg, rgb(250, 251, 250) 27%, rgba(204, 229, 255, 
 =========================================*/
 .youtube{
     /* background:#f1f2e8; */
-     background: #dbffe9;
-background: linear-gradient(348deg, rgb(250, 251, 250) 27%, rgba(204, 229, 255, 1) 72%);
+    background: #dbffe9;
+    background: linear-gradient(348deg, rgb(250, 251, 250) 27%, rgba(204, 229, 255, 1) 72%);
     position:relative;
     padding-bottom:23.4%;
     height:0;
