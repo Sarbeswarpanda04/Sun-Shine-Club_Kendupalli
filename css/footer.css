@@ -288,7 +288,7 @@
 
     backdrop-filter: blur(12px);
 
-    border: 1px solid rgba(255, 255, 255, .08);
+    border: 3px solid rgba(109, 82, 152, 0.694);
 
     transition: .35s ease;
 
@@ -482,7 +482,7 @@
 
     flex-wrap: wrap;
 
-    gap: 14px;
+    gap: 5px;
 
     margin-top: 30px;
 
@@ -557,7 +557,7 @@
 
 .footer-social a:nth-child(5):hover {
 
-    background: #EA4335;
+    background: #262f59;
 
 }
 
