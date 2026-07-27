@@ -315,7 +315,19 @@ background: linear-gradient(210deg, rgb(250, 251, 250) 27%, rgba(204, 229, 255, 
 }
 
 
-
+/*=========================================
+        Youtube Section
+=========================================*/
+.youtube{
+    /* background:#f1f2e8; */
+     background: #dbffe9;
+background: linear-gradient(348deg, rgb(250, 251, 250) 27%, rgba(204, 229, 255, 1) 72%);
+    position:relative;
+    padding-bottom:23.4%;
+    height:0;
+    overflow:hidden;
+    max-width:100%;
+}
 
 /*=========================================
         RESPONSIVE
@@ -329,6 +341,9 @@ background: linear-gradient(210deg, rgb(250, 251, 250) 27%, rgba(204, 229, 255, 
     }
     .festival-grid{
         grid-template-columns:1fr;
+    }
+    .youtube{
+        padding-bottom:38%;
     }
 
 }
@@ -374,5 +389,14 @@ background: linear-gradient(210deg, rgb(250, 251, 250) 27%, rgba(204, 229, 255, 
     .festival-content h3{
         font-size:1.5rem;
     }
+    .youtube{
+    position:relative;
+    padding-bottom:105%;
+    height:0;
+    overflow:hidden;
+    max-width:100%;
+}
 
 }
+
+
