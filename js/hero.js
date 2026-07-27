@@ -274,3 +274,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+
+
+document.querySelectorAll(".hero-slider").forEach((slider) => {
+  const slides = slider.querySelectorAll(".bg-slide");
+
+  let current = 0;
+
+  setInterval(() => {
+    slides[current].classList.remove("active");
+
+    current = (current + 1) % slides.length;
+
+    slides[current].classList.add("active");
+  }, 5000);
+});

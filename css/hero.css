@@ -82,6 +82,28 @@
     }
 }
 
+
+
+.desktop-slider{
+    display:block;
+}
+
+.mobile-slider{
+    display:none;
+}
+
+@media(max-width:768px){
+
+    .desktop-slider{
+        display:none;
+    }
+
+    .mobile-slider{
+        display:block;
+    }
+
+}
+
 /*==============================
       SUNRISE GRADIENT
 ==============================*/
