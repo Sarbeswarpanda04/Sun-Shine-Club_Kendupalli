@@ -169,6 +169,7 @@ background: linear-gradient(200deg, rgb(250, 251, 250) 27%, rgba(204, 229, 255, 
 
 .about-image img{
     width:100%;
+    height: auto;
     border-radius:20px;
     box-shadow:0 20px 45px rgba(147,129,255,.20);
     transition:.4s;
@@ -186,6 +187,7 @@ background: linear-gradient(200deg, rgb(250, 251, 250) 27%, rgba(204, 229, 255, 
 
 .about-content p{
     color:#666;
+    text-align: justify;
     line-height:1.9;
     margin-bottom:20px;
     font-size:1.05rem;
