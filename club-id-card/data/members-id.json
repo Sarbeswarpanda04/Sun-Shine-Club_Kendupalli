@@ -1,0 +1,352 @@
+[
+  {
+    "id": "SSC001",
+    "name": "Prasanna Kumar Panda",
+    "odia_name": "ପ୍ରସନ୍ନ କୁମାର ପଣ୍ଡା",
+    "photo": "../assets/members/member01.jpg",
+    "club": "Sun Shine Club",
+    "designation": "Member",
+    "status": "Active",
+    "valid": "2027-12-31"
+  },
+  {
+    "id": "SSC002",
+    "name": "Trinatha Panda",
+    "odia_name": "ତ୍ରିନାଥ ପଣ୍ଡା",
+    "photo": "../assets/members/member02.jpg",
+    "club": "Sun Shine Club",
+    "designation": "Member",
+    "status": "Active",
+    "valid": "2027-12-31"
+  },
+  {
+    "id": "SSC003",
+    "name": "Bhagirathi Panda",
+    "odia_name": "ଭାଗିରଥି ପଣ୍ଡା",
+    "photo": "../assets/members/member03.jpg",
+    "club": "Sun Shine Club",
+    "designation": "Member",
+    "status": "Active",
+    "valid": "2027-12-31"
+  },
+  {
+    "id": "SSC004",
+    "name": "Krushna Chandra Panda",
+    "odia_name": "କୃଷ୍ଣ ଚନ୍ଦ୍ର ପଣ୍ଡା",
+    "photo": "../assets/members/member04.jpg",
+    "club": "Sun Shine Club",
+    "designation": "Member",
+    "status": "Active",
+    "valid": "2027-12-31"
+  },
+  {
+    "id": "SSC005",
+    "name": "Jagabandhu Panda",
+    "odia_name": "ଜଗବନ୍ଧୁ ପଣ୍ଡା",
+    "photo": "../assets/members/member05.jpg",
+    "club": "Sun Shine Club",
+    "designation": "Member",
+    "status": "Active",
+    "valid": "2027-12-31"
+  },
+  {
+    "id": "SSC006",
+    "name": "Member Name 6",
+    "odia_name": "___",
+    "photo": "../assets/members/member06.jpg",
+    "club": "Sun Shine Club",
+    "designation": "Member",
+    "status": "Active",
+    "valid": "2027-12-31"
+  },
+  {
+    "id": "SSC007",
+    "name": "Biswaranjan Panda",
+    "odia_name": "ବିଶ୍ଵରଞ୍ଜନ ପଣ୍ଡା",
+    "photo": "../assets/members/member07.jpg",
+    "club": "Sun Shine Club",
+    "designation": "Member",
+    "status": "Active",
+    "valid": "2027-12-31"
+  },
+  {
+    "id": "SSC008",
+    "name": "Biswakesan Panda",
+    "odia_name": "ବିଶ୍ବକେଶନ ପଣ୍ଡା",
+    "photo": "../assets/members/member08.jpg",
+    "club": "Sun Shine Club",
+    "designation": "Member",
+    "status": "Active",
+    "valid": "2027-12-31"
+  },
+  {
+    "id": "SSC009",
+    "name": "Bikash Kumar Panda",
+    "odia_name": "ବିକାଶ କୁମାର ପଣ୍ଡା",
+    "photo": "../assets/members/member09.jpg",
+    "club": "Sun Shine Club",
+    "designation": "Member",
+    "status": "Active",
+    "valid": "2027-12-31"
+  },
+  {
+    "id": "SSC010",
+    "name": "Alok Kumar Pradhan",
+    "odia_name": "ଆଲୋକ କୁମାର ପ୍ରଧାନ",
+    "photo": "../assets/members/member10.jpg",
+    "club": "Sun Shine Club",
+    "designation": "Member",
+    "status": "Active",
+    "valid": "2027-12-31"
+  },
+  {
+    "id": "SSC011",
+    "name": "Suryakanta Panda",
+    "odia_name": "ସୁର୍ୟକାନ୍ତ ପଣ୍ଡା",
+    "photo": "../assets/members/member11.jpg",
+    "club": "Sun Shine Club",
+    "designation": "Member",
+    "status": "Active",
+    "valid": "2027-12-31"
+  },
+  {
+    "id": "SSC012",
+    "name": "Biswaranjan Panda",
+    "odia_name": "ବିଶ୍ଵରଞ୍ଜନ ପଣ୍ଡା",
+    "photo": "../assets/members/member12.jpg",
+    "club": "Sun Shine Club",
+    "designation": "Member",
+    "status": "Active",
+    "valid": "2027-12-31"
+  },
+  {
+    "id": "SSC013",
+    "name": "Ashis Kumar Panda",
+    "odia_name": "ଆଶିଷ କୁମାର ପଣ୍ଡା",
+    "photo": "../assets/members/member13.jpg",
+    "club": "Sun Shine Club",
+    "designation": "Member",
+    "status": "Active",
+    "valid": "2027-12-31"
+  },
+  {
+    "id": "SSC014",
+    "name": "Janardan Panda",
+    "odia_name": "ଜନାର୍ଦନ ପଣ୍ଡା",
+    "photo": "../assets/members/member14.jpg",
+    "club": "Sun Shine Club",
+    "designation": "Member",
+    "status": "Active",
+    "valid": "2027-12-31"
+  },
+  {
+    "id": "SSC015",
+    "name": "Amarendra Panda",
+    "odia_name": "ଅମରେନ୍ଦ୍ର ପଣ୍ଡା",
+    "photo": "../assets/members/member15.jpg",
+    "club": "Sun Shine Club",
+    "designation": "Member",
+    "status": "Active",
+    "valid": "2027-12-31"
+  },
+  {
+    "id": "SSC016",
+    "name": "Abhisek Panda",
+    "odia_name": "ଅଭିଷେକ ପଣ୍ଡା",
+    "photo": "../assets/members/member16.jpg",
+    "club": "Sun Shine Club",
+    "designation": "Member",
+    "status": "Active",
+    "valid": "2027-12-31"
+  },
+  {
+    "id": "SSC017",
+    "name": "Abinash Panda",
+    "odia_name": "ଅବିନାଶ ପଣ୍ଡା",
+    "photo": "../assets/members/member17.jpg",
+    "club": "Sun Shine Club",
+    "designation": "Member",
+    "status": "Active",
+    "valid": "2027-12-31"
+  },
+  {
+    "id": "SSC018",
+    "name": "Sarbeswar Panda",
+    "odia_name": "ସର୍ବେଶ୍ଵର ପଣ୍ଡା",
+    "photo": "../assets/members/member18.jpg",
+    "club": "Sun Shine Club",
+    "designation": "Member",
+    "status": "Active",
+    "valid": "2027-12-31"
+  },
+  {
+    "id": "SSC019",
+    "name": "Chitaranjan Sahoo",
+    "odia_name": "ଚିତ୍ତରଞ୍ଜନ ସାହୁ",
+    "photo": "../assets/members/member19.jpg",
+    "club": "Sun Shine Club",
+    "designation": "Member",
+    "status": "Active",
+    "valid": "2027-12-31"
+  },
+  {
+    "id": "SSC020",
+    "name": "Avijit Panda",
+    "odia_name": "ଅଭିଜିତ୍ ପଣ୍ଡା",
+    "photo": "../assets/members/member20.jpg",
+    "club": "Sun Shine Club",
+    "designation": "Member",
+    "status": "Active",
+    "valid": "2027-12-31"
+  },
+  {
+    "id": "SSC021",
+    "name": "Silu Panda",
+    "odia_name": "ସିଲୁ ପଣ୍ଡା",
+    "photo": "../assets/members/member21.jpg",
+    "club": "Sun Shine Club",
+    "designation": "Member",
+    "status": "Active",
+    "valid": "2027-12-31"
+  },
+  {
+    "id": "SSC022",
+    "name": "Member Name 22",
+    "odia_name": "ତ୍ରିନାଥ ପଣ୍ଡା",
+    "photo": "../assets/members/member22.jpg",
+    "club": "Sun Shine Club",
+    "designation": "Member",
+    "status": "Active",
+    "valid": "2027-12-31"
+  },
+  {
+    "id": "SSC023",
+    "name": "Member Name 23",
+    "odia_name": "ତ୍ରିନାଥ ପଣ୍ଡା",
+    "photo": "../assets/members/member23.jpg",
+    "club": "Sun Shine Club",
+    "designation": "Member",
+    "status": "Active",
+    "valid": "2027-12-31"
+  },
+  {
+    "id": "SSC024",
+    "name": "Member Name 24",
+    "odia_name": "ତ୍ରିନାଥ ପଣ୍ଡା",
+    "photo": "../assets/members/member24.jpg",
+    "club": "Sun Shine Club",
+    "designation": "Member",
+    "status": "Active",
+    "valid": "2027-12-31"
+  },
+  {
+    "id": "SSC025",
+    "name": "Member Name 25",
+    "odia_name": "ତ୍ରିନାଥ ପଣ୍ଡା",
+    "photo": "../assets/members/member25.jpg",
+    "club": "Sun Shine Club",
+    "designation": "Member",
+    "status": "Active",
+    "valid": "2027-12-31"
+  },
+  {
+    "id": "SSC026",
+    "name": "Member Name 26",
+    "odia_name": "ତ୍ରିନାଥ ପଣ୍ଡା",
+    "photo": "../assets/members/member26.jpg",
+    "club": "Sun Shine Club",
+    "designation": "Member",
+    "status": "Active",
+    "valid": "2027-12-31"
+  },
+  {
+    "id": "SSC027",
+    "name": "Member Name 27",
+    "odia_name": "ତ୍ରିନାଥ ପଣ୍ଡା",
+    "photo": "../assets/members/member27.jpg",
+    "club": "Sun Shine Club",
+    "designation": "Member",
+    "status": "Active",
+    "valid": "2027-12-31"
+  },
+  {
+    "id": "SSC028",
+    "name": "Member Name 28",
+    "odia_name": "ତ୍ରିନାଥ ପଣ୍ଡା",
+    "photo": "../assets/members/member28.jpg",
+    "club": "Sun Shine Club",
+    "designation": "Member",
+    "status": "Active",
+    "valid": "2027-12-31"
+  },
+  {
+    "id": "SSC029",
+    "name": "Member Name 29",
+    "odia_name": "ତ୍ରିନାଥ ପଣ୍ଡା",
+    "photo": "../assets/members/member29.jpg",
+    "club": "Sun Shine Club",
+    "designation": "Member",
+    "status": "Active",
+    "valid": "2027-12-31"
+  },
+  {
+    "id": "SSC030",
+    "name": "Member Name 30",
+    "odia_name": "ତ୍ରିନାଥ ପଣ୍ଡା",
+    "photo": "../assets/members/member30.jpg",
+    "club": "Sun Shine Club",
+    "designation": "Member",
+    "status": "Active",
+    "valid": "2027-12-31"
+  },
+  {
+    "id": "SSC031",
+    "name": "Member Name 31",
+    "odia_name": "ତ୍ରିନାଥ ପଣ୍ଡା",
+    "photo": "../assets/members/member31.jpg",
+    "club": "Sun Shine Club",
+    "designation": "Member",
+    "status": "Active",
+    "valid": "2027-12-31"
+  },
+  {
+    "id": "SSC032",
+    "name": "Asutosh Panda",
+    "odia_name": "ଆଶୁତୋଷ ପଣ୍ଡା",
+    "photo": "../assets/members/member32.jpg",
+    "club": "Sun Shine Club",
+    "designation": "Member",
+    "status": "Active",
+    "valid": "2027-12-31"
+  },
+  {
+    "id": "SSC033",
+    "name": "Member Name 33",
+    "odia_name": "ତ୍ରିନାଥ ପଣ୍ଡା",
+    "photo": "../assets/members/member33.jpg",
+    "club": "Sun Shine Club",
+    "designation": "Member",
+    "status": "Active",
+    "valid": "2027-12-31"
+  },
+  {
+    "id": "SSC034",
+    "name": "Member Name 34",
+    "odia_name": "ତ୍ରିନାଥ ପଣ୍ଡା",
+    "photo": "../assets/members/member34.jpg",
+    "club": "Sun Shine Club",
+    "designation": "Member",
+    "status": "Active",
+    "valid": "2027-12-31"
+  },
+  {
+    "id": "SSC035",
+    "name": "Member Name 35",
+    "odia_name": "ତ୍ରିନାଥ ପଣ୍ଡା",
+    "photo": "../assets/members/member35.jpg",
+    "club": "Sun Shine Club",
+    "designation": "Member",
+    "status": "Active",
+    "valid": "2027-12-31"
+  }
+]

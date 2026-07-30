@@ -1,0 +1,333 @@
+/*=========================================
+    SUN SHINE CLUB VERIFY PAGE
+=========================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",Arial,sans-serif;
+}
+
+body{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:30px;
+
+    background:linear-gradient(135deg,#0d47a1,#1976d2,#42a5f5);
+
+}
+
+/*=========================================
+CONTAINER
+=========================================*/
+
+.verify-container{
+
+    width:100%;
+    max-width:520px;
+
+}
+
+/*=========================================
+CARD
+=========================================*/
+
+.verify-card{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    text-align:center;
+
+    box-shadow:0 20px 40px rgba(0,0,0,.2);
+
+    animation:fadeIn .5s ease;
+
+}
+
+/*=========================================
+LOGO
+=========================================*/
+
+.club-logo{
+
+    width:90px;
+    height:90px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    margin-bottom:15px;
+
+    border:4px solid #1976d2;
+
+}
+
+/*=========================================
+PROFILE PHOTO
+=========================================*/
+
+.profile-photo{
+
+    width:150px;
+    height:150px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:5px solid #1976d2;
+
+    margin:20px auto;
+
+    display:block;
+
+}
+
+/*=========================================
+HEADINGS
+=========================================*/
+
+.verify-card h1{
+
+    color:#0d47a1;
+
+    margin-bottom:8px;
+
+}
+
+.verify-card h2{
+
+    margin-bottom:20px;
+
+    font-size:28px;
+
+}
+
+/*=========================================
+TABLE
+=========================================*/
+
+.member-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin-top:20px;
+
+}
+
+.member-table th{
+
+    width:40%;
+
+    background:#f5f7fb;
+
+    color:#0d47a1;
+
+    padding:12px;
+
+    text-align:left;
+
+}
+
+.member-table td{
+
+    padding:12px;
+
+    border-bottom:1px solid #ddd;
+
+    text-align:left;
+
+}
+
+/*=========================================
+STATUS BOX
+=========================================*/
+
+.status{
+
+    display:inline-block;
+
+    padding:8px 20px;
+
+    border-radius:50px;
+
+    color:#fff;
+
+    font-weight:bold;
+
+    margin-top:20px;
+
+}
+
+.status.active{
+
+    background:#2ecc71;
+
+}
+
+.status.expired{
+
+    background:#e74c3c;
+
+}
+
+/*=========================================
+LOADING
+=========================================*/
+
+.loading{
+
+    text-align:center;
+
+    padding:50px;
+
+    color:#0d47a1;
+
+}
+
+.loading i{
+
+    font-size:45px;
+
+    margin-bottom:15px;
+
+}
+
+/*=========================================
+INVALID
+=========================================*/
+
+.invalid{
+
+    text-align:center;
+
+}
+
+.invalid h2{
+
+    color:#e74c3c;
+
+}
+
+.invalid p{
+
+    margin-top:15px;
+
+    color:#666;
+
+}
+
+/*=========================================
+VERIFIED
+=========================================*/
+
+.verified{
+
+    text-align:center;
+
+}
+
+.verified h2{
+
+    color:#27ae60;
+
+}
+
+/*=========================================
+FOOTER
+=========================================*/
+
+.footer{
+
+    margin-top:25px;
+
+    font-size:14px;
+
+    color:#777;
+
+}
+
+/*=========================================
+ANIMATION
+=========================================*/
+
+@keyframes fadeIn{
+
+from{
+
+    opacity:0;
+    transform:translateY(30px);
+
+}
+
+to{
+
+    opacity:1;
+    transform:translateY(0);
+
+}
+
+}
+
+/*=========================================
+MOBILE
+=========================================*/
+
+@media(max-width:600px){
+
+.verify-card{
+
+    padding:20px;
+
+}
+
+.profile-photo{
+
+    width:120px;
+    height:120px;
+
+}
+
+.verify-card h1{
+
+    font-size:24px;
+
+}
+
+.verify-card h2{
+
+    font-size:22px;
+
+}
+
+.member-table th,
+.member-table td{
+
+    padding:10px;
+    font-size:14px;
+
+}
+
+.club-logo{
+
+    width:70px;
+    height:70px;
+
+}
+
+}

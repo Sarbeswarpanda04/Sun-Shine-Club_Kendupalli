@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sun Shine Club - ID Card Generator</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+</head>
+<body>
+
+<header class="topbar">
+
+    <img src="assets/logo.png" class="logo">
+
+    <div>
+
+        <h1>Sun Shine Club</h1>
+
+        <p>ID Card Generator</p>
+
+    </div>
+
+</header>
+
+<div class="toolbar">
+
+    <button id="downloadAll">
+        Download All ID Cards
+    </button>
+
+    <button onclick="window.print()">
+        Print All
+    </button>
+
+</div>
+
+<div id="cardsContainer" class="cards-grid">
+
+    <!-- Cards generated automatically -->
+
+</div>
+
+<script src="js/generator.js"></script>
+
+</body>
+</html>

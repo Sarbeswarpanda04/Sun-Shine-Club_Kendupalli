@@ -1,0 +1,377 @@
+/* ===============================
+   SUN SHINE CLUB ID GENERATOR
+==================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",Arial,sans-serif;
+}
+
+body{
+    background:#f4f7fb;
+    color:#333;
+}
+
+/*==============================
+TOP BAR
+==============================*/
+
+.topbar{
+
+    background:#0d47a1;
+    color:#fff;
+
+    padding:15px 30px;
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+
+}
+
+.logo{
+
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    background:#fff;
+    object-fit:cover;
+
+}
+
+.topbar h1{
+
+    font-size:28px;
+
+}
+
+.topbar p{
+
+    opacity:.85;
+
+}
+
+/*==============================
+BUTTONS
+==============================*/
+
+.toolbar{
+
+    display:flex;
+    justify-content:center;
+    gap:15px;
+
+    padding:20px;
+
+}
+
+.toolbar button{
+
+    padding:12px 25px;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    background:#0d47a1;
+
+    color:white;
+
+    font-size:16px;
+
+    transition:.3s;
+
+}
+
+.toolbar button:hover{
+
+    background:#1565c0;
+
+    transform:translateY(-2px);
+
+}
+
+/*==============================
+CARD GRID
+==============================*/
+
+.cards-grid{
+
+    max-width:1400px;
+
+    margin:auto;
+
+    padding:30px;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:30px;
+
+}
+
+/*==============================
+ID CARD
+==============================*/
+
+.id-card{
+
+    width:320px;
+
+    margin:auto;
+
+    background:white;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+
+    transition:.3s;
+
+    border:3px solid #0d47a1;
+
+}
+
+.id-card:hover{
+
+    transform:translateY(-6px);
+
+}
+
+.card-header{
+
+    background:#0d47a1;
+
+    color:white;
+
+    padding:12px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+.club-logo{
+
+    width:55px;
+
+    height:55px;
+
+    border-radius:50%;
+
+    background:white;
+
+    object-fit:cover;
+
+}
+
+.card-header h2{
+
+    font-size:20px;
+
+}
+
+.card-header small{
+
+    opacity:.9;
+
+}
+
+/*==============================
+PHOTO
+==============================*/
+
+.member-photo{
+
+    display:block;
+
+    margin:18px auto;
+
+    width:120px;
+
+    height:120px;
+
+    border-radius:50%;
+
+    border:4px solid #0d47a1;
+
+    object-fit:cover;
+
+}
+
+/*==============================
+TEXT
+==============================*/
+
+.id-card h3{
+
+    text-align:center;
+
+    color:#0d47a1;
+
+    margin-bottom:10px;
+
+}
+
+.id-card p{
+
+    padding:3px 20px;
+
+    font-size:15px;
+
+}
+
+/*==============================
+QR
+==============================*/
+
+.qr-box{
+
+    width:100px;
+
+    height:100px;
+
+    margin:20px auto;
+
+}
+
+.card-wrapper{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+/*==============================
+DOWNLOAD BUTTON
+==============================*/
+
+
+.download-btn{
+
+    width:320px;
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#0d6efd;
+
+    color:#fff;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.download-btn:hover{
+
+    background:#0b5ed7;
+
+    transform:translateY(-2px);
+
+}
+
+/*==============================
+PRINT
+==============================*/
+
+@media print{
+
+body{
+
+    background:white;
+
+}
+
+.topbar,
+
+.toolbar,
+
+.download-btn{
+
+    display:none;
+
+}
+
+.cards-grid{
+
+    display:block;
+
+}
+
+.id-card{
+
+    page-break-after:always;
+
+    box-shadow:none;
+
+    margin-bottom:30px;
+
+}
+
+}
+
+/*==============================
+MOBILE
+==============================*/
+
+@media(max-width:768px){
+
+.topbar{
+
+    flex-direction:column;
+
+    text-align:center;
+
+}
+
+.cards-grid{
+
+    padding:15px;
+
+}
+
+.id-card{
+
+    width:100%;
+
+}
+
+.toolbar{
+
+    flex-direction:column;
+
+}
+
+.toolbar button{
+
+    width:100%;
+
+}
+
+}
