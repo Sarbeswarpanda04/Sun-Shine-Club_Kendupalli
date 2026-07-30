@@ -127,7 +127,9 @@ ID CARD
 
     margin:auto;
 
-    background:white;
+    /* background:rgb(253, 255, 253); */
+
+    background: #ffffff url("../assets/id-card-background.png") center center / cover no-repeat;
 
     border-radius:18px;
 
@@ -149,7 +151,14 @@ ID CARD
 
 .card-header{
 
-    background:#0d47a1;
+    /* background:#0d47a1; */
+    background: linear-gradient(
+        135deg,
+        #ff4fa3 0%,
+        #ff7eb3 30%,
+        #ffd54f 70%,
+        #ff7eb3 100%
+    );
 
     color:white;
 
@@ -171,7 +180,7 @@ ID CARD
 
     border-radius:50%;
 
-    background:white;
+    background:rgb(255, 255, 255);
 
     object-fit:cover;
 
@@ -184,8 +193,9 @@ ID CARD
 }
 
 .card-header small{
-
-    opacity:.9;
+    color: #ffffff; 
+    text-shadow: 2px 2px 4px rgba(9, 37, 249, 0.414);
+    opacity:1;
 
 }
 
