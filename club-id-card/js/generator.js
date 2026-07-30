@@ -31,7 +31,7 @@ function generateCards(members) {
 
                     <div>
 
-                        <h2>Sun Shine Club</h2>
+                        <h2>Sun Shine Club | ସନ୍‌ସାଇନ୍ କ୍ଲବ୍</h2>
 
                         <small>Kendupalli, Bhapur, Nayagarh, Odisha - 752077</small>
 
@@ -51,13 +51,68 @@ function generateCards(members) {
                 <h3>${member.name}</h3>
                 <h3>${member.odia_name}</h3>
 
-                <p><strong>ID :</strong> ${member.id}</p>
+                <img class="break-image" src="assets/break.png">
 
-                <p><strong>Designation :</strong> ${member.designation}</p>
+                <div class="member-info">
 
-                <p><strong>Valid :</strong> ${member.valid}</p>
+    <div class="member-details">
 
-                <div id="qr-${member.id}" class="qr-box"></div>
+        <p>
+            <i class="fa-solid fa-id-card"></i>
+            <strong>ID :</strong>
+            <span>${member.id}</span>
+        </p>
+
+        <p>
+            <i class="fa-solid fa-user-tie"></i>
+            <strong>Designation :</strong>
+            <span>${member.designation}</span>
+        </p>
+
+        <p>
+            <i class="fa-solid fa-phone"></i>
+            <strong>Phone :</strong>
+            <span>${member.phone}</span>
+        </p>
+
+    </div>
+
+    <div class="qr-border">
+
+        <div id="qr-${member.id}" class="qr-box"></div>
+
+    </div>
+
+</div>
+
+<hr>
+
+<div class="member-details2">
+
+    <p>
+        <i class="fa-solid fa-location-dot"></i>
+        <strong>Address :</strong>
+        <span>${member.address}</span>
+    </p>
+
+    <p>
+        <i class="fa-regular fa-calendar"></i>
+        <strong>Join Date :</strong>
+        <span>${member.joinDate}</span>
+    </p>
+
+    <p>
+        <i class="fa-solid fa-check-to-slot"></i>
+        <strong>Valid :</strong>
+        <span>${member.valid}</span>
+    </p>
+
+</div>
+
+
+</div>
+
+
 
             </div>
 
@@ -74,8 +129,9 @@ function generateCards(members) {
 
     new QRCode(document.getElementById(`qr-${member.id}`), {
       text: `${WEBSITE}/club-id-card/verify.html?id=${member.id}`,
-      width: 90,
-      height: 90,
+      width: 100,
+      height: 100,
+      correctLevel: QRCode.CorrectLevel.H,
     });
   });
 
@@ -91,17 +147,34 @@ function attachDownloadButtons() {
     btn.addEventListener("click", () => {
       const card = btn.parentElement.querySelector(".id-card");
 
+      // html2canvas(card, {
+      //   scale: 2,
+      // }).then((canvas) => {
+      //   const link = document.createElement("a");
+
+      //   link.download = btn.dataset.id + ".png";
+
+      //   link.href = canvas.toDataURL("image/png");
+
+      //   link.click();
+      // });
+
       html2canvas(card, {
-        scale: 2,
-      }).then((canvas) => {
-        const link = document.createElement("a");
+    scale: 4,
+    useCORS: true,
+    backgroundColor: null,
+    logging: false
+}).then((canvas) => {
 
-        link.download = btn.dataset.id + ".png";
+    const link = document.createElement("a");
 
-        link.href = canvas.toDataURL("image/png");
+    link.download = btn.dataset.id + ".png";
 
-        link.click();
-      });
+    link.href = canvas.toDataURL("image/png");
+
+    link.click();
+
+});
     });
   });
 }

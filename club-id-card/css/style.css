@@ -125,6 +125,8 @@ ID CARD
 
     width:320px;
 
+    height: 520px;
+
     margin:auto;
 
     /* background:rgb(253, 255, 253); */
@@ -155,10 +157,12 @@ ID CARD
     background: linear-gradient(
         135deg,
         #ff4fa3 0%,
-        #ff7eb3 30%,
-        #ffd54f 70%,
+        #ee609b 30%,
+        #ffd23e 70%,
         #ff7eb3 100%
     );
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 
     color:white;
 
@@ -188,7 +192,7 @@ ID CARD
 
 .card-header h2{
 
-    font-size:20px;
+    font-size:17px;
 
 }
 
@@ -202,7 +206,7 @@ ID CARD
 
 .webandmail{
 
-    margin-top:3px;
+    margin-top:5px;
 
     font-size:10px;
 
@@ -236,7 +240,7 @@ PHOTO
 
     display:block;
 
-    margin:18px auto;
+    margin:10px auto;
 
     width:120px;
 
@@ -250,6 +254,11 @@ PHOTO
 
 }
 
+.break-image {
+    width: 80px;
+    display: block; 
+    margin: 0 auto;
+}
 /*==============================
 TEXT
 ==============================*/
@@ -260,29 +269,237 @@ TEXT
 
     color:#0d47a1;
 
-    margin-bottom:8px;
+    margin-bottom:4px;
 
 }
 
+.member-info{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    gap:2px;
+
+}
+
+.member-details{
+
+    flex:1;
+
+}
+
+.member-details p{
+
+    display:grid;
+
+    grid-template-columns:14px 90px auto;
+
+    align-items:center;
+
+    column-gap:5px;
+
+    margin:6px 0;
+
+    padding-left:20px;
+
+    font-size:13px;
+
+    line-height:1.5;
+
+}
+
+.member-details i{
+
+    color:#0061d1;
+
+    font-size:14px;
+
+    width: 14px;
+
+    text-align:center;
+
+}
+
+.member-details strong{
+
+    font-weight:700;
+
+    white-space:nowrap;
+
+}
+
+.member-details span{
+
+    font-weight:500;
+
+    word-break:break-word;
+
+}
+
+.member-details2 {
+    flex: 1;
+}
+.member-details2 p{
+
+    display:grid;
+
+    grid-template-columns:14px 90px auto;
+
+    align-items:center;
+
+    column-gap:5px;
+
+    margin:6px 0;
+
+    padding-left:20px;
+
+    font-size:13px;
+
+    line-height:1.5;
+
+}
+
+.member-details2 i{
+
+    color:#0061d1;
+
+    font-size:14px;
+
+    width: 14px;
+
+    text-align:center;
+
+}
+
+.member-details2 strong{
+
+    font-weight:700;
+
+    white-space:nowrap;
+
+}
+
+.member-details2 span{
+
+    font-weight:500;
+
+    word-break:break-word;
+
+}
+/* 
 .id-card p{
-
-    padding:3px 20px;
-
+    
+    padding-left: 20px;
+    margin:5px 0;
     font-size:15px;
 
 }
 
+hr {
+    margin-top: 1%;
+    margin-left: 6%;
+    margin-right: 6%;
+} */
+
 /*==============================
 QR
 ==============================*/
+/* .qr-border{
+    width: 80px;
+    height: 80px;
+    padding:3px;
+    margin-left:1px;
+    margin-right: 15px;;
+    border:2px solid transparent;
+
+    border-radius:8px;
+
+    background:
+        linear-gradient(#fff,#fff) padding-box,
+        linear-gradient(135deg,#ff4fa3,#c99b11,#2196f3) border-box;
+
+    display:inline-flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
 
 .qr-box{
 
-    width:100px;
+    width:70px;
 
-    height:100px;
+    height:70px;
 
-    margin:20px auto;
+    overflow:hidden;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#fff;
+
+} */
+ .qr-border{
+
+    width:80px;
+    height:80px;
+
+    padding:3px;
+        margin-right: 15px;;
+
+    background:linear-gradient(
+        135deg,
+        #ff4fa3,
+        #c99b11,
+        #2196f3
+    );
+
+    border-radius:8px;
+
+    box-sizing:border-box;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.qr-box{
+
+    width:100%;
+
+    height:100%;
+
+    background:#fff;
+
+    border-radius:6px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.qr-box img{
+
+    width:70px !important;
+
+    height:70px !important;
+
+    margin:-4px;
+
+    display:block;
 
 }
 
