@@ -1,5 +1,5 @@
 /*=========================================
-    SUN SHINE CLUB VERIFY PAGE
+    SUN SHINE CLUB - VERIFY PAGE
 =========================================*/
 
 *{
@@ -19,9 +19,14 @@ body{
 
     align-items:center;
 
-    padding:30px;
+    padding:20px;
 
-    background:linear-gradient(135deg,#0d47a1,#1976d2,#42a5f5);
+    background:linear-gradient(
+        135deg,
+        #0d47a1 0%,
+        #1976d2 50%,
+        #64b5f6 100%
+    );
 
 }
 
@@ -32,7 +37,8 @@ CONTAINER
 .verify-container{
 
     width:100%;
-    max-width:520px;
+
+    max-width:560px;
 
 }
 
@@ -42,17 +48,17 @@ CARD
 
 .verify-card{
 
-    background:#fff;
+    background:rgba(255,255,255,.97);
 
-    border-radius:20px;
+    backdrop-filter:blur(12px);
 
-    padding:30px;
+    border-radius:22px;
 
-    text-align:center;
+    padding:35px;
 
-    box-shadow:0 20px 40px rgba(0,0,0,.2);
+    box-shadow:0 20px 50px rgba(0,0,0,.18);
 
-    animation:fadeIn .5s ease;
+    animation:fadeIn .4s ease;
 
 }
 
@@ -62,35 +68,19 @@ LOGO
 
 .club-logo{
 
-    width:90px;
-    height:90px;
+    width:95px;
+
+    height:95px;
 
     border-radius:50%;
 
     object-fit:cover;
 
-    margin-bottom:15px;
+    background:#fff;
 
     border:4px solid #1976d2;
 
-}
-
-/*=========================================
-PROFILE PHOTO
-=========================================*/
-
-.profile-photo{
-
-    width:150px;
-    height:150px;
-
-    border-radius:50%;
-
-    object-fit:cover;
-
-    border:5px solid #1976d2;
-
-    margin:20px auto;
+    margin:0 auto 20px;
 
     display:block;
 
@@ -102,7 +92,9 @@ HEADINGS
 
 .verify-card h1{
 
-    color:#0d47a1;
+    text-align:center;
+
+    color:#1565c0;
 
     margin-bottom:8px;
 
@@ -110,79 +102,135 @@ HEADINGS
 
 .verify-card h2{
 
-    margin-bottom:20px;
+    text-align:center;
 
-    font-size:28px;
+    color:#1565c0;
+
+    margin-bottom:12px;
+
+}
+
+.verify-card p{
+
+    color:#555;
+
+    text-align:center;
+
+    line-height:1.6;
 
 }
 
 /*=========================================
-TABLE
+SEARCH FORM
 =========================================*/
 
-.member-table{
+.search-form{
+
+    margin-top:25px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:16px;
+
+}
+
+.search-form input{
 
     width:100%;
 
-    border-collapse:collapse;
+    padding:15px 18px;
 
-    margin-top:20px;
+    border:2px solid #dbeafe;
 
-}
+    border-radius:12px;
 
-.member-table th{
+    outline:none;
 
-    width:40%;
+    font-size:16px;
 
-    background:#f5f7fb;
+    text-transform:uppercase;
 
-    color:#0d47a1;
-
-    padding:12px;
-
-    text-align:left;
+    transition:.3s;
 
 }
 
-.member-table td{
+.search-form input:focus{
 
-    padding:12px;
+    border-color:#1976d2;
 
-    border-bottom:1px solid #ddd;
+    box-shadow:0 0 0 4px rgba(25,118,210,.15);
 
-    text-align:left;
+}
+
+.search-form button{
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:linear-gradient(
+        135deg,
+        #1565c0,
+        #1e88e5
+    );
+
+    color:#fff;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.search-form button:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 10px 20px rgba(25,118,210,.25);
+
+}
+
+.search-form button i{
+
+    margin-right:8px;
 
 }
 
 /*=========================================
-STATUS BOX
+SCAN NOTE
 =========================================*/
 
-.status{
+.scan-note{
 
-    display:inline-block;
+    margin-top:25px;
 
-    padding:8px 20px;
+    display:flex;
 
-    border-radius:50px;
+    justify-content:center;
 
-    color:#fff;
+    align-items:center;
 
-    font-weight:bold;
+    gap:10px;
 
-    margin-top:20px;
+    color:#1976d2;
 
-}
+    font-size:15px;
 
-.status.active{
-
-    background:#2ecc71;
+    font-weight:500;
 
 }
 
-.status.expired{
+.scan-note i{
 
-    background:#e74c3c;
+    font-size:24px;
 
 }
 
@@ -194,15 +242,105 @@ LOADING
 
     text-align:center;
 
-    padding:50px;
-
-    color:#0d47a1;
+    padding:40px 20px;
 
 }
 
 .loading i{
 
-    font-size:45px;
+    font-size:50px;
+
+    color:#1976d2;
+
+    margin-bottom:15px;
+
+}
+
+.loading h2{
+
+    color:#1565c0;
+
+}
+
+/*=========================================
+MEMBER PHOTO
+=========================================*/
+
+.profile-photo{
+
+    width:150px;
+
+    height:150px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    display:block;
+
+    margin:20px auto;
+
+    border:5px solid #1976d2;
+
+}
+
+/*=========================================
+TABLE
+=========================================*/
+
+.member-table{
+
+    width:100%;
+
+    margin-top:20px;
+
+    border-collapse:collapse;
+
+}
+
+.member-table tr:nth-child(even){
+
+    background:#f8fbff;
+
+}
+
+.member-table th{
+
+    width:38%;
+
+    padding:12px;
+
+    background:#e3f2fd;
+
+    color:#1565c0;
+
+    text-align:left;
+
+}
+
+.member-table td{
+
+    padding:12px;
+
+    text-align:left;
+
+    border-bottom:1px solid #eee;
+
+}
+
+/*=========================================
+VERIFIED
+=========================================*/
+
+.verified{
+
+    text-align:center;
+
+}
+
+.verified h2{
+
+    font-size:28px;
 
     margin-bottom:15px;
 
@@ -220,67 +358,104 @@ INVALID
 
 .invalid h2{
 
-    color:#e74c3c;
+    margin-top:10px;
+
+    color:#e53935;
 
 }
 
 .invalid p{
 
-    margin-top:15px;
+    margin-top:12px;
 
     color:#666;
 
 }
 
 /*=========================================
-VERIFIED
+STATUS BADGE
 =========================================*/
 
-.verified{
+.status{
 
-    text-align:center;
+    display:inline-block;
+
+    margin-top:20px;
+
+    padding:8px 22px;
+
+    border-radius:50px;
+
+    font-weight:600;
+
+    color:#fff;
 
 }
 
-.verified h2{
+.status.active{
 
-    color:#27ae60;
+    background:#2e7d32;
 
 }
+
+.status.expired{
+
+    background:#d32f2f;
+
+}
+
 
 /*=========================================
-FOOTER
+Search again button
 =========================================*/
-
-.footer{
+.search-again-btn{
 
     margin-top:25px;
 
-    font-size:14px;
+    padding:12px 24px;
 
-    color:#777;
+    border:none;
+
+    border-radius:10px;
+
+    background:#1565c0;
+
+    color:#fff;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:.3s;
 
 }
 
+.search-again-btn:hover{
+
+    background:#0d47a1;
+
+}
 /*=========================================
 ANIMATION
 =========================================*/
 
 @keyframes fadeIn{
 
-from{
+    from{
 
-    opacity:0;
-    transform:translateY(30px);
+        opacity:0;
 
-}
+        transform:translateY(30px);
 
-to{
+    }
 
-    opacity:1;
-    transform:translateY(0);
+    to{
 
-}
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
 
 }
 
@@ -292,13 +467,22 @@ MOBILE
 
 .verify-card{
 
-    padding:20px;
+    padding:25px 18px;
+
+}
+
+.club-logo{
+
+    width:75px;
+
+    height:75px;
 
 }
 
 .profile-photo{
 
     width:120px;
+
     height:120px;
 
 }
@@ -315,18 +499,31 @@ MOBILE
 
 }
 
-.member-table th,
-.member-table td{
+.search-form input,
+.search-form button{
 
-    padding:10px;
-    font-size:14px;
+    font-size:15px;
+
+    padding:14px;
 
 }
 
-.club-logo{
+.member-table th,
+.member-table td{
 
-    width:70px;
-    height:70px;
+    font-size:14px;
+
+    padding:10px;
+
+}
+
+.scan-note{
+
+    flex-direction:column;
+
+    gap:6px;
+
+    text-align:center;
 
 }
 

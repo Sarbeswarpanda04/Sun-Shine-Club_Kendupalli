@@ -23,11 +23,53 @@
 
     <div id="verifyCard" class="verify-card">
 
-        <div class="loading">
+        <!-- Search Screen -->
+        <div id="searchSection">
 
-            <i class="fa-solid fa-spinner fa-spin"></i>
+            <img src="assets/logo.png" class="club-logo" alt="Sun Shine Club">
 
-            <h2>Verifying Member...</h2>
+            <h2>Member Verification</h2>
+
+            <p>
+                Enter your Member ID below or scan the QR code
+                printed on your membership card.
+            </p>
+
+            <div class="search-form">
+
+                <input
+                    type="text"
+                    id="memberId"
+                    placeholder="Enter Member ID (e.g. SSC018)"
+                    autocomplete="off">
+
+                <button id="verifyBtn">
+                    <i class="fa-solid fa-circle-check"></i>
+                    Verify Member
+                </button>
+
+            </div>
+
+            <div class="scan-note">
+
+                <i class="fa-solid fa-qrcode"></i>
+
+                <span>Scan the QR code for instant verification.</span>
+
+            </div>
+
+        </div>
+
+        <!-- Verification Result -->
+        <div id="resultSection" style="display:none;">
+
+            <div class="loading">
+
+                <i class="fa-solid fa-spinner fa-spin"></i>
+
+                <h2>Verifying Member...</h2>
+
+            </div>
 
         </div>
 

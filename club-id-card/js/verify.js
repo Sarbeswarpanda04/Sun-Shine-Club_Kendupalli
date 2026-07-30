@@ -3,28 +3,86 @@
 // Member Verification
 // =====================================
 
-const verifyCard = document.getElementById("verifyCard");
+const searchSection = document.getElementById("searchSection");
+const resultSection = document.getElementById("resultSection");
+const memberInput = document.getElementById("memberId");
+const verifyBtn = document.getElementById("verifyBtn");
 
-// Get ID from URL
+// =====================================
+// Auto Verify from URL
+// =====================================
+
 const params = new URLSearchParams(window.location.search);
-const memberId = params.get("id");
+const urlMemberId = params.get("id");
 
-// No ID in URL
-if (!memberId) {
+if (urlMemberId) {
 
-    showError("No Member ID provided.");
+    searchSection.style.display = "none";
+    resultSection.style.display = "block";
 
-} else {
-
-    loadMember(memberId);
+    loadMember(urlMemberId);
 
 }
 
 // =====================================
-// Load Member Data
+// Verify Button
+// =====================================
+
+verifyBtn.addEventListener("click", verifyMember);
+
+// Press Enter
+memberInput.addEventListener("keypress", function (e) {
+
+    if (e.key === "Enter") {
+
+        verifyMember();
+
+    }
+
+});
+
+// =====================================
+// Verify Member
+// =====================================
+
+function verifyMember() {
+
+    const id = memberInput.value.trim().toUpperCase();
+
+    if (!id) {
+
+        alert("Please enter your Member ID.");
+
+        memberInput.focus();
+
+        return;
+
+    }
+
+    searchSection.style.display = "none";
+    resultSection.style.display = "block";
+
+    loadMember(id);
+
+}
+
+// =====================================
+// Load Member
 // =====================================
 
 async function loadMember(id) {
+
+    resultSection.innerHTML = `
+
+        <div class="loading">
+
+            <i class="fa-solid fa-spinner fa-spin"></i>
+
+            <h2>Verifying Member...</h2>
+
+        </div>
+
+    `;
 
     try {
 
@@ -32,7 +90,9 @@ async function loadMember(id) {
 
         const members = await response.json();
 
-        const member = members.find(m => m.id === id);
+        const member = members.find(
+            m => m.id.toUpperCase() === id.toUpperCase()
+        );
 
         if (!member) {
 
@@ -46,9 +106,9 @@ async function loadMember(id) {
 
     }
 
-    catch (error) {
+    catch (err) {
 
-        console.error(error);
+        console.error(err);
 
         showError("Unable to load member database.");
 
@@ -62,159 +122,179 @@ async function loadMember(id) {
 
 function isExpired(validDate) {
 
-    const today = new Date();
-
-    const expiry = new Date(validDate);
-
-    return expiry < today;
+    return new Date(validDate) < new Date();
 
 }
 
 // =====================================
-// Display Member
+// Show Member
 // =====================================
 
 function showMember(member) {
 
     const expired = isExpired(member.valid);
 
-    const statusColor = expired ? "#e74c3c" : "#27ae60";
-
     const statusText = expired ? "Expired" : "Verified";
 
-    verifyCard.innerHTML = `
+    const statusColor = expired ? "#e74c3c" : "#2ecc71";
 
-    <div class="verified">
+    resultSection.innerHTML = `
 
-        <img
-            src="assets/logo.png"
-            class="club-logo"
-            alt="Club Logo">
+        <div class="verified">
 
-        <h1>Sun Shine Club</h1>
+            <img src="assets/logo.png"
+                 class="club-logo">
 
-        <h2 style="color:${statusColor};">
+            <h1>Sun Shine Club</h1>
 
-            ✔ ${statusText} Member
+            <h2 style="color:${statusColor};">
 
-        </h2>
+                ${expired ? "❌" : "✔"} ${statusText} Member
 
-        <img
-            src="${member.photo}"
-            class="profile-photo"
-            alt="${member.name}">
+            </h2>
 
-        <table class="member-table">
+            <img
+                src="${member.photo}"
+                class="profile-photo"
+                alt="${member.name}">
 
-            <tr>
+            <table class="member-table">
 
-                <th>Name</th>
+                <tr>
 
-                <td>${member.name}</td>
+                    <th>Name</th>
 
-            </tr>
+                    <td>${member.name}</td>
 
-            <tr>
+                </tr>
 
-                <th>Member ID</th>
+                <tr>
 
-                <td>${member.id}</td>
+                    <th>Member ID</th>
 
-            </tr>
+                    <td>${member.id}</td>
 
-            <tr>
+                </tr>
 
-                <th>Designation</th>
+                <tr>
 
-                <td>${member.designation}</td>
+                    <th>Designation</th>
 
-            </tr>
+                    <td>${member.designation}</td>
 
-            <tr>
+                </tr>
 
-                <th>Phone</th>
+                <tr>
 
-                <td>${member.phone}</td>
+                    <th>Phone</th>
 
-            </tr>
+                    <td>${member.phone || "-"}</td>
 
-            <tr>
+                </tr>
 
-                <th>Blood Group</th>
+                <tr>
 
-                <td>${member.blood}</td>
+                    <th>Blood Group</th>
 
-            </tr>
+                    <td>${member.blood || "-"}</td>
 
-            <tr>
+                </tr>
 
-                <th>Join Date</th>
+                <tr>
 
-                <td>${member.joinDate}</td>
+                    <th>Join Date</th>
 
-            </tr>
+                    <td>${member.joinDate || "-"}</td>
 
-            <tr>
+                </tr>
 
-                <th>Valid Until</th>
+                <tr>
 
-                <td>${member.valid}</td>
+                    <th>Valid Until</th>
 
-            </tr>
+                    <td>${member.valid}</td>
 
-            <tr>
+                </tr>
 
-                <th>Status</th>
+                <tr>
 
-                <td style="color:${statusColor};font-weight:bold;">
+                    <th>Status</th>
 
-                    ${member.status}
+                    <td style="color:${statusColor};font-weight:bold;">
 
-                </td>
+                        ${member.status}
 
-            </tr>
+                    </td>
 
-        </table>
+                </tr>
 
-    </div>
+            </table>
+
+            <button
+                class="search-again-btn"
+                onclick="goBack()">
+
+                Verify Another Member
+
+            </button>
+
+        </div>
 
     `;
 
 }
 
 // =====================================
-// Error Page
+// Invalid Member
 // =====================================
 
 function showError(message) {
 
-    verifyCard.innerHTML = `
+    resultSection.innerHTML = `
 
-    <div class="invalid">
+        <div class="invalid">
 
-        <img
-            src="assets/logo.png"
-            class="club-logo"
-            alt="Club Logo">
+            <img src="assets/logo.png"
+                 class="club-logo">
 
-        <h1>Sun Shine Club</h1>
+            <h1>Sun Shine Club</h1>
 
-        <h2 style="color:#e74c3c;">
+            <h2 style="color:#e74c3c;">
 
-            ❌ Invalid Member
+                ❌ Invalid Member
 
-        </h2>
+            </h2>
 
-        <p>${message}</p>
+            <p>${message}</p>
 
-        <p>
+            <p>This ID Card is not registered.</p>
 
-            This ID Card is not registered.
+            <button
+                class="search-again-btn"
+                onclick="goBack()">
 
-        </p>
+                Try Again
 
-    </div>
+            </button>
+
+        </div>
 
     `;
+
+}
+
+// =====================================
+// Back to Search
+// =====================================
+
+function goBack() {
+
+    resultSection.style.display = "none";
+
+    searchSection.style.display = "block";
+
+    memberInput.value = "";
+
+    memberInput.focus();
 
 }
