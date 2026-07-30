@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>404 | Sun Shine Club</title>
+
+<link rel="stylesheet" href="css/404.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+<style>
+    *{
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Segoe UI",sans-serif;
+
+}
+
+body{
+
+min-height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+background:
+linear-gradient(
+135deg,
+#0d47a1,
+#1976d2,
+#42a5f5);
+
+padding:20px;
+
+overflow:hidden;
+
+}
+
+.container{
+
+width:100%;
+max-width:500px;
+
+}
+
+.card{
+
+background:rgba(255,255,255,.15);
+
+backdrop-filter:blur(20px);
+
+border:2px solid rgba(255,255,255,.25);
+
+border-radius:25px;
+
+padding:45px 35px;
+
+text-align:center;
+
+box-shadow:0 20px 50px rgba(0,0,0,.25);
+
+}
+
+.logo{
+
+width:90px;
+
+margin-bottom:20px;
+
+}
+
+h1{
+
+font-size:110px;
+
+font-weight:800;
+
+background:
+linear-gradient(
+135deg,
+#ff4fa3,
+#ffd54f,
+#42a5f5);
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+line-height:1;
+
+}
+
+h2{
+
+margin-top:10px;
+
+font-size:32px;
+
+color:#fff;
+
+}
+
+p{
+
+margin:20px 0;
+
+font-size:17px;
+
+line-height:1.7;
+
+color:#eef5ff;
+
+}
+
+.icon{
+
+font-size:70px;
+
+color:#ffd54f;
+
+margin:20px 0;
+
+animation:float 2.5s infinite ease-in-out;
+
+}
+
+.btn{
+
+display:inline-flex;
+
+align-items:center;
+
+gap:10px;
+
+padding:14px 30px;
+
+border-radius:50px;
+
+text-decoration:none;
+
+background:
+linear-gradient(
+135deg,
+#ff4fa3,
+#ffca28);
+
+color:#fff;
+
+font-weight:700;
+
+transition:.3s;
+
+box-shadow:0 10px 25px rgba(0,0,0,.2);
+
+}
+
+.btn:hover{
+
+transform:translateY(-4px);
+
+box-shadow:0 15px 35px rgba(0,0,0,.3);
+
+}
+
+@keyframes float{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-12px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}
+
+@media(max-width:600px){
+
+h1{
+
+font-size:90px;
+
+}
+
+h2{
+
+font-size:26px;
+
+}
+
+p{
+
+font-size:15px;
+
+}
+
+}
+</style>
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <img
+        src="assets/logo.png"
+        class="logo"
+        alt="Sun Shine Club">
+
+        <h1>404</h1>
+
+        <h2>Oops! Page Not Found</h2>
+
+        <p>
+
+            The page you are looking for doesn't exist,
+            has been moved, or the URL is incorrect.
+
+        </p>
+
+        <div class="icon">
+
+            <i class="fa-solid fa-triangle-exclamation"></i>
+
+        </div>
+
+        <a href="index.html" class="btn">
+
+            <i class="fa-solid fa-house"></i>
+
+            Back to Home
+
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
