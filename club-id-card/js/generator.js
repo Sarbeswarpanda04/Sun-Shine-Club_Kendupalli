@@ -4,26 +4,24 @@ const container = document.getElementById("cardsContainer");
 const WEBSITE = window.location.origin;
 
 fetch("data/members-id.json")
-    .then(res => res.json())
-    .then(generateCards)
-    .catch(err => {
-        container.innerHTML = `
+  .then((res) => res.json())
+  .then(generateCards)
+  .catch((err) => {
+    container.innerHTML = `
             <h2 style="color:red;text-align:center;">
                 Failed to load members-id.json
             </h2>`;
-        console.error(err);
-    });
+    console.error(err);
+  });
 
 function generateCards(members) {
+  container.innerHTML = "";
 
-    container.innerHTML = "";
+  members.forEach((member) => {
+    const wrapper = document.createElement("div");
+    wrapper.className = "card-wrapper";
 
-    members.forEach(member => {
-
-        const wrapper = document.createElement("div");
-        wrapper.className = "card-wrapper";
-
-        wrapper.innerHTML = `
+    wrapper.innerHTML = `
 
             <div class="id-card">
 
@@ -35,7 +33,11 @@ function generateCards(members) {
 
                         <h2>Sun Shine Club</h2>
 
-                        <small>Kendupalli, Bhapur, Nayagarh, 752077</small>
+                        <small>Kendupalli, Bhapur, Nayagarh, Odisha - 752077</small>
+
+                        <div class="webandmail">
+    🌐 www.sunshineclubkendupalli.com
+</div>
 
                     </div>
 
@@ -68,102 +70,68 @@ function generateCards(members) {
 
         `;
 
-        container.appendChild(wrapper);
+    container.appendChild(wrapper);
 
-        new QRCode(
-            document.getElementById(`qr-${member.id}`),
-            {
-                text: `${WEBSITE}/club-id-card/verify.html?id=${member.id}`,
-                width: 90,
-                height: 90
-            }
-        );
-
+    new QRCode(document.getElementById(`qr-${member.id}`), {
+      text: `${WEBSITE}/club-id-card/verify.html?id=${member.id}`,
+      width: 90,
+      height: 90,
     });
+  });
 
-    attachDownloadButtons();
-
+  attachDownloadButtons();
 }
-
 
 //-----------------------------------------
 // Download One Card
 //-----------------------------------------
 
 function attachDownloadButtons() {
+  document.querySelectorAll(".download-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const card = btn.parentElement.querySelector(".id-card");
 
-    document
-        .querySelectorAll(".download-btn")
-        .forEach(btn => {
+      html2canvas(card, {
+        scale: 2,
+      }).then((canvas) => {
+        const link = document.createElement("a");
 
-            btn.addEventListener("click", () => {
+        link.download = btn.dataset.id + ".png";
 
-                const card = btn.parentElement.querySelector(".id-card");
+        link.href = canvas.toDataURL("image/png");
 
-                html2canvas(card,{
-                    scale:2
-                }).then(canvas => {
-
-                    const link =
-                        document.createElement("a");
-
-                    link.download =
-                        btn.dataset.id + ".png";
-
-                    link.href =
-                        canvas.toDataURL("image/png");
-
-                    link.click();
-
-                });
-
-            });
-
-        });
-
+        link.click();
+      });
+    });
+  });
 }
-
 
 //-----------------------------------------
 // Download All
 //-----------------------------------------
 
-document
-.getElementById("downloadAll")
-.addEventListener("click", downloadAll);
+document.getElementById("downloadAll").addEventListener("click", downloadAll);
 
+async function downloadAll() {
+  const cards = document.querySelectorAll(".id-card");
 
-async function downloadAll(){
+  for (const card of cards) {
+    const id = card.querySelector(".download-btn").dataset.id;
 
-    const cards =
-        document.querySelectorAll(".id-card");
+    const canvas = await html2canvas(card, {
+      scale: 2,
+    });
 
-    for(const card of cards){
+    const link = document.createElement("a");
 
-        const id =
-            card.querySelector(".download-btn")
-            .dataset.id;
+    link.download = id + ".png";
 
-        const canvas =
-            await html2canvas(card,{
-                scale:2
-            });
+    link.href = canvas.toDataURL("image/png");
 
-        const link =
-            document.createElement("a");
+    link.click();
 
-        link.download =
-            id + ".png";
+    // Small delay
 
-        link.href =
-            canvas.toDataURL("image/png");
-
-        link.click();
-
-        // Small delay
-
-        await new Promise(r=>setTimeout(r,400));
-
-    }
-
+    await new Promise((r) => setTimeout(r, 400));
+  }
 }
