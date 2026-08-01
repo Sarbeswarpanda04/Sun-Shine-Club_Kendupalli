@@ -128,7 +128,7 @@ function generateCards(members) {
     container.appendChild(wrapper);
 
     new QRCode(document.getElementById(`qr-${member.id}`), {
-      text: `${WEBSITE}/club-id-card/verify.html?id=${member.id}`,
+      text: `${WEBSITE}/Sun-Shine-Club_Kendupalli/club-id-card/verify.html?id=${member.id}`,
       width: 100,
       height: 100,
       correctLevel: QRCode.CorrectLevel.H,
