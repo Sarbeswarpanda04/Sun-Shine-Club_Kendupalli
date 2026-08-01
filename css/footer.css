@@ -675,62 +675,101 @@
 /*=========================================
             BACK TO TOP
 =========================================*/
+.back-to-top{
 
-.back-to-top {
+    position:fixed;
 
-    position: absolute;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    right: 35px;
+    right:25px;
 
-    top: -28px;
+    bottom:25px;
 
-    width: 58px;
+    width:60px;
 
-    height: 58px;
+    height:60px;
 
-    border: none;
+    border:none;
 
-    border-radius: 50%;
+    border-radius:50%;
 
-    background: var(--primary);
+    background:#fff;
 
-    color: #ffffff;
+    display:flex;
 
-    font-size: 1.3rem;
+    justify-content:center;
 
-    cursor: pointer;
+    align-items:center;
 
-    display: flex;
+    cursor:pointer;
 
-    justify-content: center;
+    z-index:9999;
 
-    align-items: center;
+    opacity:0;
 
-    box-shadow:
-        0 12px 30px rgba(147, 129, 255, .35);
+    visibility:hidden;
 
-    transition: all .35s ease;
+    pointer-events:none;
 
-    z-index: 20;
+    transition:.3s;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.18);
 
 }
 
-.back-to-top:hover {
+.back-to-top.show{
 
-    transform:
-        translateY(-6px) scale(1.08);
+    opacity:1;
 
-    background: var(--accent-light);
+    visibility:visible;
 
-    color: var(--text);
-
-    box-shadow:
-        0 18px 35px rgba(147, 129, 255, .45);
+    pointer-events:auto;
 
 }
 
+.back-to-top i{
+
+    position:absolute;
+
+    font-size:20px;
+
+    color:#1565c0;
+
+}
+
+.progress-ring{
+
+    position:absolute;
+
+    transform:rotate(-90deg);
+
+}
+
+.progress-bg{
+
+    fill:none;
+
+    stroke:#e6e6e6;
+
+    stroke-width:4;
+
+}
+
+.progress-bar{
+
+    fill:none;
+
+    stroke:#1565c0;
+
+    stroke-width:4;
+
+    stroke-linecap:round;
+
+    stroke-dasharray:163.36;
+
+    stroke-dashoffset:163.36;
+
+    transition:stroke-dashoffset .1s linear;
+
+}
 
 
 /*=========================================

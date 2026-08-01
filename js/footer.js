@@ -18,61 +18,55 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-    /*====================================
-            BACK TO TOP
-    ====================================*/
+/*====================================
+        BACK TO TOP
+====================================*/
+const backToTop = document.querySelector(".back-to-top");
+const progress = document.querySelector(".progress-bar");
 
-    const backToTop = document.querySelector(".back-to-top");
+const radius = 26;
+const circumference = 2 * Math.PI * radius;
 
-    if(backToTop){
+progress.style.strokeDasharray = circumference;
+progress.style.strokeDashoffset = circumference;
 
-        backToTop.addEventListener("click", () => {
+window.addEventListener("scroll", () => {
 
-            window.scrollTo({
+    const scrollTop = window.pageYOffset;
 
-                top:0,
+    const scrollHeight =
+        document.documentElement.scrollHeight -
+        window.innerHeight;
 
-                behavior:"smooth"
+    const percent = scrollTop / scrollHeight;
 
-            });
+    const offset = circumference - percent * circumference;
 
-        });
+    progress.style.strokeDashoffset = offset;
+
+    if(scrollTop > 300){
+
+        backToTop.classList.add("show");
+
+    }else{
+
+        backToTop.classList.remove("show");
 
     }
 
+});
 
+backToTop.addEventListener("click", () => {
 
-    /*====================================
-        SHOW / HIDE BACK TO TOP
-    ====================================*/
+    window.scrollTo({
 
-    window.addEventListener("scroll", () => {
+        top:0,
 
-        if(!backToTop) return;
-
-        if(window.scrollY > 500){
-
-            backToTop.style.opacity = "1";
-
-            backToTop.style.visibility = "visible";
-
-            backToTop.style.pointerEvents = "auto";
-
-        }
-
-        else{
-
-            backToTop.style.opacity = "0";
-
-            backToTop.style.visibility = "hidden";
-
-            backToTop.style.pointerEvents = "none";
-
-        }
+        behavior:"smooth"
 
     });
 
-
+});
 
     /*====================================
             FOOTER REVEAL
