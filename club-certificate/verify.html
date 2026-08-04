@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Certificate Verification | Sun Shine Club</title>
+    <link rel="stylesheet" href="css/certificate.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+</head>
+<body>
+    <div class="verify-shell">
+        <div class="verify-card">
+            <div id="searchSection" class="search-section">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=120&q=80" class="club-logo" alt="Sun Shine Club" />
+                <h1>Sun Shine Club</h1>
+                <h2>Certificate Verification</h2>
+                <p>Enter the certificate ID below to verify the issued certificate.</p>
+
+                <div class="search-form">
+                    <input type="text" id="certificateId" placeholder="Enter Certificate ID (e.g. SC-CRT-2026-001)" autocomplete="off" />
+                    <button id="verifyBtn"><i class="fa-solid fa-circle-check"></i> Verify Certificate</button>
+                </div>
+
+                <div class="scan-note">
+                    <i class="fa-solid fa-qrcode"></i>
+                    <span>Use the certificate ID to verify the document instantly.</span>
+                </div>
+            </div>
+
+            <div id="resultSection" style="display:none;" class="result-section"></div>
+        </div>
+    </div>
+
+    <script src="js/verify.js"></script>
+</body>
+</html>
