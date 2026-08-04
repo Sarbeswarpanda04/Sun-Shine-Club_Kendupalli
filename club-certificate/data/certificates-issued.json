@@ -1,7 +1,7 @@
 [
   {
-    "certificateId": "SC-CRT-2026-001",
-    "name": "Daniel Gallegos",
+    "certificateId": "SC-CERT-2026-001",
+    "name": "Sarbeswar Panda",
     "event": "Annual Cultural Fest",
     "position": "First Prize",
     "category": "Arts & Performance",
@@ -9,7 +9,7 @@
     "certificateType": "Appreciation Certificate",
     "secretary": "Sun Shine Club Secretary",
     "status": "Issued",
-    "certificateImage": "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1200&q=80",
+    "certificateImage": "../../assets/certificate/2026/CERT-001.png",
     "eventImage": "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80"
   },
   {
