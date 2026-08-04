@@ -79,7 +79,7 @@ function showCertificate(certificate) {
     resultSection.innerHTML = `
         <div class="valid-result">
             <div class="club-logo-wrap">
-                <img src="../../assets/logo/sun-shine-club-logo.png" class="club-logo" alt="Sun Shine Club" />
+                <img src="../assets/logo/sun-shine-club-logo.png" class="club-logo" alt="Sun Shine Club" />
             </div>
             <h1>Sun Shine Club</h1>
             <h2 class="${statusClass}">${statusText}</h2>
