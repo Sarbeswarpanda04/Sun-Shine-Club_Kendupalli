@@ -36,7 +36,7 @@ function generateCards(members) {
                         <small>Kendupalli, Bhapur, Nayagarh, Odisha - 752077</small>
 
                         <div class="webandmail">
-    🌐 www.sunshineclubkendupalli.com
+    🌐 www.sunshineclubkendupalli.in
 </div>
 
                     </div>
