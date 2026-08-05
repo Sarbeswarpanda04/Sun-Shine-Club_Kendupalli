@@ -961,15 +961,19 @@
 
         padding-top: 60px;
 
+        padding-bottom: 8px;
+
     }
 
     .footer-container {
 
         grid-template-columns: 1fr;
 
-        padding: 0 20px 50px;
+        padding: 0 16px 88px;
 
         gap: 30px;
+
+        box-sizing: border-box;
 
     }
 
@@ -1038,7 +1042,7 @@
 
     .footer-bottom {
 
-        padding: 20px;
+        padding: 20px 16px;
 
         text-align: center;
 
