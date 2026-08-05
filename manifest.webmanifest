@@ -1,0 +1,25 @@
+{
+  "name": "Sun Shine Club Kendupalli",
+  "short_name": "Sun Shine Club",
+  "description": "Community, cultural, education, and social service portal for Sun Shine Club Kendupalli, Nayagarh, Odisha.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#9381FF",
+  "theme_color": "#9381FF",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/logo/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/logo/sun-shine-club-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
