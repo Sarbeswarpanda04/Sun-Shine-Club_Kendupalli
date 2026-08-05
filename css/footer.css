@@ -1050,9 +1050,11 @@
 
         height: 52px;
 
-        right: 20px;
+        right: calc(20px + env(safe-area-inset-right));
 
-        top: -25px;
+        bottom: calc(20px + env(safe-area-inset-bottom));
+
+        top: auto;
 
     }
 
@@ -1107,6 +1109,10 @@
         width: 48px;
 
         height: 48px;
+
+        right: calc(16px + env(safe-area-inset-right));
+
+        bottom: calc(16px + env(safe-area-inset-bottom));
 
     }
 

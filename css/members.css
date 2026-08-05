@@ -4,7 +4,9 @@
 
 .members-section{
     padding:100px 0;
-    background:#F8F7FF;
+    /* background:#F8F7FF; */
+        background: #e2ffed;
+background: linear-gradient(210deg, rgba(145, 229, 254, 0.235) 27%, rgba(204, 229, 255, 1) 72%);
 }
 
 /*=========================================
@@ -102,6 +104,8 @@
     box-shadow:0 10px 30px rgba(147,129,255,.12);
 
     transition:.35s ease;
+
+    border: 1px solid rgb(196, 163, 0);
 
 }
 
