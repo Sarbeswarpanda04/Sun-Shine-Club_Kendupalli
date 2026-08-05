@@ -967,6 +967,10 @@
 
     .footer-container {
 
+        width: 100%;
+
+        max-width: 100%;
+
         grid-template-columns: 1fr;
 
         padding: 0 16px 88px;
@@ -1105,6 +1109,31 @@
         height: 44px;
 
         font-size: 1rem;
+
+    }
+
+    .footer-container {
+
+        padding-left: 12px;
+
+        padding-right: 12px;
+
+    }
+
+    .footer-bottom {
+
+        padding-left: 12px;
+
+        padding-right: 12px;
+
+    }
+
+    .footer-about p,
+    .footer-contact li span,
+    .footer-contact li a,
+    .footer-links li a {
+
+        word-break: break-word;
 
     }
 
