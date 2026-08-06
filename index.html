@@ -98,9 +98,12 @@
     </script>
 
     <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/language.css" />
     <link rel="stylesheet" href="css/hero.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/footer.css" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.3.2/css/flag-icons.min.css">
   </head>
 
   <body>
@@ -115,16 +118,36 @@
             height="48"
           />
           <h2 href="index.html">Sun Shine Club</h2>
+          
         </div>
+        
         <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="pages/about.html">About</a></li>
-          <li><a href="pages/members.html">Members</a></li>
-          <li><a href="pages/events.html">Events</a></li>
-          <li><a href="pages/festivals.html">Festivals</a></li>
-          <li><a href="pages/gallery.html">Gallery</a></li>
-          <li><a href="pages/contact.html">Contact</a></li>
-          <li><a href="pages/donate.html">Donate</a></li>
+
+ <div class="language-switcher">
+
+    <span id="languageFlag" class="fi fi-us"></span>
+
+    <select id="languageSwitcher">
+
+        <option value="en">English</option>
+
+        <option value="hi">हिन्दी</option>
+
+        <option value="or">ଓଡ଼ିଆ</option>
+
+    </select>
+
+    <i class="fa-solid fa-chevron-down"></i>
+
+</div>
+          <li><a href="index.html" data-lang="home" class="translate">Home</a></li>          
+          <li><a href="pages/about.html" data-lang="about" class="translate">About</a></li>
+          <li><a href="pages/members.html" data-lang="members" class="translate">Members</a></li>
+          <li><a href="pages/events.html" data-lang="events" class="translate">Events</a></li>
+          <li><a href="pages/festivals.html" data-lang="festivals" class="translate">Festivals</a></li>
+          <li><a href="pages/gallery.html" data-lang="gallery" class="translate">Gallery</a></li>
+          <li><a href="pages/contact.html" data-lang="contact" class="translate">Contact</a></li>
+          <li><a href="pages/donate.html" data-lang="donate" class="translate">Donate</a></li>
         </ul>
 
         <div
@@ -241,20 +264,20 @@
         <div class="hero-content">
           <span class="hero-badge"> 🌞 Welcome to Sunshine Club </span>
 
-          <h1>Sun Shine Club, Kendupalli</h1>
+          <h1 data-lang="hero_title">Sun Shine Club, Kendupalli</h1>
 
-          <h2 class="hero-subtitle">
+          <h2 class="hero-subtitle" data-lang="hero_subtitle">
             Together We Celebrate • Together We Serve
           </h2>
 
-          <p class="hero-location">
+          <p class="hero-location" data-lang="hero_location">
             📍 Kendupalli, Barabati, Bhapur, Nayagarh, Odisha – 752077
           </p>
 
           <!-- Buttons -->
 
           <div class="hero-buttons">
-            <a href="pages/members.html" class="btn btn-primary">
+            <a href="pages/members.html" class="btn btn-primary" >
               👥 See Our Members
             </a>
 
@@ -942,5 +965,6 @@
     <script src="js/navbar.js"></script>
     <script src="js/hero.js"></script>
     <script src="js/footer.js"></script>
+    <script src="js/language.js"></script>
   </body>
 </html>

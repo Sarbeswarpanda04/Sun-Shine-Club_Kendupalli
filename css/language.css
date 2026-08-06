@@ -1,0 +1,201 @@
+/*====================================
+    LANGUAGE TRANSITION
+====================================*/
+
+.translate{
+
+    transition:
+        opacity .35s ease,
+        transform .35s ease;
+
+}
+
+.translate.fade-out{
+
+    opacity:0;
+
+    transform:translateY(8px);
+
+}
+
+.translate.fade-in{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+/*====================================
+    LANGUAGE SWITCHER
+====================================*/
+
+.language-switcher{
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    width:140px;
+
+    height:50px;
+
+    padding:0 18px;
+
+    background:#fff;
+
+    border:2px solid #d8b4fe;
+
+    border-radius:50px;
+
+    box-shadow:0 8px 20px rgba(147,112,219,.18);
+
+    transition:.3s ease;
+
+}
+
+.language-switcher:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 15px 30px rgba(147,112,219,.25);
+
+}
+
+/*====================================
+    FLAG
+====================================*/
+
+.fi{
+
+    width:28px;
+
+    height:20px;
+
+    display:inline-block;
+
+    border-radius:4px;
+
+    overflow:hidden;
+
+    flex-shrink:0;
+
+    box-shadow:0 2px 8px rgba(0,0,0,.18);
+
+}
+
+/*====================================
+    SELECT
+====================================*/
+
+#languageSwitcher{
+
+    flex:1;
+
+    height:100%;
+
+    border:none;
+
+    outline:none;
+
+    background:transparent;
+
+    appearance:none;
+
+    -webkit-appearance:none;
+
+    -moz-appearance:none;
+
+    cursor:pointer;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    color:#222;
+
+    padding-right:25px;
+
+}
+
+/*====================================
+    DROPDOWN ICON
+====================================*/
+
+.language-switcher .fa-chevron-down{
+
+    position:absolute;
+
+    right:18px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    font-size:13px;
+
+    color:#555;
+
+    pointer-events:none;
+
+    transition:.3s;
+
+}
+
+.language-switcher:hover .fa-chevron-down{
+
+    transform:translateY(-50%) rotate(180deg);
+
+}
+
+/*====================================
+    OPTIONS
+====================================*/
+
+#languageSwitcher option{
+
+    background:#fff;
+
+    color:#222;
+
+    font-size:13px;
+
+    font-weight:500;
+
+}
+
+/*====================================
+    MOBILE
+====================================*/
+
+@media (max-width:768px){
+
+.language-switcher{
+
+    width:180px;
+
+    height:48px;
+
+    padding:0 15px;
+
+}
+
+.fi{
+
+    width:24px;
+
+    height:18px;
+
+}
+
+#languageSwitcher{
+
+    font-size:13px;
+
+}
+
+}
