@@ -1,4 +1,5 @@
 {
+
     "home": "Home",
     "about": "About",
     "members": "Members",
@@ -7,14 +8,8 @@
     "contact": "Contact",
     "donate": "Donate",
 
-    "hero_subtitle": "Sun Shine Club, Kendupalli",
-
+    "hero_title": "Sun Shine Club, Kendupalli",
     "hero_location": "📍 Kendupalli, Bhapur, Nayagarh, Odisha – 752077",
+    "see_members": "See Our Members"
 
-    "see_members": "See Our Members",
-
-    "years": "Years of Service",
-
-
-    "participants": "Happy Participants"
 }
