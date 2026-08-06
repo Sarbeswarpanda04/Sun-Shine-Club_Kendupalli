@@ -32,4 +32,16 @@
     <loc>https://sunshineclubkendupalli.in/pages/donate.html</loc>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://sunshineclubkendupalli.in/club-certificate/issued-certificate.html</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sunshineclubkendupalli.in/club-certificate/verify.html</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sunshineclubkendupalli.in/club-id-card/verify.html</loc>
+    <priority>0.6</priority>
+  </url>
 </urlset>
