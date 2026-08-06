@@ -166,36 +166,91 @@
 
     font-weight:500;
 
+
+
 }
 
 /*====================================
     MOBILE
 ====================================*/
-
+/* 
 @media (max-width:768px){
 
 .language-switcher{
 
-    width:180px;
+    width:110px;
 
-    height:48px;
+    height:40px;
 
-    padding:0 15px;
+    padding:0 10px;
+    gap: 5px;
+    margin-right: 5px;
 
 }
+.language-switcher .fa-chevron-down{
 
+    font-size:10px;
+    margin-right:10px;
+
+}
 .fi{
 
-    width:24px;
+    width:14px;
 
-    height:18px;
+    height:10px;
 
 }
 
 #languageSwitcher{
 
-    font-size:13px;
-
+    font-size:12px;
 }
+
+#languageSwitcher option{
+    
+    font-size:10px;
+}
+
+} */
+
+@media (max-width:768px){
+
+    .language-switcher{
+
+        width:100px;
+
+        height:40px;
+
+        padding:0 8px;
+
+        gap:4px;
+
+        margin-left:auto;
+
+        margin-right:8px;
+
+    }
+
+    #languageSwitcher{
+
+        font-size:12px;
+
+        padding-right:18px;   /* Leave space for arrow */
+
+    }
+
+    .language-switcher .fa-chevron-down{
+
+        right:5px;           /* Position arrow correctly */
+
+        top:50%;
+
+        transform:translateY(-50%);
+
+        font-size:10px;
+
+        margin:0;             /* Remove margin-right */
+
+    }
 
 }
