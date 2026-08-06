@@ -84,22 +84,22 @@
 
 
 
-.desktop-slider{
-    display:block;
+.desktop-slider {
+    display: block;
 }
 
-.mobile-slider{
-    display:none;
+.mobile-slider {
+    display: none;
 }
 
-@media(max-width:768px){
+@media(max-width:768px) {
 
-    .desktop-slider{
-        display:none;
+    .desktop-slider {
+        display: none;
     }
 
-    .mobile-slider{
-        display:block;
+    .mobile-slider {
+        display: block;
     }
 
 }
@@ -251,7 +251,7 @@
 ==============================*/
 
 .hero h1 {
-    font-size:clamp(2.8rem,5vw,4.5rem);
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
 
     font-weight: 700;
 
@@ -397,15 +397,15 @@
       HERO STATISTICS
 ==============================*/
 
-.hero-stats{
+.hero-stats {
 
-    display:grid;
+    display: grid;
 
-    grid-template-columns:repeat(4,1fr);
+    grid-template-columns: repeat(4, 1fr);
 
-    gap:25px;
+    gap: 25px;
 
-    margin-top:40px;
+    margin-top: 40px;
 
 }
 
@@ -414,31 +414,31 @@
       GLASS CARD
 ==============================*/
 
-.stat-card{
+.stat-card {
 
-    position:relative;
+    position: relative;
 
-    padding:30px 25px;
+    padding: 30px 25px;
 
-    border-radius:25px;
+    border-radius: 25px;
 
-    background:rgba(255,255,255,.15);
+    background: rgba(255, 255, 255, .15);
 
-    backdrop-filter:blur(18px);
+    backdrop-filter: blur(18px);
 
-    -webkit-backdrop-filter:blur(18px);
+    -webkit-backdrop-filter: blur(18px);
 
-    border:1px solid rgba(255,255,255,.28);
+    border: 1px solid rgba(255, 255, 255, .28);
 
     box-shadow:
 
-        0 12px 35px rgba(0,0,0,.18),
+        0 12px 35px rgba(0, 0, 0, .18),
 
-        inset 0 0 1px rgba(255,255,255,.45);
+        inset 0 0 1px rgba(255, 255, 255, .45);
 
-    overflow:hidden;
+    overflow: hidden;
 
-    transition:all .4s ease;
+    transition: all .4s ease;
 
 }
 
@@ -447,40 +447,36 @@
     GLASS LIGHT EFFECT
 ==============================*/
 
-.stat-card::before{
+.stat-card::before {
 
-    content:"";
+    content: "";
 
-    position:absolute;
+    position: absolute;
 
-    top:-60%;
+    top: -60%;
 
-    left:-40%;
+    left: -40%;
 
-    width:220px;
+    width: 220px;
 
-    height:220px;
+    height: 220px;
 
     background:
 
-        radial-gradient(
+        radial-gradient(rgba(255, 255, 255, .35),
 
-            rgba(255,255,255,.35),
+            transparent 70%);
 
-            transparent 70%
+    transform: rotate(30deg);
 
-        );
-
-    transform:rotate(30deg);
-
-    transition:.6s;
+    transition: .6s;
 
 }
 
 
-.stat-card:hover::before{
+.stat-card:hover::before {
 
-    left:80%;
+    left: 80%;
 
 }
 
@@ -489,19 +485,17 @@
       CARD HOVER
 ==============================*/
 
-.stat-card:hover{
+.stat-card:hover {
 
     transform:
 
-        translateY(-10px)
+        translateY(-10px) scale(1.03);
 
-        scale(1.03);
-
-    background:rgba(255,255,255,.22);
+    background: rgba(255, 255, 255, .22);
 
     box-shadow:
 
-        0 20px 50px rgba(147,129,255,.30);
+        0 20px 50px rgba(147, 129, 255, .30);
 
 }
 
@@ -510,19 +504,19 @@
      COUNTER NUMBER
 ==============================*/
 
-.stat-card h2{
+.stat-card h2 {
 
-    font-size:3rem;
+    font-size: 3rem;
 
-    font-weight:800;
+    font-weight: 800;
 
-    color:#ffffff;
+    color: #ffffff;
 
-    margin-bottom:12px;
+    margin-bottom: 12px;
 
     text-shadow:
 
-        0 0 15px rgba(255,255,255,.5);
+        0 0 15px rgba(255, 255, 255, .5);
 
 }
 
@@ -531,17 +525,17 @@
        CARD TITLE
 ==============================*/
 
-.stat-card span{
+.stat-card span {
 
-    display:block;
+    display: block;
 
-    color:#ffffff;
+    color: #ffffff;
 
-    font-size:1rem;
+    font-size: 1rem;
 
-    font-weight:500;
+    font-weight: 500;
 
-    letter-spacing:1px;
+    letter-spacing: 1px;
 
 }
 
@@ -550,26 +544,26 @@
       CARD ICON EFFECT
 ==============================*/
 
-.stat-card::after{
+.stat-card::after {
 
-    content:"";
+    content: "";
 
-    position:absolute;
+    position: absolute;
 
-    inset:0;
+    inset: 0;
 
-    border-radius:25px;
+    border-radius: 25px;
 
-    border:1px solid transparent;
+    border: 1px solid transparent;
 
-    transition:.35s;
+    transition: .35s;
 
 }
 
 
-.stat-card:hover::after{
+.stat-card:hover::after {
 
-    border-color:rgba(255,255,255,.35);
+    border-color: rgba(255, 255, 255, .35);
 
 }
 
@@ -578,21 +572,21 @@
      SLIDER DOTS WRAPPER
 ==============================*/
 
-.slider-dots{
+.slider-dots {
 
-    position:absolute;
+    position: absolute;
 
-    bottom:45px;
+    bottom: 45px;
 
-    left:50%;
+    left: 50%;
 
-    transform:translateX(-50%);
+    transform: translateX(-50%);
 
-    display:flex;
+    display: flex;
 
-    gap:14px;
+    gap: 14px;
 
-    z-index:50;
+    z-index: 50;
 
 }
 
@@ -601,19 +595,19 @@
       SINGLE DOT
 ==============================*/
 
-.dot{
+.dot {
 
-    width:14px;
+    width: 14px;
 
-    height:14px;
+    height: 14px;
 
-    border-radius:50%;
+    border-radius: 50%;
 
-    background:rgba(255,255,255,.35);
+    background: rgba(255, 255, 255, .35);
 
-    cursor:pointer;
+    cursor: pointer;
 
-    transition:all .35s ease;
+    transition: all .35s ease;
 
 }
 
@@ -622,15 +616,15 @@
       ACTIVE DOT
 ==============================*/
 
-.dot.active{
+.dot.active {
 
-    background:var(--primary);
+    background: var(--primary);
 
-    transform:scale(1.45);
+    transform: scale(1.45);
 
     box-shadow:
 
-        0 0 15px rgba(147,129,255,.8);
+        0 0 15px rgba(147, 129, 255, .8);
 
 }
 
@@ -639,11 +633,11 @@
        DOT HOVER
 ==============================*/
 
-.dot:hover{
+.dot:hover {
 
-    background:#ffffff;
+    background: #ffffff;
 
-    transform:scale(1.25);
+    transform: scale(1.25);
 
 }
 
@@ -652,19 +646,19 @@
       SCROLL BUTTON
 ==============================*/
 
-.scroll-down{
+.scroll-down {
 
-    position:absolute;
+    position: absolute;
 
-    left:50%;
+    left: 50%;
 
-    bottom:20px;
+    bottom: 20px;
 
-    transform:translateX(-50%);
+    transform: translateX(-50%);
 
-    z-index:50;
+    z-index: 50;
 
-    text-decoration:none;
+    text-decoration: none;
 
 }
 
@@ -673,21 +667,21 @@
        ARROW
 ==============================*/
 
-.scroll-down span{
+.scroll-down span {
 
-    display:block;
+    display: block;
 
-    width:22px;
+    width: 22px;
 
-    height:22px;
+    height: 22px;
 
-    border-right:3px solid white;
+    border-right: 3px solid white;
 
-    border-bottom:3px solid white;
+    border-bottom: 3px solid white;
 
-    transform:rotate(45deg);
+    transform: rotate(45deg);
 
-    animation:scrollArrow 2s infinite;
+    animation: scrollArrow 2s infinite;
 
 }
 
@@ -696,27 +690,27 @@
       SCROLL GLOW
 ==============================*/
 
-.scroll-down::before{
+.scroll-down::before {
 
-    content:"";
+    content: "";
 
-    position:absolute;
+    position: absolute;
 
-    width:40px;
+    width: 40px;
 
-    height:40px;
+    height: 40px;
 
-    border-radius:50%;
+    border-radius: 50%;
 
     background:
 
-        rgba(147,129,255,.25);
+        rgba(147, 129, 255, .25);
 
-    top:-10px;
+    top: -10px;
 
-    left:-10px;
+    left: -10px;
 
-    animation:pulse 2s infinite;
+    animation: pulse 2s infinite;
 
 }
 
@@ -725,11 +719,11 @@
       BUTTON HOVER GLOW
 ==============================*/
 
-.hero-buttons .btn:hover{
+.hero-buttons .btn:hover {
 
     box-shadow:
 
-        0 15px 35px rgba(147,129,255,.45);
+        0 15px 35px rgba(147, 129, 255, .45);
 
 }
 
@@ -738,54 +732,54 @@
      HERO CONTENT FADE-IN
 ==============================*/
 
-.hero-content>*{
+.hero-content>* {
 
-    animation:fadeUp .9s ease forwards;
+    animation: fadeUp .9s ease forwards;
 
     /* opacity:1; */
 
 }
 
 
-.hero-content>*:nth-child(1){
+.hero-content>*:nth-child(1) {
 
-    animation-delay:.2s;
-
-}
-
-.hero-content>*:nth-child(2){
-
-    animation-delay:.4s;
+    animation-delay: .2s;
 
 }
 
-.hero-content>*:nth-child(3){
+.hero-content>*:nth-child(2) {
 
-    animation-delay:.6s;
-
-}
-
-.hero-content>*:nth-child(4){
-
-    animation-delay:.8s;
+    animation-delay: .4s;
 
 }
 
-.hero-content>*:nth-child(5){
+.hero-content>*:nth-child(3) {
 
-    animation-delay:1s;
-
-}
-
-.hero-content>*:nth-child(6){
-
-    animation-delay:1.2s;
+    animation-delay: .6s;
 
 }
 
-.hero-content>*:nth-child(7){
+.hero-content>*:nth-child(4) {
 
-    animation-delay:1.4s;
+    animation-delay: .8s;
+
+}
+
+.hero-content>*:nth-child(5) {
+
+    animation-delay: 1s;
+
+}
+
+.hero-content>*:nth-child(6) {
+
+    animation-delay: 1.2s;
+
+}
+
+.hero-content>*:nth-child(7) {
+
+    animation-delay: 1.4s;
 
 }
 
@@ -794,27 +788,27 @@
       FLOATING CARD
 ==============================*/
 
-.stat-card{
+.stat-card {
 
-    animation:floatCard 6s ease-in-out infinite;
-
-}
-
-.stat-card:nth-child(2){
-
-    animation-delay:.6s;
+    animation: floatCard 6s ease-in-out infinite;
 
 }
 
-.stat-card:nth-child(3){
+.stat-card:nth-child(2) {
 
-    animation-delay:1.2s;
+    animation-delay: .6s;
 
 }
 
-.stat-card:nth-child(4){
+.stat-card:nth-child(3) {
 
-    animation-delay:1.8s;
+    animation-delay: 1.2s;
+
+}
+
+.stat-card:nth-child(4) {
+
+    animation-delay: 1.8s;
 
 }
 
@@ -823,9 +817,9 @@
       SOFT GLOW
 ==============================*/
 
-.hero-stats:hover .stat-card{
+.hero-stats:hover .stat-card {
 
-    filter:brightness(1.05);
+    filter: brightness(1.05);
 
 }
 
@@ -840,21 +834,21 @@
 
 /* Fade Up */
 
-@keyframes fadeUp{
+@keyframes fadeUp {
 
-    from{
+    from {
 
-        opacity:0;
+        opacity: 0;
 
-        transform:translateY(50px);
+        transform: translateY(50px);
 
     }
 
-    to{
+    to {
 
-        opacity:1;
+        opacity: 1;
 
-        transform:translateY(0);
+        transform: translateY(0);
 
     }
 
@@ -863,31 +857,29 @@
 
 /* Floating Particles */
 
-@keyframes floatParticles{
+@keyframes floatParticles {
 
-    0%{
+    0% {
 
         transform:
-            translateY(0)
-            scale(.5);
+            translateY(0) scale(.5);
 
-        opacity:0;
+        opacity: 0;
 
     }
 
-    20%{
+    20% {
 
-        opacity:1;
+        opacity: 1;
 
     }
 
-    100%{
+    100% {
 
         transform:
-            translateY(-120vh)
-            scale(1.4);
+            translateY(-120vh) scale(1.4);
 
-        opacity:0;
+        opacity: 0;
 
     }
 
@@ -896,23 +888,23 @@
 
 /* Floating Cards */
 
-@keyframes floatCard{
+@keyframes floatCard {
 
-    0%{
+    0% {
 
-        transform:translateY(0);
-
-    }
-
-    50%{
-
-        transform:translateY(-10px);
+        transform: translateY(0);
 
     }
 
-    100%{
+    50% {
 
-        transform:translateY(0);
+        transform: translateY(-10px);
+
+    }
+
+    100% {
+
+        transform: translateY(0);
 
     }
 
@@ -921,27 +913,28 @@
 
 /* Hero Glow */
 
-@keyframes heroGlow{
+@keyframes heroGlow {
 
-    0%,100%{
+    0%,
+    100% {
 
         text-shadow:
 
-            0 0 10px rgba(255,255,255,.6),
+            0 0 10px rgba(255, 255, 255, .6),
 
-            0 0 25px rgba(147,129,255,.45);
+            0 0 25px rgba(147, 129, 255, .45);
 
     }
 
-    50%{
+    50% {
 
         text-shadow:
 
             0 0 20px #ffffff,
 
-            0 0 45px rgba(184,184,255,.85),
+            0 0 45px rgba(184, 184, 255, .85),
 
-            0 0 70px rgba(147,129,255,.75);
+            0 0 70px rgba(147, 129, 255, .75);
 
     }
 
@@ -950,31 +943,29 @@
 
 /* Scroll Arrow */
 
-@keyframes scrollArrow{
+@keyframes scrollArrow {
 
-    0%{
+    0% {
 
-        opacity:0;
+        opacity: 0;
 
         transform:
-            rotate(45deg)
-            translate(-10px,-10px);
+            rotate(45deg) translate(-10px, -10px);
 
     }
 
-    50%{
+    50% {
 
-        opacity:1;
+        opacity: 1;
 
     }
 
-    100%{
+    100% {
 
-        opacity:0;
+        opacity: 0;
 
         transform:
-            rotate(45deg)
-            translate(10px,10px);
+            rotate(45deg) translate(10px, 10px);
 
     }
 
@@ -983,29 +974,29 @@
 
 /* Pulse */
 
-@keyframes pulse{
+@keyframes pulse {
 
-    0%{
+    0% {
 
-        transform:scale(.8);
+        transform: scale(.8);
 
-        opacity:.6;
-
-    }
-
-    70%{
-
-        transform:scale(1.6);
-
-        opacity:0;
+        opacity: .6;
 
     }
 
-    100%{
+    70% {
 
-        transform:scale(1.6);
+        transform: scale(1.6);
 
-        opacity:0;
+        opacity: 0;
+
+    }
+
+    100% {
+
+        transform: scale(1.6);
+
+        opacity: 0;
 
     }
 
@@ -1017,9 +1008,9 @@
       APPLY GLOW TO TITLE
 =========================================*/
 
-.hero h1{
+.hero h1 {
 
-    animation:heroGlow 4s ease-in-out infinite;
+    animation: heroGlow 4s ease-in-out infinite;
 
 }
 
@@ -1029,13 +1020,13 @@
       MOUSE PARALLAX SUPPORT
 =========================================*/
 
-.hero-slider{
+.hero-slider {
 
     transition:
 
         transform .25s linear;
 
-    will-change:transform;
+    will-change: transform;
 
 }
 
@@ -1045,9 +1036,9 @@
       PAUSE IMAGE ON HOVER
 =========================================*/
 
-.hero:hover .bg-slide{
+.hero:hover .bg-slide {
 
-    animation-play-state:paused;
+    animation-play-state: paused;
 
 }
 
@@ -1061,11 +1052,11 @@
 
 .dot:focus,
 
-.scroll-down:focus{
+.scroll-down:focus {
 
-    outline:3px solid #ffffff;
+    outline: 3px solid #ffffff;
 
-    outline-offset:5px;
+    outline-offset: 5px;
 
 }
 
@@ -1075,43 +1066,43 @@
         LARGE DESKTOP
 =========================================*/
 
-@media (min-width:1600px){
+@media (min-width:1600px) {
 
-.hero{
+    .hero {
 
-padding:140px 10%;
+        padding: 140px 10%;
 
-}
+    }
 
-.hero-content{
+    .hero-content {
 
-max-width:1100px;
+        max-width: 1100px;
 
-}
+    }
 
-.hero h1{
+    .hero h1 {
 
-font-size:7rem;
+        font-size: 7rem;
 
-}
+    }
 
-.hero p{
+    .hero p {
 
-font-size:1.2rem;
+        font-size: 1.2rem;
 
-}
+    }
 
-.hero-stats{
+    .hero-stats {
 
-gap:35px;
+        gap: 35px;
 
-}
+    }
 
-.stat-card{
+    .stat-card {
 
-padding:40px;
+        padding: 40px;
 
-}
+    }
 
 }
 
@@ -1121,27 +1112,27 @@ padding:40px;
             LAPTOP
 =========================================*/
 
-@media (max-width:1200px){
+@media (max-width:1200px) {
 
-.hero{
+    .hero {
 
-padding:120px 6%;
+        padding: 120px 6%;
 
-}
+    }
 
-.hero h1{
+    .hero h1 {
 
-font-size:4.8rem;
+        font-size: 4.8rem;
 
-}
+    }
 
-.hero-stats{
+    .hero-stats {
 
-grid-template-columns:
+        grid-template-columns:
 
-repeat(2,1fr);
+            repeat(2, 1fr);
 
-}
+    }
 
 }
 
@@ -1151,59 +1142,59 @@ repeat(2,1fr);
             TABLET
 =========================================*/
 
-@media (max-width:992px){
+@media (max-width:992px) {
 
-.hero{
+    .hero {
 
-padding:110px 40px;
+        padding: 110px 40px;
 
-}
+    }
 
-.hero h1{
+    .hero h1 {
 
-font-size:4rem;
+        font-size: 4rem;
 
-}
+    }
 
-.hero h3{
+    .hero h3 {
 
-font-size:1.4rem;
+        font-size: 1.4rem;
 
-}
+    }
 
-.hero p{
+    .hero p {
 
-font-size: 0.8rem;
+        font-size: 0.8rem;
 
-}
+    }
 
-.hero-buttons{
+    .hero-buttons {
 
-gap:18px;
+        gap: 18px;
 
-}
+    }
 
-.hero-stats{
+    .hero-stats {
 
-grid-template-columns:
+        grid-template-columns:
 
-repeat(2,1fr);
+            repeat(2, 1fr);
 
-margin-top:50px;
+        margin-top: 50px;
 
-}
+    }
 
-.stat-card{
+    .stat-card {
 
-padding:25px;
+        padding: 25px;
 
-}
+    }
 
-.slider-dots{
+    .slider-dots {
 
-bottom:30px;
+        bottom: 30px;
 
-}
+    }
 
 }
 
@@ -1213,84 +1204,84 @@ bottom:30px;
           LARGE MOBILE
 =========================================*/
 
-@media (max-width:768px){
+@media (max-width:768px) {
 
-.hero{
+    .hero {
 
-padding:100px 20px 80px;
+        padding: 100px 20px 80px;
 
-min-height:auto;
+        min-height: auto;
 
-}
+    }
 
-.hero-content{
+    .hero-content {
 
-width:100%;
+        width: 100%;
 
-}
+    }
 
-.hero h1{
+    .hero h1 {
 
-font-size:2.4rem;
+        font-size: 2.4rem;
 
-line-height:1.1;
+        line-height: 1.1;
 
-}
+    }
 
-.hero h3{
+    .hero h3 {
 
-font-size:1.2rem;
+        font-size: 1.2rem;
 
-}
+    }
 
-.hero-location{
+    .hero-location {
 
-padding:12px 20px;
+        padding: 12px 20px;
 
-font-size:.9rem;
+        font-size: .9rem;
 
-}
+    }
 
-.hero-buttons{
+    .hero-buttons {
 
-flex-direction:column;
+        flex-direction: column;
 
-width:100%;
+        width: 100%;
 
-}
+    }
 
-.hero-buttons .btn{
+    .hero-buttons .btn {
 
-width:100%;
+        width: 100%;
 
-max-width:320px;
+        max-width: 320px;
 
-}
+    }
 
-.hero-stats{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-height:auto;
-gap:10px;
-}
+    .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        height: auto;
+        gap: 10px;
+    }
 
-.stat-card{
+    .stat-card {
 
-padding:25px;
+        padding: 25px;
 
-}
+    }
 
-.slider-dots{
+    .slider-dots {
 
-bottom:18px;
+        bottom: 18px;
 
-}
+    }
 
-.scroll-down{
+    .scroll-down {
 
-display:none;
+        display: none;
 
-}
+    }
 
 }
 
@@ -1300,55 +1291,55 @@ display:none;
         SMALL MOBILE
 =========================================*/
 
-@media (max-width:480px){
+@media (max-width:480px) {
 
-.hero{
+    .hero {
 
-padding:90px 18px 60px;
+        padding: 90px 18px 60px;
 
-}
+    }
 
-.hero-badge{
+    .hero-badge {
 
-font-size:.8rem;
-padding:12px 18px;
+        font-size: .8rem;
+        padding: 12px 18px;
 
-}
+    }
 
-.hero h1{
+    .hero h1 {
 
-font-size:2.4rem;
-margin-top:80px;
-margin-bottom: 40px;
+        font-size: 2.4rem;
+        margin-top: 80px;
+        margin-bottom: 40px;
 
-}
+    }
 
-.hero h3{
+    .hero h3 {
 
-font-size:1rem;
+        font-size: 1rem;
 
-}
+    }
 
 
-.hero-location{
+    .hero-location {
 
-font-size:.85rem;
+        font-size: .85rem;
 
-padding:10px 16px;
+        padding: 10px 16px;
 
-}
+    }
 
-.stat-card h2{
+    .stat-card h2 {
 
-font-size:1.5rem;
+        font-size: 1.5rem;
 
-}
+    }
 
-.stat-card span{
+    .stat-card span {
 
-font-size:.9rem;
+        font-size: .9rem;
 
-}
+    }
 
 }
 
@@ -1358,16 +1349,16 @@ font-size:.9rem;
         REDUCE MOTION
 =========================================*/
 
-@media (prefers-reduced-motion:reduce){
+@media (prefers-reduced-motion:reduce) {
 
-*{
+    * {
 
-animation:none !important;
+        animation: none !important;
 
-transition:none !important;
+        transition: none !important;
 
-scroll-behavior:auto;
+        scroll-behavior: auto;
 
-}
+    }
 
 }
