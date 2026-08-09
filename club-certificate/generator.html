@@ -19,6 +19,8 @@
 
     <!-- html2canvas -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <!-- QR Code generator -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
     <style>
 
@@ -767,6 +769,107 @@
 
 
         /* =========================================
+           QR CODE - SCAN TO VERIFY
+        ========================================= */
+
+        .certificate-qr {
+            position: absolute;
+
+            left: 7.2%;
+            bottom: 13.2%;
+
+            width: 7.2%;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            z-index: 20;
+
+            pointer-events: none;
+        }
+
+        #qrCode {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #ffffff;
+
+            padding: 4px;
+
+            border: 1px solid #d4af37;
+
+            box-sizing: border-box;
+        }
+
+        #qrCode canvas,
+        #qrCode img {
+            display: block;
+
+            width: 100% !important;
+            height: 100% !important;
+
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .qr-label {
+            margin-top: 3px;
+
+            font-family: Arial, sans-serif;
+
+            font-size: clamp(
+                5px,
+                0.55vw,
+                9px
+            );
+
+            line-height: 1.1;
+
+            font-weight: 800;
+
+            color: #102a56;
+
+            text-align: center;
+
+            white-space: nowrap;
+
+            text-transform: uppercase;
+        }
+
+        .qr-id {
+            margin-top: 2px;
+
+            font-family: Arial, sans-serif;
+
+            font-size: clamp(
+                4px,
+                0.45vw,
+                7px
+            );
+
+            line-height: 1.1;
+
+            color: #475569;
+
+            text-align: center;
+
+            white-space: nowrap;
+
+            max-width: 100%;
+
+            overflow: hidden;
+
+            text-overflow: ellipsis;
+        }
+
+
+        /* =========================================
            COVER PLACEHOLDER TEXT FROM IMAGE
            
            These areas cover the placeholder
@@ -1267,6 +1370,26 @@
                 </div>
 
 
+                <!-- QR CODE - UNIQUE VERIFICATION URL -->
+
+                <div class="certificate-qr">
+
+                    <div id="qrCode"></div>
+
+                    <div class="qr-label">
+                        Scan to Verify
+                    </div>
+
+                    <div
+                        id="qrId"
+                        class="qr-id"
+                    >
+                        CERTIFICATE ID
+                    </div>
+
+                </div>
+
+
                 <div
                     id="previewId"
                     class="certificate-id"
@@ -1299,6 +1422,16 @@ const params =
 
 let template =
     params.get("template") || "first";
+
+
+/* =========================================
+   OFFICIAL CERTIFICATE VERIFICATION URL
+   Every QR code points to this page with
+   the certificate ID as the query parameter.
+========================================= */
+
+const VERIFY_URL =
+    "https://sunshineclubkendupalli.in/club-certificate/verify.html";
 
 
 /* =========================================
@@ -1391,6 +1524,16 @@ const previewId =
         "previewId"
     );
 
+const qrCode =
+    document.getElementById(
+        "qrCode"
+    );
+
+const qrId =
+    document.getElementById(
+        "qrId"
+    );
+
 
 const background =
     document.getElementById(
@@ -1468,6 +1611,67 @@ function formatDate(dateValue) {
    LIVE PREVIEW
 ========================================= */
 
+/* =========================================
+   GENERATE UNIQUE VERIFICATION QR
+========================================= */
+
+function generateQRCode() {
+
+    if (!qrCode) {
+        return;
+    }
+
+    const id =
+        certificateId.value
+            .trim()
+            .toUpperCase();
+
+    // Always clear the previous QR first.
+    qrCode.innerHTML = "";
+
+    if (qrId) {
+        qrId.textContent =
+            id || "CERTIFICATE ID";
+    }
+
+    // Do not create a QR for an empty ID.
+    if (!id) {
+        return;
+    }
+
+    if (typeof QRCode === "undefined") {
+        console.error(
+            "QRCode library was not loaded."
+        );
+
+        return;
+    }
+
+    const verificationURL =
+        `${VERIFY_URL}?id=${encodeURIComponent(id)}`;
+
+    new QRCode(
+        qrCode,
+        {
+            text: verificationURL,
+
+            width: 300,
+            height: 300,
+
+            colorDark: "#000000",
+            colorLight: "#ffffff",
+
+            correctLevel:
+                QRCode.CorrectLevel.H
+        }
+    );
+}
+
+
+/* =========================================
+   UPDATE LIVE PREVIEW
+========================================= */
+
 function updatePreview() {
 
     previewName.textContent =
@@ -1486,9 +1690,17 @@ function updatePreview() {
         );
 
 
+    const normalizedId =
+        certificateId.value
+            .trim()
+            .toUpperCase();
+
     previewId.textContent =
-        certificateId.value.trim()
+        normalizedId
         || "CERTIFICATE ID";
+
+    // Keep the QR synchronized with the ID.
+    generateQRCode();
 
 }
 
@@ -1534,7 +1746,13 @@ function generateCertificate() {
         eventDate.value;
 
     const id =
-        certificateId.value.trim();
+        certificateId.value
+            .trim()
+            .toUpperCase();
+
+    // Keep the input normalized so the ID on the
+    // certificate and inside the QR are identical.
+    certificateId.value = id;
 
 
     if (!name) {
