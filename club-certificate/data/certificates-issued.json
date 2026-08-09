@@ -1,7 +1,7 @@
 [
   {
     "certificateId": "SC-CERT-2026-001",
-    "name": "Sarbeswar Panda",
+    "name": "Demo name",
     "event": "Annual Cultural Fest",
     "position": "First Prize",
     "category": "Arts & Performance",
@@ -9,12 +9,12 @@
     "certificateType": "Appreciation Certificate",
     "secretary": "Sun Shine Club Secretary",
     "status": "Issued",
-    "certificateImage": "../assets/certificate/2026/CERT-001.png",
+    "certificateImage": "./certificate/2026/CERT-001.png",
     "eventImage": "../assets/events/2026/demo.png"
   },
   {
     "certificateId": "SC-CRT-2026-002",
-    "name": "Aarav Reddy",
+    "name": "Demo name",
     "event": "Annual Sports Meet",
     "position": "Second Prize",
     "category": "Track & Field",
@@ -22,12 +22,12 @@
     "certificateType": "Appreciation Certificate",
     "secretary": "Sun Shine Club Secretary",
     "status": "Issued",
-    "certificateImage": "../assets/certificate/2026/CERT-002.png",
+    "certificateImage": "./certificate/2026/CERT-002.png",
     "eventImage": "../assets/events/2026/demo.png"
   },
   {
     "certificateId": "SC-CRT-2026-003",
-    "name": "Sanjana Nair",
+    "name": "Demo name",
     "event": "Technical Quiz Competition",
     "position": "Third Prize",
     "category": "Knowledge Event",
@@ -35,12 +35,12 @@
     "certificateType": "Appreciation Certificate",
     "secretary": "Sun Shine Club Secretary",
     "status": "Issued",
-    "certificateImage": "../assets/certificate/2026/CERT-003.png",
+    "certificateImage": "./certificate/2026/CERT-003.png",
     "eventImage": "../assets/events/2026/demo.png"
   },
   {
     "certificateId": "SC-CRT-2026-004",
-    "name": "Priya Kumar",
+    "name": "Demo name",
     "event": "Community Workshop",
     "position": "Participant",
     "category": "Participation",
@@ -48,7 +48,7 @@
     "certificateType": "Participation Certificate",
     "secretary": "Sun Shine Club Secretary",
     "status": "Issued",
-    "certificateImage": "../assets/certificate/2026/CERT-004.png",
+    "certificateImage": "./certificate/2026/CERT-004.png",
     "eventImage": "../assets/events/2026/demo.png"
   }
 ]
