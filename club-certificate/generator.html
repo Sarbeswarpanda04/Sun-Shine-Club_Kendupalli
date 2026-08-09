@@ -1,0 +1,1774 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Certificate Generator | Sunshine Club</title>
+
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- html2canvas -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: #eef2f7;
+            color: #172033;
+            min-height: 100vh;
+        }
+
+
+        /* =========================================
+           HEADER
+        ========================================= */
+
+        /* =========================================
+   TOP HEADER
+========================================= */
+
+.topbar {
+    width: 100%;
+    height: 76px;
+
+    padding: 0 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    border-bottom: 1px solid #e5e7eb;
+
+    box-shadow:
+        0 4px 20px rgba(15, 23, 42, 0.06);
+
+    position: sticky;
+    top: 0;
+
+    z-index: 1000;
+
+    backdrop-filter: blur(12px);
+}
+
+
+/* =========================================
+   BRAND
+========================================= */
+
+.brand {
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    min-width: 0;
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.brand-logo {
+    width: 50px;
+    height: 50px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    border: 2px solid #d4af37;
+
+    box-shadow:
+        0 4px 12px rgba(15, 23, 42, 0.10);
+
+    overflow: hidden;
+}
+
+.brand-logo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+/* =========================================
+   BRAND TEXT
+========================================= */
+
+.brand-text {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+.brand-text h1 {
+    margin: 0;
+
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+    font-size: 20px;
+
+    line-height: 1.1;
+
+    font-weight: 700;
+
+    color: #102a56;
+
+    letter-spacing: 0.2px;
+}
+
+
+/* =========================================
+   SUBTITLE
+========================================= */
+
+.brand-subtitle {
+    margin-top: 5px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    color: #64748b;
+
+    letter-spacing: 0.3px;
+}
+
+.brand-dot {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #d4af37;
+
+    box-shadow:
+        0 0 0 3px rgba(212, 175, 55, 0.12);
+}
+
+
+/* =========================================
+   HEADER RIGHT
+========================================= */
+
+.header-right {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+}
+
+
+/* =========================================
+   STATUS
+========================================= */
+
+.header-status {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 8px 12px;
+
+    border-radius: 20px;
+
+    background: #f0fdf4;
+
+    border: 1px solid #dcfce7;
+
+    color: #166534;
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #22c55e;
+
+    box-shadow:
+        0 0 0 3px rgba(34, 197, 94, 0.12);
+}
+
+
+/* =========================================
+   BACK BUTTON
+========================================= */
+
+.back-btn {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    height: 40px;
+
+    padding: 0 15px;
+
+    border-radius: 8px;
+
+    border: 1px solid #dbe1ea;
+
+    background: #ffffff;
+
+    color: #334155;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    transition:
+        0.2s ease;
+}
+
+.back-btn span {
+    font-size: 17px;
+
+    line-height: 1;
+}
+
+.back-btn:hover {
+    background: #102a56;
+
+    color: #ffffff;
+
+    border-color: #102a56;
+
+    transform: translateX(-2px);
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .topbar {
+        height: 68px;
+
+        padding: 0 15px;
+    }
+
+    .brand-logo {
+        width: 42px;
+        height: 42px;
+    }
+
+    .brand-text h1 {
+        font-size: 17px;
+    }
+
+    .brand-subtitle {
+        font-size: 10px;
+    }
+
+    .header-status {
+        display: none;
+    }
+
+    .back-btn {
+        height: 36px;
+
+        padding: 0 11px;
+
+        font-size: 11px;
+    }
+
+}
+
+
+@media (max-width: 430px) {
+
+    .brand-text h1 {
+        font-size: 15px;
+    }
+
+    .brand-subtitle {
+        font-size: 9px;
+    }
+
+    .back-btn span {
+        font-size: 15px;
+    }
+
+}
+
+
+        /* =========================================
+           MAIN
+        ========================================= */
+
+        .generator-container {
+            max-width: 1500px;
+
+            margin: auto;
+
+            padding: 30px;
+
+            display: grid;
+
+            grid-template-columns:
+                360px
+                minmax(0, 1fr);
+
+            gap: 30px;
+        }
+
+
+        /* =========================================
+           LEFT PANEL
+        ========================================= */
+
+        .control-panel {
+            background: #ffffff;
+
+            border-radius: 18px;
+
+            padding: 25px;
+
+            height: fit-content;
+
+            box-shadow:
+                0 10px 35px rgba(15, 23, 42, 0.08);
+
+            position: sticky;
+
+            top: 95px;
+        }
+
+        .panel-title {
+            font-family: "Playfair Display", serif;
+
+            font-size: 25px;
+
+            margin-bottom: 5px;
+        }
+
+        .panel-subtitle {
+            color: #64748b;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+
+            margin-bottom: 25px;
+        }
+
+
+        /* =========================================
+           FORM
+        ========================================= */
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            margin-bottom: 7px;
+
+            color: #334155;
+        }
+
+        .form-group input {
+            width: 100%;
+
+            height: 46px;
+
+            border: 1px solid #dbe1ea;
+
+            border-radius: 9px;
+
+            padding: 0 13px;
+
+            outline: none;
+
+            font-size: 14px;
+
+            color: #172033;
+
+            background: #ffffff;
+
+            transition: 0.2s;
+        }
+
+        .form-group input:focus {
+            border-color: #2563eb;
+
+            box-shadow:
+                0 0 0 3px rgba(37, 99, 235, 0.10);
+        }
+
+
+        /* =========================================
+           TEMPLATE INFO
+        ========================================= */
+
+        .template-info {
+            background: #f8fafc;
+
+            border: 1px solid #e2e8f0;
+
+            border-radius: 10px;
+
+            padding: 14px;
+
+            margin-bottom: 20px;
+        }
+
+        .template-info span {
+            display: block;
+
+            color: #64748b;
+
+            font-size: 11px;
+
+            margin-bottom: 4px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.6px;
+        }
+
+        .template-info strong {
+            font-size: 15px;
+
+            color: #172033;
+        }
+
+
+        /* =========================================
+           BUTTONS
+        ========================================= */
+
+        .button-group {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 10px;
+
+            margin-top: 22px;
+        }
+
+        .btn {
+            border: none;
+
+            min-height: 45px;
+
+            padding: 10px 14px;
+
+            border-radius: 9px;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .btn-primary {
+            background: #2563eb;
+
+            color: #ffffff;
+
+            grid-column: 1 / -1;
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+        }
+
+        .btn-download {
+            background: #0f172a;
+
+            color: #ffffff;
+        }
+
+        .btn-print {
+            background: #e2e8f0;
+
+            color: #0f172a;
+        }
+
+
+        /* =========================================
+           PREVIEW AREA
+        ========================================= */
+
+        .preview-panel {
+            min-width: 0;
+        }
+
+        .preview-header {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 15px;
+        }
+
+        .preview-header h2 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 25px;
+        }
+
+        .preview-header span {
+            font-size: 12px;
+
+            color: #64748b;
+        }
+
+
+        /* =========================================
+           CERTIFICATE
+        ========================================= */
+
+        .certificate-wrapper {
+            width: 100%;
+
+            background: #ffffff;
+
+            border-radius: 15px;
+
+            padding: 15px;
+
+            box-shadow:
+                0 15px 45px rgba(15, 23, 42, 0.12);
+        }
+
+        /*
+            The certificate itself maintains A4
+            landscape ratio.
+
+            297 / 210 = 1.414
+        */
+
+        .certificate {
+            position: relative;
+
+            width: 100%;
+
+            aspect-ratio: 297 / 210;
+
+            overflow: hidden;
+
+            background: #ffffff;
+        }
+
+        .certificate-background {
+            position: absolute;
+
+            inset: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+        }
+
+
+        /* =========================================
+           DYNAMIC TEXT
+        ========================================= */
+
+        /* =========================================
+   DYNAMIC STUDENT NAME
+========================================= */
+
+.certificate-name {
+    position: absolute;
+
+    left: 50%;
+    top: 53%;
+
+    transform: translate(-50%, -50%);
+
+    width: 70%;
+
+    text-align: center;
+
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+    font-size: clamp(
+    10px,
+    1.4vw,
+    22px
+);
+
+    font-weight: 700;
+
+    color: #102a56;
+
+    /* IMPORTANT */
+    background: transparent;
+
+    border: none;
+
+    padding: 0;
+    margin: 0;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    text-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.8);
+
+    z-index: 10;
+}
+
+
+        .certificate-event {
+            position: absolute;
+
+            left: 50%;
+
+            top: 61%;
+
+            transform: translateX(-50%);
+
+            width: 55%;
+
+            text-align: center;
+
+            font-family:
+                "Playfair Display",
+                Georgia,
+                serif;
+
+                font-size: clamp(
+    10px,
+    1.4vw,
+    22px
+);
+
+            font-weight: 700;
+
+            color: #173c77;
+
+            line-height: 1.25;
+        }
+
+
+        .certificate-date {
+            position: absolute;
+
+            left: 33%;
+
+            bottom: 18.7%;
+
+            text-align: center;
+
+            font-size: clamp(
+                9px,
+                0.6vw,
+                14px
+            );
+
+            font-weight: 800;
+
+            color: #173c77;
+        }
+
+
+        .certificate-id {
+            position: absolute;
+
+            right: 30%;
+
+            bottom: 18.7%;
+
+            text-align: center;
+
+            font-size: clamp(
+                9px,
+                0.6vw,
+                14px
+            );
+
+            font-weight: 800;
+
+            color: #173c77;
+        }
+
+
+        /* =========================================
+           COVER PLACEHOLDER TEXT FROM IMAGE
+           
+           These areas cover the placeholder
+           "STUDENT NAME", event, date and ID
+           present in your source image.
+        ========================================= */
+
+        .name-cover {
+            position: absolute;
+
+            left: 27%;
+
+            right: 27%;
+
+            top: 44%;
+
+            height: 10%;
+
+            background: rgba(255, 255, 255, 0.96);
+
+            z-index: 2;
+        }
+
+        .event-cover {
+            position: absolute;
+
+            left: 28%;
+
+            right: 28%;
+
+            top: 55%;
+
+            height: 10%;
+
+            background: rgba(255, 255, 255, 0.96);
+
+            z-index: 2;
+        }
+
+        .date-cover {
+            position: absolute;
+
+            left: 11%;
+
+            bottom: 10%;
+
+            width: 18%;
+
+            height: 8%;
+
+            background: rgba(255, 255, 255, 0.96);
+
+            z-index: 2;
+        }
+
+        .id-cover {
+            position: absolute;
+
+            right: 10%;
+
+            bottom: 10%;
+
+            width: 18%;
+
+            height: 8%;
+
+            background: rgba(255, 255, 255, 0.96);
+
+            z-index: 2;
+        }
+
+        .certificate-name,
+        .certificate-event,
+        .certificate-date,
+        .certificate-id {
+            z-index: 3;
+        }
+
+
+        /* =========================================
+           NOTE
+        ========================================= */
+
+        .help-text {
+            margin-top: 15px;
+
+            padding: 12px;
+
+            border-radius: 9px;
+
+            background: #eff6ff;
+
+            color: #1e40af;
+
+            font-size: 11px;
+
+            line-height: 1.5;
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media (max-width: 1050px) {
+
+            .generator-container {
+                grid-template-columns: 1fr;
+            }
+
+            .control-panel {
+                position: static;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .topbar {
+                padding: 0 15px;
+            }
+
+            .generator-container {
+                padding: 15px;
+
+                gap: 20px;
+            }
+
+            .control-panel {
+                padding: 18px;
+            }
+
+            .certificate-wrapper {
+                padding: 7px;
+            }
+
+            .button-group {
+                grid-template-columns: 1fr;
+            }
+
+            .btn-primary {
+                grid-column: auto;
+            }
+
+        }
+
+
+        /* =========================================
+           PRINT
+        ========================================= */
+
+        @media print {
+
+            @page {
+                size: A4 landscape;
+
+                margin: 0;
+            }
+
+            body {
+                background: #ffffff;
+            }
+
+            .topbar,
+            .control-panel,
+            .preview-header,
+            .help-text {
+                display: none !important;
+            }
+
+            .generator-container {
+                display: block;
+
+                padding: 0;
+
+                margin: 0;
+
+                width: 100%;
+            }
+
+            .preview-panel {
+                width: 100%;
+            }
+
+            .certificate-wrapper {
+                padding: 0;
+
+                box-shadow: none;
+
+                border-radius: 0;
+            }
+
+            .certificate {
+                width: 297mm;
+
+                height: 210mm;
+
+                aspect-ratio: auto;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header class="topbar">
+
+    <div class="brand">
+
+        <div class="brand-logo">
+            <img
+                src="../assets/logo/sun-shine-club-logo.png"
+                alt="Sun Shine Club Logo"
+            >
+        </div>
+
+        <div class="brand-text">
+            <h1>Sun Shine Club</h1>
+
+            <div class="brand-subtitle">
+                <span class="brand-dot"></span>
+                Certificate Generator
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="header-right">
+
+        <div class="header-status">
+            <span class="status-dot"></span>
+            Ready to Generate
+        </div>
+
+        <a
+            href="index.html"
+            class="back-btn"
+        >
+            <span>←</span>
+            Back
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================
+     MAIN
+========================================= -->
+
+<main class="generator-container">
+
+
+    <!-- =====================================
+         CONTROL PANEL
+    ====================================== -->
+
+    <section class="control-panel">
+
+        <h2 class="panel-title">
+            Generate Certificate
+        </h2>
+
+        <p class="panel-subtitle">
+            Enter the certificate information below.
+            The certificate preview will update automatically.
+        </p>
+
+
+        <!-- Selected template -->
+
+        <div class="template-info">
+
+            <span>
+                Selected Template
+            </span>
+
+            <strong id="templateName">
+                First Prize
+            </strong>
+
+        </div>
+
+
+        <!-- Student Name -->
+
+        <div class="form-group">
+
+            <label for="studentName">
+                Student Name
+            </label>
+
+            <input
+                type="text"
+                id="studentName"
+                placeholder="Enter student name"
+                autocomplete="off"
+            >
+
+        </div>
+
+
+        <!-- Event Name -->
+
+        <div class="form-group">
+
+            <label for="eventName">
+                Event Name
+            </label>
+
+            <input
+                type="text"
+                id="eventName"
+                placeholder="Enter competition/event name"
+                autocomplete="off"
+            >
+
+        </div>
+
+
+        <!-- Date -->
+
+        <div class="form-group">
+
+            <label for="eventDate">
+                Date
+            </label>
+
+            <input
+                type="date"
+                id="eventDate"
+            >
+
+        </div>
+
+
+        <!-- Certificate ID -->
+
+        <div class="form-group">
+
+            <label for="certificateId">
+                Certificate ID
+            </label>
+
+            <input
+                type="text"
+                id="certificateId"
+                placeholder="SC-CRT-2026-001"
+                autocomplete="off"
+            >
+
+        </div>
+
+
+        <!-- Buttons -->
+
+        <div class="button-group">
+
+            <button
+                class="btn btn-primary"
+                onclick="generateCertificate()"
+            >
+                ✨ Generate Certificate
+            </button>
+
+            <button
+                class="btn btn-download"
+                onclick="downloadCertificate()"
+            >
+                ⬇ Download PNG
+            </button>
+
+            <button
+                class="btn btn-print"
+                onclick="printCertificate()"
+            >
+                🖨 Print / PDF
+            </button>
+
+        </div>
+
+
+        <div class="help-text">
+
+            <strong>Tip:</strong>
+            Fill in all four fields and click
+            <strong>Generate Certificate</strong>.
+            You can then download the certificate as a high-resolution PNG
+            or print it as an A4 PDF.
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         PREVIEW
+    ====================================== -->
+
+    <section class="preview-panel">
+
+        <div class="preview-header">
+
+            <h2>
+                Certificate Preview
+            </h2>
+
+            <span>
+                A4 Landscape
+            </span>
+
+        </div>
+
+
+        <div class="certificate-wrapper">
+
+            <div
+                class="certificate"
+                id="certificate"
+            >
+
+                <!-- Certificate Background -->
+
+                <img
+                    id="certificateBackground"
+                    class="certificate-background"
+                    src="certificate/template/first.png"
+                    alt="Certificate Template"
+                >
+
+
+                <!-- Covers existing placeholder name -->
+
+                <!-- <div
+                    class="name-cover"
+                ></div> -->
+
+
+                <!-- Covers existing event -->
+
+                <!-- <div
+                    class="event-cover"
+                ></div> -->
+
+
+                <!-- Covers existing date -->
+
+                <!-- <div
+                    class="date-cover"
+                ></div> -->
+
+
+                <!-- Covers existing certificate ID -->
+
+                <!-- <div
+                    class="id-cover"
+                ></div> -->
+
+
+                <!-- =================================
+                     DYNAMIC DATA
+                ================================== -->
+
+                <div
+                    id="previewName"
+                    class="certificate-name"
+                >
+                    STUDENT NAME
+                </div>
+
+
+                <div
+                    id="previewEvent"
+                    class="certificate-event"
+                >
+                    EVENT NAME
+                </div>
+
+
+                <div
+                    id="previewDate"
+                    class="certificate-date"
+                >
+                    DATE
+                </div>
+
+
+                <div
+                    id="previewId"
+                    class="certificate-id"
+                >
+                    CERTIFICATE ID
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+
+<script>
+
+
+/* =========================================
+   GET TEMPLATE FROM URL
+========================================= */
+
+const params =
+    new URLSearchParams(
+        window.location.search
+    );
+
+
+let template =
+    params.get("template") || "first";
+
+
+/* =========================================
+   TEMPLATE CONFIGURATION
+========================================= */
+
+const templates = {
+
+    first: {
+
+        name: "First Prize",
+
+        image:
+            "certificate/template/first.png"
+
+    },
+
+    second: {
+
+        name: "Second Prize",
+
+        image:
+            "certificate/template/second.png"
+
+    },
+
+    third: {
+
+        name: "Third Prize",
+
+        image:
+            "certificate/template/third.png"
+
+    },
+
+    participant: {
+
+        name: "Participation",
+
+        image:
+            "certificate/template/participant.png"
+
+    }
+
+};
+
+
+/* =========================================
+   ELEMENTS
+========================================= */
+
+const studentName =
+    document.getElementById(
+        "studentName"
+    );
+
+const eventName =
+    document.getElementById(
+        "eventName"
+    );
+
+const eventDate =
+    document.getElementById(
+        "eventDate"
+    );
+
+const certificateId =
+    document.getElementById(
+        "certificateId"
+    );
+
+
+const previewName =
+    document.getElementById(
+        "previewName"
+    );
+
+const previewEvent =
+    document.getElementById(
+        "previewEvent"
+    );
+
+const previewDate =
+    document.getElementById(
+        "previewDate"
+    );
+
+const previewId =
+    document.getElementById(
+        "previewId"
+    );
+
+
+const background =
+    document.getElementById(
+        "certificateBackground"
+    );
+
+const templateName =
+    document.getElementById(
+        "templateName"
+    );
+
+
+/* =========================================
+   LOAD SELECTED TEMPLATE
+========================================= */
+
+function loadTemplate() {
+
+    if (!templates[template]) {
+
+        template = "first";
+
+    }
+
+
+    const selected =
+        templates[template];
+
+
+    background.src =
+        selected.image;
+
+
+    templateName.textContent =
+        selected.name;
+
+}
+
+
+loadTemplate();
+
+
+/* =========================================
+   FORMAT DATE
+========================================= */
+
+function formatDate(dateValue) {
+
+    if (!dateValue) {
+
+        return "DATE";
+
+    }
+
+
+    const date =
+        new Date(
+            dateValue + "T00:00:00"
+        );
+
+
+    return date.toLocaleDateString(
+        "en-IN",
+        {
+            day: "2-digit",
+            month: "long",
+            year: "numeric"
+        }
+    );
+
+}
+
+
+/* =========================================
+   LIVE PREVIEW
+========================================= */
+
+function updatePreview() {
+
+    previewName.textContent =
+        studentName.value.trim()
+        || "STUDENT NAME";
+
+
+    previewEvent.textContent =
+        eventName.value.trim()
+        || "EVENT NAME";
+
+
+    previewDate.textContent =
+        formatDate(
+            eventDate.value
+        );
+
+
+    previewId.textContent =
+        certificateId.value.trim()
+        || "CERTIFICATE ID";
+
+}
+
+
+/* =========================================
+   LISTEN TO INPUT
+========================================= */
+
+studentName.addEventListener(
+    "input",
+    updatePreview
+);
+
+eventName.addEventListener(
+    "input",
+    updatePreview
+);
+
+eventDate.addEventListener(
+    "change",
+    updatePreview
+);
+
+certificateId.addEventListener(
+    "input",
+    updatePreview
+);
+
+
+/* =========================================
+   GENERATE
+========================================= */
+
+function generateCertificate() {
+
+    const name =
+        studentName.value.trim();
+
+    const event =
+        eventName.value.trim();
+
+    const date =
+        eventDate.value;
+
+    const id =
+        certificateId.value.trim();
+
+
+    if (!name) {
+
+        alert(
+            "Please enter the student's name."
+        );
+
+        studentName.focus();
+
+        return;
+
+    }
+
+
+    if (!event) {
+
+        alert(
+            "Please enter the event name."
+        );
+
+        eventName.focus();
+
+        return;
+
+    }
+
+
+    if (!date) {
+
+        alert(
+            "Please select the event date."
+        );
+
+        eventDate.focus();
+
+        return;
+
+    }
+
+
+    if (!id) {
+
+        alert(
+            "Please enter the certificate ID."
+        );
+
+        certificateId.focus();
+
+        return;
+
+    }
+
+
+    updatePreview();
+
+
+    alert(
+        "Certificate generated successfully!"
+    );
+
+}
+
+
+/* =========================================
+   DOWNLOAD PNG
+========================================= */
+
+async function downloadCertificate() {
+
+    const name =
+        studentName.value.trim();
+
+
+    if (!name) {
+
+        alert(
+            "Please enter the student's name first."
+        );
+
+        return;
+
+    }
+
+
+    updatePreview();
+
+
+    const certificate =
+        document.getElementById(
+            "certificate"
+        );
+
+
+    try {
+
+        const canvas =
+            await html2canvas(
+                certificate,
+                {
+                    scale: 3,
+
+                    useCORS: true,
+
+                    backgroundColor:
+                        "#ffffff",
+
+                    logging: false
+                }
+            );
+
+
+        const link =
+            document.createElement(
+                "a"
+            );
+
+
+        const safeName =
+            name
+                .replace(
+                    /[^a-z0-9]/gi,
+                    "_"
+                );
+
+
+        link.download =
+            `Sunshine_Club_Certificate_${safeName}.png`;
+
+
+        link.href =
+            canvas.toDataURL(
+                "image/png",
+                1.0
+            );
+
+
+        link.click();
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert(
+            "Unable to download the certificate."
+        );
+
+    }
+
+}
+
+
+/* =========================================
+   PRINT
+========================================= */
+
+function printCertificate() {
+
+    const name =
+        studentName.value.trim();
+
+    const event =
+        eventName.value.trim();
+
+    const date =
+        eventDate.value;
+
+    const id =
+        certificateId.value.trim();
+
+
+    if (
+        !name ||
+        !event ||
+        !date ||
+        !id
+    ) {
+
+        alert(
+            "Please fill all certificate fields before printing."
+        );
+
+        return;
+
+    }
+
+
+    updatePreview();
+
+    window.print();
+
+}
+
+
+/* =========================================
+   DEFAULT DATE
+========================================= */
+
+const today =
+    new Date();
+
+
+const year =
+    today.getFullYear();
+
+
+const month =
+    String(
+        today.getMonth() + 1
+    ).padStart(
+        2,
+        "0"
+    );
+
+
+const day =
+    String(
+        today.getDate()
+    ).padStart(
+        2,
+        "0"
+    );
+
+
+eventDate.value =
+    `${year}-${month}-${day}`;
+
+
+updatePreview();
+
+
+</script>
+
+</body>
+
+</html>
