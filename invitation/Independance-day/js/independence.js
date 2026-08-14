@@ -1,153 +1,153 @@
-const music = document.getElementById("backgroundMusic");
-const musicButton = document.getElementById("musicButton");
-const icon = musicButton?.querySelector("i");
+// const music = document.getElementById("backgroundMusic");
+// const musicButton = document.getElementById("musicButton");
+// const icon = musicButton?.querySelector("i");
 
 
-/* =========================================
-   TRY AUTOPLAY
-========================================= */
+// /* =========================================
+//    TRY AUTOPLAY
+// ========================================= */
 
-window.addEventListener("load", async () => {
+// window.addEventListener("load", async () => {
 
-    try {
+//     try {
 
-        await music.play();
+//         await music.play();
 
-        // Music successfully started
+//         // Music successfully started
 
-        if (musicButton) {
+//         if (musicButton) {
 
-            musicButton.classList.add("playing");
+//             musicButton.classList.add("playing");
 
-            if (icon) {
-                icon.className =
-                    "fa-solid fa-volume-high";
-            }
+//             if (icon) {
+//                 icon.className =
+//                     "fa-solid fa-volume-high";
+//             }
 
-        }
+//         }
 
-    } catch (error) {
+//     } catch (error) {
 
-        /*
-         * Browser blocked autoplay.
-         * Music will start after the first interaction.
-         */
+//         /*
+//          * Browser blocked autoplay.
+//          * Music will start after the first interaction.
+//          */
 
-        console.log(
-            "Autoplay blocked. Waiting for user interaction."
-        );
+//         console.log(
+//             "Autoplay blocked. Waiting for user interaction."
+//         );
 
-    }
+//     }
 
-});
-
-
-/* =========================================
-   START MUSIC AFTER USER INTERACTION
-========================================= */
-
-function startMusic() {
-
-    if (music.paused) {
-
-        music.play()
-            .then(() => {
-
-                if (musicButton) {
-
-                    musicButton.classList.add(
-                        "playing"
-                    );
-
-                }
-
-                if (icon) {
-
-                    icon.className =
-                        "fa-solid fa-volume-high";
-
-                }
-
-            })
-            .catch(error => {
-
-                console.log(
-                    "Unable to start music:",
-                    error
-                );
-
-            });
-
-    }
-
-}
+// });
 
 
-/* =========================================
-   FIRST USER INTERACTION
-========================================= */
+// /* =========================================
+//    START MUSIC AFTER USER INTERACTION
+// ========================================= */
 
-document.addEventListener(
-    "click",
-    startMusic,
-    { once: true }
-);
+// function startMusic() {
 
-document.addEventListener(
-    "touchstart",
-    startMusic,
-    { once: true }
-);
+//     if (music.paused) {
+
+//         music.play()
+//             .then(() => {
+
+//                 if (musicButton) {
+
+//                     musicButton.classList.add(
+//                         "playing"
+//                     );
+
+//                 }
+
+//                 if (icon) {
+
+//                     icon.className =
+//                         "fa-solid fa-volume-high";
+
+//                 }
+
+//             })
+//             .catch(error => {
+
+//                 console.log(
+//                     "Unable to start music:",
+//                     error
+//                 );
+
+//             });
+
+//     }
+
+// }
 
 
-/* =========================================
-   MUSIC BUTTON
-========================================= */
+// /* =========================================
+//    FIRST USER INTERACTION
+// ========================================= */
 
-if (musicButton) {
+// document.addEventListener(
+//     "click",
+//     startMusic,
+//     { once: true }
+// );
 
-    musicButton.addEventListener(
-        "click",
-        (event) => {
+// document.addEventListener(
+//     "touchstart",
+//     startMusic,
+//     { once: true }
+// );
 
-            event.stopPropagation();
 
-            if (music.paused) {
+// /* =========================================
+//    MUSIC BUTTON
+// ========================================= */
 
-                music.play();
+// if (musicButton) {
 
-                musicButton.classList.add(
-                    "playing"
-                );
+//     musicButton.addEventListener(
+//         "click",
+//         (event) => {
 
-                if (icon) {
+//             event.stopPropagation();
 
-                    icon.className =
-                        "fa-solid fa-volume-high";
+//             if (music.paused) {
 
-                }
+//                 music.play();
 
-            } else {
+//                 musicButton.classList.add(
+//                     "playing"
+//                 );
 
-                music.pause();
+//                 if (icon) {
 
-                musicButton.classList.remove(
-                    "playing"
-                );
+//                     icon.className =
+//                         "fa-solid fa-volume-high";
 
-                if (icon) {
+//                 }
 
-                    icon.className =
-                        "fa-solid fa-volume-xmark";
+//             } else {
 
-                }
+//                 music.pause();
 
-            }
+//                 musicButton.classList.remove(
+//                     "playing"
+//                 );
 
-        }
-    );
+//                 if (icon) {
 
-}
+//                     icon.className =
+//                         "fa-solid fa-volume-xmark";
+
+//                 }
+
+//             }
+
+//         }
+//     );
+
+// }
 
 
 
