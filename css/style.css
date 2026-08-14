@@ -403,3 +403,480 @@ background: linear-gradient(210deg, rgb(250, 251, 250) 27%, rgba(204, 229, 255, 
 }
 
 
+/* =========================================
+   RECENT EVENTS
+========================================= */
+
+.recent-events {
+
+    width: min(1100px, 92%);
+
+    margin: 80px auto;
+
+    position: relative;
+
+}
+
+
+/* =========================================
+   SECTION HEADING
+========================================= */
+
+.section-heading {
+
+    text-align: center;
+
+    margin-bottom: 35px;
+
+}
+
+.section-badge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 7px 16px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(0, 97, 209, .08);
+
+    color: var(--primary);
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+}
+
+.section-heading h2 {
+
+    margin-top: 12px;
+
+    font-size: clamp(
+        2rem,
+        4vw,
+        3rem
+    );
+
+    color: var(--text);
+
+}
+
+.section-heading p {
+
+    max-width: 650px;
+
+    margin: 10px auto 0;
+
+    color: #666;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+}
+
+
+/* =========================================
+   CAROUSEL
+========================================= */
+
+.events-carousel {
+
+    position: relative;
+
+    width: 100%;
+
+    overflow: hidden;
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.15);
+
+}
+
+.events-track {
+
+    display: flex;
+
+    transition:
+        transform .65s
+        cubic-bezier(.4,0,.2,1);
+
+}
+
+
+/* =========================================
+   EVENT SLIDE
+========================================= */
+
+.event-slide {
+
+    min-width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        1.15fr .85fr;
+
+    background: #fff;
+
+}
+
+
+/* =========================================
+   IMAGE
+========================================= */
+
+.event-image-wrapper {
+
+    position: relative;
+
+    height: 400px;
+
+    overflow: hidden;
+
+}
+
+.event-image-wrapper img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+        transform .7s ease;
+
+}
+
+.event-slide:hover
+.event-image-wrapper img {
+
+    transform: scale(1.05);
+
+}
+
+
+/* =========================================
+   DATE BADGE
+========================================= */
+
+.event-date {
+
+    position: absolute;
+
+    left: 20px;
+
+    top: 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 9px 14px;
+
+    border-radius: 30px;
+
+    color: #fff;
+
+    background:
+        rgba(0,0,0,.65);
+
+    backdrop-filter:
+        blur(10px);
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+}
+
+
+/* =========================================
+   CAPTION
+========================================= */
+
+.event-caption {
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    padding: 45px;
+
+}
+
+.event-category {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: var(--primary);
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+}
+
+.event-caption h3 {
+
+    margin-top: 12px;
+
+    font-size: 28px;
+
+    color: var(--text);
+
+}
+
+.event-caption p {
+
+    margin-top: 15px;
+
+    color: #666;
+
+    font-size: 15px;
+
+    line-height: 1.9;
+
+}
+
+
+/* =========================================
+   NAVIGATION BUTTONS
+========================================= */
+
+.event-nav {
+
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    z-index: 5;
+
+    width: 48px;
+
+    height: 48px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    color: #fff;
+
+    background:
+        rgba(0,0,0,.55);
+
+    backdrop-filter:
+        blur(10px);
+
+    cursor: pointer;
+
+    transition:
+        .3s ease;
+
+}
+
+.event-nav:hover {
+
+    background: var(--primary);
+
+    transform:
+        translateY(-50%)
+        scale(1.08);
+
+}
+
+.event-prev {
+
+    left: 18px;
+
+}
+
+.event-next {
+
+    right: 18px;
+
+}
+
+
+/* =========================================
+   DOTS
+========================================= */
+
+.event-dots {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-top: 18px;
+
+}
+
+.event-dot {
+
+    width: 9px;
+
+    height: 9px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    padding: 0;
+
+    background: #ccc;
+
+    cursor: pointer;
+
+    transition:
+        width .3s ease,
+        background .3s ease;
+
+}
+
+.event-dot.active {
+
+    width: 28px;
+
+    border-radius: 20px;
+
+    background: var(--primary);
+
+}
+
+
+/* =========================================
+   VIEW ALL
+========================================= */
+
+.events-more {
+
+    text-align: center;
+
+    margin-top: 25px;
+
+}
+
+.events-more a {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    color: var(--primary);
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition: .3s ease;
+
+}
+
+.events-more a:hover {
+
+    gap: 14px;
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .recent-events {
+
+        margin: 60px auto;
+
+    }
+
+    .event-slide {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .event-image-wrapper {
+
+        height: 280px;
+
+    }
+
+    .event-caption {
+
+        padding: 28px 25px 32px;
+
+        text-align: center;
+
+        align-items: center;
+
+    }
+
+    .event-caption h3 {
+
+        font-size: 23px;
+
+    }
+
+    .event-caption p {
+
+        font-size: 14px;
+
+    }
+
+    .event-nav {
+
+        width: 40px;
+
+        height: 40px;
+
+    }
+
+    .event-prev {
+
+        left: 12px;
+
+    }
+
+    .event-next {
+
+        right: 12px;
+
+    }
+
+}
