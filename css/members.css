@@ -3,7 +3,7 @@
 =========================================*/
 
 .members-section{
-    padding:100px 0;
+    padding:100px 20px;
     /* background:#F8F7FF; */
         background: #e2ffed;
 background: linear-gradient(210deg, rgba(145, 229, 254, 0.235) 27%, rgba(204, 229, 255, 1) 72%);
@@ -174,7 +174,7 @@ background: linear-gradient(210deg, rgba(145, 229, 254, 0.235) 27%, rgba(204, 22
 
     .members-section{
 
-        padding:70px 0;
+        padding:70px 10px;
 
     }
 
