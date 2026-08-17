@@ -4,7 +4,19 @@
 /* CSS Variables */
 @import url("root.css");
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
+body {
+    background: var(--background);
+    overflow-x: hidden;
+    color: var(--text);
+    
+}
 /* =========================================
    NAVBAR HEADER
 ========================================= */
