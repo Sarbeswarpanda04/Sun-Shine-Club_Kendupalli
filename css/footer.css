@@ -1022,7 +1022,22 @@
 
     .footer-links ul {
 
+        display: grid;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 12px 20px;
+
+        margin-top: 8px;
         align-items: center;
+
+    }
+
+    .footer-links ul li a {
+
+        gap: 8px;
+
+        font-size: 0.9rem;
 
     }
 
