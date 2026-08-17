@@ -465,26 +465,32 @@
 ========================================= */
 
 @media (max-width: 700px) {
+/* .event-details-page {
 
-    .event-details-page {
+    width: min(1050px, 92%);
 
-        width: 94%;
+    margin: 110px auto 70px;
 
-        margin-top: 90px;
+}*/
+    .event-details-page { 
+
+        width: 98%;
+
+        margin-top: 120px;
+        
 
     }
 
-    .event-header {
 
-        padding:
-            30px 22px;
-
+    .event-header  {
+        margin-left: 0;
+        padding: 0px 5px 15px !important;
     }
 
-    .event-header h1 {
+     .event-header h1 {
+    
 
-        font-size: 2rem;
-
+        font-size: 1.7rem;
     }
 
     .event-meta {
