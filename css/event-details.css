@@ -72,7 +72,8 @@
 
 .event-header {
 
-    padding: 45px 55px 35px;
+    padding: 45px 55px 35px !important;
+    position: inherit;
 
 }
 
@@ -276,7 +277,7 @@
 
     border-radius: 50%;
 
-    color: #fff;
+    color: #3d0cb8;
 
     background: var(--primary);
 

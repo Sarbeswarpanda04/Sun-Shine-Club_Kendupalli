@@ -2,272 +2,614 @@
             EVENTS PAGE
 =========================================*/
 
-.page-hero{
-    padding:180px 20px 100px;
-    background:linear-gradient(135deg,#9381FF,#B8B8FF);
-    text-align:center;
-    color:#fff;
+.page-hero {
+    padding: 180px 20px 100px;
+    background: linear-gradient(135deg, #9381FF, #B8B8FF);
+    text-align: center;
+    color: #fff;
 }
 
-.page-hero h1{
-    font-size:3rem;
-    font-weight:700;
-    margin-bottom:20px;
+.page-hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
 }
-.container{
-    width:100%;
-    max-width:1200px;
-    margin:0 auto;
-    /* padding:0 30px; */
+
+.page-hero p {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
 }
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/*=========================================
+            EVENTS SECTION
+=========================================*/
 
 .events-section {
-  padding: 100px 0;
-  background: #f8f7ff;
+    padding: 100px 0;
+    background: #f8f7ff;
 }
+
 
 /*=========================================
             EVENTS GRID
 =========================================*/
 
 .events-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 35px;
-  margin-top: 50px;
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 35px;
+
+    margin-top: 50px;
 }
+
 
 /*=========================================
             EVENT CARD
 =========================================*/
 
 .event-card {
-  background: #fff;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 12px 35px rgba(147, 129, 255, 0.12);
-  transition: 0.35s ease;
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    background: #fff;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 12px 35px rgba(147, 129, 255, 0.12);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
 }
 
 .event-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 45px rgba(147, 129, 255, 0.25);
+    transform: translateY(-10px);
+
+    box-shadow:
+        0 20px 45px rgba(147, 129, 255, 0.25);
 }
+
 
 /*=========================================
-            IMAGE
+            EVENT IMAGE
 =========================================*/
 
-.event-image {
-  position: relative;
-  overflow: hidden;
+.event-card-image {
+    position: relative;
+
+    width: 100%;
+
+    height: 280px;
+
+    overflow: hidden;
+
+    background: #eee;
 }
 
-.event-image img {
-  width: 100%;
-  height: 280px;
-  object-fit: cover;
-  transition: 0.5s;
+.event-card-image img {
+    display: block;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.5s ease;
 }
 
-.event-card:hover .event-image img {
-  transform: scale(1.08);
+.event-card:hover .event-card-image img {
+    transform: scale(1.08);
 }
+
 
 /*=========================================
             DATE BADGE
 =========================================*/
 
-.event-date {
-  position: absolute;
-  top: 18px;
-  right: 18px;
-  background: var(--primary);
-  color: #fff;
-  padding: 8px 18px;
-  border-radius: 50px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  box-shadow: 0 8px 20px rgba(147, 129, 255, 0.3);
+.event-card-date {
+    position: absolute;
+
+    top: 18px;
+
+    right: 18px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    background: var(--primary);
+
+    color: #fff;
+
+    padding: 8px 18px;
+
+    border-radius: 50px;
+
+    font-size: 0.9rem;
+
+    font-weight: 600;
+
+    box-shadow:
+        0 8px 20px rgba(147, 129, 255, 0.3);
+
+    z-index: 2;
 }
+
+.event-card-date i {
+    font-size: 0.85rem;
+}
+
 
 /*=========================================
-            CONTENT
+            EVENT CONTENT
 =========================================*/
 
-.event-content {
-  padding: 30px;
+.event-card-content {
+    display: flex;
+
+    flex-direction: column;
+
+    flex: 1;
+
+    padding: 30px;
 }
 
-.event-content h3 {
-  color: var(--primary);
-  font-size: 1.7rem;
-  margin-bottom: 15px;
-}
-
-.event-content p {
-  color: #666;
-  line-height: 1.8;
-  margin-bottom: 25px;
-}
 
 /*=========================================
-            BUTTON
+            EVENT CATEGORY
 =========================================*/
 
-.event-content .btn {
-  display: inline-block;
-  padding: 13px 28px;
-  background: var(--primary);
-  color: #fff;
-  text-decoration: none;
-  border-radius: 12px;
-  font-weight: 600;
-  transition: 0.3s;
+.event-category {
+    display: inline-flex;
+
+    align-items: center;
+
+    align-self: flex-start;
+
+    gap: 8px;
+
+    margin-bottom: 14px;
+
+    padding: 7px 14px;
+
+    background: rgba(147, 129, 255, 0.10);
+
+    color: var(--primary);
+
+    border-radius: 30px;
+
+    font-size: 0.82rem;
+
+    font-weight: 600;
 }
 
-.event-content .btn:hover {
-  background: #7a68f8;
-  transform: translateY(-3px);
+.event-category i {
+    font-size: 0.85rem;
 }
+
+
+/*=========================================
+            EVENT TITLE
+=========================================*/
+
+.event-card-content h2 {
+    margin: 0 0 15px;
+
+    color: var(--primary);
+
+    font-size: 1.7rem;
+
+    font-weight: 700;
+
+    line-height: 1.3;
+}
+
+
+/*=========================================
+            EVENT DESCRIPTION
+=========================================*/
+
+.event-card-content p {
+    margin: 0 0 25px;
+
+    color: #666;
+
+    font-size: 1rem;
+
+    line-height: 1.8;
+}
+
+
+/*=========================================
+            READ MORE
+=========================================*/
+
+.event-card-content .read-more {
+    display: inline-flex;
+
+    align-items: center;
+
+    align-self: flex-start;
+
+    gap: 10px;
+
+    margin-top: auto;
+
+    padding: 12px 22px;
+
+    background: var(--primary);
+
+    color: #fff;
+
+    text-decoration: none;
+
+    border-radius: 12px;
+
+    font-size: 0.95rem;
+
+    font-weight: 600;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.event-card-content .read-more i {
+    transition:
+        transform 0.3s ease;
+}
+
+.event-card-content .read-more:hover {
+    background: #7a68f8;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 20px rgba(147, 129, 255, 0.25);
+}
+
+.event-card-content .read-more:hover i {
+    transform: translateX(5px);
+}
+
+
+/*=========================================
+            SECTION TITLE
+=========================================*/
+
+.section-title {
+    text-align: center;
+
+    max-width: 800px;
+
+    margin: 0 auto;
+}
+
+.section-title h2 {
+    margin-bottom: 15px;
+
+    color: var(--text);
+
+    font-size: 2.3rem;
+
+    font-weight: 700;
+}
+
+.section-title p {
+    color: #666;
+
+    line-height: 1.8;
+}
+
 
 /*=========================================
             TIMELINE
 =========================================*/
 
 .timeline-section {
-  padding: 100px 0;
-  background: #fff;
+    padding: 100px 0;
+
+    background: #fff;
 }
 
 .timeline {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 25px;
-  margin-top: 50px;
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 25px;
+
+    margin-top: 50px;
 }
 
 .timeline-item {
-  background: #f8f7ff;
-  padding: 30px;
-  text-align: center;
-  border-radius: 18px;
-  border-top: 5px solid var(--primary);
-  box-shadow: 0 10px 25px rgba(147, 129, 255, 0.1);
-  transition: 0.35s;
+    background: #f8f7ff;
+
+    padding: 30px;
+
+    text-align: center;
+
+    border-radius: 18px;
+
+    border-top: 5px solid var(--primary);
+
+    box-shadow:
+        0 10px 25px rgba(147, 129, 255, 0.1);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
 }
 
 .timeline-item:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 18px 35px rgba(147, 129, 255, 0.22);
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 18px 35px rgba(147, 129, 255, 0.22);
 }
 
 .timeline-item h3 {
-  color: var(--primary);
-  margin-bottom: 15px;
-  font-size: 1.3rem;
+    color: var(--primary);
+
+    margin-bottom: 15px;
+
+    font-size: 1.3rem;
 }
 
 .timeline-item p {
-  color: #666;
-  line-height: 1.7;
+    color: #666;
+
+    line-height: 1.7;
 }
+
 
 /*=========================================
             CTA
 =========================================*/
 
 .about-cta {
-  padding: 100px 20px;
-  background: linear-gradient(135deg, var(--primary), var(--primary-light));
-  color: #fff;
-  text-align: center;
+    padding: 100px 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--primary-light)
+        );
+
+    color: #fff;
+
+    text-align: center;
 }
 
 .about-cta h2 {
-  font-size: 2.6rem;
-  margin-bottom: 20px;
+    font-size: 2.6rem;
+
+    margin-bottom: 20px;
 }
 
 .about-cta p {
-  max-width: 700px;
-  margin: 0 auto 35px;
-  line-height: 1.8;
-  font-size: 1.05rem;
+    max-width: 700px;
+
+    margin: 0 auto 35px;
+
+    line-height: 1.8;
+
+    font-size: 1.05rem;
 }
 
 .about-cta .btn {
-  display: inline-block;
-  padding: 15px 35px;
-  background: #fff;
-  color: var(--primary);
-  text-decoration: none;
-  font-weight: 700;
-  border-radius: 12px;
-  transition: 0.35s;
+    display: inline-block;
+
+    padding: 15px 35px;
+
+    background: #fff;
+
+    color: var(--primary);
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    border-radius: 12px;
+
+    transition:
+        transform 0.35s ease,
+        background 0.35s ease;
 }
 
 .about-cta .btn:hover {
-  transform: translateY(-4px);
-  background: var(--accent);
+    transform: translateY(-4px);
+
+    background: var(--accent);
 }
+
 
 /*=========================================
             RESPONSIVE
 =========================================*/
 
 @media (max-width: 992px) {
-  .events-grid {
-    grid-template-columns: 1fr;
-  }
 
-  .timeline {
-    grid-template-columns: repeat(2, 1fr);
-  }
+    .events-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
 }
 
+
+/*=========================================
+            TABLET / MOBILE
+=========================================*/
+
 @media (max-width: 768px) {
-    .page-hero{
-        padding:90px 20px 70px;
-    }
-    .page-hero h1{
-        font-size:2.2rem;
+
+    .page-hero {
+        padding: 120px 20px 70px;
     }
 
-    .page-hero p{
-        font-size:1rem;
+    .page-hero h1 {
+        font-size: 2.2rem;
     }
-  .events-section,
-  .timeline-section,
-  .about-cta {
-    padding: 70px 20px;
-  }
 
-  .event-image img {
-    height: 220px;
-  }
+    .page-hero p {
+        font-size: 1rem;
+    }
 
-  .event-content {
-    padding: 22px;
-  }
 
-  .event-content h3 {
-    font-size: 1.4rem;
-  }
+    .events-section,
+    .timeline-section,
+    .about-cta {
+        padding: 70px 20px;
+    }
 
-  .timeline {
-    grid-template-columns: 1fr;
-  }
 
-  .timeline-item {
-    padding: 25px;
-  }
+    /* EVENT IMAGE */
 
-  .about-cta h2 {
-    font-size: 2rem;
-  }
+    .event-card-image {
+        height: 220px;
+    }
 
-  .about-cta p {
-    font-size: 1rem;
-  }
+
+    /* EVENT CONTENT */
+
+    .event-card-content {
+        padding: 22px;
+    }
+
+
+    /* CATEGORY */
+
+    .event-category {
+        font-size: 0.78rem;
+
+        padding: 6px 12px;
+    }
+
+
+    /* TITLE */
+
+    .event-card-content h2 {
+        font-size: 1.4rem;
+
+        line-height: 1.35;
+    }
+
+
+    /* DESCRIPTION */
+
+    .event-card-content p {
+        font-size: 0.95rem;
+
+        line-height: 1.7;
+    }
+
+
+    /* DATE */
+
+    .event-card-date {
+        top: 12px;
+
+        right: 12px;
+
+        padding: 7px 13px;
+
+        font-size: 0.78rem;
+    }
+
+
+    /* READ MORE */
+
+    .event-card-content .read-more {
+        padding: 11px 18px;
+
+        font-size: 0.9rem;
+    }
+
+
+    /* TIMELINE */
+
+    .timeline {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline-item {
+        padding: 25px;
+    }
+
+
+    /* CTA */
+
+    .about-cta h2 {
+        font-size: 2rem;
+    }
+
+    .about-cta p {
+        font-size: 1rem;
+    }
+
+}
+
+
+/*=========================================
+            SMALL MOBILE
+=========================================*/
+
+@media (max-width: 480px) {
+
+    .events-grid {
+        gap: 25px;
+    }
+
+    .event-card {
+        border-radius: 16px;
+    }
+
+    .event-card-image {
+        height: 200px;
+    }
+
+    .event-card-content {
+        padding: 20px;
+    }
+
+    .event-card-content h2 {
+        font-size: 1.25rem;
+    }
+
+    .event-card-content p {
+        font-size: 0.9rem;
+    }
+
+    .event-card-date {
+        font-size: 0.72rem;
+
+        padding: 6px 10px;
+    }
+
 }

@@ -1,0 +1,215 @@
+/* =========================================
+   EVENT PAGE NAVBAR
+========================================= */
+
+header {
+    position: fixed;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+    background: transparent;
+}
+
+
+/* NAVBAR */
+
+.navbar {
+    width: min(1300px, 95%);
+    height: 72px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 20px;
+
+    background: rgba(255, 255, 255, 0.90);
+
+    backdrop-filter: blur(18px);
+
+    border-radius: 60px;
+
+    border: 1px solid rgba(255,255,255,.4);
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.18);
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.navbar .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.navbar .logo-container img {
+    width: 52px;
+    height: 52px;
+
+    border-radius: 50%;
+
+    background: #fff;
+
+    padding: 5px;
+
+    object-fit: contain;
+}
+
+.navbar .logo-container h2 {
+    margin: 0;
+
+    color: rgb(0, 59, 70);
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 1.2rem;
+
+    font-weight: 700;
+
+    line-height: 1.2;
+}
+
+
+/* =========================================
+   NAV LINKS
+========================================= */
+
+.navbar .nav-links {
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.navbar .nav-links li {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.navbar .nav-links li a {
+    display: block;
+
+    padding: 11px 15px;
+
+    color: #222;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    line-height: 1.4;
+
+    text-decoration: none;
+
+    border-radius: 25px;
+
+    transition: all .3s ease;
+}
+
+.navbar .nav-links li a:hover {
+    color: #fff;
+
+    background: var(--primary);
+}
+
+
+/* =========================================
+   MENU BUTTON
+========================================= */
+
+.navbar .menu-btn {
+    display: none;
+
+    color: var(--primary);
+
+    font-family: Arial, sans-serif;
+
+    font-size: 30px;
+
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        width: 94%;
+        height: 60px;
+
+        padding: 0 15px;
+    }
+
+    .navbar .logo-container img {
+        width: 42px;
+        height: 42px;
+    }
+
+    .navbar .logo-container h2 {
+        font-size: 16px;
+    }
+
+    .navbar .menu-btn {
+        display: block;
+    }
+
+    .navbar .nav-links {
+        position: absolute;
+
+        top: 70px;
+        left: 0;
+
+        width: 100%;
+
+        display: none;
+
+        flex-direction: column;
+
+        padding: 20px 0;
+
+        background: rgba(255,255,255,.95);
+
+        border-radius: 20px;
+
+        box-shadow:
+            0 15px 30px rgba(0,0,0,.12);
+    }
+
+    .navbar .nav-links.active {
+        display: flex;
+    }
+
+    .navbar .nav-links li {
+        width: 90%;
+
+        text-align: center;
+    }
+
+    .navbar .nav-links li a {
+        width: 100%;
+
+        padding: 12px;
+    }
+}
