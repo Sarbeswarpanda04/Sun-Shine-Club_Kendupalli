@@ -370,13 +370,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // ---------- CONFIGURATION ----------
 
-const UPI_ID = "admin@sunshineclubkendupalli.in";
+const UPI_ID = "8260916384@ptsbi";
 const PAYEE_NAME = "Sun Shine Club";
 const PAYMENT_NOTE = "Donation to Sun Shine Club";
 
 // ---------- EMAILJS ----------
 
-emailjs.init({
+emailjs.init({ // Changed publicKey as well, assuming it's tied to the service
     publicKey: "IA7XsesRDVThapDCf"
 });
 
@@ -813,7 +813,7 @@ confirmationForm.addEventListener("submit", function (e) {
 
     emailjs.send(
 
-        "service_9neddop",
+        "service_0vhfdar_sunshine",
 
         "template_6viqjnd",
 
