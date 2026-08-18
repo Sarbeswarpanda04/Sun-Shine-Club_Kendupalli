@@ -2,14 +2,19 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>404 | Sun Shine Club</title>
-
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" href="assets/logo/favicon.ico" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
     />
   </head>
   <style>
@@ -17,7 +22,7 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: "Segoe UI", sans-serif;
+      font-family: "Poppins", "Segoe UI", sans-serif;
     }
 
     body {
@@ -29,7 +34,7 @@
 
       align-items: center;
 
-      background: linear-gradient(135deg, #9bc3ff, #8ab9e7, #57b4ff);
+      background: #4e4ea1;
 
       padding: 20px;
 
@@ -39,14 +44,16 @@
     .container {
       width: 100%;
       max-width: 500px;
+      position: relative;
+      z-index: 1;
     }
 
     .card {
-      background: rgba(0, 101, 22, 0.739);
+      background: rgba(0, 21, 86, 0.712);
 
       backdrop-filter: blur(20px);
-
-      border: 2px solid rgba(255, 255, 255, 0.25);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(229, 238, 215, 0.867);
 
       border-radius: 25px;
 
@@ -54,7 +61,7 @@
 
       text-align: center;
 
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 20px 50px rgba(13, 128, 227, 0.763);
     }
 
     .logo {
@@ -63,6 +70,8 @@
       width: 90px;
 
       margin-bottom: 20px;
+      padding: 5px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     }
 
     h1 {
@@ -70,13 +79,14 @@
 
       font-weight: 800;
 
-      background: linear-gradient(135deg, #ff4fa3, #ffd54f, #42a5f5);
+      background: linear-gradient(135deg, #e1caf7, #d1efff);
 
       -webkit-background-clip: text;
 
       -webkit-text-fill-color: transparent;
 
       line-height: 1;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
     }
 
     h2 {
@@ -85,6 +95,7 @@
       font-size: 32px;
 
       color: #fff;
+      font-weight: 700;
     }
 
     p {
@@ -100,7 +111,7 @@
     .icon {
       font-size: 70px;
 
-      color: #ffd54f;
+      color: #ffca28;
 
       margin: 20px 0;
 
@@ -120,7 +131,7 @@
 
       text-decoration: none;
 
-      background: linear-gradient(135deg, #ff4fa3, #ffca28);
+      background: linear-gradient(135deg, #8a2be2, #4169e1);
 
       color: #fff;
 
@@ -129,12 +140,51 @@
       transition: 0.3s;
 
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      border: none;
+      cursor: pointer;
     }
 
     .btn:hover {
       transform: translateY(-4px);
 
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    }
+
+    .helpful-links {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .helpful-links h3 {
+      color: #fff;
+      font-size: 18px;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .helpful-links ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .helpful-links a {
+      color: #eef5ff;
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 14px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .helpful-links a:hover {
+      background: #fff;
+      color: #1a1a2e;
     }
 
     @keyframes float {
@@ -152,6 +202,9 @@
     }
 
     @media (max-width: 600px) {
+      .card {
+        padding: 35px 25px;
+      }
       h1 {
         font-size: 90px;
       }
@@ -163,24 +216,32 @@
       p {
         font-size: 15px;
       }
+      .helpful-links a {
+        font-size: 12px;
+        padding: 3px 8px;
+      }
     }
   </style>
   <body>
     <div class="container">
       <div class="card">
-        <img src="assets/logo/sun-shine-club-logo.png" class="logo" alt="Sun Shine Club" />
+        <img
+          src="assets/logo/sun-shine-club-logo.png"
+          class="logo"
+          alt="Sun Shine Club"
+        />
 
         <h1>404</h1>
 
         <h2>Oops! Page Not Found</h2>
 
         <p>
-          The page you are looking for doesn't exist, has been moved, or the URL
-          is incorrect.
+          The page you are looking for might have been removed, had its name
+          changed, or is temporarily unavailable.
         </p>
 
         <div class="icon">
-          <i class="fa-solid fa-triangle-exclamation"></i>
+          <i class="fa-solid fa-compass-drafting"></i>
         </div>
 
         <a href="index.html" class="btn">
@@ -188,6 +249,16 @@
 
           Back to Home
         </a>
+
+        <div class="helpful-links">
+          <h3>Here are some helpful links:</h3>
+          <ul>
+            <li><a href="/pages/about.html">About Us</a></li>
+            <li><a href="/pages/events.html">Events</a></li>
+            <li><a href="/pages/gallery.html">Gallery</a></li>
+            <li><a href="/pages/contact.html">Contact</a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </body>
