@@ -1,0 +1,626 @@
+/* =========================================
+   DAILY NEWS / NITIBANI BAR
+========================================= */
+
+.daily-news {
+
+    width: 100%;
+
+    padding: 14px 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(147, 129, 255, 0.08),
+            rgba(255, 255, 255, 0.95)
+        );
+
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.06);
+
+    overflow: hidden;
+
+}
+
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.daily-news-container {
+
+    width: min(1300px, 95%);
+
+    min-height: 65px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    align-items: center;
+
+}
+
+
+/* =========================================
+   DATE SECTION
+========================================= */
+
+.news-date {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    min-width: 205px;
+
+    padding-right: 20px;
+
+    border-right: 1px solid rgba(0, 0, 0, 0.12);
+
+    flex-shrink: 0;
+
+}
+
+
+/* Calendar */
+
+.news-calendar-icon {
+
+    width: 44px;
+
+    height: 44px;
+
+    min-width: 44px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background: var(--primary);
+
+    color: #fff;
+
+    font-size: 18px;
+
+    box-shadow:
+        0 5px 15px rgba(147, 129, 255, 0.25);
+
+}
+
+
+/* Date text container */
+
+.news-date-text {
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    line-height: 1.25;
+
+    min-width: 0;
+
+}
+
+
+/* "Today / ଆଜି" */
+
+#todayLabel {
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    color: var(--primary);
+
+    margin-bottom: 2px;
+
+    white-space: nowrap;
+
+}
+
+
+/* Date */
+
+#todayDate {
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    color: var(--text);
+
+    white-space: nowrap;
+
+}
+
+
+/* Day */
+
+#todayDay {
+
+    font-size: 11px;
+
+    font-weight: 500;
+
+    color: #777;
+
+    white-space: nowrap;
+
+}
+
+
+/* =========================================
+   NITIBANI LABEL
+========================================= */
+
+.news-label {
+
+    min-width: 175px;
+
+    padding: 0 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    flex-shrink: 0;
+
+    white-space: nowrap;
+
+}
+
+
+/* Red indicator */
+
+.breaking-dot {
+
+    width: 8px;
+
+    height: 8px;
+
+    min-width: 8px;
+
+    border-radius: 50%;
+
+    background: #ef4444;
+
+    box-shadow:
+        0 0 0 4px rgba(239, 68, 68, 0.12);
+
+    animation:
+        newsPulse 1.5s ease-in-out infinite;
+
+}
+
+
+/* Label */
+
+#nitibaniLabel {
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    color: var(--primary);
+
+    white-space: nowrap;
+
+}
+
+
+/* =========================================
+   MARQUEE CONTAINER
+========================================= */
+
+.news-marquee {
+
+    flex: 1;
+
+    min-width: 0;
+
+    overflow: hidden;
+
+    position: relative;
+
+    height: 40px;
+
+    display: flex;
+
+    align-items: center;
+
+}
+
+
+/* =========================================
+   MARQUEE TRACK
+========================================= */
+
+.news-track {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    width: max-content;
+
+    white-space: nowrap;
+
+    will-change: transform;
+
+}
+
+
+/* =========================================
+   MARQUEE TEXT
+========================================= */
+
+.news-item {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    white-space: nowrap;
+
+    padding-right: 80px;
+
+    color: #333;
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    line-height: 1.5;
+
+}
+
+
+/* Lotus / decorative symbol */
+
+.news-symbol {
+
+    display: inline-block;
+
+    font-size: 17px;
+
+    flex-shrink: 0;
+
+}
+
+
+/* =========================================
+   LANGUAGE TRANSITION
+========================================= */
+
+#todayLabel,
+#todayDate,
+#todayDay,
+#nitibaniLabel,
+#nitibaniTrack {
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease;
+
+}
+
+
+.language-fade {
+
+    opacity: 0;
+
+    transform:
+        translateY(-5px);
+
+}
+
+
+/* =========================================
+   PULSE ANIMATION
+========================================= */
+
+@keyframes newsPulse {
+
+    0%,
+    100% {
+
+        transform: scale(1);
+
+        opacity: 1;
+
+    }
+
+    50% {
+
+        transform: scale(1.25);
+
+        opacity: 0.65;
+
+    }
+
+}
+
+
+/* =========================================
+   DESKTOP HOVER
+========================================= */
+
+.news-marquee:hover .news-item {
+
+    animation-play-state: paused;
+
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 992px) {
+
+    .daily-news-container {
+
+        width: 94%;
+
+    }
+
+
+    .news-date {
+
+        min-width: 185px;
+
+        padding-right: 15px;
+
+    }
+
+
+    .news-label {
+
+        min-width: 150px;
+
+        padding: 0 15px;
+
+    }
+
+
+    #nitibaniLabel {
+
+        font-size: 12px;
+
+    }
+
+
+    .news-item {
+
+        font-size: 14px;
+
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .daily-news {
+
+        padding: 10px 0;
+
+    }
+
+
+    .daily-news-container {
+
+        width: 100%;
+
+        min-height: 58px;
+
+    }
+
+
+    /* DATE */
+
+    .news-date {
+
+        min-width: 150px;
+
+        padding:
+
+            0 12px 0 10px;
+
+        gap: 8px;
+
+    }
+
+
+    .news-calendar-icon {
+
+        width: 36px;
+
+        height: 36px;
+
+        min-width: 36px;
+
+        border-radius: 9px;
+
+        font-size: 15px;
+
+    }
+
+
+    #todayLabel {
+
+        font-size: 9px;
+
+    }
+
+
+    #todayDate {
+
+        font-size: 11px;
+
+    }
+
+
+    #todayDay {
+
+        font-size: 9px;
+
+    }
+
+
+    /* LABEL */
+
+    .news-label {
+
+        min-width: 40px;
+
+        padding: 0 10px;
+
+        justify-content: center;
+
+    }
+
+
+    .news-label strong {
+
+        display: none;
+
+    }
+
+
+    .breaking-dot {
+
+        width: 7px;
+
+        height: 7px;
+
+        min-width: 7px;
+
+    }
+
+
+    /* MARQUEE */
+
+    .news-marquee {
+
+        height: 38px;
+
+    }
+
+
+    .news-item {
+
+        font-size: 12px;
+
+        padding-right: 60px;
+
+    }
+
+
+    .news-symbol {
+
+        font-size: 14px;
+
+    }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+    .daily-news {
+
+        padding: 8px 0;
+
+    }
+
+
+    .news-date {
+
+        min-width: 135px;
+
+        padding-left: 8px;
+
+        padding-right: 8px;
+
+    }
+
+
+    .news-calendar-icon {
+
+        width: 32px;
+
+        height: 32px;
+
+        min-width: 32px;
+
+        font-size: 13px;
+
+    }
+
+
+    #todayLabel {
+
+        font-size: 8px;
+
+    }
+
+
+    #todayDate {
+
+        font-size: 10px;
+
+    }
+
+
+    #todayDay {
+
+        font-size: 8px;
+
+    }
+
+
+    .news-label {
+
+        min-width: 25px;
+
+        padding: 0 7px;
+
+    }
+
+
+    .news-item {
+
+        font-size: 11px;
+
+        padding-right: 50px;
+
+    }
+
+}
