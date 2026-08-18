@@ -1,0 +1,27 @@
+.visitor-counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 20px auto;
+    width: fit-content;
+
+    padding: 8px 14px;
+
+    border-radius: 30px;
+
+    background: rgba(255,255,255,.08);
+
+    color: rgba(255,255,255,.85);
+
+    font-size: 14px;
+}
+
+.visitor-counter i {
+    color: var(--accent-light);
+}
+
+.visitor-counter strong {
+    color: #fff;
+    font-weight: 700;
+}
