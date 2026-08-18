@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const UPI_ID = "8260916384@ptsbi";
 
-    const PAYEE_NAME = "Sun Shine Club";
+    const PAYEE_NAME = "Sarbeswar panda";
 
     const PAYMENT_NOTE = "Donation to Sun Shine Club";
 
