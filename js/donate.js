@@ -748,6 +748,11 @@ function validateUTR() {
         SUBMIT DONATION
 ====================================*/
 
+/*====================================
+        SUBMIT DONATION
+        ADMIN + DONOR AUTO-REPLY
+====================================*/
+
 confirmationForm.addEventListener("submit", function (e) {
 
     e.preventDefault();
@@ -756,23 +761,49 @@ confirmationForm.addEventListener("submit", function (e) {
 
     if (!validateUTR()) return;
 
-    const submitBtn = confirmationForm.querySelector("button");
 
-    const originalText = submitBtn.innerHTML;
+    const submitBtn =
+        confirmationForm.querySelector("button");
 
-    // Guard: if EmailJS never loaded, fail fast and
-    // leave the button in its normal, clickable state
-    // instead of getting stuck mid-submit.
+    const originalText =
+        submitBtn.innerHTML;
+
+
+    /* =====================================
+       CHECK EMAILJS
+    ===================================== */
 
     if (typeof emailjs === "undefined") {
 
         showMessage(
-            "Email service is unavailable. Please try again shortly, or contact us directly."
+            "Email service is unavailable. Please try again shortly."
         );
 
         return;
-
     }
+
+
+    /* =====================================
+       DONOR EMAIL
+    ===================================== */
+
+    const donorEmailValue =
+        sessionStorage.getItem("donorEmail");
+
+
+    if (!donorEmailValue) {
+
+        showMessage(
+            "Donor email address is missing. Please check your details."
+        );
+
+        return;
+    }
+
+
+    /* =====================================
+       START SUBMISSION
+    ===================================== */
 
     isSubmitting = true;
 
@@ -783,6 +814,11 @@ confirmationForm.addEventListener("submit", function (e) {
         Submitting...
     `;
 
+
+    /* =====================================
+       EMAIL PARAMETERS
+    ===================================== */
+
     const params = {
 
         donation_id:
@@ -792,7 +828,7 @@ confirmationForm.addEventListener("submit", function (e) {
             sessionStorage.getItem("donorName"),
 
         email:
-            sessionStorage.getItem("donorEmail"),
+            donorEmailValue,
 
         mobile:
             sessionStorage.getItem("donorMobile"),
@@ -811,30 +847,72 @@ confirmationForm.addEventListener("submit", function (e) {
 
     };
 
-    emailjs.send(
 
+    /* =====================================
+       SEND ADMIN EMAIL
+       Order Confirmation
+    ===================================== */
+
+    const adminEmail = emailjs.send(
         "service_0vhfdar_sunshine",
-
         "template_6viqjnd",
-
         params
+    );
 
-    )
 
-    .then(function () {
+    /* =====================================
+       SEND DONOR EMAIL
+       Auto-Reply
+    ===================================== */
+
+    const donorEmail = emailjs.send(
+        "service_0vhfdar_sunshine",
+        "template_Im1upie",
+        params
+    );
+
+
+    /* =====================================
+       WAIT FOR BOTH EMAILS
+    ===================================== */
+
+    Promise.all([
+        adminEmail,
+        donorEmail
+    ])
+
+    .then(function (responses) {
+
+        console.log(
+            "Admin email sent:",
+            responses[0]
+        );
+
+        console.log(
+            "Donor auto-reply sent:",
+            responses[1]
+        );
+
 
         submitBtn.innerHTML = `
             <i class="fas fa-check-circle"></i>
             Submitted Successfully
         `;
 
+
         showMessage(
-
-            "🎉 Thank you!\n\nYour donation details have been submitted successfully."
-
+            "🎉 Thank you!\n\n" +
+            "Your donation details have been submitted successfully.\n\n" +
+            "A confirmation email has been sent to your email address."
         );
 
+
+        /* =====================================
+           RESET FORM
+        ===================================== */
+
         confirmationForm.reset();
+
 
         sessionStorage.removeItem("donationId");
         sessionStorage.removeItem("donorName");
@@ -843,34 +921,47 @@ confirmationForm.addEventListener("submit", function (e) {
         sessionStorage.removeItem("donationAmount");
         sessionStorage.removeItem("donationDate");
 
+
         setTimeout(() => {
 
-            paymentConfirmation.style.display = "none";
+            paymentConfirmation.style.display =
+                "none";
 
             submitBtn.disabled = false;
 
-            submitBtn.innerHTML = originalText;
+            submitBtn.innerHTML =
+                originalText;
 
             isSubmitting = false;
 
-        }, 1500);
+        }, 2000);
 
     })
 
+
+    /* =====================================
+       EMAIL ERROR
+    ===================================== */
+
     .catch(function (error) {
 
-        console.error(error);
+        console.error(
+            "EmailJS error:",
+            error
+        );
+
 
         submitBtn.disabled = false;
 
-        submitBtn.innerHTML = originalText;
+        submitBtn.innerHTML =
+            originalText;
 
         isSubmitting = false;
 
+
         showMessage(
-
-            "Unable to submit donation details.\nPlease try again."
-
+            "Unable to send the donation confirmation emails.\n\n" +
+            "Please try again."
         );
 
     });
