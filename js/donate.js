@@ -370,7 +370,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // ---------- CONFIGURATION ----------
 
-const UPI_ID = "8260916384@ptsbi";
+const UPI_ID = "admin@sunshineclubkendupalli.in";
 const PAYEE_NAME = "Sun Shine Club";
 const PAYMENT_NOTE = "Donation to Sun Shine Club";
 
@@ -496,8 +496,7 @@ function validateDonationForm(){
 
     }
 
-    const mobileRegex =
-    /^[6-9]\d{9}$/;
+    const mobileRegex = /^[6-9]\d{9}$/;
 
     if(!mobileRegex.test(mobile)){
 
@@ -672,12 +671,6 @@ payButton.addEventListener("click", () => {
 
         "&cu=INR";
 
-    // Save payment state
-
-    sessionStorage.setItem(
-        "paymentInitiated",
-        "true"
-    );
 
     // Open installed UPI App
 
@@ -687,43 +680,29 @@ payButton.addEventListener("click", () => {
 
 
 /*====================================
-    SHOW PAYMENT CONFIRMATION
-    (fires once per payment attempt —
-    not on every window refocus)
+    HANDLE RETURN FROM UPI APP
 ====================================*/
 
-function revealPaymentConfirmation(){
-
-    if(
-        sessionStorage.getItem("paymentInitiated") === "true"
-    ){
-
+function handleReturnFromUPI() {
+    // If a donation ID exists, it means payment was just initiated.
+    if (sessionStorage.getItem("donationId")) {
         paymentConfirmation.style.display = "block";
-
         paymentConfirmation.scrollIntoView({
-
             behavior: "smooth",
-
             block: "start"
-
         });
-
-        // Only needs to happen once — remove the
-        // listener so re-focusing the tab later
-        // doesn't keep re-triggering the scroll.
-
-        window.removeEventListener(
-            "focus",
-            revealPaymentConfirmation
-        );
-
     }
-
 }
 
-// If user returns after opening UPI
+// When the page is loaded or becomes visible (e.g., returning from a UPI app)
+document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") {
+        handleReturnFromUPI();
+    }
+});
 
-window.addEventListener("focus", revealPaymentConfirmation);
+window.addEventListener("load", handleReturnFromUPI);
+
 
 /*====================================================
             PAYMENT PART 2
@@ -857,7 +836,6 @@ confirmationForm.addEventListener("submit", function (e) {
 
         confirmationForm.reset();
 
-        sessionStorage.removeItem("paymentInitiated");
         sessionStorage.removeItem("donationId");
         sessionStorage.removeItem("donorName");
         sessionStorage.removeItem("donorEmail");
@@ -899,24 +877,6 @@ confirmationForm.addEventListener("submit", function (e) {
 
 });
 
-
-/*====================================
-    OPTIONAL AUTO FILL AFTER RETURN
-====================================*/
-
-window.addEventListener("load", () => {
-
-    if (
-
-        sessionStorage.getItem("paymentInitiated") === "true"
-
-    ) {
-
-        paymentConfirmation.style.display = "block";
-
-    }
-
-});
 
 
 
