@@ -471,21 +471,21 @@
 
     #todayLabel {
 
-        font-size: 9px;
+        font-size: 12px;
 
     }
 
 
     #todayDate {
 
-        font-size: 11px;
+        font-size: 15px;
 
     }
 
 
     #todayDay {
 
-        font-size: 9px;
+        font-size: 11px;
 
     }
 
@@ -532,7 +532,7 @@
 
     .news-item {
 
-        font-size: 12px;
+        font-size: 15px;
 
         padding-right: 60px;
 
@@ -587,21 +587,21 @@
 
     #todayLabel {
 
-        font-size: 8px;
+        font-size: 12px;
 
     }
 
 
     #todayDate {
 
-        font-size: 10px;
+        font-size: 15px;
 
     }
 
 
     #todayDay {
 
-        font-size: 8px;
+        font-size: 11px;
 
     }
 
@@ -617,7 +617,7 @@
 
     .news-item {
 
-        font-size: 11px;
+        font-size: 15px;
 
         padding-right: 50px;
 
