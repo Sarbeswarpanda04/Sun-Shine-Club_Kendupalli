@@ -453,5 +453,18 @@
     "address": "Kendupalli, Bhapur, Nayagarh",
     "joinDate": "2022-08-31",
     "valid": "2027-12-31"
+  },
+  {
+    "id": "SSC035",
+    "name": "Member Name 35",
+    "odia_name": "ତ୍ରିନାଥ ପଣ୍ଡା",
+    "photo": "../assets/members/member36.jpg",
+    "club": "Sun Shine Club",
+    "designation": "Member",
+    "status": "Active",
+    "phone": "9876543210",
+    "address": "Kendupalli, Bhapur, Nayagarh",
+    "joinDate": "2022-08-31",
+    "valid": "2027-12-31"
   }
 ]
