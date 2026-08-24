@@ -101,6 +101,7 @@
     <link rel="stylesheet" href="css/language.css" />
     <link rel="stylesheet" href="css/hero.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/popup-screen.css">
     <link rel="stylesheet" href="css/nitivani.css" />
     <link rel="stylesheet" href="css/footer.css" />
     <link rel="stylesheet" href="css/visitor-count.css" />
@@ -1286,10 +1287,80 @@
 
 </button>
 
+
+
+
+
+<!-- =========================================
+     YOUTUBE SUBSCRIBE POPUP
+========================================= -->
+
+<div
+    class="youtube-popup-overlay"
+    id="youtubePopup"
+    aria-hidden="true"
+>
+    <div
+        class="youtube-popup"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="youtubePopupTitle"
+    >
+
+        <!-- Close Button -->
+        <button
+            type="button"
+            class="youtube-popup-close"
+            id="youtubePopupClose"
+            aria-label="Close subscription popup"
+        >
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <!-- YouTube Icon -->
+        <div class="youtube-popup-icon">
+            <i class="fa-brands fa-youtube"></i>
+        </div>
+
+        <span class="youtube-popup-badge">
+            OUR YOUTUBE CHANNEL
+        </span>
+
+        <h2 id="youtubePopupTitle">
+            Subscribe to Sun Shine Club
+        </h2>
+
+        <p>
+            Follow our YouTube channel to watch our latest
+            events, celebrations, activities and memorable moments.
+        </p>
+
+        <a
+            href="https://www.youtube.com/@SunshineClubKendupalli"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="youtube-subscribe-btn"
+        >
+            <i class="fa-brands fa-youtube"></i>
+            Subscribe on YouTube
+        </a>
+
+        <button
+            type="button"
+            class="youtube-popup-later"
+            id="youtubePopupLater"
+        >
+            Maybe Later
+        </button>
+
+    </div>
+</div>
+
     <!-- JavaScript -->
     <script src="js/navbar.js"></script>
     <script src="js/hero.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/popup-screen.js"></script>
     <script src="js/nitivani.js"></script>
     <script src="js/footer.js"></script>
 

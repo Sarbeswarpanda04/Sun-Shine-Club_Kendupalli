@@ -74,7 +74,7 @@
     "status": "Active",
     "phone": "7859910272",
     "address": "Kendupalli, Bhapur, Nayagarh",
-    "joinDate": "2022-08-31",
+    "joinDate": "2026-08-24",
     "valid": "2027-12-31"
   },
   {
@@ -133,7 +133,7 @@
     "id": "SSC011",
     "name": "Alok Kumar Pradhan",
     "odia_name": "ଆଲୋକ କୁମାର ପ୍ରଧାନ",
-    "photo": "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/members/no-image.jpg",
+    "photo": "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/members/alok-kumar-pradhan.jpg",
     "club": "Sun Shine Club",
     "designation": "Member",
     "status": "Active",
@@ -334,7 +334,7 @@
     "status": "Active",
     "phone": "8984070925",
     "address": "Kendupalli, Bhapur, Nayagarh",
-    "joinDate": "2022-08-31",
+    "joinDate": "2026-08-24",
     "valid": "2027-12-31"
   },
   {
@@ -347,7 +347,7 @@
     "status": "Active",
     "phone": "9876543210",
     "address": "Kendupalli, Bhapur, Nayagarh",
-    "joinDate": "2022-08-31",
+    "joinDate": "2025-08-31",
     "valid": "2027-12-31"
   },
   {
@@ -360,7 +360,7 @@
     "status": "Active",
     "phone": "7847947425",
     "address": "Kendupalli, Bhapur, Nayagarh",
-    "joinDate": "2022-08-31",
+    "joinDate": "2026-08-24",
     "valid": "2027-12-31"
   },
   {
@@ -442,7 +442,7 @@
     "valid": "2027-12-31"
   },
   {
-    "id": "SSC034",
+    "id": "SSC035",
     "name": "Amaresh Panda",
     "odia_name": "ଅମରେଶ ପଣ୍ଡା",
     "photo": "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/members/amaresh-panda.jpg",
@@ -451,11 +451,11 @@
     "status": "Active",
     "phone": "9876543210",
     "address": "Kendupalli, Bhapur, Nayagarh",
-    "joinDate": "2022-08-31",
+    "joinDate": "2025-08-31",
     "valid": "2027-12-31"
   },
   {
-    "id": "SSC035",
+    "id": "SSC036",
     "name": "Manoj Pradhan",
     "odia_name": "ମନୋଜ ପ୍ରଧାନ",
     "photo": "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/members/manoj-pradhan.jpg",
@@ -464,11 +464,11 @@
     "status": "Active",
     "phone": "9876543210",
     "address": "Kendupalli, Bhapur, Nayagarh",
-    "joinDate": "2022-08-31",
+    "joinDate": "2026-08-24",
     "valid": "2027-12-31"
   },
   {
-    "id": "SSC036",
+    "id": "SSC037",
     "name": "Bibhuprasad Pradhan",
     "odia_name": "ବିଭୁପ୍ରସାଦ ପ୍ରଧାନ",
     "photo": "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/members/bibhu-prasad-pradhan.jpg",
@@ -477,11 +477,11 @@
     "status": "Active",
     "phone": "9337405017",
     "address": "Kendupalli, Bhapur, Nayagarh",
-    "joinDate": "2022-08-31",
+    "joinDate": "2026-08-24",
     "valid": "2027-12-31"
   },
   {
-    "id": "SSC037",
+    "id": "SSC038",
     "name": "Animesh Panda",
     "odia_name": "ଅନିମେଶ ପଣ୍ଡା",
     "photo": "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/members/animesh-panda.jpg",
@@ -494,7 +494,7 @@
     "valid": "2027-12-31"
   },
   {
-    "id": "SSC038",
+    "id": "SSC039",
     "name": "Priyanshu Panda",
     "odia_name": "ପ୍ରିୟାଂଶୁ ପଣ୍ଡା",
     "photo": "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/members/priyanshu-panda.jpg",
@@ -503,24 +503,24 @@
     "status": "Active",
     "phone": "9337405017",
     "address": "Kendupalli, Bhapur, Nayagarh",
-    "joinDate": "2022-08-31",
+    "joinDate": "2025-08-31",
     "valid": "2027-12-31"
   },
   {
-    "id": "SSC039",
+    "id": "SSC040",
     "name": "Sonoj Pradhan",
     "odia_name": "ସନୋଜ ପ୍ରଧାନ",
-    "photo": "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/members/sonoj-pradhana.jpg",
+    "photo": "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/members/sonoj-pradhan.jpg",
     "club": "Sun Shine Club",
     "designation": "Member",
     "status": "Active",
     "phone": "9337405017",
     "address": "Kendupalli, Bhapur, Nayagarh",
-    "joinDate": "2022-08-31",
+    "joinDate": "2026-08-24",
     "valid": "2027-12-31"
   },
   {
-    "id": "SSC040",
+    "id": "SSC041",
     "name": "Adarsh Panda",
     "odia_name": "ଆଦର୍ଶ ପଣ୍ଡା",
     "photo": "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/members/adarsha-panda.jpg",
@@ -529,7 +529,20 @@
     "status": "Active",
     "phone": "9337405017",
     "address": "Kendupalli, Bhapur, Nayagarh",
-    "joinDate": "2022-08-31",
+    "joinDate": "2026-08-24",
+    "valid": "2027-12-31"
+  },
+  {
+    "id": "SSC042",
+    "name": "Nursingha chandra Panda",
+    "odia_name": "ନୃସିଂହ ଚରଣ ପଣ୍ଡା",
+    "photo": "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/members/nursingha-chandra-panda.jpg",
+    "club": "Sun Shine Club",
+    "designation": "Member",
+    "status": "Active",
+    "phone": "9776621202",
+    "address": "Kendupalli, Bhapur, Nayagarh",
+    "joinDate": "2026-08-24",
     "valid": "2027-12-31"
   }
 ]

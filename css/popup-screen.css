@@ -1,0 +1,361 @@
+/* =========================================
+   YOUTUBE SUBSCRIBE POPUP
+========================================= */
+
+.youtube-popup-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 99999;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(0, 0, 0, 0.58);
+
+    backdrop-filter: blur(6px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.35s ease,
+        visibility 0.35s ease;
+}
+
+
+/* OPEN */
+
+.youtube-popup-overlay.show {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+/* POPUP */
+
+.youtube-popup {
+
+    position: relative;
+
+    width: min(440px, 100%);
+
+    padding: 42px 35px 32px;
+
+    text-align: center;
+
+    background: #ffffff;
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.30);
+
+    transform: translateY(30px) scale(0.92);
+
+    transition: transform 0.4s cubic-bezier(.2,.8,.2,1);
+
+    overflow: hidden;
+}
+
+
+.youtube-popup-overlay.show .youtube-popup {
+
+    transform: translateY(0) scale(1);
+}
+
+
+/* TOP DECORATION */
+
+.youtube-popup::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 6px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff0000,
+            #ff3d3d,
+            #ff0000
+        );
+}
+
+
+/* CLOSE */
+
+.youtube-popup-close {
+
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    width: 38px;
+    height: 38px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #f4f4f4;
+
+    color: #555;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transition: 0.25s ease;
+}
+
+
+.youtube-popup-close:hover {
+
+    background: #ff0000;
+
+    color: #ffffff;
+
+    transform: rotate(90deg);
+}
+
+
+/* YOUTUBE ICON */
+
+.youtube-popup-icon {
+
+    width: 76px;
+    height: 76px;
+
+    margin: 0 auto 18px;
+
+    border-radius: 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #ff0000;
+
+    color: #ffffff;
+
+    font-size: 40px;
+
+    box-shadow:
+        0 12px 30px rgba(255, 0, 0, 0.25);
+}
+
+
+/* BADGE */
+
+.youtube-popup-badge {
+
+    display: inline-block;
+
+    margin-bottom: 10px;
+
+    padding: 6px 13px;
+
+    border-radius: 30px;
+
+    background: #fff0f0;
+
+    color: #e00000;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+
+/* TITLE */
+
+.youtube-popup h2 {
+
+    margin: 0 0 12px;
+
+    color: #18202a;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 27px;
+
+    font-weight: 700;
+
+    line-height: 1.25;
+}
+
+
+/* DESCRIPTION */
+
+.youtube-popup p {
+
+    margin: 0 auto 25px;
+
+    max-width: 350px;
+
+    color: #666;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* SUBSCRIBE BUTTON */
+
+.youtube-subscribe-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    width: 100%;
+
+    min-height: 52px;
+
+    padding: 13px 22px;
+
+    border-radius: 14px;
+
+    background: #ff0000;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    box-shadow:
+        0 10px 25px rgba(255, 0, 0, 0.22);
+
+    transition: 0.3s ease;
+}
+
+
+.youtube-subscribe-btn:hover {
+
+    background: #d90000;
+
+    color: #ffffff;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 14px 30px rgba(255, 0, 0, 0.28);
+}
+
+
+/* MAYBE LATER */
+
+.youtube-popup-later {
+
+    margin-top: 15px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #777;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+
+.youtube-popup-later:hover {
+
+    color: #222;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 480px) {
+
+    .youtube-popup-overlay {
+
+        padding: 15px;
+    }
+
+
+    .youtube-popup {
+
+        padding:
+            38px
+            22px
+            25px;
+
+        border-radius: 23px;
+    }
+
+
+    .youtube-popup-icon {
+
+        width: 65px;
+        height: 65px;
+
+        font-size: 34px;
+
+        border-radius: 18px;
+    }
+
+
+    .youtube-popup h2 {
+
+        font-size: 23px;
+    }
+
+
+    .youtube-popup p {
+
+        font-size: 13px;
+    }
+
+}
