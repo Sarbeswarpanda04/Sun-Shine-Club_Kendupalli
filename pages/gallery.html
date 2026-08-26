@@ -6,9 +6,9 @@
 
     <title>Gallery - Sun Shine Club - Kendupalli</title>
     <meta
-      name="description"
-      content="Browse the photo gallery of Sun Shine Club Kendupalli featuring events, festivals, celebrations, and community programs from Nayagarh, Odisha."
-    />
+    name="description"
+    content="Explore Sun Shine Club Kendupalli's photo and video gallery featuring Ganesh Puja, Saraswati Puja, cultural celebrations, community events and memorable moments from Odisha."
+>
     <meta
       name="keywords"
       content="Sun Shine Club gallery, Kendupalli event photos, Odisha festival gallery, community club images, Ganesh Puja gallery, Saraswati Puja gallery"
@@ -23,12 +23,20 @@
     <link rel="manifest" href="../manifest.webmanifest" />
     <link rel="canonical" href="https://sunshineclubkendupalli.in/pages/gallery.html" />
 
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Gallery - Sun Shine Club - Kendupalli" />
     <meta
-      property="og:description"
-      content="See the latest event and festival highlights from Sun Shine Club Kendupalli."
-    />
+    property="og:type"
+    content="website"
+>
+
+<meta
+    property="og:title"
+    content="Sun Shine Club Kendupalli Gallery | Events & Festivals"
+>
+
+<meta
+    property="og:description"
+    content="Explore photos and videos from Sun Shine Club Kendupalli events, Ganesh Puja, Saraswati Puja and community celebrations."
+>
     <meta property="og:url" content="https://sunshineclubkendupalli.in/pages/gallery.html" />
     <meta property="og:image" content="https://sunshineclubkendupalli.in/assets/logo/sun-shine-club-logo.png" />
 
@@ -71,1506 +79,437 @@
       <section class="page-hero">
         <div class="container">
           <h1>Gallery</h1>
-
-          <p>
-            Explore our memorable moments from
-            <strong>Ganesh Puja</strong>, <strong>Saraswati Puja</strong>, and
-            other celebrations over the years.
-          </p>
         </div>
       </section>
 
       <!-- =========================================
-            GALLERY FILTERS
-========================================== -->
+     GALLERY FILTER PANEL
+========================================= -->
 
-      <section class="gallery-section">
-        <div class="container">
-          <!-- Festival -->
+<div class="gallery-filter-panel">
 
-          <div class="filter-group">
-            <h3>Select Festival</h3>
+    <div class="filter-topbar">
+        <div>
+            <span class="filter-kicker">Gallery Filters</span>
+            <h2>Explore Our Memories</h2>
+        </div>
 
-            <div class="filter-buttons">
-              <button class="filter-btn active" data-festival="ganesh">
-                Ganesh Puja
-              </button>
+        <button type="button" class="filter-reset" id="resetGalleryFilters">
+            <i class="fa-solid fa-rotate-left"></i>
+            Reset
+        </button>
+    </div>
 
-              <button class="filter-btn" data-festival="saraswati">
-                Saraswati Puja
-              </button>
+
+    <div class="filter-grid">
+
+
+        <!-- =====================================
+             FESTIVAL
+        ====================================== -->
+
+        <div class="filter-block">
+
+            <button
+                type="button"
+                class="filter-heading"
+                data-filter-toggle="festival">
+
+                <span class="filter-heading-left">
+
+                    <span class="filter-icon">
+                        <i class="fa-solid fa-champagne-glasses"></i>
+                    </span>
+
+                    <span>
+                        <small>1. Choose</small>
+                        <strong>Festival</strong>
+                    </span>
+
+                </span>
+
+                <i class="fa-solid fa-chevron-down filter-arrow"></i>
+
+            </button>
+
+
+            <div class="filter-options" data-filter-content="festival">
+
+                <button
+                    type="button"
+                    class="filter-option festival-option active"
+                    data-festival="ganesh">
+
+                    <span class="option-icon">
+                        <i class="fa-solid fa-om"></i>
+                    </span>
+
+                    <span>Ganesh</span>
+
+                    <i class="fa-solid fa-check option-check"></i>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="filter-option festival-option"
+                    data-festival="saraswati">
+
+                    <span class="option-icon">
+                        <i class="fa-solid fa-book-open"></i>
+                    </span>
+
+                    <span>Saraswati</span>
+
+                    <i class="fa-solid fa-check option-check"></i>
+
+                </button>
+
             </div>
-          </div>
 
-          <!-- Media -->
+        </div>
 
-          <div class="filter-group">
-            <h3>Select Media</h3>
 
-            <div class="filter-buttons">
-              <button class="filter-btn active" data-media="images">
-                Images
-              </button>
 
-              <button class="filter-btn" data-media="videos">Videos</button>
+        <!-- =====================================
+             YEAR
+        ====================================== -->
+
+        <div class="filter-block">
+
+            <button
+                type="button"
+                class="filter-heading"
+                data-filter-toggle="year">
+
+                <span class="filter-heading-left">
+
+                    <span class="filter-icon">
+                        <i class="fa-regular fa-calendar"></i>
+                    </span>
+
+                    <span>
+                        <small>2. Choose</small>
+                        <strong>Year</strong>
+                    </span>
+
+                </span>
+
+                <i class="fa-solid fa-chevron-down filter-arrow"></i>
+
+            </button>
+
+
+            <div class="filter-options" data-filter-content="year">
+
+                <button
+                    type="button"
+                    class="filter-option year-option year-btn active"
+                    data-year="2026">
+
+                    <span>2026</span>
+
+                    <i class="fa-solid fa-check option-check"></i>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="filter-option year-option year-btn"
+                    data-year="2025">
+
+                    <span>2025</span>
+
+                    <i class="fa-solid fa-check option-check"></i>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="filter-option year-option year-btn"
+                    data-year="2024">
+
+                    <span>2024</span>
+
+                    <i class="fa-solid fa-check option-check"></i>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="filter-option year-option year-btn"
+                    data-year="2023">
+
+                    <span>2023</span>
+
+                    <i class="fa-solid fa-check option-check"></i>
+
+                </button>
+
             </div>
-          </div>
 
-          <!-- Year -->
+        </div>
 
-          <div class="filter-group">
-            <h3>Select Year</h3>
 
-            <div class="year-buttons">
-              <button class="year-btn active" data-year="2026">2026</button>
 
-              <button class="year-btn" data-year="2025">2025</button>
+        <!-- =====================================
+             MEDIA
+        ====================================== -->
 
-              <button class="year-btn" data-year="2024">2024</button>
+        <div class="filter-block">
 
-              <button class="year-btn" data-year="2023">2023</button>
+            <button
+                type="button"
+                class="filter-heading"
+                data-filter-toggle="media">
 
-              <button class="year-btn" data-year="2022">2022</button>
+                <span class="filter-heading-left">
 
-              <button class="year-btn" data-year="2021">2021</button>
+                    <span class="filter-icon">
+                        <i class="fa-regular fa-images"></i>
+                    </span>
 
-              <button class="year-btn" data-year="2020">2020</button>
+                    <span>
+                        <small>3. Choose</small>
+                        <strong>Media</strong>
+                    </span>
+
+                </span>
+
+                <i class="fa-solid fa-chevron-down filter-arrow"></i>
+
+            </button>
+
+
+            <div class="filter-options" data-filter-content="media">
+
+                <button
+                    type="button"
+                    class="filter-option media-option active"
+                    data-media="images">
+
+                    <span class="option-icon">
+                        <i class="fa-regular fa-image"></i>
+                    </span>
+
+                    <span>Images</span>
+
+                    <i class="fa-solid fa-check option-check"></i>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="filter-option media-option"
+                    data-media="videos">
+
+                    <span class="option-icon">
+                        <i class="fa-regular fa-circle-play"></i>
+                    </span>
+
+                    <span>Videos</span>
+
+                    <i class="fa-solid fa-check option-check"></i>
+
+                </button>
+
             </div>
-          </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================
+         CURRENT SELECTION
+    ====================================== -->
+
+    <div class="selection-summary">
+
+        <div class="summary-icon">
+            <i class="fa-solid fa-sliders"></i>
+        </div>
+
+        <div class="summary-content">
+
+            <span>Currently viewing</span>
+
+            <strong id="selectionSummary">
+                Ganesh • 2026 • Images
+            </strong>
+
+        </div>
+
+        <i class="fa-solid fa-arrow-right summary-arrow"></i>
+
+    </div>
+
+</div>
 
           <!-- =========================================
                 IMAGES
 ========================================== -->
-
-          <div class="gallery-grid" id="imageGallery">
-            <!-- Image 1 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2025">
-              <img src="../assets/gallery/ganesh/2025/img1.jpg" alt="Gallery" />
-            </div>
-
-            <!-- Image 2 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2025">
-              <img src="../assets/gallery/ganesh/2025/img2.jpg" alt="Gallery" />
-            </div>
-
-            <!-- Image 3 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2025">
-              <img src="../assets/gallery/ganesh/2025/img3.jpg" alt="Gallery" />
-            </div>
-
-            <!-- Image 4 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2025">
-              <img src="../assets/gallery/ganesh/2025/img4.jpg" alt="Gallery" />
-            </div>
-
-            <!-- Image 5 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2025">
-              <img src="../assets/gallery/ganesh/2025/img5.jpg" alt="Gallery" />
-            </div>
-
-            <!-- Image 6 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2025">
-              <img src="../assets/gallery/ganesh/2025/img6.jpg" alt="Gallery" />
-            </div>
-
-            <!-- Image 7 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2025">
-              <img src="../assets/gallery/ganesh/2025/img7.jpg" alt="Gallery" />
-            </div>
-
-            <!-- Image 8 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2025">
-              <img src="../assets/gallery/ganesh/2025/img8.jpg" alt="Gallery" />
-            </div>
-
-            <!-- Image 9 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2025">
-              <img src="../assets/gallery/ganesh/2025/img9.jpg" alt="Gallery" />
-            </div>
-
-            <!-- Image 10 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2025">
-              <img
-                src="../assets/gallery/ganesh/2025/img10.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 11 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2025">
-              <img
-                src="../assets/gallery/ganesh/2025/img11.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 12 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2025">
-              <img
-                src="../assets/gallery/ganesh/2025/img12.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 13 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2025">
-              <img
-                src="../assets/gallery/ganesh/2025/img13.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 14 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2025">
-              <img
-                src="../assets/gallery/ganesh/2025/img14.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 15 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2025">
-              <img
-                src="../assets/gallery/ganesh/2025/img15.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 16 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2025">
-              <img
-                src="../assets/gallery/ganesh/2025/img16.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 17 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2025">
-              <img
-                src="../assets/gallery/ganesh/2025/img17.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 18 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2025">
-              <img
-                src="../assets/gallery/ganesh/2025/img18.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 19 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2025">
-              <img
-                src="../assets/gallery/ganesh/2025/img19.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 20 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2025">
-              <img
-                src="../assets/gallery/ganesh/2025/img20.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 21 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2025">
-              <img
-                src="../assets/gallery/ganesh/2025/img21.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 22 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2025">
-              <img
-                src="../assets/gallery/ganesh/2025/img22.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 23 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2025">
-              <img
-                src="../assets/gallery/ganesh/2025/img23.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 24 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2025">
-              <img
-                src="../assets/gallery/ganesh/2025/img24.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 25 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2025">
-              <img
-                src="../assets/gallery/ganesh/2025/img25.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 26 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2025">
-              <img
-                src="../assets/gallery/ganesh/2025/img26.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 27 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2025">
-              <img
-                src="../assets/gallery/ganesh/2025/img27.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!--===================
-          Ganesh Puja Photo 2024
-          =====================-->
-            <!-- Image 1 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2024">
-              <img src="../assets/gallery/ganesh/2024/img1.jpg" alt="Gallery" />
-            </div>
-
-            <!-- Image 2 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2024">
-              <img src="../assets/gallery/ganesh/2024/img2.jpg" alt="Gallery" />
-            </div>
-
-            <!-- Image 3 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2024">
-              <img src="../assets/gallery/ganesh/2024/img3.jpg" alt="Gallery" />
-            </div>
-
-            <!-- Image 4 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2024">
-              <img src="../assets/gallery/ganesh/2024/img4.jpg" alt="Gallery" />
-            </div>
-
-            <!-- Image 5 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2024">
-              <img src="../assets/gallery/ganesh/2024/img5.jpg" alt="Gallery" />
-            </div>
-
-            <!-- Image 6 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2024">
-              <img src="../assets/gallery/ganesh/2024/img6.jpg" alt="Gallery" />
-            </div>
-
-            <!-- Image 7 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2024">
-              <img src="../assets/gallery/ganesh/2024/img7.jpg" alt="Gallery" />
-            </div>
-
-            <!-- Image 8 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2024">
-              <img src="../assets/gallery/ganesh/2024/img8.jpg" alt="Gallery" />
-            </div>
-
-            <!-- Image 9 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2024">
-              <img src="../assets/gallery/ganesh/2024/img9.jpg" alt="Gallery" />
-            </div>
-
-            <!-- Image 10 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2024">
-              <img
-                src="../assets/gallery/ganesh/2024/img10.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 11 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2024">
-              <img
-                src="../assets/gallery/ganesh/2024/img11.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 12 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2024">
-              <img
-                src="../assets/gallery/ganesh/2024/img12.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 13 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2024">
-              <img
-                src="../assets/gallery/ganesh/2024/img13.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 14 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2024">
-              <img
-                src="../assets/gallery/ganesh/2024/img14.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 15 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2024">
-              <img
-                src="../assets/gallery/ganesh/2024/img15.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 16 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2024">
-              <img
-                src="../assets/gallery/ganesh/2024/img16.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 17 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2024">
-              <img
-                src="../assets/gallery/ganesh/2024/img17.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 18 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2024">
-              <img
-                src="../assets/gallery/ganesh/2024/img18.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 19 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2024">
-              <img
-                src="../assets/gallery/ganesh/2024/img19.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 20 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2024">
-              <img
-                src="../assets/gallery/ganesh/2024/img20.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 21 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2024">
-              <img
-                src="../assets/gallery/ganesh/2024/img21.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!--======================
-             Ganesh Puja photo 2023
-          =======================-->
-            <!-- Image 1 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2023">
-              <img src="https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2023/img1.jpg" alt="Gallery" />
-            </div>
-
-            <!-- Image 2 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2023">
-              <img src="https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2023/img2.jpg" alt="Gallery" />
-            </div>
-
-            <!-- Image 3 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2023">
-              <img src="https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2023/img3.jpg" alt="Gallery" />
-            </div>
-
-            <!-- Image 4 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2023">
-              <img src="https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2023/img4.jpg" alt="Gallery" />
-            </div>
-
-            <!-- Image 5 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2023">
-              <img src="https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2023/img5.jpg" alt="Gallery" />
-            </div>
-
-            <!-- Image 6 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2023">
-              <img src="https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2023/img6.jpg" alt="Gallery" />
-            </div>
-
-            <!-- Image 7 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2023">
-              <img src="https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2023/img7.jpg" alt="Gallery" />
-            </div>
-
-            <!-- Image 8 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2023">
-              <img src="https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2023/img8.jpg" alt="Gallery" />
-            </div>
-
-            <!-- Image 9 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2023">
-              <img src="https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2023/img9.jpg" alt="Gallery" />
-            </div>
-
-            <!-- Image 10 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2023">
-              <img
-                src="https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2023/img10.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 11 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2023">
-              <img
-                src="https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2023/img11.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 12 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2023">
-              <img
-                src="https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2023/img12.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 13 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2023">
-              <img
-                src="https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2023/img13.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 14 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2023">
-              <img
-                src="https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev//gallery/ganesh/2023/img14.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 15 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2023">
-              <img
-                src="../assets/gallery/ganesh/2023/img15.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 16 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2023">
-              <img
-                src="https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2023/img16.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 17 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2023">
-              <img
-                src="../assets/gallery/ganesh/2023/img17.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 18 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2023">
-              <img
-                src="https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2023/img18.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 19 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2023">
-              <img
-                src="https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2023/img19.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 20 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2023">
-              <img
-                src="https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev//gallery/ganesh/2023/img20.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 21 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2023">
-              <img
-                src="https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2023/img21.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 22 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2023">
-              <img
-                src="https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2023/img22.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 23 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2023">
-              <img
-                src="https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2023/img23.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 24 -->
-
-            <div class="gallery-card" data-festival="ganesh" data-year="2023">
-              <img
-                src="https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2023/img24.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!--========================
-             Saraswati puja photo 2026
-             =========================-->
-            <!-- Image 1 -->
-
-            <div
-              class="gallery-card"
-              data-festival="saraswati"
-              data-year="2026"
-            >
-              <img
-                src="../assets/gallery/saraswati/2026/img1.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 2 -->
-
-            <div
-              class="gallery-card"
-              data-festival="saraswati"
-              data-year="2026"
-            >
-              <img
-                src="../assets/gallery/saraswati/2026/img2.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 3 -->
-
-            <div
-              class="gallery-card"
-              data-festival="saraswati"
-              data-year="2026"
-            >
-              <img
-                src="../assets/gallery/saraswati/2026/img3.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 4 -->
-
-            <div
-              class="gallery-card"
-              data-festival="saraswati"
-              data-year="2026"
-            >
-              <img
-                src="../assets/gallery/saraswati/2026/img4.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 5 -->
-
-            <div
-              class="gallery-card"
-              data-festival="saraswati"
-              data-year="2026"
-            >
-              <img
-                src="../assets/gallery/saraswati/2026/img5.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 6 -->
-
-            <div
-              class="gallery-card"
-              data-festival="saraswati"
-              data-year="2026"
-            >
-              <img
-                src="../assets/gallery/saraswati/2026/img6.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 7 -->
-
-            <div
-              class="gallery-card"
-              data-festival="saraswati"
-              data-year="2026"
-            >
-              <img
-                src="../assets/gallery/saraswati/2026/img7.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 8 -->
-
-            <div
-              class="gallery-card"
-              data-festival="saraswati"
-              data-year="2026"
-            >
-              <img
-                src="../assets/gallery/saraswati/2026/img8.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 9 -->
-
-            <div
-              class="gallery-card"
-              data-festival="saraswati"
-              data-year="2026"
-            >
-              <img
-                src="../assets/gallery/saraswati/2026/img9.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 10 -->
-
-            <div
-              class="gallery-card"
-              data-festival="saraswati"
-              data-year="2026"
-            >
-              <img
-                src="../assets/gallery/saraswati/2026/img10.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 11 -->
-
-            <div
-              class="gallery-card"
-              data-festival="saraswati"
-              data-year="2026"
-            >
-              <img
-                src="../assets/gallery/saraswati/2026/img11.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 12 -->
-
-            <div
-              class="gallery-card"
-              data-festival="saraswati"
-              data-year="2026"
-            >
-              <img
-                src="../assets/gallery/saraswati/2026/img12.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 13 -->
-
-            <div
-              class="gallery-card"
-              data-festival="saraswati"
-              data-year="2026"
-            >
-              <img
-                src="../assets/gallery/saraswati/2026/img13.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 14 -->
-
-            <div
-              class="gallery-card"
-              data-festival="saraswati"
-              data-year="2026"
-            >
-              <img
-                src="../assets/gallery/saraswati/2026/img14.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!--======================
-             Saraswati puja photo 2025
-             ========================-->
-            <!-- Image 1 -->
-
-            <div
-              class="gallery-card"
-              data-festival="saraswati"
-              data-year="2025"
-            >
-              <img
-                src="../assets/gallery/saraswati/2025/img1.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 2 -->
-
-            <div
-              class="gallery-card"
-              data-festival="saraswati"
-              data-year="2025"
-            >
-              <img
-                src="../assets/gallery/saraswati/2025/img2.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 3 -->
-
-            <div
-              class="gallery-card"
-              data-festival="saraswati"
-              data-year="2025"
-            >
-              <img
-                src="../assets/gallery/saraswati/2025/img3.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 4 -->
-
-            <div
-              class="gallery-card"
-              data-festival="saraswati"
-              data-year="2025"
-            >
-              <img
-                src="../assets/gallery/saraswati/2025/img4.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 5 -->
-
-            <div
-              class="gallery-card"
-              data-festival="saraswati"
-              data-year="2025"
-            >
-              <img
-                src="../assets/gallery/saraswati/2025/img5.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 6 -->
-
-            <div
-              class="gallery-card"
-              data-festival="saraswati"
-              data-year="2025"
-            >
-              <img
-                src="../assets/gallery/saraswati/2025/img6.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 7 -->
-
-            <div
-              class="gallery-card"
-              data-festival="saraswati"
-              data-year="2025"
-            >
-              <img
-                src="../assets/gallery/saraswati/2025/img7.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 8 -->
-
-            <div
-              class="gallery-card"
-              data-festival="saraswati"
-              data-year="2025"
-            >
-              <img
-                src="../assets/gallery/saraswati/2025/img8.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 9 -->
-
-            <div
-              class="gallery-card"
-              data-festival="saraswati"
-              data-year="2025"
-            >
-              <img
-                src="../assets/gallery/saraswati/2025/img9.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 10 -->
-
-            <div
-              class="gallery-card"
-              data-festival="saraswati"
-              data-year="2025"
-            >
-              <img
-                src="../assets/gallery/saraswati/2025/img10.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 11 -->
-
-            <div
-              class="gallery-card"
-              data-festival="saraswati"
-              data-year="2025"
-            >
-              <img
-                src="../assets/gallery/saraswati/2025/img11.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!--======================
-             Saraswati puja photo 2024
-             ========================-->
-            <!-- Image 1 -->
-
-            <div
-              class="gallery-card"
-              data-festival="saraswati"
-              data-year="2024"
-            >
-              <img
-                src="../assets/gallery/saraswati/2024/img1.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 2 -->
-
-            <div
-              class="gallery-card"
-              data-festival="saraswati"
-              data-year="2024"
-            >
-              <img
-                src="../assets/gallery/saraswati/2024/img2.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 3 -->
-
-            <div
-              class="gallery-card"
-              data-festival="saraswati"
-              data-year="2024"
-            >
-              <img
-                src="../assets/gallery/saraswati/2024/img3.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 4 -->
-
-            <div
-              class="gallery-card"
-              data-festival="saraswati"
-              data-year="2024"
-            >
-              <img
-                src="../assets/gallery/saraswati/2024/img4.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 5 -->
-
-            <div
-              class="gallery-card"
-              data-festival="saraswati"
-              data-year="2024"
-            >
-              <img
-                src="../assets/gallery/saraswati/2024/img5.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 6 -->
-
-            <div
-              class="gallery-card"
-              data-festival="saraswati"
-              data-year="2024"
-            >
-              <img
-                src="../assets/gallery/saraswati/2024/img6.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 7 -->
-
-            <div
-              class="gallery-card"
-              data-festival="saraswati"
-              data-year="2024"
-            >
-              <img
-                src="../assets/gallery/saraswati/2024/img7.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 8 -->
-
-            <div
-              class="gallery-card"
-              data-festival="saraswati"
-              data-year="2024"
-            >
-              <img
-                src="../assets/gallery/saraswati/2024/img8.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 9 -->
-
-            <div
-              class="gallery-card"
-              data-festival="saraswati"
-              data-year="2024"
-            >
-              <img
-                src="../assets/gallery/saraswati/2024/img9.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 10 -->
-
-            <div
-              class="gallery-card"
-              data-festival="saraswati"
-              data-year="2024"
-            >
-              <img
-                src="../assets/gallery/saraswati/2024/img10.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 11 -->
-
-            <div
-              class="gallery-card"
-              data-festival="saraswati"
-              data-year="2024"
-            >
-              <img
-                src="../assets/gallery/saraswati/2024/img11.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 12 -->
-
-            <div
-              class="gallery-card"
-              data-festival="saraswati"
-              data-year="2024"
-            >
-              <img
-                src="../assets/gallery/saraswati/2024/img12.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 13 -->
-
-            <div
-              class="gallery-card"
-              data-festival="saraswati"
-              data-year="2024"
-            >
-              <img
-                src="../assets/gallery/saraswati/2024/img13.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 14 -->
-
-            <div
-              class="gallery-card"
-              data-festival="saraswati"
-              data-year="2024"
-            >
-              <img
-                src="../assets/gallery/saraswati/2024/img14.jpg"
-                alt="Gallery"
-              />
-            </div>
-
-            <!-- Image 15 -->
-
-            <div
-              class="gallery-card"
-              data-festival="saraswati"
-              data-year="2024"
-            >
-              <img
-                src="../assets/gallery/saraswati/2024/img15.jpg"
-                alt="Gallery"
-              />
-            </div>
-          </div>
-          <!-- =========================================
-                VIDEOS
-          ========================================== -->
-
-          <!-- =========================================
-                2026
-          ========================================== -->
-          <div class="video-grid" id="videoGallery" style="display: none">
-            <div class="video-card" data-festival="ganesh" data-year="2026">
-              <iframe
-                src="https://www.youtube.com/embed/iKu59thWVeA"
-                title="Video"
-                loading="lazy"
-                allowfullscreen
-              >
-              </iframe>
-            </div>
-
-            <div class="video-card" data-festival="ganesh" data-year="2026">
-              <iframe
-                src="https://www.youtube.com/embed/tjJD99FUth4"
-                title="Video"
-                loading="lazy"
-                allowfullscreen
-              >
-              </iframe>
-            </div>
-            <!-- =========================================
-                2025
-          ========================================== -->
-            <div class="video-card" data-festival="ganesh" data-year="2025">
-              <iframe
-                src="https://www.youtube.com/embed/iKu59thWVeA"
-                title="Video"
-                loading="lazy"
-                allowfullscreen
-              >
-              </iframe>
-            </div>
-
-            <div class="video-card" data-festival="ganesh" data-year="2025">
-              <iframe
-                src="https://www.youtube.com/embed/tjJD99FUth4"
-                title="Video"
-                loading="lazy"
-                allowfullscreen
-              >
-              </iframe>
-            </div>
-            <!-- =========================================
-                2024
-          ========================================== -->
-            <div class="video-card" data-festival="ganesh" data-year="2024">
-              <iframe
-                src="https://www.youtube.com/embed/tjJD99FUth4"
-                title="Video"
-                loading="lazy"
-                allowfullscreen
-              >
-              </iframe>
-            </div>
-
-            <div class="video-card" data-festival="ganesh" data-year="2024">
-              <iframe
-                src="https://www.youtube.com/embed/pAK-zoGdNCc"
-                title="Video"
-                loading="lazy"
-                allowfullscreen
-              >
-              </iframe>
-            </div>
-
-            <div class="video-card" data-festival="ganesh" data-year="2024">
-              <iframe
-                src="https://www.youtube.com/embed/RDfBBnH9iWc"
-                title="Video"
-                loading="lazy"
-                allowfullscreen
-              >
-              </iframe>
-            </div>
-
-            <div class="video-card" data-festival="ganesh" data-year="2024">
-              <iframe
-                src="https://www.youtube.com/embed/LeNc1doNsVk"
-                title="Video"
-                loading="lazy"
-                allowfullscreen
-              >
-              </iframe>
-            </div>
-
-            <div class="video-card" data-festival="ganesh" data-year="2024">
-              <iframe
-                src="https://www.youtube.com/embed/IfJP034sUps"
-                title="Video"
-                loading="lazy"
-                allowfullscreen
-              >
-              </iframe>
-            </div>
-
-            <div class="video-card" data-festival="ganesh" data-year="2024">
-              <iframe
-                src="https://www.youtube.com/embed/X2zNOSHPsDs"
-                title="Video"
-                loading="lazy"
-                allowfullscreen
-              >
-              </iframe>
-            </div>
-
-            <div class="video-card" data-festival="ganesh" data-year="2024">
-              <iframe
-                src="https://www.youtube.com/embed/iKu59thWVeA"
-                title="Video"
-                loading="lazy"
-                allowfullscreen
-              >
-              </iframe>
-            </div>
-
-            <div class="video-card" data-festival="ganesh" data-year="2024">
-              <iframe
-                src="https://www.youtube.com/embed/fLuHh4GKjGQ"
-                title="Video"
-                loading="lazy"
-                allowfullscreen
-              >
-              </iframe>
-            </div>
-
-            <div class="video-card" data-festival="ganesh" data-year="2024">
-              <iframe
-                src="https://www.youtube.com/embed/66b_s3bv_sA"
-                title="Video"
-                loading="lazy"
-                allowfullscreen
-              >
-              </iframe>
-            </div>
-
-            <div class="video-card" data-festival="ganesh" data-year="2024">
-              <iframe
-                src="https://www.youtube.com/embed/oPIRh6oSMdU"
-                title="Video"
-                loading="lazy"
-                allowfullscreen
-              >
-              </iframe>
-            </div>
-
-            <div class="video-card" data-festival="ganesh" data-year="2024">
-              <iframe
-                src="https://www.youtube.com/embed/Oa8fyjzOlvU"
-                title="Video"
-                loading="lazy"
-                allowfullscreen
-              >
-              </iframe>
-            </div>
-
-            <div class="video-card" data-festival="ganesh" data-year="2024">
-              <iframe
-                src="https://www.youtube.com/embed/lQW46PZ1HuU"
-                title="Video"
-                loading="lazy"
-                allowfullscreen
-              >
-              </iframe>
-            </div>
-
-            <div class="video-card" data-festival="ganesh" data-year="2024">
-              <iframe
-                src="https://www.youtube.com/embed/E1YZ1eziioE"
-                title="Video"
-                loading="lazy"
-                allowfullscreen
-              >
-              </iframe>
-            </div>
-
-            <div class="video-card" data-festival="ganesh" data-year="2024">
-              <iframe
-                src="https://www.youtube.com/embed/iD9Ki8HhMOQ"
-                title="Video"
-                loading="lazy"
-                allowfullscreen
-              >
-              </iframe>
-            </div>
-
-
-            <div class="video-card" data-festival="ganesh" data-year="2024">
-              <iframe
-                src="https://www.youtube.com/embed/ShHu26381cY"
-                title="Ganesh Puja 2024 Video 2"
-                loading="lazy"
-                allowfullscreen
-              >
-              </iframe>
-            </div>
-
-            <div class="video-card" data-festival="ganesh" data-year="2024">
-              <iframe
-                src="https://www.youtube.com/embed/OBJfsWV3GoM"
-                title="Ganesh Puja 2024 Video 3"
-                loading="lazy"
-                allowfullscreen
-              >
-              </iframe>
-            </div>
-
-            <div class="video-card" data-festival="ganesh" data-year="2024">
-              <iframe
-                src="https://www.youtube.com/embed/XLDMCexz7gI"
-                title="Ganesh Puja 2024 Video 4"
-                loading="lazy"
-                allowfullscreen
-              >
-              </iframe>
-            </div>
-
-            <div class="video-card" data-festival="ganesh" data-year="2024">
-              <iframe
-                src="https://www.youtube.com/embed/v5ifAPlDJRA"
-                title="Ganesh Puja 2024 Video 5"
-                loading="lazy"
-                allowfullscreen
-              >
-              </iframe>
-            </div>
-
-            <div class="video-card" data-festival="ganesh" data-year="2024">
-              <iframe
-                src="https://www.youtube.com/embed/8_5nTl7m3vI"
-                title="Ganesh Puja 2024 Video 6"
-                loading="lazy"
-                allowfullscreen
-              >
-              </iframe>
-            </div>
-
-            <div class="video-card" data-festival="ganesh" data-year="2024">
-              <iframe
-                src="https://www.youtube.com/embed/sl6itJ9SDb0"
-                title="Ganesh Puja 2024 Video 7"
-                loading="lazy"
-                allowfullscreen
-              >
-              </iframe>
-            </div>
-
-            <div class="video-card" data-festival="ganesh" data-year="2024">
-              <iframe
-                src="https://www.youtube.com/embed/q8GcM01ppFk"
-                title="Ganesh Puja 2024 Video 8"
-                loading="lazy"
-                allowfullscreen
-              >
-              </iframe>
-            </div>
-
-            <div class="video-card" data-festival="ganesh" data-year="2024">
-              <iframe
-                src="https://www.youtube.com/embed/LjdEkisn6w0"
-                title="Ganesh Puja 2024 Video 9"
-                loading="lazy"
-                allowfullscreen
-              >
-              </iframe>
-            </div>
-
-            <!-- =========================================
-                2023
-          ========================================== -->
-
-            <div class="video-card" data-festival="ganesh" data-year="2023">
-              <iframe
-                src="https://www.youtube.com/embed/iKu59thWVeA"
-                title="Video"
-                loading="lazy"
-                allowfullscreen
-              >
-              </iframe>
-            </div>
-
-            <div class="video-card" data-festival="ganesh" data-year="2023">
-              <iframe
-                src="https://www.youtube.com/embed/tjJD99FUth4"
-                title="Video"
-                loading="lazy"
-                allowfullscreen
-              >
-              </iframe>
-            </div>
-          </div>
-
-          <!-- Empty State -->
-
-          <div class="empty-gallery" style="display: none">
-            <h2>📷</h2>
-
-            <h3>No Media Available</h3>
-
-            <p>
-              No images or videos are available for the selected festival and
-              year.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- =========================================
-                LIGHTBOX
+<!-- =========================================
+     DYNAMIC IMAGE GALLERY
 ========================================== -->
 
-      <div class="lightbox" id="lightbox">
-        <span class="close-lightbox"> &times; </span>
+<section
+    class="gallery-results"
+    aria-labelledby="gallery-results-title"
+>
 
-        <button class="prev-btn">&#10094;</button>
+    <div class="gallery-results-header">
 
-        <img id="lightboxImage" src="" alt="" />
+        <div>
+            <span class="gallery-eyebrow">
+                SUN SHINE CLUB
+            </span>
 
-        <button class="next-btn">&#10095;</button>
-      </div>
+            <h2 id="gallery-results-title">
+                Gallery
+            </h2>
+
+            <p id="galleryDescription">
+                Explore memories from Sun Shine Club.
+            </p>
+        </div>
+
+        <div
+            class="gallery-count"
+            id="galleryCount"
+            aria-live="polite"
+        >
+            0 photos
+        </div>
+
+    </div>
+
+
+    <!-- Loading -->
+
+    <!-- <div
+        class="gallery-loader"
+        id="galleryLoader"
+        aria-hidden="true"
+    >
+
+        <div class="loader-spinner"></div>
+
+        <span>
+            Loading gallery...
+        </span>
+
+    </div> -->
+
+
+    <!-- Images -->
+
+    <div
+        class="gallery-grid"
+        id="imageGallery"
+    ></div>
+
+
+    <!-- Videos -->
+
+    <div
+        class="video-grid"
+        id="videoGallery"
+        hidden
+    ></div>
+
+
+    <!-- Empty -->
+
+    <div
+        class="empty-gallery"
+        id="emptyGallery"
+        hidden
+    >
+
+        <div class="empty-icon">
+            <i class="fa-regular fa-images"></i>
+        </div>
+
+        <h2>No Media Available</h2>
+
+        <p>
+            There are no photos or videos available
+            for this festival and year yet.
+        </p>
+
+    </div>
+
+</section>
+        
+
+      <!-- =========================================
+     IMAGE LIGHTBOX
+========================================== -->
+
+<div
+    class="lightbox"
+    id="lightbox"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Image gallery"
+>
+
+    <button
+        class="close-lightbox"
+        type="button"
+        aria-label="Close gallery"
+    >
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+
+
+    <button
+        class="prev-btn"
+        type="button"
+        aria-label="Previous image"
+    >
+        <i class="fa-solid fa-chevron-left"></i>
+    </button>
+
+
+    <div class="lightbox-content">
+
+        <div class="lightbox-image-wrap">
+
+            <img
+                id="lightboxImage"
+                src=""
+                alt=""
+            />
+
+        </div>
+
+
+        <div
+            class="lightbox-bottom"
+            id="lightboxCounter"
+        >
+            1 / 1
+        </div>
+
+    </div>
+
+
+    <button
+        class="next-btn"
+        type="button"
+        aria-label="Next image"
+    >
+        <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+</div>
     </main>
     <!--=========================================
                 FOOTER
@@ -1775,9 +714,10 @@
 </button>
 
     <!-- JavaScript -->
-    <script src="../js/navbar.js"></script>
-    <script src="../js/gallery.js"></script>
-    <script src="../js/footer.js"></script> 
+<script src="../js/navbar.js" defer></script>
+<script src="../js/gallery-data.js" defer></script>
+<script src="../js/gallery.js" defer></script>
+<script src="../js/footer.js" defer></script>
     <!--Visitor Counter-->
     <script src="https://cdn.jsdelivr.net/npm/counterapi/dist/counter.browser.min.js"></script>
     <script src="../js/visitor-count.js"></script>
