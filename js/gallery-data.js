@@ -292,99 +292,99 @@ window.GALLERY_DATA = {
             images: [
 
                 {
-    src: "../assets/gallery/ganesh/2023/img1.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2023/img1.jpg",
     alt: "Ganesh Puja celebration at Sun Shine Club Kendupalli 2023"
 },
 {
-    src: "../assets/gallery/ganesh/2023/img2.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2023/img2.jpg",
     alt: "Ganesh Puja celebration at Sun Shine Club Kendupalli 2023"
 },
 {
-    src: "../assets/gallery/ganesh/2023/img3.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2023/img3.jpg",
     alt: "Ganesh Puja celebration at Sun Shine Club Kendupalli 2023"
 },
 {
-    src: "../assets/gallery/ganesh/2023/img4.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2023/img4.jpg",
     alt: "Ganesh Puja celebration at Sun Shine Club Kendupalli 2023"
 },
 {
-    src: "../assets/gallery/ganesh/2023/img5.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2023/img5.jpg",
     alt: "Ganesh Puja celebration at Sun Shine Club Kendupalli 2023"
 },
 {
-    src: "../assets/gallery/ganesh/2023/img6.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2023/img6.jpg",
     alt: "Ganesh Puja celebration at Sun Shine Club Kendupalli 2023"
 },
 {
-    src: "../assets/gallery/ganesh/2023/img7.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2023/img7.jpg",
     alt: "Ganesh Puja celebration at Sun Shine Club Kendupalli 2023"
 },
 {
-    src: "../assets/gallery/ganesh/2023/img8.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2023/img8.jpg",
     alt: "Ganesh Puja celebration at Sun Shine Club Kendupalli 2023"
 },
 {
-    src: "../assets/gallery/ganesh/2023/img9.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2023/img9.jpg",
     alt: "Ganesh Puja celebration at Sun Shine Club Kendupalli 2023"
 },
 {
-    src: "../assets/gallery/ganesh/2023/img10.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2023/img10.jpg",
     alt: "Ganesh Puja celebration at Sun Shine Club Kendupalli 2023"
 },
 {
-    src: "../assets/gallery/ganesh/2023/img11.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2023/img11.jpg",
     alt: "Ganesh Puja celebration at Sun Shine Club Kendupalli 2023"
 },
 {
-    src: "../assets/gallery/ganesh/2023/img12.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2023/img12.jpg",
     alt: "Ganesh Puja celebration at Sun Shine Club Kendupalli 2023"
 },
 {
-    src: "../assets/gallery/ganesh/2023/img13.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2023/img13.jpg",
     alt: "Ganesh Puja celebration at Sun Shine Club Kendupalli 2023"
 },
 {
-    src: "../assets/gallery/ganesh/2023/img14.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2023/img14.jpg",
     alt: "Ganesh Puja celebration at Sun Shine Club Kendupalli 2023"
 },
 {
-    src: "../assets/gallery/ganesh/2023/img15.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2023/img15.jpg",
     alt: "Ganesh Puja celebration at Sun Shine Club Kendupalli 2023"
 },
 {
-    src: "../assets/gallery/ganesh/2023/img16.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2023/img16.jpg",
     alt: "Ganesh Puja celebration at Sun Shine Club Kendupalli 2023"
 },
 {
-    src: "../assets/gallery/ganesh/2023/img17.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2023/img17.jpg",
     alt: "Ganesh Puja celebration at Sun Shine Club Kendupalli 2023"
 },
 {
-    src: "../assets/gallery/ganesh/2023/img18.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2023/img18.jpg",
     alt: "Ganesh Puja celebration at Sun Shine Club Kendupalli 2023"
 },
 {
-    src: "../assets/gallery/ganesh/2023/img19.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2023/img19.jpg",
     alt: "Ganesh Puja celebration at Sun Shine Club Kendupalli 2023"
 },
 {
-    src: "../assets/gallery/ganesh/2023/img20.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2023/img20.jpg",
     alt: "Ganesh Puja celebration at Sun Shine Club Kendupalli 2023"
 },
 {
-    src: "../assets/gallery/ganesh/2023/img21.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2023/img21.jpg",
     alt: "Ganesh Puja celebration at Sun Shine Club Kendupalli 2023"
 },
 {
-    src: "../assets/gallery/ganesh/2023/img22.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2023/img22.jpg",
     alt: "Ganesh Puja celebration at Sun Shine Club Kendupalli 2023"
 },
 {
-    src: "../assets/gallery/ganesh/2023/img23.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2023/img23.jpg",
     alt: "Ganesh Puja celebration at Sun Shine Club Kendupalli 2023"
 },
 {
-    src: "../assets/gallery/ganesh/2023/img24.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2023/img24.jpg",
     alt: "Ganesh Puja celebration at Sun Shine Club Kendupalli 2023"
 }
 
