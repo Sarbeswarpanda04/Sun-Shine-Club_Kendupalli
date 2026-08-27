@@ -13,14 +13,15 @@
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     padding: 20px;
 
-    background: rgba(0, 0, 0, 0.58);
+    background:
+        rgba(10, 10, 15, 0.68);
 
-    backdrop-filter: blur(6px);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 
     opacity: 0;
 
@@ -29,12 +30,15 @@
     pointer-events: none;
 
     transition:
-        opacity 0.35s ease,
-        visibility 0.35s ease;
+        opacity .35s ease,
+        visibility .35s ease;
+
 }
 
 
-/* OPEN */
+/* =========================================
+   OPEN
+========================================= */
 
 .youtube-popup-overlay.show {
 
@@ -43,43 +47,59 @@
     visibility: visible;
 
     pointer-events: auto;
+
 }
 
 
-/* POPUP */
+/* =========================================
+   POPUP
+========================================= */
 
 .youtube-popup {
 
     position: relative;
 
-    width: min(440px, 100%);
+    width: min(450px, 100%);
 
-    padding: 42px 35px 32px;
+    padding: 42px 32px 25px;
 
     text-align: center;
 
-    background: #ffffff;
+    background:
+        linear-gradient(180deg,
+            #ffffff 0%,
+            #ffffff 75%,
+            #fffafa 100%);
+
+    border: 1px solid rgba(255, 255, 255, .8);
 
     border-radius: 28px;
 
     box-shadow:
-        0 30px 80px rgba(0, 0, 0, 0.30);
-
-    transform: translateY(30px) scale(0.92);
-
-    transition: transform 0.4s cubic-bezier(.2,.8,.2,1);
+        0 35px 90px rgba(0, 0, 0, .32);
 
     overflow: hidden;
+
+    transform:
+        translateY(35px) scale(.92);
+
+    transition:
+        transform .45s cubic-bezier(.2, .8, .2, 1);
+
 }
 
 
 .youtube-popup-overlay.show .youtube-popup {
 
-    transform: translateY(0) scale(1);
+    transform:
+        translateY(0) scale(1);
+
 }
 
 
-/* TOP DECORATION */
+/* =========================================
+   TOP RED LINE
+========================================= */
 
 .youtube-popup::before {
 
@@ -91,26 +111,70 @@
     left: 0;
 
     width: 100%;
-    height: 6px;
+    height: 5px;
 
     background:
-        linear-gradient(
-            90deg,
+        linear-gradient(90deg,
             #ff0000,
-            #ff3d3d,
-            #ff0000
-        );
+            #ff4b4b,
+            #ff0000);
+
 }
 
 
-/* CLOSE */
+/* =========================================
+   DECORATIONS
+========================================= */
+
+.youtube-popup-decoration {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+}
+
+
+.decoration-one {
+
+    width: 150px;
+    height: 150px;
+
+    top: -85px;
+    right: -70px;
+
+    background:
+        rgba(255, 0, 0, .06);
+
+}
+
+
+.decoration-two {
+
+    width: 120px;
+    height: 120px;
+
+    bottom: -70px;
+    left: -60px;
+
+    background:
+        rgba(255, 0, 0, .045);
+
+}
+
+
+/* =========================================
+   CLOSE BUTTON
+========================================= */
 
 .youtube-popup-close {
 
     position: absolute;
 
-    top: 15px;
-    right: 15px;
+    top: 14px;
+    right: 14px;
 
     width: 38px;
     height: 38px;
@@ -119,21 +183,24 @@
 
     border-radius: 50%;
 
-    background: #f4f4f4;
-
-    color: #555;
-
-    font-size: 18px;
-
-    cursor: pointer;
-
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
-    transition: 0.25s ease;
+    background: #f5f5f5;
+
+    color: #555;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    transition:
+        background .25s ease,
+        color .25s ease,
+        transform .25s ease;
+
 }
 
 
@@ -141,65 +208,141 @@
 
     background: #ff0000;
 
-    color: #ffffff;
+    color: #fff;
 
     transform: rotate(90deg);
+
 }
 
 
-/* YOUTUBE ICON */
+/* =========================================
+   YOUTUBE ICON
+========================================= */
+
+.youtube-popup-icon-wrap {
+
+    position: relative;
+
+    width: fit-content;
+
+    margin: 0 auto 17px;
+
+}
+
 
 .youtube-popup-icon {
 
-    width: 76px;
-    height: 76px;
-
-    margin: 0 auto 18px;
-
-    border-radius: 22px;
+    width: 78px;
+    height: 78px;
 
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
-    background: #ff0000;
+    border-radius: 23px;
 
-    color: #ffffff;
+    background:
+        linear-gradient(145deg,
+            #ff0000,
+            #d90000);
+
+    color: #fff;
 
     font-size: 40px;
 
     box-shadow:
-        0 12px 30px rgba(255, 0, 0, 0.25);
+        0 13px 32px rgba(255, 0, 0, .25);
+
+    animation:
+        youtubeIconFloat 3s ease-in-out infinite;
+
 }
 
 
-/* BADGE */
+@keyframes youtubeIconFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
+
+}
+
+
+/* =========================================
+   LIVE DOT
+========================================= */
+
+.youtube-live-dot {
+
+    position: absolute;
+
+    right: -3px;
+    bottom: -3px;
+
+    width: 17px;
+    height: 17px;
+
+    border-radius: 50%;
+
+    background: #19b65a;
+
+    border: 3px solid #fff;
+
+    box-shadow:
+        0 0 0 4px rgba(25, 182, 90, .12);
+
+}
+
+
+/* =========================================
+   BADGE
+========================================= */
 
 .youtube-popup-badge {
 
-    display: inline-block;
+    display: inline-flex;
 
-    margin-bottom: 10px;
+    align-items: center;
+
+    gap: 7px;
+
+    margin-bottom: 11px;
 
     padding: 6px 13px;
 
-    border-radius: 30px;
+    border-radius: 50px;
 
-    background: #fff0f0;
+    background:
+        #fff0f0;
 
-    color: #e00000;
+    color:
+        #dc0000;
 
-    font-size: 11px;
+    font-size: 10px;
 
     font-weight: 700;
 
     letter-spacing: 1px;
+
 }
 
 
-/* TITLE */
+.youtube-popup-badge i {
+
+    font-size: 12px;
+
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
 
 .youtube-popup h2 {
 
@@ -214,125 +357,344 @@
     font-weight: 700;
 
     line-height: 1.25;
+
 }
 
 
-/* DESCRIPTION */
+.youtube-popup h2 span {
 
-.youtube-popup p {
+    color: #e00000;
 
-    margin: 0 auto 25px;
+}
 
-    max-width: 350px;
 
-    color: #666;
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.youtube-popup-description {
+
+    max-width: 365px;
+
+    margin:
+        0 auto 20px;
+
+    color: #6c6c6c;
 
     font-family: 'Poppins', sans-serif;
 
-    font-size: 14px;
+    font-size: 13px;
 
     line-height: 1.7;
+
 }
 
 
-/* SUBSCRIBE BUTTON */
+/* =========================================
+   CHANNEL STATISTICS
+========================================= */
 
-.youtube-subscribe-btn {
+.youtube-channel-stats {
 
-    display: inline-flex;
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 10px;
+
+    margin:
+        0 0 18px;
+
+}
+
+
+.youtube-stat {
+
+    display: flex;
 
     align-items: center;
 
+    gap: 10px;
+
+    padding: 12px;
+
+    text-align: left;
+
+    background: #fafafa;
+
+    border:
+        1px solid #eeeeee;
+
+    border-radius: 15px;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+
+}
+
+
+.youtube-stat:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, .07);
+
+}
+
+
+/* =========================================
+   STAT ICON
+========================================= */
+
+.youtube-stat-icon {
+
+    flex-shrink: 0;
+
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background: #fff0f0;
+
+    color: #e00000;
+
+    font-size: 14px;
+
+}
+
+
+.youtube-stat-icon.views-icon {
+
+    background: #fff7e9;
+
+    color: #e58a00;
+
+}
+
+
+/* =========================================
+   STAT CONTENT
+========================================= */
+
+.youtube-stat-content {
+
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.youtube-stat-number {
+
+    min-height: 21px;
+
+    color: #202020;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    line-height: 1.3;
+
+}
+
+
+.youtube-stat-content span {
+
+    color: #888;
+
+    font-size: 10px;
+
+    font-weight: 500;
+
+}
+
+
+/* =========================================
+   SUBSCRIBE BUTTON
+========================================= */
+
+.youtube-subscribe-btn {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
     justify-content: center;
 
     gap: 10px;
 
     width: 100%;
 
-    min-height: 52px;
+    min-height: 53px;
 
-    padding: 13px 22px;
+    padding: 13px 18px;
 
     border-radius: 14px;
 
-    background: #ff0000;
+    background:
+        linear-gradient(135deg,
+            #ff0000,
+            #e00000);
 
-    color: #ffffff;
+    color: #fff;
 
     text-decoration: none;
 
     font-family: 'Poppins', sans-serif;
 
-    font-size: 15px;
+    font-size: 14px;
 
     font-weight: 600;
 
     box-shadow:
-        0 10px 25px rgba(255, 0, 0, 0.22);
+        0 12px 27px rgba(255, 0, 0, .22);
 
-    transition: 0.3s ease;
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        background .25s ease;
+
 }
 
 
 .youtube-subscribe-btn:hover {
 
-    background: #d90000;
+    background:
+        linear-gradient(135deg,
+            #e00000,
+            #c90000);
 
-    color: #ffffff;
+    color: #fff;
 
-    transform: translateY(-2px);
+    transform:
+        translateY(-2px);
 
     box-shadow:
-        0 14px 30px rgba(255, 0, 0, 0.28);
+        0 16px 32px rgba(255, 0, 0, .28);
+
 }
 
 
-/* MAYBE LATER */
+.youtube-subscribe-btn>i:first-child {
+
+    font-size: 20px;
+
+}
+
+
+.youtube-btn-arrow {
+
+    position: absolute;
+
+    right: 17px;
+
+    font-size: 11px !important;
+
+    opacity: .8;
+
+}
+
+
+/* =========================================
+   MAYBE LATER
+========================================= */
 
 .youtube-popup-later {
 
-    margin-top: 15px;
+    margin-top: 13px;
+
+    padding: 5px 12px;
 
     border: none;
 
     background: transparent;
 
-    color: #777;
+    color: #888;
 
     font-family: 'Poppins', sans-serif;
 
-    font-size: 13px;
+    font-size: 12px;
 
     cursor: pointer;
 
-    transition: 0.25s;
+    transition:
+        color .2s ease;
+
 }
 
 
 .youtube-popup-later:hover {
 
     color: #222;
+
 }
 
 
-/* MOBILE */
+/* =========================================
+   FOOTER MESSAGE
+========================================= */
+
+.youtube-popup-footer {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    margin-top: 9px;
+
+    color: #999;
+
+    font-size: 10px;
+
+}
+
+
+.youtube-popup-footer i {
+
+    color: #ff0000;
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
 
 @media (max-width: 480px) {
 
     .youtube-popup-overlay {
 
-        padding: 15px;
+        padding: 13px;
+
     }
 
 
     .youtube-popup {
 
+        width: 100%;
+
         padding:
-            38px
-            22px
-            25px;
+            37px 20px 21px;
 
         border-radius: 23px;
+
     }
 
 
@@ -341,69 +703,135 @@
         width: 65px;
         height: 65px;
 
-        font-size: 34px;
+        border-radius: 19px;
 
-        border-radius: 18px;
+        font-size: 33px;
+
+    }
+
+
+    .youtube-popup-badge {
+
+        font-size: 9px;
+
+        padding:
+            5px 10px;
+
     }
 
 
     .youtube-popup h2 {
 
-        font-size: 23px;
+        font-size: 22px;
+
     }
 
 
-    .youtube-popup p {
+    .youtube-popup-description {
+
+        font-size: 12px;
+
+        line-height: 1.65;
+
+        margin-bottom: 17px;
+
+    }
+
+
+    .youtube-channel-stats {
+
+        gap: 7px;
+
+    }
+
+
+    .youtube-stat {
+
+        padding: 9px;
+
+        gap: 7px;
+
+        border-radius: 12px;
+
+    }
+
+
+    .youtube-stat-icon {
+
+        width: 31px;
+        height: 31px;
+
+        border-radius: 9px;
+
+        font-size: 12px;
+
+    }
+
+
+    .youtube-stat-number {
+
+        font-size: 14px;
+
+    }
+
+
+    .youtube-stat-content span {
+
+        font-size: 9px;
+
+    }
+
+
+    .youtube-subscribe-btn {
+
+        min-height: 49px;
 
         font-size: 13px;
+
+    }
+
+
+    .youtube-popup-footer {
+
+        font-size: 9px;
+
     }
 
 }
 
 
-.youtube-subscriber-count {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+/* =========================================
+   VERY SMALL PHONES
+========================================= */
 
-    margin: 12px auto 18px;
-    padding: 7px 14px;
+@media (max-width: 350px) {
 
-    border-radius: 30px;
+    .youtube-popup {
 
-    background: #fff1f1;
-    color: #333;
+        padding-left: 15px;
+        padding-right: 15px;
 
-    font-size: 13px;
-    font-weight: 600;
-
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
-}
-
-.subscriber-dot {
-    width: 8px;
-    height: 8px;
-
-    border-radius: 50%;
-
-    background: #ff0000;
-
-    box-shadow: 0 0 0 4px rgba(255, 0, 0, 0.1);
-
-    animation: subscriberPulse 1.8s infinite;
-}
-
-@keyframes subscriberPulse {
-    0% {
-        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.25);
     }
 
-    70% {
-        box-shadow: 0 0 0 7px rgba(255, 0, 0, 0);
+
+    .youtube-popup h2 {
+
+        font-size: 20px;
+
     }
 
-    100% {
-        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+
+    .youtube-stat {
+
+        padding: 8px;
+
     }
+
+
+    .youtube-stat-icon {
+
+        display: none;
+
+    }
+
 }

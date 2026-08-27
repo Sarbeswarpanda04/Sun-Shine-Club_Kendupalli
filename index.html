@@ -1308,6 +1308,11 @@
         aria-labelledby="youtubePopupTitle"
     >
 
+        <!-- Decorative background -->
+        <div class="youtube-popup-decoration decoration-one"></div>
+        <div class="youtube-popup-decoration decoration-two"></div>
+
+
         <!-- Close Button -->
         <button
             type="button"
@@ -1320,51 +1325,117 @@
 
 
         <!-- YouTube Icon -->
-        <div class="youtube-popup-icon">
-            <i class="fa-brands fa-youtube"></i>
+        <div class="youtube-popup-icon-wrap">
+
+            <div class="youtube-popup-icon">
+                <i class="fa-brands fa-youtube"></i>
+            </div>
+
+            <span class="youtube-live-dot"></span>
+
         </div>
 
 
+        <!-- Badge -->
         <span class="youtube-popup-badge">
+            <i class="fa-brands fa-youtube"></i>
             OUR YOUTUBE CHANNEL
         </span>
 
 
+        <!-- Title -->
         <h2 id="youtubePopupTitle">
-            Subscribe to Sun Shine Club
+            Subscribe to
+            <span>Sun Shine Club</span>
         </h2>
 
 
-        <!-- REAL-TIME/PUBLIC SUBSCRIBER COUNT -->
-        <div
-            class="youtube-subscriber-count"
-            aria-live="polite"
-        >
-            <span class="subscriber-dot"></span>
-
-            <span id="subscriberCount">
-                Loading subscribers...
-            </span>
-        </div>
-
-
-        <p>
-            Follow our YouTube channel to watch our latest
-            events, celebrations, activities and memorable moments.
+        <!-- Description -->
+        <p class="youtube-popup-description">
+            Stay connected with Sun Shine Club and watch
+            our latest events, celebrations, activities
+            and memorable moments.
         </p>
 
 
+        <!-- =========================================
+             CHANNEL STATISTICS
+        ========================================== -->
+
+        <div class="youtube-channel-stats">
+
+            <!-- Subscribers -->
+            <div class="youtube-stat">
+
+                <div class="youtube-stat-icon">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+
+                <div class="youtube-stat-content">
+
+                    <strong
+                        id="subscriberCount"
+                        class="youtube-stat-number"
+                    >
+                        --
+                    </strong>
+
+                    <span>
+                        Subscribers
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- Total Views -->
+            <div class="youtube-stat">
+
+                <div class="youtube-stat-icon views-icon">
+                    <i class="fa-solid fa-eye"></i>
+                </div>
+
+                <div class="youtube-stat-content">
+
+                    <strong
+                        id="totalViews"
+                        class="youtube-stat-number"
+                    >
+                        --
+                    </strong>
+
+                    <span>
+                        Total Views
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Subscribe Button -->
         <a
             href="https://www.youtube.com/@SunshineClubKendupalli"
             target="_blank"
             rel="noopener noreferrer"
             class="youtube-subscribe-btn"
         >
+
             <i class="fa-brands fa-youtube"></i>
-            Subscribe on YouTube
+
+            <span>
+                Subscribe on YouTube
+            </span>
+
+            <i class="fa-solid fa-arrow-up-right-from-square youtube-btn-arrow"></i>
+
         </a>
 
 
+        <!-- Maybe Later -->
         <button
             type="button"
             class="youtube-popup-later"
@@ -1372,6 +1443,18 @@
         >
             Maybe Later
         </button>
+
+
+        <!-- Bottom message -->
+        <div class="youtube-popup-footer">
+
+            <i class="fa-solid fa-bell"></i>
+
+            <span>
+                Join our community and never miss an update.
+            </span>
+
+        </div>
 
     </div>
 </div>

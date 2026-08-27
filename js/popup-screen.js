@@ -1,37 +1,54 @@
 /* =========================================
    YOUTUBE SUBSCRIBE POPUP
-========================================= */
+   ========================================= */
+
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    const popup = document.getElementById("youtubePopup");
-    const closeBtn = document.getElementById("youtubePopupClose");
-    const laterBtn = document.getElementById("youtubePopupLater");
+    /* -----------------------------------------
+       ELEMENTS
+    ----------------------------------------- */
 
-    if (!popup) return;
+    const popup =
+        document.getElementById("youtubePopup");
+
+    const closeBtn =
+        document.getElementById("youtubePopupClose");
+
+    const laterBtn =
+        document.getElementById("youtubePopupLater");
 
 
-    /*
-     * Check whether popup has already been
-     * closed during this browser session.
-     */
+    /* -----------------------------------------
+       STOP IF POPUP DOES NOT EXIST
+    ----------------------------------------- */
+
+    if (!popup) {
+        return;
+    }
+
+
+    /* -----------------------------------------
+       SESSION CHECK
+       
+       If the user has already closed the popup
+       during this browser session, don't show it.
+    ----------------------------------------- */
 
     const popupClosed =
-        sessionStorage.getItem("youtubePopupClosed");
+        sessionStorage.getItem(
+            "youtubePopupClosed"
+        );
 
-
-    /*
-     * If already closed, don't show it.
-     */
 
     if (popupClosed === "true") {
         return;
     }
 
 
-    /*
-     * Show popup after 5 seconds.
-     */
+    /* -----------------------------------------
+       SHOW POPUP AFTER 5 SECONDS
+    ----------------------------------------- */
 
     const popupTimer = setTimeout(() => {
 
@@ -42,12 +59,20 @@ document.addEventListener("DOMContentLoaded", () => {
             "false"
         );
 
+
+        /* -----------------------------------------
+           LOAD YOUTUBE STATISTICS
+           Only load when popup opens.
+        ----------------------------------------- */
+
+        loadYouTubeStats();
+
     }, 5000);
 
 
-    /*
-     * Close popup
-     */
+    /* -----------------------------------------
+       CLOSE POPUP
+    ----------------------------------------- */
 
     function closeYoutubePopup() {
 
@@ -59,41 +84,56 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
 
-        /*
-         * Remember that user closed it
-         * for this browser session.
-         */
+        /* -----------------------------------------
+           REMEMBER CLOSED STATE
+        ----------------------------------------- */
 
         sessionStorage.setItem(
             "youtubePopupClosed",
             "true"
         );
+
+
+        /* -----------------------------------------
+           CLEAR TIMER IF STILL ACTIVE
+        ----------------------------------------- */
+
+        clearTimeout(popupTimer);
+
     }
 
 
-    /*
-     * Close button
-     */
+    /* -----------------------------------------
+       CLOSE BUTTON
+    ----------------------------------------- */
 
-    closeBtn?.addEventListener(
-        "click",
-        closeYoutubePopup
-    );
+    if (closeBtn) {
 
+        closeBtn.addEventListener(
+            "click",
+            closeYoutubePopup
+        );
 
-    /*
-     * Maybe Later
-     */
-
-    laterBtn?.addEventListener(
-        "click",
-        closeYoutubePopup
-    );
+    }
 
 
-    /*
-     * Close when clicking outside
-     */
+    /* -----------------------------------------
+       MAYBE LATER BUTTON
+    ----------------------------------------- */
+
+    if (laterBtn) {
+
+        laterBtn.addEventListener(
+            "click",
+            closeYoutubePopup
+        );
+
+    }
+
+
+    /* -----------------------------------------
+       CLOSE WHEN CLICKING OUTSIDE POPUP
+    ----------------------------------------- */
 
     popup.addEventListener(
         "click",
@@ -102,16 +142,18 @@ document.addEventListener("DOMContentLoaded", () => {
             if (
                 event.target === popup
             ) {
+
                 closeYoutubePopup();
+
             }
 
         }
     );
 
 
-    /*
-     * ESC key
-     */
+    /* -----------------------------------------
+       ESCAPE KEY
+    ----------------------------------------- */
 
     document.addEventListener(
         "keydown",
@@ -121,7 +163,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 event.key === "Escape" &&
                 popup.classList.contains("show")
             ) {
+
                 closeYoutubePopup();
+
             }
 
         }
@@ -131,89 +175,287 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-async function loadYouTubeSubscribers() {
+/* =========================================
+   YOUTUBE API WORKER
+========================================= */
+
+const YOUTUBE_API_URL =
+    "https://sunshine-youtube-subscribers.still-mouse-2d92.workers.dev/youtube-subscribers";
+
+
+
+/* =========================================
+   PREVENT MULTIPLE REQUESTS
+========================================= */
+
+let youtubeStatsLoaded = false;
+
+let youtubeStatsLoading = false;
+
+
+
+/* =========================================
+   LOAD YOUTUBE STATISTICS
+========================================= */
+
+async function loadYouTubeStats() {
+
+
+    /* -----------------------------------------
+       PREVENT DUPLICATE REQUEST
+    ----------------------------------------- */
+
+    if (
+        youtubeStatsLoaded ||
+        youtubeStatsLoading
+    ) {
+
+        return;
+
+    }
+
+
+    /* -----------------------------------------
+       ELEMENTS
+    ----------------------------------------- */
 
     const subscriberElement =
-        document.getElementById("subscriberCount");
+        document.getElementById(
+            "subscriberCount"
+        );
 
-    if (!subscriberElement) return;
+    const viewsElement =
+        document.getElementById(
+            "totalViews"
+        );
+
+
+    /* -----------------------------------------
+       CHECK ELEMENTS
+    ----------------------------------------- */
+
+    if (
+        !subscriberElement ||
+        !viewsElement
+    ) {
+
+        console.warn(
+            "YouTube statistic elements not found."
+        );
+
+        return;
+
+    }
+
+
+    /* -----------------------------------------
+       LOADING STATE
+    ----------------------------------------- */
+
+    youtubeStatsLoading = true;
+
+
+    subscriberElement.textContent =
+        "Loading...";
+
+    viewsElement.textContent =
+        "Loading...";
+
 
     try {
 
-        const response = await fetch(
-            "https://sunshine-youtube-subscribers.still-mouse-2d92.workers.dev/youtube-subscribers"
-        );
+
+        /* -----------------------------------------
+           FETCH WORKER
+        ----------------------------------------- */
+
+        const response =
+            await fetch(
+                YOUTUBE_API_URL,
+                {
+                    method: "GET",
+
+                    headers: {
+                        "Accept":
+                            "application/json"
+                    },
+
+                    cache: "no-store"
+                }
+            );
+
+
+        /* -----------------------------------------
+           HTTP ERROR
+        ----------------------------------------- */
 
         if (!response.ok) {
+
             throw new Error(
                 `HTTP error: ${response.status}`
             );
+
         }
 
-        const data = await response.json();
+
+        /* -----------------------------------------
+           JSON RESPONSE
+        ----------------------------------------- */
+
+        const data =
+            await response.json();
+
+
+        /* -----------------------------------------
+           VALIDATE SUBSCRIBERS
+        ----------------------------------------- */
 
         if (
-            !data ||
-            typeof data.subscriberCount === "undefined"
+            typeof data.subscriberCount !==
+            "number"
         ) {
+
             throw new Error(
                 "Subscriber count not available"
             );
+
         }
 
+
+        /* -----------------------------------------
+           UPDATE SUBSCRIBERS
+        ----------------------------------------- */
+
         subscriberElement.textContent =
-            formatSubscriberCount(
+            formatYouTubeNumber(
                 data.subscriberCount
             );
 
+
+        /* -----------------------------------------
+           UPDATE TOTAL VIEWS
+        ----------------------------------------- */
+
+        if (
+            typeof data.totalViews ===
+            "number"
+        ) {
+
+            viewsElement.textContent =
+                formatYouTubeNumber(
+                    data.totalViews
+                );
+
+        } else {
+
+            viewsElement.textContent =
+                "--";
+
+        }
+
+
+        /* -----------------------------------------
+           MARK AS LOADED
+        ----------------------------------------- */
+
+        youtubeStatsLoaded = true;
+
+
     } catch (error) {
 
+
+        /* -----------------------------------------
+           ERROR
+        ----------------------------------------- */
+
         console.error(
-            "YouTube subscriber count error:",
+            "YouTube statistics error:",
             error
         );
 
+
         subscriberElement.textContent =
-            "YouTube subscribers";
+            "--";
+
+        viewsElement.textContent =
+            "--";
+
+
+    } finally {
+
+        youtubeStatsLoading = false;
+
     }
+
 }
 
 
-function formatSubscriberCount(count) {
 
-    count = Number(count);
+/* =========================================
+   FORMAT YOUTUBE NUMBERS
+========================================= */
 
-    if (!Number.isFinite(count)) {
-        return "YouTube subscribers";
+function formatYouTubeNumber(number) {
+
+
+    number = Number(number);
+
+
+    /* -----------------------------------------
+       INVALID NUMBER
+    ----------------------------------------- */
+
+    if (
+        !Number.isFinite(number)
+    ) {
+
+        return "--";
+
     }
 
-    if (count >= 1000000) {
+
+    /* -----------------------------------------
+       MILLIONS
+    ----------------------------------------- */
+
+    if (
+        number >= 1000000
+    ) {
+
         return (
-            (count / 1000000)
+            (number / 1000000)
                 .toFixed(1)
                 .replace(".0", "") +
-            "M Subscribers"
+            "M"
         );
+
     }
 
-    if (count >= 1000) {
+
+    /* -----------------------------------------
+       THOUSANDS
+    ----------------------------------------- */
+
+    if (
+        number >= 1000
+    ) {
+
         return (
-            (count / 1000)
+            (number / 1000)
                 .toFixed(1)
                 .replace(".0", "") +
-            "K Subscribers"
+            "K"
         );
+
     }
 
-    return (
-        count.toLocaleString("en-IN") +
-        " Subscribers"
+
+    /* -----------------------------------------
+       NORMAL NUMBER
+    ----------------------------------------- */
+
+    return number.toLocaleString(
+        "en-IN"
     );
+
 }
-
-
-// Load when page is ready
-document.addEventListener(
-    "DOMContentLoaded",
-    loadYouTubeSubscribers
-);
