@@ -517,7 +517,7 @@ a {
     color:
         var(--primary-dark);
 
-    font-size: 1.15rem;
+    font-size: 2rem;
 
     font-weight: 500;
 
@@ -1330,7 +1330,7 @@ button:focus-visible {
 
     .member-odia {
 
-        font-size: 1.05rem;
+        font-size: 2rem;
     }
 
 
@@ -1470,7 +1470,7 @@ button:focus-visible {
 
     .member-odia {
 
-        font-size: 1rem;
+        font-size: 2rem;
     }
 
 
@@ -1663,7 +1663,7 @@ button:focus-visible {
     .member-odia {
 
         font-size:
-            0.95rem;
+            1.5rem;
     }
 
 
