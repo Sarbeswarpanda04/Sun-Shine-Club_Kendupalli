@@ -148,6 +148,7 @@ background: linear-gradient(210deg, rgba(145, 229, 254, 0.235) 27%, rgba(204, 22
     color:#2D2D2D;
 
     font-weight:600;
+    text-decoration: none !important;
 
 }
 

@@ -1,4 +1,221 @@
-<!DOCTYPE html>
+const fs = require("fs");
+const path = require("path");
+
+/* =========================================================
+   CONFIGURATION
+========================================================= */
+
+const DOMAIN = "https://sunshineclubkendupalli.in";
+
+const JSON_FILE = path.join(__dirname, "members.json");
+
+const OUTPUT_DIR = path.join(
+    __dirname,
+    "pages",
+    "members"
+);
+
+const CLUB_LOGO =
+    `${DOMAIN}/assets/logo/sun-shine-club-logo.png`;
+
+
+/* =========================================================
+   READ MEMBER DATA
+========================================================= */
+
+if (!fs.existsSync(JSON_FILE)) {
+
+    console.error(
+        "\nERROR: members.json was not found.\n"
+    );
+
+    process.exit(1);
+}
+
+
+let members;
+
+try {
+
+    members = JSON.parse(
+        fs.readFileSync(
+            JSON_FILE,
+            "utf8"
+        )
+    );
+
+} catch (error) {
+
+    console.error(
+        "\nERROR: Invalid JSON file.\n"
+    );
+
+    console.error(error.message);
+
+    process.exit(1);
+}
+
+
+/* =========================================================
+   CREATE OUTPUT DIRECTORY
+========================================================= */
+
+if (!fs.existsSync(OUTPUT_DIR)) {
+
+    fs.mkdirSync(
+        OUTPUT_DIR,
+        {
+            recursive: true
+        }
+    );
+
+}
+
+
+/* =========================================================
+   SLUG GENERATOR
+========================================================= */
+
+function createSlug(name) {
+
+    return name
+        .toLowerCase()
+        .trim()
+        .replace(/[^a-z0-9\s-]/g, "")
+        .replace(/\s+/g, "-")
+        .replace(/-+/g, "-");
+
+}
+
+
+/* =========================================================
+   HTML ESCAPE
+========================================================= */
+
+function escapeHTML(value) {
+
+    if (value === undefined || value === null) {
+        return "";
+    }
+
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+/* =========================================================
+   DATE FORMAT
+========================================================= */
+
+function formatDate(dateString) {
+
+    if (!dateString) {
+        return "";
+    }
+
+    const date = new Date(
+        `${dateString}T00:00:00`
+    );
+
+    if (Number.isNaN(date.getTime())) {
+        return dateString;
+    }
+
+    return date.toLocaleDateString(
+        "en-GB",
+        {
+            day: "2-digit",
+            month: "long",
+            year: "numeric"
+        }
+    );
+
+}
+
+
+/* =========================================================
+   PHONE FORMAT
+========================================================= */
+
+function formatPhone(phone) {
+
+    if (!phone) {
+        return "";
+    }
+
+    const value = String(phone);
+
+    if (
+        value.length === 10 &&
+        /^\d+$/.test(value)
+    ) {
+
+        return `+91 ${value.slice(0, 5)} ${value.slice(5)}`;
+
+    }
+
+    return value;
+
+}
+
+
+/* =========================================================
+   GENERATE MEMBER HTML
+========================================================= */
+
+function generateMemberHTML(member) {
+
+    const name =
+        escapeHTML(member.name);
+
+    const odiaName =
+        escapeHTML(member.odia_name);
+
+    const id =
+        escapeHTML(member.id);
+
+    const designation =
+        escapeHTML(
+            member.designation || "Member"
+        );
+
+    const phone =
+        escapeHTML(member.phone);
+
+    const phoneDisplay =
+        escapeHTML(
+            formatPhone(member.phone)
+        );
+
+    const address =
+        escapeHTML(member.address);
+
+    const joinDate =
+        escapeHTML(member.joinDate);
+
+    const formattedJoinDate =
+        escapeHTML(
+            formatDate(member.joinDate)
+        );
+
+    const photo =
+        escapeHTML(member.photo);
+
+    const slug =
+        createSlug(member.name);
+
+    const profileURL =
+        `${DOMAIN}/pages/members/${slug}.html`;
+
+    const description =
+        `${member.name} is a ${member.designation || "member"} of Sun Shine Club, Kendupalli. View the member profile, joining date, address, contact information and club details.`;
+
+    return `<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -25,12 +242,12 @@
     ====================================================== -->
 
     <title>
-        Sarbeswar Panda | Sun Shine Club Kendupalli
+        ${name} | Sun Shine Club Kendupalli
     </title>
 
     <meta
         name="description"
-        content="Sarbeswar Panda is a Member of Sun Shine Club, Kendupalli. View the member profile, joining date, address, contact information and club details."
+        content="${escapeHTML(description)}"
     >
 
     <meta
@@ -40,7 +257,7 @@
 
     <link
         rel="canonical"
-        href="https://sunshineclubkendupalli.in/pages/members/sarbeswar-panda.html"
+        href="${profileURL}"
     >
 
 
@@ -51,12 +268,12 @@
     <link
         rel="icon"
         type="image/png"
-        href="https://sunshineclubkendupalli.in/assets/logo/sun-shine-club-logo.png"
+        href="${CLUB_LOGO}"
     >
 
     <link
         rel="apple-touch-icon"
-        href="https://sunshineclubkendupalli.in/assets/logo/sun-shine-club-logo.png"
+        href="${CLUB_LOGO}"
     >
 
 
@@ -76,27 +293,27 @@
 
     <meta
         property="og:title"
-        content="Sarbeswar Panda | Sun Shine Club Kendupalli"
+        content="${name} | Sun Shine Club Kendupalli"
     >
 
     <meta
         property="og:description"
-        content="Sarbeswar Panda is a Member of Sun Shine Club, Kendupalli. View the member profile, joining date, address, contact information and club details."
+        content="${escapeHTML(description)}"
     >
 
     <meta
         property="og:url"
-        content="https://sunshineclubkendupalli.in/pages/members/sarbeswar-panda.html"
+        content="${profileURL}"
     >
 
     <meta
         property="og:image"
-        content="https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/members/sarbeswar-panda.jpg"
+        content="${photo}"
     >
 
     <meta
         property="og:image:alt"
-        content="Sarbeswar Panda - Sun Shine Club Kendupalli member"
+        content="${name} - Sun Shine Club Kendupalli member"
     >
 
     <meta
@@ -121,22 +338,22 @@
 
     <meta
         name="twitter:title"
-        content="Sarbeswar Panda | Sun Shine Club Kendupalli"
+        content="${name} | Sun Shine Club Kendupalli"
     >
 
     <meta
         name="twitter:description"
-        content="Sarbeswar Panda is a Member of Sun Shine Club, Kendupalli. View the member profile, joining date, address, contact information and club details."
+        content="${escapeHTML(description)}"
     >
 
     <meta
         name="twitter:image"
-        content="https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/members/sarbeswar-panda.jpg"
+        content="${photo}"
     >
 
     <meta
         name="twitter:image:alt"
-        content="Sarbeswar Panda - Sun Shine Club Kendupalli member"
+        content="${name} - Sun Shine Club Kendupalli member"
     >
 
 
@@ -191,10 +408,10 @@
         "@type": "Organization",
         "name": "Sun Shine Club",
         "alternateName": "Sun Shine Club Kendupalli",
-        "url": "https://sunshineclubkendupalli.in/",
+        "url": "${DOMAIN}/",
         "logo": {
             "@type": "ImageObject",
-            "url": "https://sunshineclubkendupalli.in/assets/logo/sun-shine-club-logo.png"
+            "url": "${CLUB_LOGO}"
         }
     }
     </script>
@@ -209,30 +426,30 @@
         "@context": "https://schema.org",
         "@type": "Person",
 
-        "name": "Sarbeswar Panda",
+        "name": "${name}",
 
-        "alternateName": "ସର୍ବେଶ୍ଵର ପଣ୍ଡା",
+        "alternateName": "${odiaName}",
 
-        "identifier": "SSC019",
+        "identifier": "${id}",
 
         "image": {
             "@type": "ImageObject",
-            "url": "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/members/sarbeswar-panda.jpg"
+            "url": "${photo}"
         },
 
-        "jobTitle": "Member",
+        "jobTitle": "${designation}",
 
         "memberOf": {
             "@type": "Organization",
             "name": "Sun Shine Club",
-            "url": "https://sunshineclubkendupalli.in/",
+            "url": "${DOMAIN}/",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://sunshineclubkendupalli.in/assets/logo/sun-shine-club-logo.png"
+                "url": "${CLUB_LOGO}"
             }
         },
 
-        "url": "https://sunshineclubkendupalli.in/pages/members/sarbeswar-panda.html"
+        "url": "${profileURL}"
     }
     </script>
 
@@ -295,7 +512,7 @@
 
                     <span aria-current="page">
 
-                        Sarbeswar Panda
+                        ${name}
 
                     </span>
 
@@ -319,8 +536,8 @@
                     <div class="member-photo-wrapper">
 
                         <img
-                            src="https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/members/sarbeswar-panda.jpg"
-                            alt="Sarbeswar Panda - Sun Shine Club Kendupalli member"
+                            src="${photo}"
+                            alt="${name} - Sun Shine Club Kendupalli member"
                             class="member-photo"
                             width="500"
                             height="500"
@@ -348,7 +565,7 @@
 
                         <h1 itemprop="name">
 
-                            Sarbeswar Panda
+                            ${name}
 
                         </h1>
 
@@ -358,7 +575,7 @@
                             lang="or"
                         >
 
-                            ସର୍ବେଶ୍ଵର ପଣ୍ଡା
+                            ${odiaName}
 
                         </p>
 
@@ -368,7 +585,7 @@
                             itemprop="jobTitle"
                         >
 
-                            Member
+                            ${designation}
 
                         </p>
 
@@ -396,7 +613,7 @@
 
                                 <strong>
 
-                                    SSC019
+                                    ${id}
 
                                 </strong>
 
@@ -421,8 +638,8 @@
 
                                 <strong>
 
-                                    <time datetime="2022-08-31">
-                                        31 August 2022
+                                    <time datetime="${joinDate}">
+                                        ${formattedJoinDate}
                                     </time>
 
                                 </strong>
@@ -448,7 +665,7 @@
 
                                 <strong>
 
-                                    Kendupalli, Bhapur, Nayagarh
+                                    ${address}
 
                                 </strong>
 
@@ -474,11 +691,11 @@
                                 <strong>
 
                                     <a
-                                        href="tel:+918260916384"
-                                        aria-label="Call Sarbeswar Panda"
+                                        href="tel:+91${phone}"
+                                        aria-label="Call ${name}"
                                     >
 
-                                        +91 82609 16384
+                                        ${phoneDisplay}
 
                                     </a>
 
@@ -518,7 +735,7 @@
                                 type="button"
                                 class="share-btn"
                                 id="shareMember"
-                                aria-label="Share Sarbeswar Panda profile"
+                                aria-label="Share ${name} profile"
                             >
 
                                 <i
@@ -566,24 +783,24 @@
 
                     <h2>
 
-                        About Sarbeswar Panda
+                        About ${name}
 
                     </h2>
 
 
                     <p>
 
-                        Sarbeswar Panda is a
-                        <strong>Member</strong>
+                        ${name} is a
+                        <strong>${designation}</strong>
                         of
                         <strong>Sun Shine Club, Kendupalli</strong>.
-                        The member is also known as <span lang="or">ସର୍ବେଶ୍ଵର ପଣ୍ଡା</span>.
-                        Sarbeswar Panda joined Sun Shine Club on
-                        <strong>31 August 2022</strong>.
-                        Since joining the club, Sarbeswar Panda has been associated
+                        ${odiaName ? `The member is also known as <span lang="or">${odiaName}</span>.` : ""}
+                        ${name} joined Sun Shine Club on
+                        <strong>${formattedJoinDate}</strong>.
+                        Since joining the club, ${name} has been associated
                         with the community activities and initiatives
                         of Sun Shine Club, Kendupalli.
-                        As a member of Sun Shine Club, Sarbeswar Panda
+                        As a member of Sun Shine Club, ${name}
                         is part of the club's social, cultural and
                         community activities.
 
@@ -627,3 +844,106 @@
 </body>
 
 </html>
+`;
+
+}
+
+
+/* =========================================================
+   GENERATE ALL FILES
+========================================================= */
+
+let generated = 0;
+
+let skipped = 0;
+
+const usedSlugs = new Set();
+
+
+for (const member of members) {
+
+    if (
+        !member.name ||
+        !member.id
+    ) {
+
+        console.warn(
+            `Skipping invalid member entry:`,
+            member
+        );
+
+        skipped++;
+
+        continue;
+    }
+
+
+    let slug =
+        createSlug(member.name);
+
+
+    /*
+       Prevent duplicate filenames.
+       Example:
+       biswaranjan-panda.html
+       biswaranjan-panda-ssc013.html
+    */
+
+    if (usedSlugs.has(slug)) {
+
+        slug =
+            `${slug}-${String(member.id).toLowerCase()}`;
+
+    }
+
+
+    usedSlugs.add(slug);
+
+
+    const filePath =
+        path.join(
+            OUTPUT_DIR,
+            `${slug}.html`
+        );
+
+
+    const html =
+        generateMemberHTML(member);
+
+
+    fs.writeFileSync(
+        filePath,
+        html,
+        "utf8"
+    );
+
+
+    console.log(
+        `Created: ${slug}.html`
+    );
+
+
+    generated++;
+
+}
+
+
+/* =========================================================
+   RESULT
+========================================================= */
+
+console.log("\n========================================");
+
+console.log(
+    `Generated: ${generated} member profile(s)`
+);
+
+console.log(
+    `Skipped:   ${skipped} member(s)`
+);
+
+console.log(
+    `Location:  ${OUTPUT_DIR}`
+);
+
+console.log("========================================\n");
