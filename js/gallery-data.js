@@ -55,111 +55,111 @@ window.GALLERY_DATA = {
             images: [
 
                 {
-    src: "../assets/gallery/ganesh/2025/img1.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2025/img1.jpg",
     alt: "Ganesh Puja at Sun Shine Club Kendupalli 2025"
 },
 {
-    src: "../assets/gallery/ganesh/2025/img2.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2025/img2.jpg",
     alt: "Ganesh Puja at Sun Shine Club Kendupalli 2025"
 },
 {
-    src: "../assets/gallery/ganesh/2025/img3.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2025/img3.jpg",
     alt: "Ganesh Puja at Sun Shine Club Kendupalli 2025"
 },
 {
-    src: "../assets/gallery/ganesh/2025/img4.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2025/img4.jpg",
     alt: "Ganesh Puja at Sun Shine Club Kendupalli 2025"
 },
 {
-    src: "../assets/gallery/ganesh/2025/img5.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2025/img5.jpg",
     alt: "Ganesh Puja at Sun Shine Club Kendupalli 2025"
 },
 {
-    src: "../assets/gallery/ganesh/2025/img6.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2025/img6.jpg",
     alt: "Ganesh Puja at Sun Shine Club Kendupalli 2025"
 },
 {
-    src: "../assets/gallery/ganesh/2025/img7.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2025/img7.jpg",
     alt: "Ganesh Puja at Sun Shine Club Kendupalli 2025"
 },
 {
-    src: "../assets/gallery/ganesh/2025/img8.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2025/img8.jpg",
     alt: "Ganesh Puja at Sun Shine Club Kendupalli 2025"
 },
 {
-    src: "../assets/gallery/ganesh/2025/img9.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2025/img9.jpg",
     alt: "Ganesh Puja at Sun Shine Club Kendupalli 2025"
 },
 {
-    src: "../assets/gallery/ganesh/2025/img10.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2025/img10.jpg",
     alt: "Ganesh Puja at Sun Shine Club Kendupalli 2025"
 },
 {
-    src: "../assets/gallery/ganesh/2025/img11.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2025/img11.jpg",
     alt: "Ganesh Puja at Sun Shine Club Kendupalli 2025"
 },
 {
-    src: "../assets/gallery/ganesh/2025/img12.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2025/img12.jpg",
     alt: "Ganesh Puja at Sun Shine Club Kendupalli 2025"
 },
 {
-    src: "../assets/gallery/ganesh/2025/img13.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2025/img13.jpg",
     alt: "Ganesh Puja at Sun Shine Club Kendupalli 2025"
 },
 {
-    src: "../assets/gallery/ganesh/2025/img14.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2025/img14.jpg",
     alt: "Ganesh Puja at Sun Shine Club Kendupalli 2025"
 },
 {
-    src: "../assets/gallery/ganesh/2025/img15.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2025/img15.jpg",
     alt: "Ganesh Puja at Sun Shine Club Kendupalli 2025"
 },
 {
-    src: "../assets/gallery/ganesh/2025/img16.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2025/img16.jpg",
     alt: "Ganesh Puja at Sun Shine Club Kendupalli 2025"
 },
 {
-    src: "../assets/gallery/ganesh/2025/img17.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2025/img17.jpg",
     alt: "Ganesh Puja at Sun Shine Club Kendupalli 2025"
 },
 {
-    src: "../assets/gallery/ganesh/2025/img18.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2025/img18.jpg",
     alt: "Ganesh Puja at Sun Shine Club Kendupalli 2025"
 },
 {
-    src: "../assets/gallery/ganesh/2025/img19.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2025/img19.jpg",
     alt: "Ganesh Puja at Sun Shine Club Kendupalli 2025"
 },
 {
-    src: "../assets/gallery/ganesh/2025/img20.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2025/img20.jpg",
     alt: "Ganesh Puja at Sun Shine Club Kendupalli 2025"
 },
 {
-    src: "../assets/gallery/ganesh/2025/img21.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2025/img21.jpg",
     alt: "Ganesh Puja at Sun Shine Club Kendupalli 2025"
 },
 {
-    src: "../assets/gallery/ganesh/2025/img22.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2025/img22.jpg",
     alt: "Ganesh Puja at Sun Shine Club Kendupalli 2025"
 },
 {
-    src: "../assets/gallery/ganesh/2025/img23.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2025/img23.jpg",
     alt: "Ganesh Puja at Sun Shine Club Kendupalli 2025"
 },
 {
-    src: "../assets/gallery/ganesh/2025/img24.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2025/img24.jpg",
     alt: "Ganesh Puja at Sun Shine Club Kendupalli 2025"
 },
 {
-    src: "../assets/gallery/ganesh/2025/img25.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2025/img25.jpg",
     alt: "Ganesh Puja at Sun Shine Club Kendupalli 2025"
 },
 {
-    src: "../assets/gallery/ganesh/2025/img26.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2025/img26.jpg",
     alt: "Ganesh Puja at Sun Shine Club Kendupalli 2025"
 },
 {
-    src: "../assets/gallery/ganesh/2025/img27.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2025/img27.jpg",
     alt: "Ganesh Puja at Sun Shine Club Kendupalli 2025"
 }
 
@@ -418,59 +418,59 @@ window.GALLERY_DATA = {
             images: [
 
                 {
-    src: "../assets/gallery/saraswati/2026/img1.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/saraswati/2026/img1.jpg",
     alt: "Saraswati Puja at Sun Shine Club Kendupalli 2026"
 },
 {
-    src: "../assets/gallery/saraswati/2026/img2.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/saraswati/2026/img2.jpg",
     alt: "Saraswati Puja at Sun Shine Club Kendupalli 2026"
 },
 {
-    src: "../assets/gallery/saraswati/2026/img3.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/saraswati/2026/img3.jpg",
     alt: "Saraswati Puja at Sun Shine Club Kendupalli 2026"
 },
 {
-    src: "../assets/gallery/saraswati/2026/img4.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/saraswati/2026/img4.jpg",
     alt: "Saraswati Puja at Sun Shine Club Kendupalli 2026"
 },
 {
-    src: "../assets/gallery/saraswati/2026/img5.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/saraswati/2026/img5.jpg",
     alt: "Saraswati Puja at Sun Shine Club Kendupalli 2026"
 },
 {
-    src: "../assets/gallery/saraswati/2026/img6.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/saraswati/2026/img6.jpg",
     alt: "Saraswati Puja at Sun Shine Club Kendupalli 2026"
 },
 {
-    src: "../assets/gallery/saraswati/2026/img7.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/saraswati/2026/img7.jpg",
     alt: "Saraswati Puja at Sun Shine Club Kendupalli 2026"
 },
 {
-    src: "../assets/gallery/saraswati/2026/img8.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/saraswati/2026/img8.jpg",
     alt: "Saraswati Puja at Sun Shine Club Kendupalli 2026"
 },
 {
-    src: "../assets/gallery/saraswati/2026/img9.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/saraswati/2026/img9.jpg",
     alt: "Saraswati Puja at Sun Shine Club Kendupalli 2026"
 },
 {
-    src: "../assets/gallery/saraswati/2026/img10.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/saraswati/2026/img10.jpg",
     alt: "Saraswati Puja at Sun Shine Club Kendupalli 2026"
 },
 {
-    src: "../assets/gallery/saraswati/2026/img11.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/saraswati/2026/img11.jpg",
     alt: "Saraswati Puja at Sun Shine Club Kendupalli 2026"
 },
 {
-    src: "../assets/gallery/saraswati/2026/img12.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/saraswati/2026/img12.jpg",
     alt: "Saraswati Puja at Sun Shine Club Kendupalli 2026"
 },
 {
-    src: "../assets/gallery/saraswati/2026/img13.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/saraswati/2026/img13.jpg",
     alt: "Saraswati Puja at Sun Shine Club Kendupalli 2026"
 },
 {
-    src: "../assets/gallery/saraswati/2026/img14.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/saraswati/2026/img14.jpg",
     alt: "Saraswati Puja at Sun Shine Club Kendupalli 2026"
 }
 
@@ -493,47 +493,47 @@ window.GALLERY_DATA = {
             images: [
 
                 {
-    src: "../assets/gallery/saraswati/2025/img1.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/saraswati/2025/img1.jpg",
     alt: "Saraswati Puja at Sun Shine Club Kendupalli 2025"
 },
 {
-    src: "../assets/gallery/saraswati/2025/img2.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/saraswati/2025/img2.jpg",
     alt: "Saraswati Puja at Sun Shine Club Kendupalli 2025"
 },
 {
-    src: "../assets/gallery/saraswati/2025/img3.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/saraswati/2025/img3.jpg",
     alt: "Saraswati Puja at Sun Shine Club Kendupalli 2025"
 },
 {
-    src: "../assets/gallery/saraswati/2025/img4.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/saraswati/2025/img4.jpg",
     alt: "Saraswati Puja at Sun Shine Club Kendupalli 2025"
 },
 {
-    src: "../assets/gallery/saraswati/2025/img5.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/saraswati/2025/img5.jpg",
     alt: "Saraswati Puja at Sun Shine Club Kendupalli 2025"
 },
 {
-    src: "../assets/gallery/saraswati/2025/img6.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/saraswati/2025/img6.jpg",
     alt: "Saraswati Puja at Sun Shine Club Kendupalli 2025"
 },
 {
-    src: "../assets/gallery/saraswati/2025/img7.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/saraswati/2025/img7.jpg",
     alt: "Saraswati Puja at Sun Shine Club Kendupalli 2025"
 },
 {
-    src: "../assets/gallery/saraswati/2025/img8.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/saraswati/2025/img8.jpg",
     alt: "Saraswati Puja at Sun Shine Club Kendupalli 2025"
 },
 {
-    src: "../assets/gallery/saraswati/2025/img9.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/saraswati/2025/img9.jpg",
     alt: "Saraswati Puja at Sun Shine Club Kendupalli 2025"
 },
 {
-    src: "../assets/gallery/saraswati/2025/img10.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/saraswati/2025/img10.jpg",
     alt: "Saraswati Puja at Sun Shine Club Kendupalli 2025"
 },
 {
-    src: "../assets/gallery/saraswati/2025/img11.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/saraswati/2025/img11.jpg",
     alt: "Saraswati Puja at Sun Shine Club Kendupalli 2025"
 }
 
@@ -556,63 +556,63 @@ window.GALLERY_DATA = {
             images: [
 
                 {
-    src: "../assets/gallery/saraswati/2024/img1.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/saraswati/2024/img1.jpg",
     alt: "Saraswati Puja at Sun Shine Club Kendupalli 2024"
 },
 {
-    src: "../assets/gallery/saraswati/2024/img2.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/saraswati/2024/img2.jpg",
     alt: "Saraswati Puja at Sun Shine Club Kendupalli 2024"
 },
 {
-    src: "../assets/gallery/saraswati/2024/img3.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/saraswati/2024/img3.jpg",
     alt: "Saraswati Puja at Sun Shine Club Kendupalli 2024"
 },
 {
-    src: "../assets/gallery/saraswati/2024/img4.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/saraswati/2024/img4.jpg",
     alt: "Saraswati Puja at Sun Shine Club Kendupalli 2024"
 },
 {
-    src: "../assets/gallery/saraswati/2024/img5.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/saraswati/2024/img5.jpg",
     alt: "Saraswati Puja at Sun Shine Club Kendupalli 2024"
 },
 {
-    src: "../assets/gallery/saraswati/2024/img6.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/saraswati/2024/img6.jpg",
     alt: "Saraswati Puja at Sun Shine Club Kendupalli 2024"
 },
 {
-    src: "../assets/gallery/saraswati/2024/img7.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/saraswati/2024/img7.jpg",
     alt: "Saraswati Puja at Sun Shine Club Kendupalli 2024"
 },
 {
-    src: "../assets/gallery/saraswati/2024/img8.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/saraswati/2024/img8.jpg",
     alt: "Saraswati Puja at Sun Shine Club Kendupalli 2024"
 },
 {
-    src: "../assets/gallery/saraswati/2024/img9.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/saraswati/2024/img9.jpg",
     alt: "Saraswati Puja at Sun Shine Club Kendupalli 2024"
 },
 {
-    src: "../assets/gallery/saraswati/2024/img10.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/saraswati/2024/img10.jpg",
     alt: "Saraswati Puja at Sun Shine Club Kendupalli 2024"
 },
 {
-    src: "../assets/gallery/saraswati/2024/img11.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/saraswati/2024/img11.jpg",
     alt: "Saraswati Puja at Sun Shine Club Kendupalli 2024"
 },
 {
-    src: "../assets/gallery/saraswati/2024/img12.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/saraswati/2024/img12.jpg",
     alt: "Saraswati Puja at Sun Shine Club Kendupalli 2024"
 },
 {
-    src: "../assets/gallery/saraswati/2024/img13.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/saraswati/2024/img13.jpg",
     alt: "Saraswati Puja at Sun Shine Club Kendupalli 2024"
 },
 {
-    src: "../assets/gallery/saraswati/2024/img14.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/saraswati/2024/img14.jpg",
     alt: "Saraswati Puja at Sun Shine Club Kendupalli 2024"
 },
 {
-    src: "../assets/gallery/saraswati/2024/img15.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/saraswati/2024/img15.jpg",
     alt: "Saraswati Puja at Sun Shine Club Kendupalli 2024"
 }
 
