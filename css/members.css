@@ -152,6 +152,44 @@ background: linear-gradient(210deg, rgba(145, 229, 254, 0.235) 27%, rgba(204, 22
 
 }
 
+/* =====================================================
+   MEMBER CARD LINK
+===================================================== */
+
+.member-card-link {
+    display: block;
+    color: inherit;
+    text-decoration: none !important;
+    -webkit-text-decoration: none !important;
+}
+
+.member-card-link:link,
+.member-card-link:visited,
+.member-card-link:hover,
+.member-card-link:active,
+.member-card-link:focus {
+    color: inherit;
+    text-decoration: none !important;
+}
+
+
+/* =====================================================
+   MEMBER NAME
+===================================================== */
+
+.member-card-link .member-card h4 {
+    color: #222;
+    text-decoration: none !important;
+    margin: 0;
+}
+
+
+/* Prevent underline on hover */
+
+.member-card-link:hover .member-card h4 {
+    color: #222;
+    text-decoration: none !important;
+}
 
 /*==============================
         Tablet
