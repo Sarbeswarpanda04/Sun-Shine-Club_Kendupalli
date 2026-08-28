@@ -185,87 +185,87 @@ window.GALLERY_DATA = {
             images: [
 
                 {
-    src: "../assets/gallery/ganesh/2024/img1.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2024/img1.jpg",
     alt: "Ganesh Puja celebration at Sun Shine Club Kendupalli 2024"
 },
 {
-    src: "../assets/gallery/ganesh/2024/img2.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2024/img2.jpg",
     alt: "Ganesh Puja celebration at Sun Shine Club Kendupalli 2024"
 },
 {
-    src: "../assets/gallery/ganesh/2024/img3.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2024/img3.jpg",
     alt: "Ganesh Puja celebration at Sun Shine Club Kendupalli 2024"
 },
 {
-    src: "../assets/gallery/ganesh/2024/img4.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2024/img4.jpg",
     alt: "Ganesh Puja celebration at Sun Shine Club Kendupalli 2024"
 },
 {
-    src: "../assets/gallery/ganesh/2024/img5.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2024/img5.jpg",
     alt: "Ganesh Puja celebration at Sun Shine Club Kendupalli 2024"
 },
 {
-    src: "../assets/gallery/ganesh/2024/img6.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2024/img6.jpg",
     alt: "Ganesh Puja celebration at Sun Shine Club Kendupalli 2024"
 },
 {
-    src: "../assets/gallery/ganesh/2024/img7.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2024/img7.jpg",
     alt: "Ganesh Puja celebration at Sun Shine Club Kendupalli 2024"
 },
 {
-    src: "../assets/gallery/ganesh/2024/img8.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2024/img8.jpg",
     alt: "Ganesh Puja celebration at Sun Shine Club Kendupalli 2024"
 },
 {
-    src: "../assets/gallery/ganesh/2024/img9.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2024/img9.jpg",
     alt: "Ganesh Puja celebration at Sun Shine Club Kendupalli 2024"
 },
 {
-    src: "../assets/gallery/ganesh/2024/img10.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2024/img10.jpg",
     alt: "Ganesh Puja celebration at Sun Shine Club Kendupalli 2024"
 },
 {
-    src: "../assets/gallery/ganesh/2024/img11.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2024/img11.jpg",
     alt: "Ganesh Puja celebration at Sun Shine Club Kendupalli 2024"
 },
 {
-    src: "../assets/gallery/ganesh/2024/img12.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2024/img12.jpg",
     alt: "Ganesh Puja celebration at Sun Shine Club Kendupalli 2024"
 },
 {
-    src: "../assets/gallery/ganesh/2024/img13.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2024/img13.jpg",
     alt: "Ganesh Puja celebration at Sun Shine Club Kendupalli 2024"
 },
 {
-    src: "../assets/gallery/ganesh/2024/img14.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2024/img14.jpg",
     alt: "Ganesh Puja celebration at Sun Shine Club Kendupalli 2024"
 },
 {
-    src: "../assets/gallery/ganesh/2024/img15.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2024/img15.jpg",
     alt: "Ganesh Puja celebration at Sun Shine Club Kendupalli 2024"
 },
 {
-    src: "../assets/gallery/ganesh/2024/img16.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2024/img16.jpg",
     alt: "Ganesh Puja celebration at Sun Shine Club Kendupalli 2024"
 },
 {
-    src: "../assets/gallery/ganesh/2024/img17.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2024/img17.jpg",
     alt: "Ganesh Puja celebration at Sun Shine Club Kendupalli 2024"
 },
 {
-    src: "../assets/gallery/ganesh/2024/img18.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2024/img18.jpg",
     alt: "Ganesh Puja celebration at Sun Shine Club Kendupalli 2024"
 },
 {
-    src: "../assets/gallery/ganesh/2024/img19.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2024/img19.jpg",
     alt: "Ganesh Puja celebration at Sun Shine Club Kendupalli 2024"
 },
 {
-    src: "../assets/gallery/ganesh/2024/img20.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2024/img20.jpg",
     alt: "Ganesh Puja celebration at Sun Shine Club Kendupalli 2024"
 },
 {
-    src: "../assets/gallery/ganesh/2024/img21.jpg",
+    src: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2024/img21.jpg",
     alt: "Ganesh Puja celebration at Sun Shine Club Kendupalli 2024"
 }
 
