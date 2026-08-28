@@ -8,6 +8,11 @@
         <loc>https://sunshineclubkendupalli.in/page-sitemap.xml</loc>
     </sitemap>
 
+    <!-- Members pages-->
+    <sitemap>
+        <loc>https://sunshineclubkendupalli.in/sitemap-members.xml</loc>
+    </sitemap>
+    
     <!-- Gallery images -->
     <sitemap>
         <loc>https://sunshineclubkendupalli.in/image-sitemap.xml</loc>
