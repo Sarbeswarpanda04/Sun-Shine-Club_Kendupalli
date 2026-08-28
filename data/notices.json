@@ -1,25 +1,48 @@
 [
     {
-    "id": "notice-001",
-    "title": {
-        "en": "Ganesh Puja 2026",
-        "or": "ଗଣେଶ ପୂଜା ୨୦୨୬"
-    },
-    "description": {
-        "en": "Ganesh Puja celebration at Sun Shine Club, Kendupalli.",
-        "or": "ସନ୍ ସାଇନ୍ କ୍ଲବ୍, କେନ୍ଦୁପଲ୍ଲୀରେ ଗଣେଶ ପୂଜା ପାଳନ।"
-    },
-    "date": "2026-09-14",
-    "time": "07:00 PM",
-    "venue": {
-        "en": "Sun Shine Club, Kendupalli",
-        "or": "ସନ୍ ସାଇନ୍ କ୍ଲବ୍, କେନ୍ଦୁପଲ୍ଲୀ"
-    },
-    "publishedAt": "2026-08-29",
-    "expiresAt": "2026-09-16",
-    "pinned": true,
-    "important": true,
-    "language": "en",
-    "link": "pages/notices.html"
-}
+        "id": "notice-001",
+
+        "title": {
+            "en": "Ganesh Puja 2026",
+            "or": "ଗଣେଶ ପୂଜା ୨୦୨୬"
+        },
+
+        "description": {
+            "en": "Join Sun Shine Club, Kendupalli for the Ganesh Puja celebration on 14 September 2026.",
+            "or": "୧୪ ସେପ୍ଟେମ୍ବର ୨୦୨୬ରେ ସନ୍ ସାଇନ୍ କ୍ଲବ୍, କେନ୍ଦୁପଲ୍ଲୀର ଗଣେଶ ପୂଜା ପାଳନରେ ଯୋଗ ଦିଅନ୍ତୁ।"
+        },
+
+        "content": {
+            "en": "Sun Shine Club, Kendupalli is pleased to announce the Ganesh Puja celebration on 14 September 2026. Members, families and local residents are invited to participate in the celebration and seek the blessings of Lord Ganesha. Everyone is warmly invited to join the celebration and make the occasion memorable.",
+            "or": "ସନ୍ ସାଇନ୍ କ୍ଲବ୍, କେନ୍ଦୁପଲ୍ଲୀ ପକ୍ଷରୁ ୧୪ ସେପ୍ଟେମ୍ବର ୨୦୨୬ରେ ଗଣେଶ ପୂଜା ପାଳନ ଆୟୋଜନ କରାଯାଉଛି। ସଦସ୍ୟ, ପରିବାର ଏବଂ ସ୍ଥାନୀୟ ବାସିନ୍ଦାମାନଙ୍କୁ ଏହି ପବିତ୍ର ଉତ୍ସବରେ ଯୋଗଦେଇ ପ୍ରଭୁ ଗଣେଶଙ୍କ ଆଶୀର୍ବାଦ ନେବା ପାଇଁ ଆମନ୍ତ୍ରଣ କରାଯାଉଛି। ସମସ୍ତେ ଏହି ଉତ୍ସବରେ ଯୋଗଦେଇ ଏହାକୁ ସ୍ମରଣୀୟ କରନ୍ତୁ।"
+        },
+
+        "date": "2026-09-14",
+
+        "time": "08:00 AM",
+
+        "venue": {
+            "en": "Sun Shine Club, Kendupalli",
+            "or": "ସନ୍ ସାଇନ୍ କ୍ଲବ୍, କେନ୍ଦୁପଲ୍ଲୀ"
+        },
+
+        "organizer": {
+            "en": "Sun Shine Club, Kendupalli",
+            "or": "ସନ୍ ସାଇନ୍ କ୍ଲବ୍, କେନ୍ଦୁପଲ୍ଲୀ"
+        },
+
+        "image": "https://sunshineclubkendupalli.in/assets/images/notices/ganesh-puja-2026.jpg",
+
+        "publishedAt": "2026-08-29",
+
+        "expiresAt": "2026-09-15",
+
+        "pinned": true,
+
+        "important": true,
+
+        "language": "en",
+
+        "link": "https://sunshineclubkendupalli.in/pages/notices/ganesh-puja-2026.html"
+    }
 ]
