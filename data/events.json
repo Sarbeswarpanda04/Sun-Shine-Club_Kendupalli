@@ -1,0 +1,27 @@
+[
+    {
+        "id": "independence-day-2026",
+        "title": "Independence Day Celebration & Biscuit Distribution",
+        "date": "2026-08-15",
+        "time": "08:00 AM",
+        "location": "Kendupalli, Nayagarh, Odisha",
+        "category": "Independence Day",
+        "description": "Sun Shine Club, Kendupalli celebrated Independence Day with the village parade and distributed biscuits to school students participating in the celebration.",
+        "image": "https://sunshineclubkendupalli.in/assets/events/2026/2026-independence-day1.webp",
+        "eventPage": "events/independence-day-2026.html",
+        "gallery": "gallery.html"
+    },
+
+    {
+        "id": "ganesh-puja-2026",
+        "title": "Ganesh Puja Celebration",
+        "date": "2026-09-14",
+        "time": "08:00 AM",
+        "location": "Sun Shine Club, Kendupalli",
+        "category": "Religious Event",
+        "description": "Ganesh Puja celebration organized by Sun Shine Club, Kendupalli with community participation.",
+        "image": "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/banner/ganesh%20puja%20banner%202026.webp",
+        "eventPage": "events/ganesh-puja-2026.html",
+        "gallery": "gallery.html"
+    }
+]
