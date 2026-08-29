@@ -65,7 +65,7 @@
 
     margin: auto;
 
-    padding: 0 40px 70px;
+    padding: 0 40px 5px;
 
     display: grid;
 
@@ -973,7 +973,7 @@
 
         grid-template-columns: 1fr;
 
-        padding: 0 16px 88px;
+        padding: 0 16px 5px;
 
         gap: 30px;
 
@@ -986,7 +986,7 @@
     .footer-links,
     .footer-contact {
 
-        padding: 20px;
+        padding: 7px;
 
     }
 
@@ -1199,4 +1199,21 @@
 
     }
 
+}
+
+
+
+/*=========================================
+        SOCIAL QR   
+=========================================*/
+.social-qr {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 7%;
+}
+.social-qr img{
+    width: 30%;
+    border-radius: 15px;
 }
