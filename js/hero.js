@@ -201,26 +201,26 @@ document.addEventListener("DOMContentLoaded", () => {
   /*====================================
         COUNTER ANIMATION
     ====================================*/
-    function animateCounter(counter) {
-    const target = parseInt(counter.dataset.target, 10);
-    let current = 0;
+  //   function animateCounter(counter) {
+  //   const target = parseInt(counter.dataset.target, 10);
+  //   let current = 0;
 
-    const duration = 2000;
-    const increment = target / (duration / 16);
+  //   const duration = 2000;
+  //   const increment = target / (duration / 16);
 
-    function update() {
-      current += increment;
+  //   function update() {
+  //     current += increment;
 
-      if (current < target) {
-        counter.textContent = Math.ceil(current);
-        requestAnimationFrame(update);
-      } else {
-        counter.textContent = target + "+";
-      }
-    }
+  //     if (current < target) {
+  //       counter.textContent = Math.ceil(current);
+  //       requestAnimationFrame(update);
+  //     } else {
+  //       counter.textContent = target + "+";
+  //     }
+  //   }
 
-    update();
-  }
+  //   update();
+  // }
 
   /*====================================
         INTERSECTION OBSERVER
