@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="robots"
+        content="noindex, nofollow"
+    >
+
+    <title>
+        Dashboard | Sun Shine Club Kendupalli
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="css/admin.css"
+    >
+
+</head>
+
+
+<body class="admin-body">
+
+    <!-- ================================================
+         MOBILE OVERLAY
+    ================================================= -->
+
+    <div
+        class="sidebar-overlay"
+        id="sidebarOverlay"
+    ></div>
+
+
+    <!-- ================================================
+         SIDEBAR
+    ================================================= -->
+
+    <aside
+        class="admin-sidebar"
+        id="adminSidebar"
+    >
+
+        <div class="sidebar-brand">
+
+            <img
+                src="https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/logo/sun-shine-club-logo.png"
+                alt="Sun Shine Club"
+                onerror="this.style.display='none'"
+            >
+
+            <div>
+
+                <strong>
+                    Sun Shine Club
+                </strong>
+
+                <span>
+                    Kendupalli
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <nav class="admin-navigation">
+
+            <p class="nav-section-title">
+                MAIN
+            </p>
+
+
+            <a
+                href="dashboard.html"
+                class="admin-nav-link active"
+            >
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                <span>
+                    Dashboard
+                </span>
+
+            </a>
+
+
+            <a
+                href="members.html"
+                class="admin-nav-link"
+            >
+
+                <i class="fa-solid fa-users"></i>
+
+                <span>
+                    Members
+                </span>
+
+            </a>
+
+
+            <a
+                href="notices.html"
+                class="admin-nav-link"
+            >
+
+                <i class="fa-solid fa-bell"></i>
+
+                <span>
+                    Notices
+                </span>
+
+            </a>
+
+
+            <a
+                href="events.html"
+                class="admin-nav-link"
+            >
+
+                <i class="fa-solid fa-calendar-days"></i>
+
+                <span>
+                    Events
+                </span>
+
+            </a>
+
+
+            <a
+                href="gallery.html"
+                class="admin-nav-link"
+            >
+
+                <i class="fa-solid fa-images"></i>
+
+                <span>
+                    Gallery
+                </span>
+
+            </a>
+
+
+            <a
+                href="youtube.html"
+                class="admin-nav-link"
+            >
+
+                <i class="fa-brands fa-youtube"></i>
+
+                <span>
+                    YouTube
+                </span>
+
+            </a>
+
+
+            <p class="nav-section-title nav-section-space">
+                SYSTEM
+            </p>
+
+
+            <a
+                href="#"
+                class="admin-nav-link"
+            >
+
+                <i class="fa-solid fa-gear"></i>
+
+                <span>
+                    Settings
+                </span>
+
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="sidebar-user">
+
+                <div
+                    class="user-avatar"
+                    id="sidebarAvatar"
+                >
+                    A
+                </div>
+
+                <div class="sidebar-user-info">
+
+                    <strong id="sidebarName">
+                        Administrator
+                    </strong>
+
+                    <span id="sidebarEmail">
+                        Loading...
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="sidebar-logout"
+                id="sidebarLogout"
+            >
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                <span>
+                    Sign Out
+                </span>
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================================================
+         MAIN
+    ================================================= -->
+
+    <main class="admin-main">
+
+
+        <!-- ============================================
+             TOP HEADER
+        ============================================= -->
+
+        <header class="admin-topbar">
+
+            <button
+                type="button"
+                class="mobile-menu-button"
+                id="mobileMenuButton"
+                aria-label="Open menu"
+            >
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+
+            <div class="topbar-title">
+
+                <span>
+                    ADMIN PANEL
+                </span>
+
+                <h1>
+                    Dashboard
+                </h1>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <div class="topbar-user">
+
+                    <div
+                        class="user-avatar"
+                        id="topbarAvatar"
+                    >
+                        A
+                    </div>
+
+                    <div class="topbar-user-info">
+
+                        <strong id="topbarName">
+                            Administrator
+                        </strong>
+
+                        <span>
+                            Administrator
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ============================================
+             PAGE CONTENT
+        ============================================= -->
+
+        <div class="dashboard-content">
+
+
+            <!-- ========================================
+                 WELCOME
+            ========================================= -->
+
+            <section class="dashboard-welcome">
+
+                <div>
+
+                    <p class="welcome-label">
+                        GOOD DAY
+                    </p>
+
+                    <h2>
+                        Welcome,
+                        <span id="welcomeName">
+                            Administrator
+                        </span>
+                    </h2>
+
+                    <p>
+                        Manage Sun Shine Club Kendupalli
+                        website content from here.
+                    </p>
+
+                </div>
+
+
+                <div class="welcome-status">
+
+                    <span class="status-dot"></span>
+
+                    Online
+
+                </div>
+
+            </section>
+
+
+            <!-- ========================================
+                 STATISTICS
+            ========================================= -->
+
+            <section class="dashboard-stats">
+
+
+                <a
+                    href="members.html"
+                    class="stat-card"
+                >
+
+                    <div class="stat-icon members-icon">
+
+                        <i class="fa-solid fa-users"></i>
+
+                    </div>
+
+                    <div class="stat-information">
+
+                        <span>
+                            Members
+                        </span>
+
+                        <strong id="membersCount">
+                            —
+                        </strong>
+
+                    </div>
+
+                    <i class="fa-solid fa-arrow-right stat-arrow"></i>
+
+                </a>
+
+
+                <a
+                    href="notices.html"
+                    class="stat-card"
+                >
+
+                    <div class="stat-icon notices-icon">
+
+                        <i class="fa-solid fa-bell"></i>
+
+                    </div>
+
+                    <div class="stat-information">
+
+                        <span>
+                            Notices
+                        </span>
+
+                        <strong id="noticesCount">
+                            —
+                        </strong>
+
+                    </div>
+
+                    <i class="fa-solid fa-arrow-right stat-arrow"></i>
+
+                </a>
+
+
+                <a
+                    href="events.html"
+                    class="stat-card"
+                >
+
+                    <div class="stat-icon events-icon">
+
+                        <i class="fa-solid fa-calendar-days"></i>
+
+                    </div>
+
+                    <div class="stat-information">
+
+                        <span>
+                            Events
+                        </span>
+
+                        <strong id="eventsCount">
+                            —
+                        </strong>
+
+                    </div>
+
+                    <i class="fa-solid fa-arrow-right stat-arrow"></i>
+
+                </a>
+
+
+                <a
+                    href="gallery.html"
+                    class="stat-card"
+                >
+
+                    <div class="stat-icon gallery-icon">
+
+                        <i class="fa-solid fa-images"></i>
+
+                    </div>
+
+                    <div class="stat-information">
+
+                        <span>
+                            Gallery
+                        </span>
+
+                        <strong id="galleryCount">
+                            —
+                        </strong>
+
+                    </div>
+
+                    <i class="fa-solid fa-arrow-right stat-arrow"></i>
+
+                </a>
+
+
+            </section>
+
+
+            <!-- ========================================
+                 QUICK ACTIONS
+            ========================================= -->
+
+            <section class="dashboard-section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <p>
+                            SHORTCUTS
+                        </p>
+
+                        <h2>
+                            Quick Actions
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="quick-actions">
+
+
+                    <a
+                        href="members.html?action=add"
+                        class="quick-action"
+                    >
+
+                        <i class="fa-solid fa-user-plus"></i>
+
+                        <div>
+
+                            <strong>
+                                Add Member
+                            </strong>
+
+                            <span>
+                                Add a new club member
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+                    <a
+                        href="notices.html?action=add"
+                        class="quick-action"
+                    >
+
+                        <i class="fa-solid fa-plus"></i>
+
+                        <div>
+
+                            <strong>
+                                New Notice
+                            </strong>
+
+                            <span>
+                                Publish a club notice
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+                    <a
+                        href="events.html?action=add"
+                        class="quick-action"
+                    >
+
+                        <i class="fa-solid fa-calendar-plus"></i>
+
+                        <div>
+
+                            <strong>
+                                Create Event
+                            </strong>
+
+                            <span>
+                                Add an upcoming event
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+                    <a
+                        href="gallery.html?action=add"
+                        class="quick-action"
+                    >
+
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+
+                        <div>
+
+                            <strong>
+                                Add Gallery
+                            </strong>
+
+                            <span>
+                                Add photos to gallery
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+                </div>
+
+            </section>
+
+
+            <!-- ========================================
+                 RECENT ACTIVITY
+            ========================================= -->
+
+            <section class="dashboard-section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <p>
+                            ACTIVITY
+                        </p>
+
+                        <h2>
+                            Recent Activity
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="activity-container"
+                    id="recentActivity"
+                >
+
+                    <div class="empty-activity">
+
+                        <i class="fa-regular fa-clock"></i>
+
+                        <p>
+                            No recent activity
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- ================================================
+         FONT AWESOME
+    ================================================= -->
+
+    <script src="https://kit.fontawesome.com/3761b78600.js" crossorigin="anonymous"></script>
+
+
+    <!-- ================================================
+         DASHBOARD JS
+    ================================================= -->
+
+    <script
+        type="module"
+        src="js/dashboard.js"
+    ></script>
+
+</body>
+
+</html>

@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>
+        Members | Admin | Sun Shine Club Kendupalli
+    </title>
+
+    <!-- Shared admin CSS -->
+    <link rel="stylesheet" href="css/admin.css">
+
+    <!-- Members-only CSS -->
+    <link rel="stylesheet" href="css/members.css">
+
+</head>
+
+
+<body class="admin-body">
+
+
+    <!-- =================================================
+         MOBILE OVERLAY
+    ================================================= -->
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+
+    <!-- =================================================
+         SIDEBAR
+    ================================================= -->
+
+    <aside class="admin-sidebar" id="adminSidebar">
+
+        <div class="sidebar-brand">
+
+            <img src="https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/logo/sun-shine-club-logo.png"
+                alt="Sun Shine Club" onerror="this.style.display='none'">
+
+            <div>
+
+                <strong>
+                    Sun Shine Club
+                </strong>
+
+                <span>
+                    Kendupalli
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <nav class="admin-navigation">
+
+            <p class="nav-section-title">
+                MAIN
+            </p>
+
+
+            <a href="dashboard.html" class="admin-nav-link">
+                <span class="nav-icon">
+                    <i class="fa-solid fa-chart-line"></i>
+                </span>
+
+                <span class="nav-text">
+                    Dashboard
+                </span>
+            </a>
+
+
+            <a href="members.html" class="admin-nav-link active">
+                <span class="nav-icon">
+                    <i class="fa-solid fa-users"></i>
+                </span>
+
+                <span class="nav-text">
+                    Members
+                </span>
+            </a>
+
+
+            <a href="notices.html" class="admin-nav-link">
+                <span class="nav-icon">
+                    <i class="fa-solid fa-bell"></i>
+                </span>
+
+                <span class="nav-text">
+                    Notices
+                </span>
+            </a>
+
+
+            <a href="events.html" class="admin-nav-link">
+                <span class="nav-icon">
+                    <i class="fa-solid fa-calendar-days"></i>
+                </span>
+
+                <span class="nav-text">
+                    Events
+                </span>
+            </a>
+
+
+            <a href="gallery.html" class="admin-nav-link">
+                <span class="nav-icon">
+                    <i class="fa-solid fa-images"></i>
+                </span>
+
+                <span class="nav-text">
+                    Gallery
+                </span>
+            </a>
+
+
+            <a href="youtube.html" class="admin-nav-link">
+                <span class="nav-icon">
+                    <i class="fa-brands fa-youtube"></i>
+                </span>
+
+                <span class="nav-text">
+                    YouTube
+                </span>
+            </a>
+
+
+            <p class="nav-section-title nav-section-space">
+                SYSTEM
+            </p>
+
+
+            <a href="#" class="admin-nav-link">
+                <span class="nav-icon">
+                    <i class="fa-solid fa-gear"></i>
+                </span>
+
+                <span class="nav-text">
+                    Settings
+                </span>
+            </a>
+
+        </nav>
+
+
+        <!-- Sidebar user -->
+
+        <div class="sidebar-bottom">
+
+            <div class="sidebar-user">
+
+                <div class="user-avatar" id="sidebarAvatar">
+                    A
+                </div>
+
+
+                <div class="sidebar-user-info">
+
+                    <strong id="sidebarName">
+                        Administrator
+                    </strong>
+
+                    <span id="sidebarEmail">
+                        Loading...
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <button type="button" class="sidebar-logout" id="sidebarLogout">
+                Sign Out
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =================================================
+         MAIN
+    ================================================= -->
+
+    <main class="admin-main">
+
+
+        <!-- =================================================
+             TOPBAR
+        ================================================= -->
+
+        <header class="admin-topbar">
+
+            <button type="button" class="mobile-menu-button" id="mobileMenuButton" aria-label="Open navigation">
+                ☰
+            </button>
+
+
+            <div class="topbar-title">
+
+                <span>
+                    MANAGEMENT
+                </span>
+
+                <h1>
+                    Members
+                </h1>
+
+            </div>
+
+
+            <div class="topbar-user">
+
+                <div class="user-avatar" id="topbarAvatar">
+                    A
+                </div>
+
+                <div class="topbar-user-info">
+
+                    <strong id="topbarName">
+                        Administrator
+                    </strong>
+
+                    <span>
+                        Admin
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             CONTENT
+        ================================================= -->
+
+        <div class="members-content">
+
+
+            <!-- PAGE HEADER -->
+
+            <section class="members-page-header">
+
+                <div>
+
+                    <p class="page-label">
+                        CLUB DIRECTORY
+                    </p>
+
+                    <h2>
+                        Members
+                    </h2>
+
+                    <p>
+                        Manage Sun Shine Club Kendupalli
+                        members.
+                    </p>
+
+                </div>
+
+
+                <button type="button" class="add-member-button" id="addMemberButton">
+
+                    <span>
+                        +
+                    </span>
+
+                    Add Member
+
+                </button>
+
+            </section>
+
+
+            <!-- =================================================
+                 STATISTICS
+            ================================================= -->
+
+            <section class="member-statistics">
+
+
+                <div class="member-stat-card">
+
+                    <span>
+                        Total Members
+                    </span>
+
+                    <strong id="totalMembers">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="member-stat-card">
+
+                    <span>
+                        Active
+                    </span>
+
+                    <strong id="activeMembers">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="member-stat-card">
+
+                    <span>
+                        Inactive
+                    </span>
+
+                    <strong id="inactiveMembers">
+                        —
+                    </strong>
+
+                </div>
+
+
+            </section>
+
+
+            <!-- =================================================
+                 SEARCH / FILTER
+            ================================================= -->
+
+            <section class="members-toolbar">
+
+
+                <div class="member-search">
+
+                    <span>
+                        🔍
+                    </span>
+
+                    <input type="search" id="memberSearch" placeholder="Search members..." autocomplete="off">
+
+                </div>
+
+
+                <select id="statusFilter" class="status-filter">
+
+                    <option value="all">
+                        All Members
+                    </option>
+
+                    <option value="Active">
+                        Active
+                    </option>
+
+                    <option value="Inactive">
+                        Inactive
+                    </option>
+
+                </select>
+
+
+            </section>
+
+
+            <!-- =================================================
+                 LOADING
+            ================================================= -->
+
+            <div id="membersLoading" class="members-loading">
+
+                <div class="loading-spinner"></div>
+
+                <p>
+                    Loading members...
+                </p>
+
+            </div>
+
+
+            <!-- =================================================
+                 MEMBER LIST
+            ================================================= -->
+
+            <section id="membersList" class="members-list"></section>
+
+
+            <!-- =================================================
+                 EMPTY STATE
+            ================================================= -->
+
+            <section id="membersEmpty" class="members-empty" hidden>
+
+                <div>
+                    👥
+                </div>
+
+                <h3>
+                    No members found
+                </h3>
+
+                <p>
+                    Try changing your search or filter.
+                </p>
+
+            </section>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- =================================================
+         MEMBER MODAL
+    ================================================= -->
+
+    <div class="member-modal" id="memberModal" hidden>
+
+        <div class="member-modal-overlay" id="memberModalOverlay"></div>
+
+
+        <section class="member-modal-card" role="dialog" aria-modal="true" aria-labelledby="memberModalTitle">
+
+            <div class="member-modal-header">
+
+                <div>
+
+                    <p>
+                        MEMBER
+                    </p>
+
+                    <h2 id="memberModalTitle">
+                        Add Member
+                    </h2>
+
+                </div>
+
+
+                <button type="button" id="closeMemberModal" class="close-modal-button" aria-label="Close">
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="memberForm" class="member-form">
+
+                <input type="hidden" id="memberDocumentId">
+
+
+                <div class="form-row">
+
+
+                    <div class="form-field">
+
+                        <label for="memberId">
+                            Member ID
+                        </label>
+
+                        <input type="text" id="memberId" placeholder="SSC042" required>
+
+                    </div>
+
+
+                    <div class="form-field">
+
+                        <label for="memberStatus">
+                            Status
+                        </label>
+
+                        <select id="memberStatus" required>
+
+                            <option value="Active">
+                                Active
+                            </option>
+
+                            <option value="Inactive">
+                                Inactive
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="form-row">
+
+
+                    <div class="form-field">
+
+                        <label for="memberName">
+                            Name
+                        </label>
+
+                        <input type="text" id="memberName" placeholder="Member name" required>
+
+                    </div>
+
+
+                    <div class="form-field">
+
+                        <label for="memberOdiaName">
+                            Odia Name
+                        </label>
+
+                        <input type="text" id="memberOdiaName" placeholder="ଓଡ଼ିଆ ନାମ">
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="form-field">
+
+                    <label for="memberPhoto">
+                        Photo URL
+                    </label>
+
+                    <input type="url" id="memberPhoto" placeholder="https://...">
+
+                </div>
+
+
+                <div class="form-row">
+
+
+                    <div class="form-field">
+
+                        <label for="memberDesignation">
+                            Designation
+                        </label>
+
+                        <input type="text" id="memberDesignation" value="Member">
+
+                    </div>
+
+
+                    <div class="form-field">
+
+                        <label for="memberPhone">
+                            Phone
+                        </label>
+
+                        <input type="tel" id="memberPhone" placeholder="Phone number">
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="form-field">
+
+                    <label for="memberAddress">
+                        Address
+                    </label>
+
+                    <textarea id="memberAddress" rows="3" placeholder="Member address"></textarea>
+
+                </div>
+
+
+                <div class="form-row">
+
+
+                    <div class="form-field">
+
+                        <label for="memberJoinDate">
+                            Join Date
+                        </label>
+
+                        <input type="date" id="memberJoinDate">
+
+                    </div>
+
+
+                    <div class="form-field">
+
+                        <label for="memberValid">
+                            Valid Until
+                        </label>
+
+                        <input type="date" id="memberValid">
+
+                    </div>
+
+
+                </div>
+
+
+                <div id="memberFormError" class="member-form-error" hidden></div>
+
+
+                <div class="member-form-actions">
+
+                    <button type="button" id="cancelMember" class="cancel-button">
+                        Cancel
+                    </button>
+
+
+                    <button type="submit" id="saveMember" class="save-button">
+                        Save Member
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </div>
+
+
+
+
+    <!-- =========================================================
+     DELETE CONFIRMATION MODAL
+========================================================= -->
+
+<div
+    class="delete-modal"
+    id="deleteModal"
+    hidden
+>
+
+    <div
+        class="delete-modal-overlay"
+        id="deleteModalOverlay"
+    ></div>
+
+
+    <section
+        class="delete-modal-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="deleteModalTitle"
+    >
+
+        <div class="delete-modal-icon">
+            <i class="fa-solid fa-trash"></i>
+        </div>
+
+
+        <div class="delete-modal-content">
+
+            <h2 id="deleteModalTitle">
+                Delete Member?
+            </h2>
+
+            <p>
+                Are you sure you want to delete
+                <strong id="deleteMemberName">
+                    this member
+                </strong>?
+            </p>
+
+            <span
+                class="delete-member-id"
+                id="deleteMemberId"
+            >
+                SSC000
+            </span>
+
+            <p class="delete-warning">
+                This action cannot be undone.
+            </p>
+
+        </div>
+
+
+        <div class="delete-modal-actions">
+
+            <button
+                type="button"
+                class="delete-cancel-button"
+                id="cancelDelete"
+            >
+                Cancel
+            </button>
+
+
+            <button
+                type="button"
+                class="delete-confirm-button"
+                id="confirmDelete"
+            >
+                <i class="fa-solid fa-trash"></i>
+
+                Delete Member
+            </button>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+
+
+    <script type="module" src="js/admin-auth.js"></script>
+
+    <script src="https://kit.fontawesome.com/3761b78600.js" crossorigin="anonymous"></script>
+
+    <!-- =================================================
+         MEMBERS JS
+    ================================================= -->
+
+    <script type="module" src="js/members.js"></script>
+
+</body>
+
+</html>

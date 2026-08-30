@@ -1,0 +1,832 @@
+/* =========================================================
+   IMPORT MEMBERS
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+:root {
+
+    --primary: #4f46e5;
+    --primary-dark: #3730a3;
+
+    --text: #1f2937;
+    --muted: #6b7280;
+
+    --border: #e5e7eb;
+
+    --background: #f5f7fb;
+
+    --success: #15803d;
+    --danger: #dc2626;
+    --warning: #b45309;
+
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background: var(--background);
+
+    color: var(--text);
+
+}
+
+
+button,
+input {
+
+    font: inherit;
+
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.import-page {
+
+    width: min(900px, 94%);
+
+    margin: 0 auto;
+
+    padding:
+        50px 0;
+
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.import-card {
+
+    background: #fff;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 24px;
+
+    padding: 40px;
+
+    box-shadow:
+        0 20px 60px
+        rgba(15, 23, 42, .08);
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.import-header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    margin-bottom: 35px;
+
+}
+
+
+.import-icon {
+
+    width: 58px;
+    height: 58px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 16px;
+
+    color: #fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            #7c3aed
+        );
+
+}
+
+
+.import-icon i {
+
+    font-size: 30px;
+
+    font-style: normal;
+
+}
+
+
+.eyebrow {
+
+    margin-bottom: 5px;
+
+    color: var(--primary);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+.import-header h1 {
+
+    font-size: 30px;
+
+    line-height: 1.2;
+
+}
+
+
+.subtitle {
+
+    margin-top: 7px;
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.import-status {
+
+    padding: 14px 16px;
+
+    margin-bottom: 25px;
+
+    border-radius: 12px;
+
+    font-size: 14px;
+
+}
+
+
+.import-status.error {
+
+    color: var(--danger);
+
+    background: #fef2f2;
+
+    border:
+        1px solid #fecaca;
+
+}
+
+
+.import-status.success {
+
+    color: var(--success);
+
+    background: #f0fdf4;
+
+    border:
+        1px solid #bbf7d0;
+
+}
+
+
+/* =========================================================
+   FILE
+========================================================= */
+
+.file-section {
+
+    padding: 24px;
+
+    border:
+        1px dashed #cbd5e1;
+
+    border-radius: 16px;
+
+    background: #f8fafc;
+
+}
+
+
+.file-label {
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+}
+
+
+input[type="file"] {
+
+    width: 100%;
+
+    padding: 12px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 10px;
+
+    background: #fff;
+
+    cursor: pointer;
+
+}
+
+
+.help-text {
+
+    margin-top: 10px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+}
+
+
+/* =========================================================
+   PREVIEW
+========================================================= */
+
+.preview {
+
+    margin-top: 25px;
+
+    padding: 24px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 16px;
+
+}
+
+
+.preview-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.preview-header h2 {
+
+    font-size: 19px;
+
+}
+
+
+.count {
+
+    padding:
+        6px 10px;
+
+    border-radius: 20px;
+
+    color: var(--primary);
+
+    background: #eef2ff;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.preview-stats {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 12px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.stat {
+
+    padding: 16px;
+
+    text-align: center;
+
+    border-radius: 12px;
+
+    background: #f8fafc;
+
+}
+
+
+.stat strong {
+
+    display: block;
+
+    font-size: 24px;
+
+}
+
+
+.stat span {
+
+    display: block;
+
+    margin-top: 3px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+}
+
+
+/* =========================================================
+   MEMBER PREVIEW
+========================================================= */
+
+.member-preview {
+
+    max-height: 300px;
+
+    overflow-y: auto;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 12px;
+
+}
+
+
+.preview-member {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 12px 15px;
+
+    border-bottom:
+        1px solid var(--border);
+
+}
+
+
+.preview-member:last-child {
+
+    border-bottom: 0;
+
+}
+
+
+.preview-member-id {
+
+    min-width: 65px;
+
+    color: var(--primary);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+}
+
+
+.preview-member-name {
+
+    flex: 1;
+
+    font-size: 14px;
+
+}
+
+
+.preview-member-status {
+
+    color: var(--success);
+
+    font-size: 12px;
+
+}
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+.progress-section {
+
+    margin-top: 25px;
+
+}
+
+
+.progress-top {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 9px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+}
+
+
+.progress-top strong {
+
+    color: var(--text);
+
+}
+
+
+.progress-track {
+
+    height: 10px;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background: #e5e7eb;
+
+}
+
+
+.progress-bar {
+
+    width: 0;
+
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--primary),
+            #7c3aed
+        );
+
+    transition:
+        width .25s ease;
+
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.actions {
+
+    display: flex;
+
+    gap: 12px;
+
+    margin-top: 30px;
+
+}
+
+
+.actions button {
+
+    min-height: 48px;
+
+    padding:
+        0 22px;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    font-weight: 700;
+
+    transition:
+        .2s ease;
+
+}
+
+
+.primary-button {
+
+    flex: 1;
+
+    border: 0;
+
+    color: #fff;
+
+    background: var(--primary);
+
+}
+
+
+.primary-button:hover:not(:disabled) {
+
+    background: var(--primary-dark);
+
+    transform: translateY(-1px);
+
+}
+
+
+.primary-button:disabled {
+
+    opacity: .5;
+
+    cursor: not-allowed;
+
+}
+
+
+.secondary-button {
+
+    border:
+        1px solid var(--border);
+
+    color: var(--text);
+
+    background: #fff;
+
+}
+
+
+.secondary-button:hover {
+
+    background: #f8fafc;
+
+}
+
+
+/* =========================================================
+   RESULT
+========================================================= */
+
+.result {
+
+    margin-top: 25px;
+
+    padding: 18px;
+
+    border-radius: 14px;
+
+}
+
+
+.result.success {
+
+    color: var(--success);
+
+    background: #f0fdf4;
+
+    border:
+        1px solid #bbf7d0;
+
+}
+
+
+.result.error {
+
+    color: var(--danger);
+
+    background: #fef2f2;
+
+    border:
+        1px solid #fecaca;
+
+}
+
+
+.result h3 {
+
+    margin-bottom: 8px;
+
+    font-size: 16px;
+
+}
+
+
+.result p {
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+}
+
+
+/* =========================================================
+   WARNING
+========================================================= */
+
+.warning {
+
+    margin-top: 22px;
+
+    color: var(--warning);
+
+    font-size: 12px;
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .import-page {
+
+        width: 94%;
+
+        padding:
+            25px 0;
+
+    }
+
+
+    .import-card {
+
+        padding: 22px;
+
+        border-radius: 18px;
+
+    }
+
+
+    .import-header {
+
+        align-items: flex-start;
+
+        margin-bottom: 25px;
+
+    }
+
+
+    .import-icon {
+
+        width: 48px;
+        height: 48px;
+
+        border-radius: 13px;
+
+    }
+
+
+    .import-icon i {
+
+        font-size: 25px;
+
+    }
+
+
+    .import-header h1 {
+
+        font-size: 23px;
+
+    }
+
+
+    .subtitle {
+
+        font-size: 13px;
+
+    }
+
+
+    .file-section {
+
+        padding: 17px;
+
+    }
+
+
+    .preview {
+
+        padding: 16px;
+
+    }
+
+
+    .preview-stats {
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+        gap: 7px;
+
+    }
+
+
+    .stat {
+
+        padding: 12px 5px;
+
+    }
+
+
+    .stat strong {
+
+        font-size: 19px;
+
+    }
+
+
+    .preview-member {
+
+        padding: 11px;
+
+    }
+
+
+    .preview-member-name {
+
+        overflow: hidden;
+
+        white-space: nowrap;
+
+        text-overflow: ellipsis;
+
+    }
+
+
+    .actions {
+
+        flex-direction: column;
+
+    }
+
+
+    .actions button {
+
+        width: 100%;
+
+    }
+
+}

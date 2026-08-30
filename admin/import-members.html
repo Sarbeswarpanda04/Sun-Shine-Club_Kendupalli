@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Import Members | Admin</title>
+
+    <link
+        rel="stylesheet"
+        href="css/import-members.css"
+    >
+</head>
+
+<body>
+
+    <main class="import-page">
+
+        <section class="import-card">
+
+            <div class="import-header">
+
+                <div class="import-icon">
+                    <i>↑</i>
+                </div>
+
+                <div>
+                    <p class="eyebrow">
+                        ADMINISTRATION
+                    </p>
+
+                    <h1>
+                        Import Members
+                    </h1>
+
+                    <p class="subtitle">
+                        Import the existing members JSON into
+                        Firebase Firestore.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- STATUS -->
+
+            <div
+                id="importStatus"
+                class="import-status"
+                hidden
+            ></div>
+
+
+            <!-- FILE -->
+
+            <div class="file-section">
+
+                <label
+                    for="membersFile"
+                    class="file-label"
+                >
+                    Members JSON File
+                </label>
+
+                <input
+                    type="file"
+                    id="membersFile"
+                    accept=".json,application/json"
+                >
+
+                <p class="help-text">
+                    Select your existing
+                    <strong>members.json</strong>
+                    file containing SSC001–SSC042.
+                </p>
+
+            </div>
+
+
+            <!-- PREVIEW -->
+
+            <div
+                id="preview"
+                class="preview"
+                hidden
+            >
+
+                <div class="preview-header">
+
+                    <h2>
+                        Import Preview
+                    </h2>
+
+                    <span
+                        id="memberCount"
+                        class="count"
+                    >
+                        0 members
+                    </span>
+
+                </div>
+
+
+                <div class="preview-stats">
+
+                    <div class="stat">
+                        <strong id="validCount">
+                            0
+                        </strong>
+
+                        <span>
+                            Valid
+                        </span>
+                    </div>
+
+
+                    <div class="stat">
+                        <strong id="duplicateCount">
+                            0
+                        </strong>
+
+                        <span>
+                            Duplicates
+                        </span>
+                    </div>
+
+
+                    <div class="stat">
+                        <strong id="invalidCount">
+                            0
+                        </strong>
+
+                        <span>
+                            Invalid
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="memberPreview"
+                    class="member-preview"
+                ></div>
+
+            </div>
+
+
+            <!-- PROGRESS -->
+
+            <div
+                id="progressSection"
+                class="progress-section"
+                hidden
+            >
+
+                <div class="progress-top">
+
+                    <span>
+                        Importing members...
+                    </span>
+
+                    <strong id="progressText">
+                        0 / 0
+                    </strong>
+
+                </div>
+
+                <div class="progress-track">
+
+                    <div
+                        id="progressBar"
+                        class="progress-bar"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ACTIONS -->
+
+            <div class="actions">
+
+                <button
+                    type="button"
+                    id="importButton"
+                    class="primary-button"
+                    disabled
+                >
+                    Import Members
+                </button>
+
+
+                <button
+                    type="button"
+                    id="cancelButton"
+                    class="secondary-button"
+                >
+                    Cancel
+                </button>
+
+            </div>
+
+
+            <!-- RESULT -->
+
+            <div
+                id="result"
+                class="result"
+                hidden
+            ></div>
+
+
+            <p class="warning">
+
+                <strong>Important:</strong>
+
+                Existing documents with the same member ID
+                will be overwritten.
+
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <script
+        type="module"
+        src="js/import-members.js"
+    ></script>
+
+</body>
+</html>
