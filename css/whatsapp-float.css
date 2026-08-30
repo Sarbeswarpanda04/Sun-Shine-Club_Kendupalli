@@ -1,7 +1,7 @@
 .whatsapp-float {
     position: fixed;
     right: 25px;
-    bottom: 25px;
+    bottom: 95px;
 
     width: 58px;
     height: 58px;
@@ -29,4 +29,32 @@
 
 .whatsapp-float:hover {
     transform: translateY(-5px) scale(1.05);
+}
+@media (max-width:480px) {
+    .whatsapp-float {
+
+        width: 48px;
+
+        height: 48px;
+
+        right: calc(16px + env(safe-area-inset-right));
+
+        bottom: calc(76px + env(safe-area-inset-bottom));
+
+    }
+
+}
+@media (max-width:768px) {
+    .whatsapp-float {
+
+        width: 60px;
+
+        height: 60px;
+
+        right: calc(16px + env(safe-area-inset-right));
+
+        bottom: calc(86px + env(safe-area-inset-bottom));
+
+    }
+
 }
