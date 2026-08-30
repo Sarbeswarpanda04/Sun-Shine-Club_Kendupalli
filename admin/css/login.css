@@ -1,0 +1,413 @@
+/* =========================================================
+   ADMIN LOGIN
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #3d0cb8;
+    --primary-dark: #2b0785;
+    --text: #202020;
+    --muted: #777;
+    --border: #e3e3e3;
+    --danger: #d93025;
+    --background: #f5f6fa;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--background);
+    color: var(--text);
+
+    font-family:
+        "Inter",
+        "Segoe UI",
+        Arial,
+        sans-serif;
+}
+
+
+/* =========================================================
+   LOGIN PAGE
+========================================================= */
+
+.admin-login-page {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px 18px;
+}
+
+
+/* =========================================================
+   LOGIN CARD
+========================================================= */
+
+.login-card {
+    width: min(430px, 100%);
+
+    padding: 42px 38px;
+
+    border: 1px solid #eee;
+    border-radius: 22px;
+
+    background: #fff;
+
+    box-shadow:
+        0 20px 60px
+        rgba(0, 0, 0, .08);
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.club-logo {
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: 18px;
+}
+
+.club-logo img {
+    width: 82px;
+    height: 82px;
+
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.login-heading {
+    text-align: center;
+
+    margin-bottom: 30px;
+}
+
+.login-label {
+    margin: 0 0 8px;
+
+    color: var(--primary);
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+.login-heading h1 {
+    margin: 0;
+
+    font-size: 26px;
+    line-height: 1.25;
+}
+
+.login-heading p:last-child {
+    margin: 5px 0 0;
+
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.form-group label {
+    color: #333;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+    height: 48px;
+
+    padding: 0 14px;
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    outline: none;
+
+    background: #fff;
+    color: #222;
+
+    font-size: 14px;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+.form-group input:focus {
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(61, 12, 184, .10);
+}
+
+
+/* =========================================================
+   PASSWORD
+========================================================= */
+
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper input {
+    padding-right: 65px;
+}
+
+.password-wrapper button {
+    position: absolute;
+
+    top: 50%;
+    right: 10px;
+
+    transform:
+        translateY(-50%);
+
+    border: 0;
+
+    background: transparent;
+
+    color: var(--primary);
+
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.login-error {
+    padding: 11px 13px;
+
+    border-radius: 9px;
+
+    background: #fff1f0;
+
+    color: var(--danger);
+
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.login-error[hidden] {
+    display: none;
+}
+
+
+/* =========================================================
+   LOGIN BUTTON
+========================================================= */
+
+.login-button {
+    position: relative;
+
+    width: 100%;
+    height: 49px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    border: 0;
+    border-radius: 10px;
+
+    background: var(--primary);
+    color: #fff;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        transform .2s ease;
+}
+
+.login-button:hover {
+    background: var(--primary-dark);
+}
+
+.login-button:active {
+    transform: scale(.99);
+}
+
+.login-button:disabled {
+    opacity: .7;
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   GOOGLE LOGIN
+========================================================= */
+
+.google-login-button {
+    width: 100%;
+    min-height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    padding: 12px 18px;
+
+    border: 1px solid #dadce0;
+    border-radius: 10px;
+
+    background: #fff;
+    color: #202124;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        box-shadow .2s ease;
+}
+
+.google-login-button:hover {
+    background: #f8f9fa;
+
+    box-shadow:
+        0 2px 8px
+        rgba(0, 0, 0, .10);
+}
+
+.google-login-button:disabled {
+    opacity: .65;
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   GOOGLE ICON
+========================================================= */
+
+.google-icon {
+    width: 22px;
+    height: 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 18px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   LOGIN SPINNER
+========================================================= */
+
+.login-spinner {
+    width: 17px;
+    height: 17px;
+
+    border: 2px solid #ddd;
+
+    border-top-color: #4285f4;
+
+    border-radius: 50%;
+
+    animation:
+        googleLoginSpin .7s linear infinite;
+}
+
+@keyframes googleLoginSpin {
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.login-footer {
+    margin: 25px 0 0;
+
+    color: #999;
+
+    text-align: center;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 500px) {
+
+    .admin-login-page {
+        padding: 20px 14px;
+    }
+
+    .login-card {
+        padding: 34px 22px;
+
+        border-radius: 18px;
+    }
+
+    .login-heading h1 {
+        font-size: 23px;
+    }
+
+}

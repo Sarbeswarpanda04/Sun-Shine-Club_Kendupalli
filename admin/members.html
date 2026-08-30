@@ -32,25 +32,194 @@
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
 
-    <!-- =================================================
-         SIDEBAR
-    ================================================= -->
+    <!-- =========================================================
+     SIDEBAR
+========================================================= -->
 
-    <aside class="admin-sidebar" id="adminSidebar">
+<aside class="admin-sidebar" id="adminSidebar">
 
-        <div class="sidebar-brand">
+    <!-- =====================================================
+         BRAND
+    ====================================================== -->
 
-            <img src="https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/logo/sun-shine-club-logo.png"
-                alt="Sun Shine Club" onerror="this.style.display='none'">
+    <div class="sidebar-brand">
 
-            <div>
+        <img
+            src="https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/logo/sun-shine-club-logo.png"
+            alt="Sun Shine Club"
+            onerror="this.style.display='none'"
+        >
 
-                <strong>
-                    Sun Shine Club
+        <div>
+            <strong>Sun Shine Club</strong>
+            <span>Kendupalli</span>
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         NAVIGATION
+    ====================================================== -->
+
+    <nav class="admin-navigation">
+
+        <!-- MAIN -->
+
+        <p class="nav-section-title">
+            MAIN
+        </p>
+
+
+        <!-- Dashboard -->
+
+        <a
+            href="dashboard.html"
+            class="admin-nav-link"
+        >
+            <span class="nav-icon">
+                <i class="fa-solid fa-chart-line"></i>
+            </span>
+
+            <span class="nav-text">
+                Dashboard
+            </span>
+        </a>
+
+
+        <!-- Members -->
+
+        <a
+            href="members.html"
+            class="admin-nav-link active"
+        >
+            <span class="nav-icon">
+                <i class="fa-solid fa-users"></i>
+            </span>
+
+            <span class="nav-text">
+                Members
+            </span>
+        </a>
+
+
+        <!-- Notices -->
+
+        <a
+            href="notices.html"
+            class="admin-nav-link"
+        >
+            <span class="nav-icon">
+                <i class="fa-solid fa-bell"></i>
+            </span>
+
+            <span class="nav-text">
+                Notices
+            </span>
+        </a>
+
+
+        <!-- Events -->
+
+        <a
+            href="events.html"
+            class="admin-nav-link"
+        >
+            <span class="nav-icon">
+                <i class="fa-solid fa-calendar-days"></i>
+            </span>
+
+            <span class="nav-text">
+                Events
+            </span>
+        </a>
+
+
+        <!-- Gallery -->
+
+        <a
+            href="gallery.html"
+            class="admin-nav-link"
+        >
+            <span class="nav-icon">
+                <i class="fa-solid fa-images"></i>
+            </span>
+
+            <span class="nav-text">
+                Gallery
+            </span>
+        </a>
+
+
+        <!-- YouTube -->
+
+        <a
+            href="youtube.html"
+            class="admin-nav-link"
+        >
+            <span class="nav-icon">
+                <i class="fa-brands fa-youtube"></i>
+            </span>
+
+            <span class="nav-text">
+                YouTube
+            </span>
+        </a>
+
+
+        <!-- SYSTEM -->
+
+        <p class="nav-section-title nav-section-space">
+            SYSTEM
+        </p>
+
+
+        <!-- Settings -->
+
+        <a
+            href="settings.html"
+            class="admin-nav-link"
+        >
+            <span class="nav-icon">
+                <i class="fa-solid fa-gear"></i>
+            </span>
+
+            <span class="nav-text">
+                Settings
+            </span>
+        </a>
+
+    </nav>
+
+
+    <!-- =====================================================
+         SIDEBAR USER
+    ====================================================== -->
+
+    <div class="sidebar-bottom">
+
+        <div class="sidebar-user">
+
+            <!-- Admin Avatar -->
+
+            <div
+                class="user-avatar"
+                id="sidebarAvatar"
+            >
+                A
+            </div>
+
+
+            <!-- Admin Information -->
+
+            <div class="sidebar-user-info">
+
+                <strong id="sidebarName">
+                    Administrator
                 </strong>
 
-                <span>
-                    Kendupalli
+                <span id="sidebarEmail">
+                    Loading...
                 </span>
 
             </div>
@@ -58,130 +227,20 @@
         </div>
 
 
-        <nav class="admin-navigation">
+        <!-- Logout -->
 
-            <p class="nav-section-title">
-                MAIN
-            </p>
+        <button
+            type="button"
+            class="sidebar-logout"
+            id="sidebarLogout"
+        >
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <span>Sign Out</span>
+        </button>
 
+    </div>
 
-            <a href="dashboard.html" class="admin-nav-link">
-                <span class="nav-icon">
-                    <i class="fa-solid fa-chart-line"></i>
-                </span>
-
-                <span class="nav-text">
-                    Dashboard
-                </span>
-            </a>
-
-
-            <a href="members.html" class="admin-nav-link active">
-                <span class="nav-icon">
-                    <i class="fa-solid fa-users"></i>
-                </span>
-
-                <span class="nav-text">
-                    Members
-                </span>
-            </a>
-
-
-            <a href="notices.html" class="admin-nav-link">
-                <span class="nav-icon">
-                    <i class="fa-solid fa-bell"></i>
-                </span>
-
-                <span class="nav-text">
-                    Notices
-                </span>
-            </a>
-
-
-            <a href="events.html" class="admin-nav-link">
-                <span class="nav-icon">
-                    <i class="fa-solid fa-calendar-days"></i>
-                </span>
-
-                <span class="nav-text">
-                    Events
-                </span>
-            </a>
-
-
-            <a href="gallery.html" class="admin-nav-link">
-                <span class="nav-icon">
-                    <i class="fa-solid fa-images"></i>
-                </span>
-
-                <span class="nav-text">
-                    Gallery
-                </span>
-            </a>
-
-
-            <a href="youtube.html" class="admin-nav-link">
-                <span class="nav-icon">
-                    <i class="fa-brands fa-youtube"></i>
-                </span>
-
-                <span class="nav-text">
-                    YouTube
-                </span>
-            </a>
-
-
-            <p class="nav-section-title nav-section-space">
-                SYSTEM
-            </p>
-
-
-            <a href="#" class="admin-nav-link">
-                <span class="nav-icon">
-                    <i class="fa-solid fa-gear"></i>
-                </span>
-
-                <span class="nav-text">
-                    Settings
-                </span>
-            </a>
-
-        </nav>
-
-
-        <!-- Sidebar user -->
-
-        <div class="sidebar-bottom">
-
-            <div class="sidebar-user">
-
-                <div class="user-avatar" id="sidebarAvatar">
-                    A
-                </div>
-
-
-                <div class="sidebar-user-info">
-
-                    <strong id="sidebarName">
-                        Administrator
-                    </strong>
-
-                    <span id="sidebarEmail">
-                        Loading...
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <button type="button" class="sidebar-logout" id="sidebarLogout">
-                Sign Out
-            </button>
-
-        </div>
-
-    </aside>
+</aside>
 
 
     <!-- =================================================
