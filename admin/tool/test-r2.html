@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>R2 Test</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+        }
+
+        button {
+            padding: 10px 16px;
+            cursor: pointer;
+        }
+
+        pre {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f5f5f5;
+            border-radius: 8px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>R2 Connection Test</h1>
+
+    <button id="testButton">
+        Test R2 Folders
+    </button>
+
+    <pre id="result">
+Click the button...
+    </pre>
+
+
+    <script type="module">
+
+        import {
+            auth
+        } from "./js/firebase-config.js";
+
+        import {
+            onAuthStateChanged
+        } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
+
+
+        const WORKER_URL =
+            "https://sunshineclub-media-api.still-mouse-2d92.workers.dev";
+
+
+        const result =
+            document.getElementById(
+                "result"
+            );
+
+
+        const testButton =
+            document.getElementById(
+                "testButton"
+            );
+
+
+        let currentUser =
+            null;
+
+
+        /*
+        ======================================================
+        FIREBASE AUTH
+        ======================================================
+        */
+
+        onAuthStateChanged(
+            auth,
+            user => {
+
+                currentUser =
+                    user;
+
+                if (user) {
+
+                    result.textContent =
+                        `Logged in as:\n${user.email}\n\n` +
+                        `Click "Test R2 Folders".`;
+
+                } else {
+
+                    result.textContent =
+                        "No Firebase user is logged in.";
+                }
+
+            }
+        );
+
+
+        /*
+        ======================================================
+        TEST R2
+        ======================================================
+        */
+
+        testButton.addEventListener(
+            "click",
+            async () => {
+
+                try {
+
+                    if (!currentUser) {
+
+                        throw new Error(
+                            "Please login to the admin panel first."
+                        );
+                    }
+
+
+                    result.textContent =
+                        "Getting Firebase ID token...";
+
+
+                    /*
+                    ------------------------------------------------
+                    Get Firebase ID token
+                    ------------------------------------------------
+                    */
+
+                    const token =
+                        await currentUser.getIdToken(
+                            true
+                        );
+
+
+                    result.textContent =
+                        "Calling Cloudflare Worker...";
+
+
+                    /*
+                    ------------------------------------------------
+                    Call Worker
+                    ------------------------------------------------
+                    */
+
+                    const response =
+                        await fetch(
+                            `${WORKER_URL}/api/objects?prefix=members/`,
+                            {
+                                method:
+                                    "GET",
+
+                                headers: {
+                                    "Authorization":
+                                        `Bearer ${token}`
+                                }
+                            }
+                        );
+
+
+                    const data =
+                        await response.json();
+
+
+                    /*
+                    ------------------------------------------------
+                    Display result
+                    ------------------------------------------------
+                    */
+
+                    result.textContent =
+                        JSON.stringify(
+                            {
+                                httpStatus:
+                                    response.status,
+
+                                data
+                            },
+                            null,
+                            2
+                        );
+
+
+                } catch (error) {
+
+                    console.error(
+                        error
+                    );
+
+
+                    result.textContent =
+                        `ERROR:\n\n${error.message}`;
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>

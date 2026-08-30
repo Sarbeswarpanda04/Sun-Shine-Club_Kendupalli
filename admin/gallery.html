@@ -1,0 +1,1599 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Gallery | Sun Shine Club</title>
+
+
+    <!-- =====================================================
+         FONT AWESOME
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+
+    <!-- =====================================================
+         ADMIN BASE CSS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="css/admin.css"
+    >
+
+
+    <!-- =====================================================
+         GALLERY ONLY CSS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="css/gallery.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         ADMIN LAYOUT
+    ====================================================== -->
+
+    <div class="admin-layout">
+
+
+        <!-- =================================================
+             MOBILE OVERLAY
+        ================================================== -->
+
+        <div
+            class="sidebar-overlay"
+            id="sidebarOverlay"
+        ></div>
+
+
+        <!-- =================================================
+             SIDEBAR
+        ================================================== -->
+
+        <aside
+            class="admin-sidebar"
+            id="adminSidebar"
+        >
+
+            <div class="sidebar-brand">
+
+                <img
+                    src="https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/logo/sun-shine-club-logo.png"
+                    alt="Sun Shine Club"
+                    onerror="this.style.display='none'"
+                >
+
+                <div>
+
+                    <strong>
+                        Sun Shine Club
+                    </strong>
+
+                    <span>
+                        Kendupalli
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 NAVIGATION
+            ================================================== -->
+
+            <nav class="admin-navigation">
+
+                <p class="nav-section-title">
+                    MAIN
+                </p>
+
+
+                <a
+                    href="dashboard.html"
+                    class="admin-nav-link"
+                >
+
+                    <span class="nav-icon">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </span>
+
+                    <span class="nav-text">
+                        Dashboard
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="members.html"
+                    class="admin-nav-link"
+                >
+
+                    <span class="nav-icon">
+                        <i class="fa-solid fa-users"></i>
+                    </span>
+
+                    <span class="nav-text">
+                        Members
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="notices.html"
+                    class="admin-nav-link"
+                >
+
+                    <span class="nav-icon">
+                        <i class="fa-solid fa-bell"></i>
+                    </span>
+
+                    <span class="nav-text">
+                        Notices
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="events.html"
+                    class="admin-nav-link"
+                >
+
+                    <span class="nav-icon">
+                        <i class="fa-solid fa-calendar-days"></i>
+                    </span>
+
+                    <span class="nav-text">
+                        Events
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="gallery.html"
+                    class="admin-nav-link active"
+                >
+
+                    <span class="nav-icon">
+                        <i class="fa-solid fa-images"></i>
+                    </span>
+
+                    <span class="nav-text">
+                        Gallery
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="youtube.html"
+                    class="admin-nav-link"
+                >
+
+                    <span class="nav-icon">
+                        <i class="fa-brands fa-youtube"></i>
+                    </span>
+
+                    <span class="nav-text">
+                        YouTube
+                    </span>
+
+                </a>
+
+
+                <p class="nav-section-title nav-section-space">
+                    SYSTEM
+                </p>
+
+
+                <a
+                    href="#"
+                    class="admin-nav-link"
+                >
+
+                    <span class="nav-icon">
+                        <i class="fa-solid fa-gear"></i>
+                    </span>
+
+                    <span class="nav-text">
+                        Settings
+                    </span>
+
+                </a>
+
+            </nav>
+
+
+            <!-- =================================================
+                 SIDEBAR USER
+            ================================================== -->
+
+            <div class="sidebar-bottom">
+
+                <div class="sidebar-user">
+
+                    <div
+                        class="user-avatar"
+                        id="sidebarAvatar"
+                    >
+                        A
+                    </div>
+
+
+                    <div class="sidebar-user-info">
+
+                        <strong id="sidebarName">
+                            Administrator
+                        </strong>
+
+                        <span id="sidebarEmail">
+                            Loading...
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="sidebar-logout"
+                    id="sidebarLogout"
+                >
+                    Sign Out
+                </button>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- =====================================================
+             MAIN CONTENT
+        ====================================================== -->
+
+        <main class="admin-main">
+
+
+            <!-- =================================================
+                 TOPBAR
+            ================================================== -->
+
+            <!-- =====================================================
+     ADMIN TOPBAR
+====================================================== -->
+
+<header class="admin-topbar">
+
+    <div class="topbar-left">
+
+        <button
+            type="button"
+            class="mobile-menu-btn"
+            id="mobileMenuBtn"
+            aria-label="Open menu"
+        >
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <div class="topbar-page-title">
+
+            <span class="topbar-label">
+                MEDIA MANAGEMENT
+            </span>
+
+            <h1>
+                Gallery
+            </h1>
+
+        </div>
+
+    </div>
+
+
+    <div class="topbar-right">
+
+        <div class="topbar-admin">
+
+            <div
+                class="topbar-admin-info"
+            >
+
+                <strong id="topbarName">
+                    Administrator
+                </strong>
+
+                <span>
+                    Administrator
+                </span>
+
+            </div>
+
+
+            <div
+                class="topbar-avatar"
+                id="topbarAvatar"
+            >
+                A
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+            <!-- =================================================
+                 PAGE CONTENT
+            ================================================== -->
+
+            <section class="gallery-page">
+
+    <div class="gallery-header">
+
+        <div>
+
+            <div class="gallery-title-row">
+
+                <div class="gallery-title-icon">
+                    <i class="fa-solid fa-photo-film"></i>
+                </div>
+
+                <div>
+
+                    <h2>
+                        Media Library
+                    </h2>
+
+                    <p>
+                        Browse and manage your Cloudflare R2 media.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="gallery-header-actions">
+
+            <button
+                type="button"
+                class="gallery-btn secondary"
+                id="refreshGalleryBtn"
+            >
+                <i class="fa-solid fa-rotate"></i>
+                Refresh
+            </button>
+
+            <button
+                type="button"
+                class="gallery-btn primary"
+                id="uploadBtn"
+            >
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+                Upload
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+                <!-- =================================================
+                     STAT CARDS
+                ================================================== -->
+
+                <div class="gallery-stats">
+
+
+                    <div class="gallery-stat-card">
+
+                        <div class="gallery-stat-icon">
+
+                            <i
+                                class="fa-solid fa-photo-film"
+                            ></i>
+
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Total Files
+                            </span>
+
+                            <strong id="totalFiles">
+                                0
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="gallery-stat-card">
+
+                        <div class="gallery-stat-icon folder">
+
+                            <i
+                                class="fa-solid fa-folder"
+                            ></i>
+
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Folders
+                            </span>
+
+                            <strong id="totalFolders">
+                                0
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="gallery-stat-card">
+
+                        <div class="gallery-stat-icon image">
+
+                            <i
+                                class="fa-solid fa-image"
+                            ></i>
+
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Images
+                            </span>
+
+                            <strong id="totalImages">
+                                0
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="gallery-stat-card">
+
+                        <div class="gallery-stat-icon storage">
+
+                            <i
+                                class="fa-solid fa-hard-drive"
+                            ></i>
+
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Storage
+                            </span>
+
+                            <strong id="totalStorage">
+                                0 B
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     TOOLBAR
+                ================================================== -->
+
+                <section class="gallery-toolbar">
+
+
+                    <!-- SEARCH -->
+
+                    <div class="gallery-search">
+
+                        <i
+                            class="fa-solid fa-magnifying-glass"
+                        ></i>
+
+                        <input
+                            type="search"
+                            id="gallerySearch"
+                            placeholder="Search files..."
+                            autocomplete="off"
+                        >
+
+                    </div>
+
+
+                    <!-- FILE TYPE -->
+
+                    <select
+                        id="fileTypeFilter"
+                        class="gallery-select"
+                    >
+
+                        <option value="all">
+                            All Files
+                        </option>
+
+                        <option value="image">
+                            Images
+                        </option>
+
+                        <option value="video">
+                            Videos
+                        </option>
+
+                        <option value="audio">
+                            Audio
+                        </option>
+
+                        <option value="document">
+                            Documents
+                        </option>
+
+                        <option value="other">
+                            Other
+                        </option>
+
+                    </select>
+
+
+                    <!-- VIEW -->
+
+                    <div class="gallery-view-switch">
+
+                        <button
+                            type="button"
+                            class="view-btn active"
+                            id="gridViewBtn"
+                            aria-label="Grid view"
+                        >
+
+                            <i
+                                class="fa-solid fa-grip"
+                            ></i>
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="view-btn"
+                            id="listViewBtn"
+                            aria-label="List view"
+                        >
+
+                            <i
+                                class="fa-solid fa-list"
+                            ></i>
+
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =================================================
+                     BREADCRUMB
+                ================================================== -->
+
+                <div class="gallery-breadcrumb-wrapper">
+
+                    <div
+                        class="gallery-breadcrumb"
+                        id="galleryBreadcrumb"
+                    >
+
+                        <button
+                            type="button"
+                            class="breadcrumb-item active"
+                            data-prefix=""
+                        >
+
+                            <i
+                                class="fa-solid fa-house"
+                            ></i>
+
+                            All Media
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     FOLDER ACTIONS
+                ================================================== -->
+
+                <div class="folder-actions">
+
+                    <button
+                        type="button"
+                        class="gallery-btn folder-btn"
+                        id="createFolderBtn"
+                    >
+
+                        <i
+                            class="fa-solid fa-folder-plus"
+                        ></i>
+
+                        New Folder
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     LOADING
+                ================================================== -->
+
+                <div
+                    class="gallery-loading"
+                    id="galleryLoading"
+                >
+
+                    <div class="gallery-spinner"></div>
+
+                    <p>
+                        Loading media...
+                    </p>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     ERROR
+                ================================================== -->
+
+                <div
+                    class="gallery-error"
+                    id="galleryError"
+                    hidden
+                >
+
+                    <div class="gallery-error-icon">
+
+                        <i
+                            class="fa-solid fa-triangle-exclamation"
+                        ></i>
+
+                    </div>
+
+                    <h3>
+                        Unable to load media
+                    </h3>
+
+                    <p id="galleryErrorMessage">
+                        Something went wrong while loading
+                        your media library.
+                    </p>
+
+                    <button
+                        type="button"
+                        class="gallery-btn primary"
+                        id="retryGalleryBtn"
+                    >
+
+                        <i
+                            class="fa-solid fa-rotate-right"
+                        ></i>
+
+                        Try Again
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     EMPTY
+                ================================================== -->
+
+                <div
+                    class="gallery-empty"
+                    id="galleryEmpty"
+                    hidden
+                >
+
+                    <div class="gallery-empty-icon">
+
+                        <i
+                            class="fa-regular fa-images"
+                        ></i>
+
+                    </div>
+
+                    <h3>
+                        No media found
+                    </h3>
+
+                    <p>
+                        This folder doesn't contain any
+                        matching files.
+                    </p>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     FOLDERS
+                ================================================== -->
+
+                <section
+                    class="gallery-folders"
+                    id="galleryFolders"
+                    hidden
+                >
+
+                    <div class="section-heading">
+
+                        <h3>
+                            Folders
+                        </h3>
+
+                        <span id="folderCount">
+                            0
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        class="folder-grid"
+                        id="folderGrid"
+                    ></div>
+
+                </section>
+
+
+
+                <!-- =================================================
+                     FILES
+                ================================================== -->
+
+                <section
+                    class="gallery-files"
+                    id="galleryFiles"
+                    hidden
+                >
+
+                    <div class="section-heading">
+
+                        <div>
+
+                            <h3>
+                                Files
+                            </h3>
+
+                            <span
+                                id="fileResultCount"
+                            >
+                                0 files
+                            </span>
+
+                        </div>
+
+
+                        <select
+                            id="sortFiles"
+                            class="gallery-sort"
+                        >
+
+                            <option value="name">
+                                Name
+                            </option>
+
+                            <option value="newest">
+                                Newest
+                            </option>
+
+                            <option value="oldest">
+                                Oldest
+                            </option>
+
+                            <option value="largest">
+                                Largest
+                            </option>
+
+                            <option value="smallest">
+                                Smallest
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div
+                        class="media-grid"
+                        id="mediaGrid"
+                    ></div>
+
+                </section>
+
+
+
+                <!-- =================================================
+                     UPLOAD MODAL
+                ================================================== -->
+
+                <div
+                    class="gallery-modal"
+                    id="uploadModal"
+                    hidden
+                >
+
+                    <div
+                        class="gallery-modal-backdrop"
+                        data-close-modal
+                    ></div>
+
+
+                    <div class="gallery-modal-box">
+
+                        <div class="gallery-modal-header">
+
+                            <div>
+
+                                <h3>
+                                    Upload Media
+                                </h3>
+
+                                <p>
+                                    Upload files to the current folder.
+                                </p>
+
+                            </div>
+
+
+                            <button
+                                type="button"
+                                class="modal-close"
+                                data-close-modal
+                                aria-label="Close"
+                            >
+
+                                <i
+                                    class="fa-solid fa-xmark"
+                                ></i>
+
+                            </button>
+
+                        </div>
+
+
+                        <div class="upload-current-folder">
+
+                            <i
+                                class="fa-solid fa-folder-open"
+                            ></i>
+
+                            <span id="uploadFolderLabel">
+                                All Media
+                            </span>
+
+                        </div>
+
+
+                        <label
+                            class="upload-dropzone"
+                            id="uploadDropzone"
+                        >
+
+                            <input
+                                type="file"
+                                id="fileInput"
+                                multiple
+                            >
+
+
+                            <div class="upload-drop-icon">
+
+                                <i
+                                    class="fa-solid fa-cloud-arrow-up"
+                                ></i>
+
+                            </div>
+
+
+                            <strong>
+                                Choose files
+                            </strong>
+
+                            <span>
+                                or drag and drop here
+                            </span>
+
+                            <small>
+                                Maximum 25 MB per file
+                            </small>
+
+                        </label>
+
+
+                        <div
+                            class="selected-files"
+                            id="selectedFiles"
+                        ></div>
+
+
+                        <div class="gallery-modal-footer">
+
+                            <button
+                                type="button"
+                                class="gallery-btn secondary"
+                                data-close-modal
+                            >
+                                Cancel
+                            </button>
+
+                            <button
+                                type="button"
+                                class="gallery-btn primary"
+                                id="startUploadBtn"
+                                disabled
+                            >
+
+                                <i
+                                    class="fa-solid fa-cloud-arrow-up"
+                                ></i>
+
+                                Upload Files
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     CREATE FOLDER MODAL
+                ================================================== -->
+
+                <div
+                    class="gallery-modal"
+                    id="folderModal"
+                    hidden
+                >
+
+                    <div
+                        class="gallery-modal-backdrop"
+                        data-close-modal
+                    ></div>
+
+
+                    <div class="gallery-modal-box small">
+
+                        <div class="gallery-modal-header">
+
+                            <div>
+
+                                <h3>
+                                    Create Folder
+                                </h3>
+
+                                <p>
+                                    Create a new folder in the current location.
+                                </p>
+
+                            </div>
+
+
+                            <button
+                                type="button"
+                                class="modal-close"
+                                data-close-modal
+                                aria-label="Close"
+                            >
+
+                                <i
+                                    class="fa-solid fa-xmark"
+                                ></i>
+
+                            </button>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label
+                                for="folderName"
+                            >
+                                Folder name
+                            </label>
+
+                            <div class="folder-name-input">
+
+                                <span id="folderParentPrefix">
+                                    /
+                                </span>
+
+                                <input
+                                    type="text"
+                                    id="folderName"
+                                    placeholder="e.g. Ganesh Puja 2026"
+                                    maxlength="80"
+                                    autocomplete="off"
+                                >
+
+                            </div>
+
+                            <small>
+                                Use letters, numbers, spaces,
+                                hyphens or underscores.
+                            </small>
+
+                        </div>
+
+
+                        <div class="gallery-modal-footer">
+
+                            <button
+                                type="button"
+                                class="gallery-btn secondary"
+                                data-close-modal
+                            >
+                                Cancel
+                            </button>
+
+                            <button
+                                type="button"
+                                class="gallery-btn primary"
+                                id="confirmFolderBtn"
+                            >
+
+                                <i
+                                    class="fa-solid fa-folder-plus"
+                                ></i>
+
+                                Create Folder
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     PREVIEW MODAL
+                ================================================== -->
+
+                <div
+                    class="gallery-modal preview-modal"
+                    id="previewModal"
+                    hidden
+                >
+
+                    <div
+                        class="gallery-modal-backdrop"
+                        data-close-modal
+                    ></div>
+
+
+                    <div class="preview-modal-box">
+
+                        <button
+                            type="button"
+                            class="preview-close"
+                            data-close-modal
+                            aria-label="Close preview"
+                        >
+
+                            <i
+                                class="fa-solid fa-xmark"
+                            ></i>
+
+                        </button>
+
+
+                        <div
+                            class="preview-content"
+                            id="previewContent"
+                        ></div>
+
+
+                        <div class="preview-info">
+
+                            <strong id="previewName">
+                                -
+                            </strong>
+
+                            <span id="previewDetails">
+                                -
+                            </span>
+
+                        </div>
+
+
+                        <div class="preview-actions">
+
+                            <button
+                                type="button"
+                                class="gallery-btn secondary"
+                                id="copyUrlBtn"
+                            >
+
+                                <i
+                                    class="fa-solid fa-link"
+                                ></i>
+
+                                Copy URL
+
+                            </button>
+
+
+                            <a
+                                href="#"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="gallery-btn secondary"
+                                id="openUrlBtn"
+                            >
+
+                                <i
+                                    class="fa-solid fa-arrow-up-right-from-square"
+                                ></i>
+
+                                Open
+
+                            </a>
+
+
+                            <button
+                                type="button"
+                                class="gallery-btn danger"
+                                id="previewDeleteBtn"
+                            >
+
+                                <i
+                                    class="fa-solid fa-trash"
+                                ></i>
+
+                                Delete
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     DELETE MODAL
+                ================================================== -->
+
+                <div
+                    class="gallery-modal"
+                    id="deleteModal"
+                    hidden
+                >
+
+                    <div
+                        class="gallery-modal-backdrop"
+                        data-close-modal
+                    ></div>
+
+
+                    <div class="gallery-modal-box small">
+
+                        <div class="delete-icon">
+
+                            <i
+                                class="fa-solid fa-trash"
+                            ></i>
+
+                        </div>
+
+
+                        <h3>
+                            Delete File?
+                        </h3>
+
+
+                        <p>
+                            Are you sure you want to delete
+                            <strong id="deleteFileName">
+                                this file
+                            </strong>?
+                        </p>
+
+
+                        <p class="delete-warning">
+                            This action cannot be undone.
+                        </p>
+
+
+                        <div class="gallery-modal-footer">
+
+                            <button
+                                type="button"
+                                class="gallery-btn secondary"
+                                data-close-modal
+                            >
+                                Cancel
+                            </button>
+
+
+                            <button
+                                type="button"
+                                class="gallery-btn danger"
+                                id="confirmDeleteBtn"
+                            >
+
+                                <i
+                                    class="fa-solid fa-trash"
+                                ></i>
+
+                                Delete
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     TOAST
+                ================================================== -->
+
+                <div
+                    class="gallery-toast"
+                    id="galleryToast"
+                    hidden
+                >
+
+                    <i
+                        class="fa-solid fa-circle-check"
+                        id="toastIcon"
+                    ></i>
+
+                    <span id="toastMessage">
+                        Done
+                    </span>
+
+                </div>
+
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         FIREBASE / ADMIN AUTH
+    ====================================================== -->
+
+    <script type="module">
+
+        /*
+        -----------------------------------------------------
+        IMPORTANT
+
+        Keep these imports consistent with your existing
+        admin pages.
+        -----------------------------------------------------
+        */
+
+        import {
+            auth
+        } from "./js/firebase-config.js";
+
+
+        import {
+            onAuthStateChanged,
+            signOut
+        } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
+
+
+        /*
+        -----------------------------------------------------
+        ADMIN AUTH
+        -----------------------------------------------------
+        */
+
+        onAuthStateChanged(
+            auth,
+            async user => {
+
+                if (!user) {
+
+                    window.location.href =
+                        "index.html";
+
+                    return;
+                }
+
+
+                /*
+                ------------------------------------------------
+                DISPLAY ADMIN NAME
+                ------------------------------------------------
+                */
+
+                const name =
+                    user.displayName ||
+                    "Administrator";
+
+
+                const email =
+                    user.email ||
+                    "";
+
+
+                const firstLetter =
+                    name
+                        .charAt(0)
+                        .toUpperCase();
+
+
+                const sidebarName =
+                    document.getElementById(
+                        "sidebarName"
+                    );
+
+
+                const sidebarEmail =
+                    document.getElementById(
+                        "sidebarEmail"
+                    );
+
+
+                const sidebarAvatar =
+                    document.getElementById(
+                        "sidebarAvatar"
+                    );
+
+
+                const topbarName =
+                    document.getElementById(
+                        "topbarName"
+                    );
+
+
+                const topbarAvatar =
+                    document.getElementById(
+                        "topbarAvatar"
+                    );
+
+
+                if (sidebarName) {
+
+                    sidebarName.textContent =
+                        name;
+                }
+
+
+                if (sidebarEmail) {
+
+                    sidebarEmail.textContent =
+                        email;
+                }
+
+
+                if (sidebarAvatar) {
+
+                    sidebarAvatar.textContent =
+                        firstLetter;
+                }
+
+
+                if (topbarName) {
+
+                    topbarName.textContent =
+                        name;
+                }
+
+
+                if (topbarAvatar) {
+
+                    topbarAvatar.textContent =
+                        firstLetter;
+                }
+
+
+                /*
+                ------------------------------------------------
+                Tell gallery.js that authentication is ready.
+                ------------------------------------------------
+                */
+
+                window.galleryFirebaseUser =
+                    user;
+
+
+                window.dispatchEvent(
+                    new CustomEvent(
+                        "gallery-auth-ready",
+                        {
+                            detail: {
+                                user
+                            }
+                        }
+                    )
+                );
+
+            }
+        );
+
+
+        /*
+        -----------------------------------------------------
+        LOGOUT
+        -----------------------------------------------------
+        */
+
+        document
+            .getElementById(
+                "sidebarLogout"
+            )
+            ?.addEventListener(
+                "click",
+                async () => {
+
+                    try {
+
+                        await signOut(
+                            auth
+                        );
+
+                        window.location.href =
+                            "index.html";
+
+                    } catch (error) {
+
+                        console.error(
+                            "Logout failed:",
+                            error
+                        );
+
+                    }
+
+                }
+            );
+
+
+        /*
+        -----------------------------------------------------
+        MOBILE SIDEBAR
+        -----------------------------------------------------
+        */
+
+        const sidebar =
+            document.getElementById(
+                "adminSidebar"
+            );
+
+
+        const overlay =
+            document.getElementById(
+                "sidebarOverlay"
+            );
+
+
+        const menuButton =
+            document.getElementById(
+                "mobileMenuBtn"
+            );
+
+
+        function openSidebar() {
+
+            sidebar?.classList.add(
+                "open"
+            );
+
+            overlay?.classList.add(
+                "show"
+            );
+
+        }
+
+
+        function closeSidebar() {
+
+            sidebar?.classList.remove(
+                "open"
+            );
+
+            overlay?.classList.remove(
+                "show"
+            );
+
+        }
+
+
+        menuButton?.addEventListener(
+            "click",
+            openSidebar
+        );
+
+
+        overlay?.addEventListener(
+            "click",
+            closeSidebar
+        );
+
+    </script>
+
+
+    <!-- =====================================================
+         GALLERY JS
+    ====================================================== -->
+
+    <script
+        type="module"
+        src="js/gallery.js"
+    ></script>
+
+
+</body>
+
+</html>
