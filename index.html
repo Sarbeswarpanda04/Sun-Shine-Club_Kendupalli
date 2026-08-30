@@ -84,7 +84,8 @@
   <link rel="stylesheet" href="css/footer.css" />
   <link rel="stylesheet" href="css/visitor-count.css" />
   <link rel="stylesheet" href="css/noticebar.css">
-<link rel="stylesheet" href="css/whatsapp-float.css">
+  <link rel="stylesheet" href="css/whatsapp-float.css">
+  <link rel="stylesheet" href="css/youtube-videos.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.3.2/css/flag-icons.min.css">
 </head>
 
@@ -1139,8 +1140,8 @@
           <!-- Ganesh Puja -->
 
           <div class="festival-card">
-            <img src="https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2025/img11.jpg" alt="Ganesh Puja celebration by Sun Shine Club Kendupalli"
-              loading="lazy" width="400" height="300" />
+            <img src="https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2025/img11.jpg"
+              alt="Ganesh Puja celebration by Sun Shine Club Kendupalli" loading="lazy" width="400" height="300" />
 
             <div class="festival-content">
               <h3 data-lang="festival-ganesh-puja">Ganesh Puja</h3>
@@ -1160,8 +1161,8 @@
           <!-- Saraswati Puja -->
 
           <div class="festival-card">
-            <img src="https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/saraswati/2025/img5.jpg" alt="Saraswati Puja celebration by Sun Shine Club Kendupalli"
-              loading="lazy" width="400" height="300" />
+            <img src="https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/saraswati/2025/img5.jpg"
+              alt="Saraswati Puja celebration by Sun Shine Club Kendupalli" loading="lazy" width="400" height="300" />
 
             <div class="festival-content">
               <h3 data-lang="festival-saraswati-puja">Saraswati Puja</h3>
@@ -1181,11 +1182,112 @@
       </div>
     </section>
 
-    <!-- Elfsight Social Feed | Untitled Social Feed -->
-    <script src="https://elfsightcdn.com/platform.js" async></script>
-    <div class="youtube">
-      <div class="elfsight-app-246f9754-2229-4bfa-bcd7-a2dfb78de3c7" data-elfsight-app-lazy></div>
-    </div>
+    <!-- =========================================================
+     YOUTUBE VIDEOS SECTION
+========================================================= -->
+
+    <section class="youtube-section" id="youtubeVideos">
+
+      <div class="youtube-container">
+
+        <!-- Section Header -->
+        <div class="youtube-section-header">
+
+          <div class="youtube-heading">
+
+            <span class="youtube-eyebrow">
+              <i class="fa-brands fa-youtube"></i>
+              SUN SHINE CLUB KENDUPALLI
+            </span>
+
+            <h2>
+              Latest From Our YouTube Channel
+            </h2>
+
+            <p>
+              Watch our latest events, celebrations,
+              activities and memorable moments.
+            </p>
+
+          </div>
+
+
+          <a href="https://www.youtube.com/@SunshineClubKendupalli" target="_blank" rel="noopener noreferrer"
+            class="youtube-channel-btn">
+
+            <i class="fa-brands fa-youtube"></i>
+
+            Visit Channel
+
+          </a>
+
+        </div>
+
+
+        <!-- Loading -->
+        <div class="youtube-loading" id="youtubeLoading">
+
+          <div class="youtube-skeleton"></div>
+          <div class="youtube-skeleton"></div>
+          <div class="youtube-skeleton"></div>
+
+        </div>
+
+
+        <!-- Video Container -->
+        <div class="youtube-video-wrapper" id="youtubeVideoWrapper" hidden>
+
+          <button type="button" class="youtube-scroll-btn youtube-scroll-left" id="youtubeScrollLeft"
+            aria-label="Previous videos">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+
+
+          <div class="youtube-video-list" id="youtubeVideoList">
+          </div>
+
+
+          <button type="button" class="youtube-scroll-btn youtube-scroll-right" id="youtubeScrollRight"
+            aria-label="Next videos">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+
+        </div>
+
+
+        <!-- Error -->
+        <div class="youtube-error" id="youtubeError" hidden>
+
+          <i class="fa-brands fa-youtube"></i>
+
+          <p>
+            Unable to load YouTube videos right now.
+          </p>
+
+          <button type="button" id="youtubeRetry">
+            Try Again
+          </button>
+
+        </div>
+
+
+        <!-- View Channel -->
+        <div class="youtube-bottom">
+
+          <a href="https://www.youtube.com/@SunshineClubKendupalli" target="_blank" rel="noopener noreferrer">
+
+            View all videos
+            <i class="fa-solid fa-arrow-right"></i>
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
   </main>
   <!--=========================================
                 FOOTER
@@ -1324,7 +1426,7 @@
           </a>
 
           <div class="social-qr">
-            
+
             <img src="assets/images/social qr/instagram-qr.png" alt="Instagram QR">
             <img src="assets/images/social qr/facebook-qr.png" alt="Facebook QR">
             <img src="assets/images/social qr/youtube-qr.png" alt="Youtube QR">
@@ -1599,15 +1701,10 @@
   </div>
 
 
-<a
-    href="https://wa.me/918342916384?text=Hello%20Sun%20Shine%20Club"
-    class="whatsapp-float"
-    target="_blank"
-    rel="noopener"
-    aria-label="Chat with Sun Shine Club on WhatsApp"
->
+  <a href="https://wa.me/918342916384?text=Hello%20Sun%20Shine%20Club" class="whatsapp-float" target="_blank"
+    rel="noopener" aria-label="Chat with Sun Shine Club on WhatsApp">
     <i class="fa-brands fa-whatsapp"></i>
-</a>
+  </a>
 
   <!-- JavaScript -->
   <script src="js/navbar.js"></script>
@@ -1616,6 +1713,7 @@
   <script src="js/noticebar.js"></script>
   <script src="js/popup-screen.js"></script>
   <script src="js/nitivani.js"></script>
+  <script src="js/youtube-videos.js"></script>
   <script src="js/footer.js"></script>
 
   <!--Visitor Counter-->
