@@ -4681,3 +4681,56 @@ function escapeSvg(
         );
 
 }
+
+/* =========================================================
+   MOBILE SIDEBAR
+========================================================= */
+
+const mobileMenuBtn =
+    document.getElementById(
+        "mobileMenuBtn"
+    );
+
+const adminSidebar =
+    document.getElementById(
+        "adminSidebar"
+    );
+
+const sidebarOverlay =
+    document.getElementById(
+        "sidebarOverlay"
+    );
+
+
+mobileMenuBtn?.addEventListener(
+    "click",
+    () => {
+
+        adminSidebar?.classList.add(
+            "open"
+        );
+
+
+        sidebarOverlay?.classList.add(
+            "show"
+        );
+
+    }
+);
+
+
+sidebarOverlay?.addEventListener(
+    "click",
+    () => {
+
+        adminSidebar?.classList.remove(
+            "open"
+        );
+
+
+        sidebarOverlay?.classList.remove(
+            "show"
+        );
+
+    }
+);

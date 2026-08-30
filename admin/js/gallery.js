@@ -2803,9 +2803,7 @@ startUploadBtn?.addEventListener(
    UPLOAD FILE
 ========================================================= */
 
-async function uploadFile(
-    file
-) {
+async function uploadFile(file) {
 
     if (!currentUser) {
 
@@ -2820,41 +2818,134 @@ async function uploadFile(
         await currentUser.getIdToken();
 
 
-    const formData =
-        new FormData();
+    if (!currentPrefix) {
+
+        throw new Error(
+            "Please open a folder before uploading."
+        );
+
+    }
 
 
-    formData.append(
-        "file",
-        file
-    );
+    /*
+     * Build the complete R2 object key.
+     *
+     * Example:
+     *
+     * currentPrefix:
+     * gallery/ganesh/2026/
+     *
+     * filename:
+     * puja.jpg
+     *
+     * final key:
+     * gallery/ganesh/2026/puja.jpg
+     */
 
-
-    formData.append(
-        "prefix",
+    const cleanPrefix =
         currentPrefix
-    );
+            .replace(/^\/+/, "")
+            .replace(/\/+$/, "");
 
 
-    formData.append(
-        "filename",
+    const cleanFilename =
         file.name
+            .split("/")
+            .pop()
+            .replace(
+                /[\u0000-\u001F\u007F/\\]/g,
+                ""
+            )
+            .trim();
+
+
+    if (!cleanFilename) {
+
+        throw new Error(
+            "Invalid filename."
+        );
+
+    }
+
+
+    const objectKey =
+        `${cleanPrefix}/${cleanFilename}`;
+
+
+    /*
+     * IMPORTANT:
+     *
+     * Worker API expects:
+     *
+     * PUT /api/upload?key=...
+     *
+     * NOT POST /api/upload
+     */
+
+    const encodedKey =
+        encodeURIComponent(
+            objectKey
+        );
+
+
+    const encodedFilename =
+        encodeURIComponent(
+            cleanFilename
+        );
+
+
+    const url =
+        `${WORKER_URL}/api/upload` +
+        `?key=${encodedKey}` +
+        `&filename=${encodedFilename}`;
+
+
+    console.log(
+        "[Gallery Upload]",
+        {
+            url,
+            key: objectKey,
+            filename: cleanFilename,
+            size: file.size,
+            type: file.type
+        }
     );
 
+
+    /*
+     * Worker accepts the file as the request body.
+     *
+     * Do NOT use FormData here.
+     *
+     * The Worker reads:
+     *
+     * request.body
+     *
+     * and obtains the filename from the
+     * query parameter.
+     */
 
     const response =
         await fetch(
-            `${WORKER_URL}/api/upload`,
+            url,
             {
-                method: "POST",
+                method: "PUT",
 
                 headers: {
+
                     Authorization:
-                        `Bearer ${token}`
+                        `Bearer ${token}`,
+
+                    "Content-Type":
+                        file.type ||
+                        "application/octet-stream",
+
+                    "Content-Length":
+                        String(file.size)
+
                 },
 
-                body:
-                    formData
+                body: file
             }
         );
 
@@ -2874,10 +2965,18 @@ async function uploadFile(
     }
 
 
+    console.log(
+        "[Gallery Upload Response]",
+        response.status,
+        data
+    );
+
+
     if (!response.ok) {
 
         throw new Error(
             data?.error ||
+            data?.message ||
             `Upload failed: HTTP ${response.status}`
         );
 
@@ -2885,7 +2984,8 @@ async function uploadFile(
 
 
     if (
-        data?.success === false
+        data &&
+        data.success === false
     ) {
 
         throw new Error(
@@ -2945,7 +3045,7 @@ createFolderBtn?.addEventListener(
 
 
 /* =========================================================
-   CREATE FOLDER
+   CREATE FOLDER BUTTON
 ========================================================= */
 
 confirmFolderBtn?.addEventListener(
@@ -2953,20 +3053,17 @@ confirmFolderBtn?.addEventListener(
     async () => {
 
         const name =
-            folderNameInput?.value
-                .trim();
+            folderNameInput?.value.trim();
 
 
         if (!name) {
 
             showToast(
-                "Enter a folder name.",
+                "Please enter a folder name.",
                 "error"
             );
 
-
             folderNameInput?.focus();
-
 
             return;
 
@@ -2974,16 +3071,15 @@ confirmFolderBtn?.addEventListener(
 
 
         if (
-            !/^[a-zA-Z0-9 _-]+$/.test(
+            /[\/\\:*?"<>|]/.test(
                 name
             )
         ) {
 
             showToast(
-                "Use only letters, numbers, spaces, hyphens or underscores.",
+                "Folder name contains invalid characters.",
                 "error"
             );
-
 
             return;
 
@@ -3012,9 +3108,22 @@ confirmFolderBtn?.addEventListener(
             );
 
 
+            /*
+             * Close modal only after Worker
+             * confirms successful creation.
+             */
+
             closeModal(
                 folderModal
             );
+
+
+            if (folderNameInput) {
+
+                folderNameInput.value =
+                    "";
+
+            }
 
 
             showToast(
@@ -3022,6 +3131,11 @@ confirmFolderBtn?.addEventListener(
                 "success"
             );
 
+
+            /*
+             * Reload the current R2 prefix
+             * so the new folder immediately appears.
+             */
 
             await loadCurrentFolder();
 
@@ -3035,10 +3149,11 @@ confirmFolderBtn?.addEventListener(
 
 
             showToast(
-                error.message ||
+                error?.message ||
                 "Unable to create folder.",
                 "error"
             );
+
 
         } finally {
 
@@ -3059,25 +3174,135 @@ confirmFolderBtn?.addEventListener(
    CREATE FOLDER API
 ========================================================= */
 
-async function createFolder(
-    name
-) {
+/* =========================================================
+   CREATE FOLDER
+========================================================= */
 
-    return apiRequest(
-        `${WORKER_URL}/api/folders`,
-        {
-            method: "POST",
+async function createFolder(name) {
 
-            body:
-                JSON.stringify(
-                    {
-                        name,
-                        prefix:
-                            currentPrefix
-                    }
-                )
-        }
+    if (!currentUser) {
+
+        throw new Error(
+            "Authentication required."
+        );
+
+    }
+
+
+    /*
+     * Clean folder name
+     */
+
+    const cleanName =
+        String(name || "")
+            .trim()
+            .replace(
+                /[\/\\:*?"<>|]/g,
+                ""
+            );
+
+
+    if (!cleanName) {
+
+        throw new Error(
+            "Folder name is required."
+        );
+
+    }
+
+
+    /*
+     * Current location
+     *
+     * Example:
+     *
+     * gallery/
+     *
+     * New folder:
+     *
+     * ganesh
+     *
+     * Result:
+     *
+     * gallery/ganesh/
+     */
+
+    let parentPrefix =
+        String(
+            currentPrefix || ""
+        )
+            .trim()
+            .replace(
+                /^\/+/,
+                ""
+            )
+            .replace(
+                /\/+$/,
+                ""
+            );
+
+
+    let folderPrefix;
+
+
+    if (parentPrefix) {
+
+        folderPrefix =
+            `${parentPrefix}/${cleanName}/`;
+
+    } else {
+
+        folderPrefix =
+            `${cleanName}/`;
+
+    }
+
+
+    /*
+     * IMPORTANT
+     *
+     * Your Worker expects:
+     *
+     * POST /api/folders
+     *
+     * {
+     *     "prefix": "gallery/ganesh/"
+     * }
+     */
+
+    console.log(
+        "[Gallery] Creating folder:",
+        folderPrefix
     );
+
+
+    const result =
+        await apiRequest(
+            `${WORKER_URL}/api/folders`,
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type":
+                        "application/json"
+                },
+
+                body:
+                    JSON.stringify({
+                        prefix:
+                            folderPrefix
+                    })
+            }
+        );
+
+
+    console.log(
+        "[Gallery] Folder created:",
+        result
+    );
+
+
+    return result;
 
 }
 

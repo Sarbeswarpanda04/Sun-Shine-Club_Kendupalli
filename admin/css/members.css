@@ -1458,3 +1458,178 @@ body.delete-modal-open {
     }
 
 }
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+.mobile-menu-btn {
+    width: 34px;
+    height: 34px;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #dfe3ea;
+    border-radius: 7px;
+
+    background: #ffffff;
+
+    color: #374151;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   MOBILE SIDEBAR / HAMBURGER MENU
+========================================================= */
+
+@media (max-width: 768px) {
+
+    /* -----------------------------------------------------
+       HAMBURGER BUTTON
+    ----------------------------------------------------- */
+
+    .mobile-menu-btn {
+        display: flex !important;
+
+        align-items: center;
+        justify-content: center;
+
+        width: 36px;
+        height: 36px;
+
+        flex-shrink: 0;
+
+        padding: 0;
+
+        border: 1px solid #dfe3ea;
+        border-radius: 7px;
+
+        background: #ffffff;
+        color: #374151;
+
+        cursor: pointer;
+
+        /*
+         * IMPORTANT:
+         * Keep the button BELOW the opened sidebar.
+         */
+        position: relative;
+        z-index: 9998;
+    }
+
+
+    .mobile-menu-btn i {
+        font-size: 14px;
+        line-height: 1;
+    }
+
+
+    /* -----------------------------------------------------
+       SIDEBAR
+    ----------------------------------------------------- */
+
+    .admin-sidebar {
+        position: fixed !important;
+
+        top: 0;
+        left: 0;
+        bottom: 0;
+
+        width: 280px;
+        max-width: 85vw;
+
+        height: 100vh;
+
+        /*
+         * Sidebar must be above the hamburger button.
+         */
+        z-index: 10001;
+
+        transform: translateX(-100%);
+
+        visibility: hidden;
+
+        transition:
+            transform .25s ease,
+            visibility .25s ease;
+
+        overflow-x: hidden;
+        overflow-y: auto;
+
+        background: #ffffff;
+    }
+
+
+    .admin-sidebar.open {
+        transform: translateX(0);
+
+        visibility: visible;
+    }
+
+
+    /* -----------------------------------------------------
+       OVERLAY
+    ----------------------------------------------------- */
+
+    .sidebar-overlay {
+        position: fixed;
+
+        inset: 0;
+
+        z-index: 10000;
+
+        background: rgba(0, 0, 0, .45);
+
+        opacity: 0;
+
+        visibility: hidden;
+
+        pointer-events: none;
+
+        transition:
+            opacity .25s ease,
+            visibility .25s ease;
+    }
+
+
+    .sidebar-overlay.show {
+        opacity: 1;
+
+        visibility: visible;
+
+        pointer-events: auto;
+    }
+
+
+    /* -----------------------------------------------------
+       PREVENT PAGE SCROLL WHEN MENU IS OPEN
+    ----------------------------------------------------- */
+
+    body.sidebar-open {
+        overflow: hidden;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (min-width: 769px) {
+
+    .mobile-menu-btn {
+        display: none !important;
+    }
+
+
+    .sidebar-overlay {
+        display: none !important;
+    }
+
+}
