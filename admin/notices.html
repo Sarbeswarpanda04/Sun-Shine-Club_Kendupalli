@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#4f46e5"
+    >
+
+    <title>
+        Notices | Admin Panel
+    </title>
+
+
+    <!-- Font Awesome -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+
+    <!-- Common Admin CSS -->
+
+    <link
+        rel="stylesheet"
+        href="css/admin.css"
+    >
+
+
+    <!-- Notices CSS -->
+
+    <link
+        rel="stylesheet"
+        href="css/notices.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     ADMIN LAYOUT
+========================================================= -->
+
+<div class="admin-layout">
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside
+        class="admin-sidebar"
+        id="adminSidebar"
+    >
+
+
+        <!-- Logo -->
+
+        <div class="admin-sidebar-header">
+
+            <a
+                href="dashboard.html"
+                class="admin-logo"
+            >
+
+                <span class="admin-logo-icon">
+                    <i class="fa-solid fa-sun"></i>
+                </span>
+
+                <span class="admin-logo-text">
+                    Sun Shine Club
+                </span>
+
+            </a>
+
+
+            <button
+                type="button"
+                class="sidebar-close"
+                id="sidebarClose"
+                aria-label="Close menu"
+            >
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+
+        <!-- Navigation -->
+
+        <nav class="admin-navigation">
+
+
+            <p class="nav-section-title">
+                MAIN
+            </p>
+
+
+            <a
+                href="dashboard.html"
+                class="admin-nav-link"
+            >
+
+                <span class="nav-icon">
+                    <i class="fa-solid fa-chart-line"></i>
+                </span>
+
+                <span class="nav-text">
+                    Dashboard
+                </span>
+
+            </a>
+
+
+            <a
+                href="members.html"
+                class="admin-nav-link"
+            >
+
+                <span class="nav-icon">
+                    <i class="fa-solid fa-users"></i>
+                </span>
+
+                <span class="nav-text">
+                    Members
+                </span>
+
+            </a>
+
+
+            <a
+                href="notices.html"
+                class="admin-nav-link active"
+            >
+
+                <span class="nav-icon">
+                    <i class="fa-solid fa-bell"></i>
+                </span>
+
+                <span class="nav-text">
+                    Notices
+                </span>
+
+            </a>
+
+
+            <a
+                href="events.html"
+                class="admin-nav-link"
+            >
+
+                <span class="nav-icon">
+                    <i class="fa-solid fa-calendar-days"></i>
+                </span>
+
+                <span class="nav-text">
+                    Events
+                </span>
+
+            </a>
+
+
+            <a
+                href="gallery.html"
+                class="admin-nav-link"
+            >
+
+                <span class="nav-icon">
+                    <i class="fa-solid fa-images"></i>
+                </span>
+
+                <span class="nav-text">
+                    Gallery
+                </span>
+
+            </a>
+
+
+            <a
+                href="youtube.html"
+                class="admin-nav-link"
+            >
+
+                <span class="nav-icon">
+                    <i class="fa-brands fa-youtube"></i>
+                </span>
+
+                <span class="nav-text">
+                    YouTube
+                </span>
+
+            </a>
+
+
+            <p class="nav-section-title nav-section-space">
+                SYSTEM
+            </p>
+
+
+            <a
+                href="#"
+                class="admin-nav-link"
+            >
+
+                <span class="nav-icon">
+                    <i class="fa-solid fa-gear"></i>
+                </span>
+
+                <span class="nav-text">
+                    Settings
+                </span>
+
+            </a>
+
+        </nav>
+
+
+        <!-- Sidebar Administrator -->
+
+        <div class="admin-sidebar-user">
+
+            <div
+                class="user-avatar"
+                id="sidebarAvatar"
+            >
+                A
+            </div>
+
+
+            <div class="sidebar-user-info">
+
+                <strong id="sidebarName">
+                    Administrator
+                </strong>
+
+                <span id="sidebarEmail">
+                    Loading...
+                </span>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         OVERLAY
+    ====================================================== -->
+
+    <div
+        class="admin-sidebar-overlay"
+        id="sidebarOverlay"
+    ></div>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="admin-main">
+
+
+        <!-- =================================================
+             TOPBAR
+        ================================================== -->
+
+        <header class="admin-topbar">
+
+
+            <div class="topbar-left">
+
+                <button
+                    type="button"
+                    class="sidebar-toggle"
+                    id="sidebarToggle"
+                    aria-label="Open menu"
+                >
+
+                    <i class="fa-solid fa-bars"></i>
+
+                </button>
+
+
+                <div>
+
+                    <p class="topbar-page-label">
+                        ADMIN PANEL
+                    </p>
+
+                    <h1 class="topbar-title">
+                        Notices
+                    </h1>
+
+                </div>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+
+                <div class="topbar-user">
+
+                    <div class="topbar-user-info">
+
+                        <strong id="topbarName">
+                            Administrator
+                        </strong>
+
+                        <span>
+                            Administrator
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        class="user-avatar"
+                        id="topbarAvatar"
+                    >
+                        A
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             CONTENT
+        ================================================== -->
+
+        <section class="notices-page">
+
+
+            <!-- Page Header -->
+
+            <div class="notices-page-header">
+
+
+                <div>
+
+                    <span class="page-eyebrow">
+                        CONTENT MANAGEMENT
+                    </span>
+
+                    <h2>
+                        Notices
+                    </h2>
+
+                    <p>
+                        Manage club announcements,
+                        important notices and public
+                        information.
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="add-notice-button"
+                    id="addNoticeButton"
+                >
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    <span>
+                        Add Notice
+                    </span>
+
+                </button>
+
+            </div>
+
+
+            <!-- =================================================
+                 STATISTICS
+            ================================================== -->
+
+            <div class="notice-stat-grid">
+
+
+                <div class="notice-stat-card">
+
+                    <div class="notice-stat-icon">
+                        <i class="fa-solid fa-bell"></i>
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Total Notices
+                        </span>
+
+                        <strong id="totalNotices">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="notice-stat-card">
+
+                    <div class="notice-stat-icon active">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Active
+                        </span>
+
+                        <strong id="activeNotices">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="notice-stat-card">
+
+                    <div class="notice-stat-icon important">
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Important
+                        </span>
+
+                        <strong id="importantNotices">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="notice-stat-card">
+
+                    <div class="notice-stat-icon expired">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Expired
+                        </span>
+
+                        <strong id="expiredNotices">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 TOOLBAR
+            ================================================== -->
+
+            <div class="notices-toolbar">
+
+
+                <div class="notice-search">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        type="search"
+                        id="noticeSearch"
+                        placeholder="Search notices..."
+                        autocomplete="off"
+                    >
+
+                </div>
+
+
+                <div class="notice-filters">
+
+                    <select
+                        id="noticeStatusFilter"
+                        aria-label="Filter notices"
+                    >
+
+                        <option value="all">
+                            All Notices
+                        </option>
+
+                        <option value="active">
+                            Active
+                        </option>
+
+                        <option value="expired">
+                            Expired
+                        </option>
+
+                        <option value="pinned">
+                            Pinned
+                        </option>
+
+                        <option value="important">
+                            Important
+                        </option>
+
+                    </select>
+
+
+                    <select
+                        id="noticeLanguageFilter"
+                        aria-label="Filter language"
+                    >
+
+                        <option value="all">
+                            All Languages
+                        </option>
+
+                        <option value="en">
+                            English
+                        </option>
+
+                        <option value="or">
+                            Odia
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 LOADING
+            ================================================== -->
+
+            <div
+                class="notices-loading"
+                id="noticesLoading"
+            >
+
+                <div class="loading-spinner"></div>
+
+                <p>
+                    Loading notices...
+                </p>
+
+            </div>
+
+
+            <!-- =================================================
+                 NOTICE LIST
+            ================================================== -->
+
+            <div
+                class="notices-list"
+                id="noticesList"
+            ></div>
+
+
+            <!-- =================================================
+                 EMPTY
+            ================================================== -->
+
+            <div
+                class="notices-empty"
+                id="noticesEmpty"
+                hidden
+            >
+
+                <div class="empty-icon">
+
+                    <i class="fa-regular fa-bell-slash"></i>
+
+                </div>
+
+                <h3>
+                    No notices found
+                </h3>
+
+                <p>
+                    There are no notices matching
+                    your current search or filter.
+                </p>
+
+                <button
+                    type="button"
+                    id="emptyAddNotice"
+                >
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Add Notice
+
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- =========================================================
+     ADD / EDIT NOTICE MODAL
+========================================================= -->
+
+<div
+    class="notice-modal"
+    id="noticeModal"
+    hidden
+>
+
+    <div
+        class="notice-modal-overlay"
+        id="noticeModalOverlay"
+    ></div>
+
+
+    <section
+        class="notice-modal-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="noticeModalTitle"
+    >
+
+
+        <div class="notice-modal-header">
+
+            <div>
+
+                <span>
+                    NOTICE MANAGEMENT
+                </span>
+
+                <h2 id="noticeModalTitle">
+                    Add Notice
+                </h2>
+
+            </div>
+
+
+            <button
+                type="button"
+                id="closeNoticeModal"
+                class="modal-close-button"
+                aria-label="Close"
+            >
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+
+        <!-- Form -->
+
+        <form
+            id="noticeForm"
+            class="notice-form"
+        >
+
+            <input
+                type="hidden"
+                id="noticeDocumentId"
+            >
+
+
+            <!-- English -->
+
+            <div class="form-section-title">
+
+                <i class="fa-solid fa-language"></i>
+
+                English Content
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="noticeTitleEn">
+                    Title
+                </label>
+
+                <input
+                    type="text"
+                    id="noticeTitleEn"
+                    placeholder="Notice title"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="noticeDescriptionEn">
+                    Short Description
+                </label>
+
+                <textarea
+                    id="noticeDescriptionEn"
+                    rows="3"
+                    placeholder="Short description"
+                ></textarea>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="noticeContentEn">
+                    Content
+                </label>
+
+                <textarea
+                    id="noticeContentEn"
+                    rows="6"
+                    placeholder="Full notice content"
+                ></textarea>
+
+            </div>
+
+
+            <!-- Odia -->
+
+            <div class="form-section-title">
+
+                <i class="fa-solid fa-language"></i>
+
+                Odia Content
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="noticeTitleOr">
+                    ଶୀର୍ଷକ
+                </label>
+
+                <input
+                    type="text"
+                    id="noticeTitleOr"
+                    placeholder="ନୋଟିସ୍ ଶୀର୍ଷକ"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="noticeDescriptionOr">
+                    ସଂକ୍ଷିପ୍ତ ବିବରଣୀ
+                </label>
+
+                <textarea
+                    id="noticeDescriptionOr"
+                    rows="3"
+                    placeholder="ସଂକ୍ଷିପ୍ତ ବିବରଣୀ"
+                ></textarea>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="noticeContentOr">
+                    ବିଷୟବସ୍ତୁ
+                </label>
+
+                <textarea
+                    id="noticeContentOr"
+                    rows="6"
+                    placeholder="ସମ୍ପୂର୍ଣ୍ଣ ନୋଟିସ୍"
+                ></textarea>
+
+            </div>
+
+
+            <!-- Details -->
+
+            <div class="form-section-title">
+
+                <i class="fa-solid fa-calendar-days"></i>
+
+                Notice Details
+
+            </div>
+
+
+            <div class="form-grid">
+
+
+                <div class="form-group">
+
+                    <label for="noticePublishedAt">
+                        Published Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="noticePublishedAt"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="noticeExpiresAt">
+                        Expiry Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="noticeExpiresAt"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="noticeLanguage">
+                        Primary Language
+                    </label>
+
+                    <select
+                        id="noticeLanguage"
+                    >
+
+                        <option value="en">
+                            English
+                        </option>
+
+                        <option value="or">
+                            Odia
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="noticeImage">
+                        Image URL
+                    </label>
+
+                    <input
+                        type="url"
+                        id="noticeImage"
+                        placeholder="https://..."
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- Flags -->
+
+            <div class="notice-options">
+
+
+                <label class="notice-checkbox">
+
+                    <input
+                        type="checkbox"
+                        id="noticePinned"
+                    >
+
+                    <span class="checkbox-ui"></span>
+
+                    <span>
+
+                        <strong>
+                            Pinned
+                        </strong>
+
+                        <small>
+                            Keep this notice at the top.
+                        </small>
+
+                    </span>
+
+                </label>
+
+
+                <label class="notice-checkbox">
+
+                    <input
+                        type="checkbox"
+                        id="noticeImportant"
+                    >
+
+                    <span class="checkbox-ui"></span>
+
+                    <span>
+
+                        <strong>
+                            Important
+                        </strong>
+
+                        <small>
+                            Mark this notice as important.
+                        </small>
+
+                    </span>
+
+                </label>
+
+            </div>
+
+
+            <!-- Link -->
+
+            <div class="form-group">
+
+                <label for="noticeLink">
+                    Related Page / Link
+                </label>
+
+                <input
+                    type="text"
+                    id="noticeLink"
+                    placeholder="pages/notice/example.html"
+                >
+
+            </div>
+
+
+            <!-- Error -->
+
+            <div
+                class="notice-form-error"
+                id="noticeFormError"
+                hidden
+            ></div>
+
+
+            <!-- Actions -->
+
+            <div class="notice-modal-actions">
+
+                <button
+                    type="button"
+                    class="modal-cancel-button"
+                    id="cancelNotice"
+                >
+                    Cancel
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="save-notice-button"
+                    id="saveNotice"
+                >
+
+                    <i class="fa-solid fa-check"></i>
+
+                    Save Notice
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </section>
+
+</div>
+
+
+<!-- =========================================================
+     DELETE MODAL
+========================================================= -->
+
+<div
+    class="delete-modal"
+    id="deleteModal"
+    hidden
+>
+
+    <div
+        class="delete-modal-overlay"
+        id="deleteModalOverlay"
+    ></div>
+
+
+    <section
+        class="delete-modal-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="deleteModalTitle"
+    >
+
+        <div class="delete-modal-icon">
+
+            <i class="fa-solid fa-trash"></i>
+
+        </div>
+
+
+        <div class="delete-modal-content">
+
+            <h2 id="deleteModalTitle">
+                Delete Notice?
+            </h2>
+
+            <p>
+                Are you sure you want to delete
+                <strong id="deleteNoticeTitle">
+                    this notice
+                </strong>?
+            </p>
+
+            <span
+                class="delete-notice-id"
+                id="deleteNoticeId"
+            >
+                notice-000
+            </span>
+
+            <p class="delete-warning">
+                This action cannot be undone.
+            </p>
+
+        </div>
+
+
+        <div class="delete-modal-actions">
+
+            <button
+                type="button"
+                class="delete-cancel-button"
+                id="cancelDelete"
+            >
+                Cancel
+            </button>
+
+
+            <button
+                type="button"
+                class="delete-confirm-button"
+                id="confirmDelete"
+            >
+
+                <i class="fa-solid fa-trash"></i>
+
+                Delete Notice
+
+            </button>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- =========================================================
+     SCRIPTS
+========================================================= -->
+
+<script
+    type="module"
+    src="js/admin-auth.js"
+></script>
+
+
+<script
+    type="module"
+    src="js/notices.js"
+></script>
+
+
+</body>
+
+</html>
