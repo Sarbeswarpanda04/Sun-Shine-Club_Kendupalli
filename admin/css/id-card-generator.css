@@ -1,0 +1,753 @@
+/* ===============================
+   SUN SHINE CLUB ID GENERATOR
+==================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",Arial,sans-serif;
+}
+
+body{
+    background:#f4f7fb;
+    color:#333;
+}
+
+/* =========================================================
+   ID CARD GENERATOR ACTION BUTTONS
+========================================================= */
+
+.id-generator-toolbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+
+    width: 100%;
+    padding: 20px 0;
+}
+
+
+/* =========================================================
+   GENERATOR BUTTON
+========================================================= */
+
+.generator-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+
+    padding: 12px 20px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: var(--primary, #3d0cb8);
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background .25s ease,
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+
+/* =========================================================
+   PRIMARY BUTTON
+========================================================= */
+
+.generator-action.primary {
+    background: var(--primary, #3d0cb8);
+    color: #ffffff;
+}
+
+
+.generator-action:hover {
+    background: var(--primary-dark, #32109a);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 5px 15px rgba(61, 12, 184, .20);
+}
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.generator-action i {
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.cards-loading {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    width: 100%;
+
+    padding: 20px;
+
+    color: var(--primary, #3d0cb8);
+
+    font-size: 14px;
+}
+
+.cards-loading i {
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .id-generator-toolbar {
+        justify-content: stretch;
+
+        flex-direction: row;
+
+        align-items: stretch;
+
+        width: 100%;
+    }
+
+    .generator-action {
+        width: 100%;
+        font-size: 12px;
+    }
+
+
+
+    
+
+}
+
+/*==============================
+CARD GRID
+==============================*/
+
+.cards-grid{
+
+    max-width:1400px;
+
+    margin:auto;
+
+    padding:30px;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:30px;
+
+}
+
+/*==============================
+ID CARD
+==============================*/
+
+.id-card{
+
+    width:320px;
+
+    height: 520px;
+
+    margin:auto;
+
+    /* background:rgb(253, 255, 253); */
+
+    background: #ffffff url("../assets/id-card-background.png") center center / cover no-repeat;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+
+    transition:.3s;
+
+    border:3px solid #0d47a1;
+
+}
+
+.id-card:hover{
+
+    transform:translateY(-6px);
+
+}
+
+.card-header{
+
+    /* background:#0d47a1; */
+    background: linear-gradient(
+        135deg,
+        #ff4fa3 0%,
+        #ee609b 30%,
+        #f23b75 70%,
+        #ff7eb3 100%
+    );
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+
+    color:white;
+
+    padding:12px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+.club-logo{
+
+    width:55px;
+
+    height:55px;
+
+    border-radius:50%;
+
+    background:rgb(255, 255, 255);
+
+    object-fit:cover;
+
+}
+
+.card-header h2{
+
+    font-size:17px;
+
+}
+
+.card-header small{
+    font-size: 10px;
+    color: #ffffff; 
+    text-shadow: 2px 2px 4px rgba(9, 37, 249, 0.414);
+    opacity:1;
+
+}
+
+.webandmail{
+
+    margin-top:5px;
+
+    font-size:10px;
+
+    color:#ffffff;
+
+    line-height:1.6;
+
+    font-weight:500;
+
+}
+
+.webandmail a{
+
+    color:#fff;
+
+    text-decoration:none;
+
+}
+
+.webandmail a:hover{
+
+    text-decoration:underline;
+
+}
+
+/*==============================
+PHOTO
+==============================*/
+
+/* .member-photo{
+
+    display:block;
+
+    margin:10px auto;
+
+    width:120px;
+
+    height:120px;
+
+    border-radius:50%;
+
+    border:3px solid #ac0178;
+
+    object-fit:cover;
+
+    object-position: center center;
+
+
+    flex-shrink: 0;
+
+} */
+
+.member-photo-wrapper {
+    width: 120px;
+    height: 120px;
+
+    margin: 10px auto;
+
+    border: 3px solid #ac0178;
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    position: relative;
+
+    flex: 0 0 120px;
+}
+
+.member-photo {
+    display: block;
+
+    margin: 0;
+    padding: 0;
+
+    /*
+     * Webpage display.
+     */
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center center;
+
+    border: none;
+    border-radius: 0;
+
+    flex: none;
+}
+
+.break-image {
+    width: 80px;
+    display: block; 
+    margin: 0 auto;
+}
+/*==============================
+TEXT
+==============================*/
+
+.id-card h3{
+
+    text-align:center;
+
+    color:#0d47a1;
+
+    margin-bottom:4px;
+
+}
+
+.member-info{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    gap:2px;
+
+}
+
+.member-details{
+
+    flex:1;
+
+}
+
+.member-details p{
+
+    display:grid;
+
+    grid-template-columns:14px 90px auto;
+
+    align-items:center;
+
+    column-gap:5px;
+
+    margin:6px 0;
+
+    padding-left:20px;
+
+    font-size:13px;
+
+    line-height:1.5;
+
+}
+
+.member-details i{
+
+    color:#0061d1;
+
+    font-size:14px;
+
+    width: 14px;
+
+    text-align:center;
+
+}
+
+.member-details strong{
+
+    font-weight:700;
+
+    white-space:nowrap;
+
+}
+
+.member-details span{
+
+    font-weight:500;
+
+    word-break:break-word;
+
+}
+
+.member-details2 {
+    flex: 1;
+}
+.member-details2 p{
+
+    display:grid;
+
+    grid-template-columns:14px 90px auto;
+
+    align-items:center;
+
+    column-gap:5px;
+
+    margin:6px 0;
+
+    padding-left:20px;
+
+    font-size:13px;
+
+    line-height:1.5;
+
+}
+
+.member-details2 i{
+
+    color:#0061d1;
+
+    font-size:14px;
+
+    width: 14px;
+
+    text-align:center;
+
+}
+
+.member-details2 strong{
+
+    font-weight:700;
+
+    white-space:nowrap;
+
+}
+
+.member-details2 span{
+
+    font-weight:500;
+
+    word-break:break-word;
+
+}
+/* 
+.id-card p{
+    
+    padding-left: 20px;
+    margin:5px 0;
+    font-size:15px;
+
+}
+
+hr {
+    margin-top: 1%;
+    margin-left: 6%;
+    margin-right: 6%;
+} */
+
+/*==============================
+QR
+==============================*/
+/* .qr-border{
+    width: 80px;
+    height: 80px;
+    padding:3px;
+    margin-left:1px;
+    margin-right: 15px;;
+    border:2px solid transparent;
+
+    border-radius:8px;
+
+    background:
+        linear-gradient(#fff,#fff) padding-box,
+        linear-gradient(135deg,#ff4fa3,#c99b11,#2196f3) border-box;
+
+    display:inline-flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.qr-box{
+
+    width:70px;
+
+    height:70px;
+
+    overflow:hidden;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#fff;
+
+} */
+ .qr-border{
+
+    width:80px;
+    height:80px;
+
+    padding:2px;
+        margin-right: 15px;;
+
+    background:linear-gradient(
+        135deg,
+        #ff4fa3,
+        #c99b11,
+        #2196f3
+    );
+
+    border-radius:8px;
+
+    box-sizing:border-box;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.qr-box{
+
+    width:100%;
+
+    height:100%;
+
+    background:#fff;
+
+    border-radius:6px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.qr-box img{
+
+    width:70px !important;
+
+    height:70px !important;
+
+    margin:-4px;
+
+    display:block;
+
+}
+
+.card-wrapper{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+/*==============================
+DOWNLOAD BUTTON
+==============================*/
+
+
+.download-btn{
+
+    width:320px;
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#0d6efd;
+
+    color:#fff;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.download-btn:hover{
+
+    background:#0b5ed7;
+
+    transform:translateY(-2px);
+
+}
+
+/*==============================
+PRINT
+==============================*/
+
+@media print{
+
+body{
+
+    background:white;
+
+}
+
+.topbar,
+
+.toolbar,
+
+.download-btn{
+
+    display:none;
+
+}
+
+.cards-grid{
+
+    display:block;
+
+}
+
+.id-card{
+
+    page-break-after:always;
+
+    box-shadow:none;
+
+    margin-bottom:30px;
+
+}
+
+}
+
+/*==============================
+MOBILE
+==============================*/
+
+@media(max-width:768px){
+
+.topbar{
+
+    flex-direction:column;
+
+    text-align:center;
+
+}
+
+.cards-grid {
+        width: 100%;
+        max-width: 100%;
+
+        padding: 15px 10px;
+
+        display: grid;
+        grid-template-columns: 1fr;
+
+        justify-items: center;
+
+        gap: 30px;
+    }
+
+.id-card {
+        width: 320px;
+        height: 520px;
+
+        /*
+         * Never change the internal card dimensions.
+         */
+        flex-shrink: 0;
+
+        transform-origin: top center;
+    }
+
+.toolbar{
+
+    flex-direction:column;
+
+}
+
+.toolbar button{
+
+    width:100%;
+
+}
+
+.card-wrapper {
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 15px;
+    }
+
+    .download-btn {
+        width: 320px;
+        max-width: calc(100vw - 30px);
+    }
+    .qr-box img,
+    .qr-box canvas {
+        width: 70px !important;
+        height: 70px !important;
+    }
+}

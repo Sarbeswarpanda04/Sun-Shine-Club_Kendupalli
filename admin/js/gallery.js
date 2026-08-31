@@ -3677,14 +3677,10 @@ confirmDeleteBtn?.addEventListener(
    DELETE OBJECT API
 ========================================================= */
 
-async function deleteObject(
-    object
-) {
+async function deleteObject(object) {
 
     const key =
-        getObjectKey(
-            object
-        );
+        getObjectKey(object);
 
 
     if (!key) {
@@ -3696,16 +3692,25 @@ async function deleteObject(
     }
 
 
-    const encodedKey =
-        encodeURIComponent(
-            key
-        );
+    console.log(
+        "[Gallery] Deleting R2 object:",
+        key
+    );
 
 
     return apiRequest(
-        `${WORKER_URL}/api/objects?key=${encodedKey}`,
+        `${WORKER_URL}/api/objects`,
         {
-            method: "DELETE"
+            method: "DELETE",
+
+            headers: {
+                "Content-Type":
+                    "application/json"
+            },
+
+            body: JSON.stringify({
+                key: key
+            })
         }
     );
 

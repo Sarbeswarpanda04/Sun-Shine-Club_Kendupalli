@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="robots"
+        content="noindex, nofollow"
+    >
+
+    <meta
+        name="theme-color"
+        content="#3d0cb8"
+    >
+
+    <title>
+        ID Card Generator | Admin | Sun Shine Club Kendupalli
+    </title>
+
+
+    <!-- =====================================================
+         ADMIN CSS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="css/admin.css"
+    >
+
+
+    <!-- =====================================================
+         ID CARD GENERATOR CSS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="css/id-card-generator.css"
+    >
+
+
+    <!-- =====================================================
+         FONT AWESOME
+    ====================================================== -->
+
+    <script
+        src="https://kit.fontawesome.com/3761b78600.js"
+        crossorigin="anonymous"
+    ></script>
+
+
+    <!-- =====================================================
+         QR CODE
+    ====================================================== -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"
+    ></script>
+
+
+    <!-- =====================================================
+         HTML2CANVAS
+    ====================================================== -->
+
+    <script
+        src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"
+    ></script>
+
+</head>
+
+
+<body class="admin-body">
+
+
+    <!-- =====================================================
+         MOBILE SIDEBAR OVERLAY
+    ====================================================== -->
+
+    <div
+        class="sidebar-overlay"
+        id="sidebarOverlay"
+    ></div>
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside
+        class="admin-sidebar"
+        id="adminSidebar"
+    >
+
+        <!-- BRAND -->
+
+        <div class="sidebar-brand">
+
+            <img
+                src="https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/logo/sun-shine-club-logo.png"
+                alt="Sun Shine Club Kendupalli"
+                onerror="this.style.display='none'"
+            >
+
+            <div>
+
+                <strong>
+                    Sun Shine Club
+                </strong>
+
+                <span>
+                    Kendupalli
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             NAVIGATION
+        ================================================== -->
+
+        <nav class="admin-navigation">
+
+
+            <p class="nav-section-title">
+                MAIN
+            </p>
+
+
+            <!-- Dashboard -->
+
+            <a
+                href="dashboard.html"
+                class="admin-nav-link"
+            >
+
+                <span class="nav-icon">
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                </span>
+
+                <span class="nav-text">
+                    Dashboard
+                </span>
+
+            </a>
+
+
+            <!-- Members -->
+
+            <a
+                href="members.html"
+                class="admin-nav-link"
+            >
+
+                <span class="nav-icon">
+
+                    <i class="fa-solid fa-users"></i>
+
+                </span>
+
+                <span class="nav-text">
+                    Members
+                </span>
+
+            </a>
+
+
+            <!-- ID Card Generator -->
+
+            <a
+                href="id-card-generator.html"
+                class="admin-nav-link active"
+            >
+
+                <span class="nav-icon">
+
+                    <i class="fa-solid fa-id-card"></i>
+
+                </span>
+
+                <span class="nav-text">
+                    ID Card Generator
+                </span>
+
+            </a>
+
+
+            <!-- Notices -->
+
+            <a
+                href="notices.html"
+                class="admin-nav-link"
+            >
+
+                <span class="nav-icon">
+
+                    <i class="fa-solid fa-bullhorn"></i>
+
+                </span>
+
+                <span class="nav-text">
+                    Notices
+                </span>
+
+            </a>
+
+
+            <!-- Events -->
+
+            <a
+                href="events.html"
+                class="admin-nav-link"
+            >
+
+                <span class="nav-icon">
+
+                    <i class="fa-solid fa-calendar-days"></i>
+
+                </span>
+
+                <span class="nav-text">
+                    Events
+                </span>
+
+            </a>
+
+
+            <!-- Gallery -->
+
+            <a
+                href="gallery.html"
+                class="admin-nav-link"
+            >
+
+                <span class="nav-icon">
+
+                    <i class="fa-solid fa-images"></i>
+
+                </span>
+
+                <span class="nav-text">
+                    Gallery
+                </span>
+
+            </a>
+
+
+            <!-- YouTube -->
+
+            <a
+                href="youtube.html"
+                class="admin-nav-link"
+            >
+
+                <span class="nav-icon">
+
+                    <i class="fa-brands fa-youtube"></i>
+
+                </span>
+
+                <span class="nav-text">
+                    YouTube
+                </span>
+
+            </a>
+
+
+            <!-- SYSTEM -->
+
+            <p class="nav-section-title nav-section-space">
+                SYSTEM
+            </p>
+
+
+            <!-- Settings -->
+
+            <a
+                href="settings.html"
+                class="admin-nav-link"
+            >
+
+                <span class="nav-icon">
+
+                    <i class="fa-solid fa-gear"></i>
+
+                </span>
+
+                <span class="nav-text">
+                    Settings
+                </span>
+
+            </a>
+
+        </nav>
+
+
+        <!-- =================================================
+             SIDEBAR USER
+        ================================================== -->
+
+        <div class="admin-sidebar-user">
+
+            <div
+                class="user-avatar"
+                id="sidebarAvatar"
+            >
+                A
+            </div>
+
+
+            <div class="sidebar-user-info">
+
+                <strong id="sidebarName">
+                    Administrator
+                </strong>
+
+                <span id="sidebarEmail">
+                    Loading...
+                </span>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="sidebar-logout"
+                id="sidebarLogout"
+                aria-label="Sign out"
+            >
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="admin-main">
+
+
+        <!-- =================================================
+             TOPBAR
+        ================================================== -->
+
+        <header class="admin-topbar">
+
+
+            <button
+                type="button"
+                class="mobile-menu-button"
+                id="mobileMenuBtn"
+                aria-label="Open menu"
+            >
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+
+            <div class="topbar-title">
+
+                <span>
+                    MEMBER MANAGEMENT
+                </span>
+
+                <h1>
+                    ID Card Generator
+                </h1>
+
+            </div>
+
+
+            <div class="topbar-user">
+
+                <div class="topbar-user-info">
+
+                    <strong id="topbarName">
+                        Administrator
+                    </strong>
+
+                    <span>
+                        Administrator
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="user-avatar"
+                    id="topbarAvatar"
+                >
+                    A
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             CONTENT
+        ================================================== -->
+
+        <div class="dashboard-content">
+
+
+            <!-- PAGE INTRO -->
+
+            <div class="dashboard-welcome">
+
+                <div>
+
+                    <p class="welcome-label">
+                        ID CARD MANAGEMENT
+                    </p>
+
+                    <h2>
+                        Generate Member
+                        <span>ID Cards</span>
+                    </h2>
+
+                    <p>
+                        Member information is loaded directly
+                        from Firebase Firestore.
+                    </p>
+
+                </div>
+
+
+                <div class="welcome-status">
+
+                    <i class="fa-solid fa-database"></i>
+
+                    Firebase Connected
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 ACTION BUTTONS
+            ================================================== -->
+
+            <div class="id-generator-toolbar">
+
+
+                <button
+                    type="button"
+                    id="downloadAll"
+                    class="generator-action primary"
+                >
+
+                    <i class="fa-solid fa-download"></i>
+
+                    Download All ID Cards
+
+                </button>
+
+
+                <button
+                    type="button"
+                    id="printAll"
+                    class="generator-action"
+                >
+
+                    <i class="fa-solid fa-print"></i>
+
+                    Print All
+
+                </button>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 LOADING
+            ================================================== -->
+
+            <div
+                id="cardsLoading"
+                class="cards-loading"
+                hidden
+            >
+
+                <i
+                    class="fa-solid fa-spinner fa-spin"
+                ></i>
+
+                <span>
+                    Loading members from Firebase...
+                </span>
+
+            </div>
+
+
+            <!-- =================================================
+                 ERROR
+            ================================================== -->
+
+            <div
+                id="cardsError"
+                class="cards-error"
+                hidden
+            ></div>
+
+
+            <!-- =================================================
+                 ID CARDS
+            ================================================== -->
+
+            <div
+                id="cardsContainer"
+                class="cards-grid"
+            ></div>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         GENERATOR JS
+    ====================================================== -->
+
+    <script
+        type="module"
+        src="js/id-card-generator.js"
+    ></script>
+
+
+</body>
+
+</html>

@@ -1,3 +1,17 @@
+/* =========================================================
+   DASHBOARD
+   Sun Shine Club Kendupalli
+========================================================= */
+
+import {
+    db
+} from "./firebase-config.js";
+
+import {
+    collection,
+    getDocs
+} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+
 import {
     adminLogout
 } from "./admin-auth.js";
@@ -24,6 +38,23 @@ const topbarAvatar =
 
 const sidebarAvatar =
     document.getElementById("sidebarAvatar");
+
+
+/* =========================================================
+   DASHBOARD STAT ELEMENTS
+========================================================= */
+
+const membersCount =
+    document.getElementById("membersCount");
+
+const noticesCount =
+    document.getElementById("noticesCount");
+
+const eventsCount =
+    document.getElementById("eventsCount");
+
+const galleryCount =
+    document.getElementById("galleryCount");
 
 
 /* =========================================================
@@ -58,26 +89,18 @@ document.addEventListener(
         ----------------------------------------- */
 
         if (welcomeName) {
-
             welcomeName.textContent =
                 name;
-
         }
-
 
         if (topbarName) {
-
             topbarName.textContent =
                 name;
-
         }
 
-
         if (sidebarName) {
-
             sidebarName.textContent =
                 name;
-
         }
 
 
@@ -86,10 +109,8 @@ document.addEventListener(
         ----------------------------------------- */
 
         if (sidebarEmail) {
-
             sidebarEmail.textContent =
                 email;
-
         }
 
 
@@ -105,22 +126,161 @@ document.addEventListener(
 
 
         if (topbarAvatar) {
-
             topbarAvatar.textContent =
                 firstLetter;
+        }
 
+        if (sidebarAvatar) {
+            sidebarAvatar.textContent =
+                firstLetter;
         }
 
 
-        if (sidebarAvatar) {
+        /* -----------------------------------------
+           LOAD DASHBOARD DATA
+        ----------------------------------------- */
 
-            sidebarAvatar.textContent =
-                firstLetter;
+        loadDashboardData();
+    }
+);
 
+
+/* =========================================================
+   LOAD DASHBOARD DATA
+========================================================= */
+
+async function loadDashboardData() {
+
+    console.log(
+        "Loading dashboard data..."
+    );
+
+
+    try {
+
+        const [
+            membersSnapshot,
+            noticesSnapshot,
+            eventsSnapshot,
+            gallerySnapshot
+        ] = await Promise.all([
+
+            getDocs(
+                collection(
+                    db,
+                    "members"
+                )
+            ),
+
+            getDocs(
+                collection(
+                    db,
+                    "notices"
+                )
+            ),
+
+            getDocs(
+                collection(
+                    db,
+                    "events"
+                )
+            ),
+
+            getDocs(
+                collection(
+                    db,
+                    "gallery"
+                )
+            )
+
+        ]);
+
+
+        /* -----------------------------------------
+           COUNTS
+        ----------------------------------------- */
+
+        const members =
+            membersSnapshot.size;
+
+        const notices =
+            noticesSnapshot.size;
+
+        const events =
+            eventsSnapshot.size;
+
+        const gallery =
+            gallerySnapshot.size;
+
+
+        console.log(
+            "Dashboard counts:",
+            {
+                members,
+                notices,
+                events,
+                gallery
+            }
+        );
+
+
+        /* -----------------------------------------
+           UPDATE UI
+        ----------------------------------------- */
+
+        if (membersCount) {
+            membersCount.textContent =
+                members;
+        }
+
+        if (noticesCount) {
+            noticesCount.textContent =
+                notices;
+        }
+
+        if (eventsCount) {
+            eventsCount.textContent =
+                events;
+        }
+
+        if (galleryCount) {
+            galleryCount.textContent =
+                gallery;
+        }
+
+
+    } catch (error) {
+
+        console.error(
+            "Unable to load dashboard data:",
+            error
+        );
+
+
+        /*
+         * Don't leave the dashboard showing
+         * an empty em dash when loading fails.
+         */
+
+        if (membersCount) {
+            membersCount.textContent = "!";
+        }
+
+        if (noticesCount) {
+            noticesCount.textContent = "!";
+        }
+
+        if (eventsCount) {
+            eventsCount.textContent = "!";
+        }
+
+        if (galleryCount) {
+            galleryCount.textContent = "!";
         }
 
     }
-);
+
+}
 
 
 /* =========================================================
@@ -168,7 +328,6 @@ function openSidebar() {
     document.body.classList.add(
         "menu-open"
     );
-
 }
 
 
@@ -185,7 +344,6 @@ function closeSidebar() {
     document.body.classList.remove(
         "menu-open"
     );
-
 }
 
 
