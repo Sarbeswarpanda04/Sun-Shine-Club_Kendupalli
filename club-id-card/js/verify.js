@@ -1,300 +1,876 @@
 // =====================================
 // Sun Shine Club
 // Member Verification
+// Firebase Firestore
 // =====================================
 
-const searchSection = document.getElementById("searchSection");
-const resultSection = document.getElementById("resultSection");
-const memberInput = document.getElementById("memberId");
-const verifyBtn = document.getElementById("verifyBtn");
+import {
+    db
+} from "../../admin/js/firebase-config.js";
+
+import {
+    doc,
+    getDoc
+} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+
 
 // =====================================
-// Auto Verify from URL
+// ELEMENTS
 // =====================================
 
-const params = new URLSearchParams(window.location.search);
-const urlMemberId = params.get("id");
+const searchSection =
+    document.getElementById("searchSection");
+
+const resultSection =
+    document.getElementById("resultSection");
+
+const memberInput =
+    document.getElementById("memberId");
+
+const verifyBtn =
+    document.getElementById("verifyBtn");
+
+
+// =====================================
+// CONSTANTS
+// =====================================
+
+const MEMBERS_COLLECTION = "members";
+
+const LOGO_URL =
+    "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/logo/sun-shine-club-logo.png";
+
+
+// =====================================
+// AUTO VERIFY FROM URL
+// =====================================
+
+const params =
+    new URLSearchParams(window.location.search);
+
+const urlMemberId =
+    params.get("id");
 
 if (urlMemberId) {
 
-    searchSection.style.display = "none";
-    resultSection.style.display = "block";
+    const memberId =
+        urlMemberId
+            .trim()
+            .toUpperCase();
 
-    loadMember(urlMemberId);
+    if (searchSection) {
+        searchSection.style.display = "none";
+    }
+
+    if (resultSection) {
+        resultSection.style.display = "block";
+    }
+
+    loadMember(memberId);
+}
+
+
+// =====================================
+// VERIFY BUTTON
+// =====================================
+
+if (verifyBtn) {
+
+    verifyBtn.addEventListener(
+        "click",
+        verifyMember
+    );
 
 }
 
-// =====================================
-// Verify Button
-// =====================================
-
-verifyBtn.addEventListener("click", verifyMember);
-
-// Press Enter
-memberInput.addEventListener("keypress", function (e) {
-
-    if (e.key === "Enter") {
-
-        verifyMember();
-
-    }
-
-});
 
 // =====================================
-// Verify Member
+// PRESS ENTER
+// =====================================
+
+if (memberInput) {
+
+    memberInput.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (event.key === "Enter") {
+
+                event.preventDefault();
+
+                verifyMember();
+
+            }
+
+        }
+    );
+
+}
+
+
+// =====================================
+// VERIFY MEMBER
 // =====================================
 
 function verifyMember() {
 
-    const id = memberInput.value.trim().toUpperCase();
+    const id =
+        memberInput
+            ? memberInput.value
+                .trim()
+                .toUpperCase()
+            : "";
 
     if (!id) {
 
-        alert("Please enter your Member ID.");
+        alert(
+            "Please enter your Member ID."
+        );
 
-        memberInput.focus();
+        memberInput?.focus();
 
         return;
-
     }
 
-    searchSection.style.display = "none";
-    resultSection.style.display = "block";
+
+    if (searchSection) {
+        searchSection.style.display = "none";
+    }
+
+    if (resultSection) {
+        resultSection.style.display = "block";
+    }
+
 
     loadMember(id);
-
 }
 
+
 // =====================================
-// Load Member
+// LOAD MEMBER FROM FIREBASE
 // =====================================
 
 async function loadMember(id) {
 
-    resultSection.innerHTML = `
+    // Show loading state
+    if (resultSection) {
 
-        <div class="loading">
+        resultSection.innerHTML = `
 
-            <i class="fa-solid fa-spinner fa-spin"></i>
+            <div class="loading">
 
-            <h2>Verifying Member...</h2>
+                <i class="fa-solid fa-spinner fa-spin"></i>
 
-        </div>
+                <h2>
+                    Verifying Member...
+                </h2>
 
-    `;
+            </div>
+
+        `;
+
+    }
+
 
     try {
 
-        const response = await fetch("data/members-id.json");
+        // -------------------------------------
+        // Normalize Member ID
+        // -------------------------------------
 
-        const members = await response.json();
+        const memberId =
+            String(id)
+                .trim()
+                .toUpperCase();
 
-        const member = members.find(
-            m => m.id.toUpperCase() === id.toUpperCase()
-        );
 
-        if (!member) {
+        if (!memberId) {
 
-            showError("Member ID not found.");
+            showError(
+                "Invalid Member ID."
+            );
 
             return;
-
         }
+
+
+        // -------------------------------------
+        // DIRECT FIRESTORE DOCUMENT READ
+        // -------------------------------------
+        //
+        // Firestore structure:
+        //
+        // members
+        //   └── SSC018
+        //       ├── id
+        //       ├── name
+        //       ├── designation
+        //       ├── phone
+        //       ├── blood
+        //       ├── joinDate
+        //       ├── valid
+        //       ├── status
+        //       └── photo
+        //
+        // -------------------------------------
+
+        const memberRef =
+            doc(
+                db,
+                MEMBERS_COLLECTION,
+                memberId
+            );
+
+
+        const memberSnapshot =
+            await getDoc(memberRef);
+
+
+        // -------------------------------------
+        // MEMBER NOT FOUND
+        // -------------------------------------
+
+        if (!memberSnapshot.exists()) {
+
+            showError(
+                "Member ID not found."
+            );
+
+            return;
+        }
+
+
+        // -------------------------------------
+        // FIRESTORE DATA
+        // -------------------------------------
+
+        const memberData =
+            memberSnapshot.data();
+
+
+        const member = {
+
+            ...memberData,
+
+            documentId:
+                memberSnapshot.id,
+
+            id:
+                memberData.id ||
+                memberSnapshot.id
+
+        };
+
+
+        // -------------------------------------
+        // SHOW MEMBER
+        // -------------------------------------
 
         showMember(member);
 
     }
 
-    catch (err) {
+    catch (error) {
 
-        console.error(err);
+        console.error(
+            "Firebase member verification error:",
+            error
+        );
 
-        showError("Unable to load member database.");
+
+        // -------------------------------------
+        // PERMISSION ERROR
+        // -------------------------------------
+
+        if (
+            error.code ===
+            "permission-denied"
+        ) {
+
+            showError(
+                "Member verification is currently unavailable."
+            );
+
+            return;
+        }
+
+
+        // -------------------------------------
+        // OTHER FIREBASE ERRORS
+        // -------------------------------------
+
+        showError(
+            "Unable to connect to the member database."
+        );
 
     }
 
 }
 
+
 // =====================================
-// Check Expiry
+// CHECK EXPIRY
 // =====================================
 
 function isExpired(validDate) {
 
-    return new Date(validDate) < new Date();
+    if (!validDate) {
+        return false;
+    }
+
+
+    // -------------------------------------
+    // Firestore Timestamp
+    // -------------------------------------
+
+    if (
+        typeof validDate === "object" &&
+        typeof validDate.toDate === "function"
+    ) {
+
+        return (
+            validDate.toDate() <
+            new Date()
+        );
+
+    }
+
+
+    // -------------------------------------
+    // Date
+    // -------------------------------------
+
+    if (
+        validDate instanceof Date
+    ) {
+
+        return (
+            validDate <
+            new Date()
+        );
+
+    }
+
+
+    // -------------------------------------
+    // String / Number
+    // -------------------------------------
+
+    const date =
+        new Date(validDate);
+
+
+    if (
+        Number.isNaN(
+            date.getTime()
+        )
+    ) {
+
+        return false;
+
+    }
+
+
+    return (
+        date <
+        new Date()
+    );
 
 }
 
+
 // =====================================
-// Show Member
+// FORMAT DATE
+// =====================================
+
+function formatDate(value) {
+
+    if (!value) {
+        return "-";
+    }
+
+
+    // -------------------------------------
+    // Firestore Timestamp
+    // -------------------------------------
+
+    if (
+        typeof value === "object" &&
+        typeof value.toDate === "function"
+    ) {
+
+        return formatDate(
+            value.toDate()
+        );
+
+    }
+
+
+    // -------------------------------------
+    // Date Object
+    // -------------------------------------
+
+    if (
+        value instanceof Date
+    ) {
+
+        return formatDate(
+            value.toISOString()
+        );
+
+    }
+
+
+    // -------------------------------------
+    // Firestore Timestamp-like object
+    // -------------------------------------
+
+    if (
+        typeof value === "object" &&
+        typeof value.seconds === "number"
+    ) {
+
+        const date =
+            new Date(
+                value.seconds * 1000
+            );
+
+        return formatDate(date);
+
+    }
+
+
+    const date =
+        new Date(value);
+
+
+    if (
+        Number.isNaN(
+            date.getTime()
+        )
+    ) {
+
+        return String(value);
+
+    }
+
+
+    return date.toLocaleDateString(
+        "en-IN",
+        {
+            day: "2-digit",
+            month: "short",
+            year: "numeric"
+        }
+    );
+
+}
+
+
+// =====================================
+// SAFE HTML
+// =====================================
+
+function escapeHTML(value) {
+
+    return String(
+        value ?? ""
+    )
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+// =====================================
+// SHOW MEMBER
 // =====================================
 
 function showMember(member) {
 
-    const expired = isExpired(member.valid);
+    const expired =
+        isExpired(
+            member.valid
+        );
 
-    const statusText = expired ? "Expired" : "Verified";
 
-    const statusColor = expired ? "#e74c3c" : "#2ecc71";
+    const statusText =
+        expired
+            ? "Expired"
+            : "Verified";
+
+
+    const statusColor =
+        expired
+            ? "#e74c3c"
+            : "#2ecc71";
+
+
+    const statusIcon =
+        expired
+            ? "❌"
+            : "✔";
+
+
+    const memberStatus =
+        member.status ||
+        (
+            expired
+                ? "Expired"
+                : "Active"
+        );
+
+
+    const photo =
+        member.photo ||
+        LOGO_URL;
+
+
+    const memberName =
+        member.name ||
+        "Member";
+
+
+    const memberId =
+        member.id ||
+        member.documentId ||
+        "-";
+
+
+    if (!resultSection) {
+        return;
+    }
+
 
     resultSection.innerHTML = `
 
         <div class="verified">
 
-            <img src="assets/logo.png"
-                 class="club-logo">
+            <img
+                src="${LOGO_URL}"
+                class="club-logo"
+                alt="Sun Shine Club"
+            >
 
-            <h1>Sun Shine Club</h1>
 
-            <h2 style="color:${statusColor};">
+            <h1>
+                Sun Shine Club
+            </h1>
 
-                ${expired ? "❌" : "✔"} ${statusText} Member
 
+            <h2
+                style="color:${statusColor};"
+            >
+                ${statusIcon}
+                ${statusText} Member
             </h2>
 
+
             <img
-                src="${member.photo}"
+                src="${escapeHTML(photo)}"
                 class="profile-photo"
-                alt="${member.name}">
+                alt="${escapeHTML(memberName)}"
+                onerror="this.onerror=null;this.src='${LOGO_URL}';"
+            >
+
 
             <table class="member-table">
 
                 <tr>
 
-                    <th>Name</th>
+                    <th>
+                        Name
+                    </th>
 
-                    <td>${member.name}</td>
-
-                </tr>
-
-                <tr>
-
-                    <th>Member ID</th>
-
-                    <td>${member.id}</td>
+                    <td>
+                        ${escapeHTML(
+                            memberName
+                        )}
+                    </td>
 
                 </tr>
 
+
                 <tr>
 
-                    <th>Designation</th>
+                    <th>
+                        Member ID
+                    </th>
 
-                    <td>${member.designation}</td>
+                    <td>
+                        ${escapeHTML(
+                            memberId
+                        )}
+                    </td>
 
                 </tr>
 
+
                 <tr>
 
-                    <th>Phone</th>
+                    <th>
+                        Designation
+                    </th>
 
-                    <td>${member.phone || "-"}</td>
+                    <td>
+                        ${escapeHTML(
+                            member.designation ||
+                            "-"
+                        )}
+                    </td>
 
                 </tr>
 
+
                 <tr>
 
-                    <th>Blood Group</th>
+                    <th>
+                        Phone
+                    </th>
 
-                    <td>${member.blood || "-"}</td>
+                    <td>
+                        ${escapeHTML(
+                            member.phone ||
+                            "-"
+                        )}
+                    </td>
 
                 </tr>
 
+
                 <tr>
 
-                    <th>Join Date</th>
+                    <th>
+                        Blood Group
+                    </th>
 
-                    <td>${member.joinDate || "-"}</td>
+                    <td>
+                        ${escapeHTML(
+                            member.blood ||
+                            "-"
+                        )}
+                    </td>
 
                 </tr>
 
+
                 <tr>
 
-                    <th>Valid Until</th>
+                    <th>
+                        Join Date
+                    </th>
 
-                    <td>${member.valid}</td>
+                    <td>
+                        ${escapeHTML(
+                            formatDate(
+                                member.joinDate
+                            )
+                        )}
+                    </td>
 
                 </tr>
 
+
                 <tr>
 
-                    <th>Status</th>
+                    <th>
+                        Valid Until
+                    </th>
 
-                    <td style="color:${statusColor};font-weight:bold;">
+                    <td>
+                        ${escapeHTML(
+                            formatDate(
+                                member.valid
+                            )
+                        )}
+                    </td>
 
-                        ${member.status}
+                </tr>
 
+
+                <tr>
+
+                    <th>
+                        Status
+                    </th>
+
+                    <td
+                        style="
+                            color:${statusColor};
+                            font-weight:bold;
+                        "
+                    >
+                        ${escapeHTML(
+                            memberStatus
+                        )}
                     </td>
 
                 </tr>
 
             </table>
 
+
             <button
+                type="button"
                 class="search-again-btn"
-                onclick="goBack()">
-
+                id="searchAgainBtn"
+            >
                 Verify Another Member
-
             </button>
 
         </div>
 
     `;
 
+
+    // -------------------------------------
+    // Search Again
+    // -------------------------------------
+
+    const searchAgainBtn =
+        document.getElementById(
+            "searchAgainBtn"
+        );
+
+
+    searchAgainBtn?.addEventListener(
+        "click",
+        goBack
+    );
+
 }
 
+
 // =====================================
-// Invalid Member
+// INVALID MEMBER
 // =====================================
 
 function showError(message) {
+
+    if (!resultSection) {
+        return;
+    }
+
 
     resultSection.innerHTML = `
 
         <div class="invalid">
 
-            <img src="assets/logo.png"
-                 class="club-logo">
+            <img
+                src="${LOGO_URL}"
+                class="club-logo"
+                alt="Sun Shine Club"
+            >
 
-            <h1>Sun Shine Club</h1>
 
-            <h2 style="color:#e74c3c;">
+            <h1>
+                Sun Shine Club
+            </h1>
 
+
+            <h2
+                style="color:#e74c3c;"
+            >
                 ❌ Invalid Member
-
             </h2>
 
-            <p>${message}</p>
 
-            <p>This ID Card is not registered.</p>
+            <p>
+                ${escapeHTML(message)}
+            </p>
+
+
+            <p>
+                This ID Card is not registered.
+            </p>
+
 
             <button
+                type="button"
                 class="search-again-btn"
-                onclick="goBack()">
-
+                id="errorSearchAgainBtn"
+            >
                 Try Again
-
             </button>
 
         </div>
 
     `;
 
+
+    // -------------------------------------
+    // Try Again
+    // -------------------------------------
+
+    const errorSearchAgainBtn =
+        document.getElementById(
+            "errorSearchAgainBtn"
+        );
+
+
+    errorSearchAgainBtn?.addEventListener(
+        "click",
+        goBack
+    );
+
 }
 
+
 // =====================================
-// Back to Search
+// BACK TO SEARCH
 // =====================================
 
 function goBack() {
 
-    resultSection.style.display = "none";
+    if (resultSection) {
 
-    searchSection.style.display = "block";
+        resultSection.style.display =
+            "none";
 
-    memberInput.value = "";
+    }
 
-    memberInput.focus();
+
+    if (searchSection) {
+
+        searchSection.style.display =
+            "block";
+
+    }
+
+
+    if (memberInput) {
+
+        memberInput.value =
+            "";
+
+        memberInput.focus();
+
+    }
 
 }
+
+
+// =====================================
+// GLOBAL BACK FUNCTION
+// =====================================
+
+window.goBack =
+    goBack;
