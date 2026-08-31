@@ -751,3 +751,53 @@ MOBILE
         height: 70px !important;
     }
 }
+
+
+
+
+
+/* =========================================================
+   MOBILE HAMBURGER BUTTON
+========================================================= */
+
+.mobile-menu-btn {
+        display: none;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #eee;
+    border-radius: 9px;
+    background: #fff;
+    color: #333;
+    cursor: pointer;
+}
+
+
+.mobile-menu-btn:hover {
+    background: rgba(61, 12, 184, 0.08);
+}
+
+
+.mobile-menu-btn i {
+    display: block;
+
+    font-size: 21px;
+
+    line-height: 1;
+
+    color: currentColor;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .mobile-menu-btn {
+        display: flex;
+    }
+
+}

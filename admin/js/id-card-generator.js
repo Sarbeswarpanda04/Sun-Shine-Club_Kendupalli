@@ -1390,3 +1390,126 @@ async function downloadAll() {
     }
 
 }
+
+
+
+/* =========================================================
+   MOBILE SIDEBAR / HAMBURGER MENU
+========================================================= */
+
+const adminSidebar =
+    document.getElementById("adminSidebar");
+
+const sidebarOverlay =
+    document.getElementById("sidebarOverlay");
+
+const mobileMenuButton =
+    document.getElementById("mobileMenuButton");
+
+
+function openMobileSidebar() {
+
+    if (adminSidebar) {
+        adminSidebar.classList.add("open");
+    }
+
+    if (sidebarOverlay) {
+        sidebarOverlay.classList.add("show");
+    }
+
+    document.body.classList.add("menu-open");
+
+    if (mobileMenuButton) {
+        mobileMenuButton.setAttribute(
+            "aria-expanded",
+            "true"
+        );
+    }
+}
+
+
+function closeMobileSidebar() {
+
+    if (adminSidebar) {
+        adminSidebar.classList.remove("open");
+    }
+
+    if (sidebarOverlay) {
+        sidebarOverlay.classList.remove("show");
+    }
+
+    document.body.classList.remove("menu-open");
+
+    if (mobileMenuButton) {
+        mobileMenuButton.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+    }
+}
+
+
+if (mobileMenuButton) {
+
+    mobileMenuButton.addEventListener(
+        "click",
+        function (event) {
+
+            event.preventDefault();
+            event.stopPropagation();
+
+            if (
+                adminSidebar &&
+                adminSidebar.classList.contains("open")
+            ) {
+
+                closeMobileSidebar();
+
+            } else {
+
+                openMobileSidebar();
+
+            }
+
+        }
+    );
+
+}
+
+
+if (sidebarOverlay) {
+
+    sidebarOverlay.addEventListener(
+        "click",
+        closeMobileSidebar
+    );
+
+}
+
+
+/* Close sidebar after clicking a navigation link */
+
+document
+    .querySelectorAll(".admin-nav-link")
+    .forEach(function (link) {
+
+        link.addEventListener(
+            "click",
+            closeMobileSidebar
+        );
+
+    });
+
+
+/* Close with Escape */
+
+document.addEventListener(
+    "keydown",
+    function (event) {
+
+        if (event.key === "Escape") {
+            closeMobileSidebar();
+        }
+
+    }
+);
