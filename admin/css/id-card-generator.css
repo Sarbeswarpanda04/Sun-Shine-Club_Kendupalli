@@ -718,6 +718,12 @@ MOBILE
         transform-origin: top center;
     }
 
+.card-header h2{
+
+    font-size:15px;
+
+}
+
 .toolbar{
 
     flex-direction:column;
