@@ -5,82 +5,241 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <title>Member Verification | Sun Shine Club</title>
+    <title>
+        Member Verification | Sun Shine Club
+    </title>
 
-    <link rel="stylesheet" href="css/verify.css">
+    <link
+        rel="stylesheet"
+        href="css/verify.css"
+    >
 
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
 
 </head>
 
+
 <body>
 
-<div class="verify-container">
+    <main class="verify-container">
 
-    <div id="verifyCard" class="verify-card">
+        <section
+            id="verifyCard"
+            class="verify-card"
+        >
 
-        <!-- Search Screen -->
-        <div id="searchSection">
+            <!-- =========================================
+                 SEARCH SCREEN
+            ========================================== -->
 
-            <img src="https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/logo/sun-shine-club-logo.png" class="club-logo" alt="Sun Shine Club">
+            <div
+                id="searchSection"
+                class="search-section"
+            >
 
-            <h2>Member Verification</h2>
+                <div class="brand">
 
-            <p>
-                Enter your Member ID below or scan the QR code
-                printed on your membership card.
-            </p>
+                    <div class="logo-ring">
 
-            <div class="search-form">
+                        <img
+                            src="https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/logo/sun-shine-club-logo.png"
+                            class="club-logo"
+                            alt="Sun Shine Club Logo"
+                        >
 
-                <input
-                    type="text"
-                    id="memberId"
-                    placeholder="Enter Member ID (e.g. SSC018)"
-                    autocomplete="off">
+                    </div>
 
-                <button id="verifyBtn">
-                    <i class="fa-solid fa-circle-check"></i>
-                    Verify Member
-                </button>
+                    <span class="brand-name">
+                        SUN SHINE CLUB
+                    </span>
+
+                </div>
+
+
+                <div class="verification-icon">
+
+                    <i class="fa-solid fa-id-card"></i>
+
+                </div>
+
+
+                <h1>
+                    Member Verification
+                </h1>
+
+
+                <p class="intro-text">
+
+                    Verify the authenticity and current
+                    status of a Sun Shine Club membership
+                    card.
+
+                </p>
+
+
+                <div class="verification-info">
+
+                    <div class="info-item">
+
+                        <i class="fa-solid fa-shield-halved"></i>
+
+                        <div>
+
+                            <strong>
+                                Secure Verification
+                            </strong>
+
+                            <span>
+                                Official club member records
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="info-item">
+
+                        <i class="fa-solid fa-bolt"></i>
+
+                        <div>
+
+                            <strong>
+                                Instant Result
+                            </strong>
+
+                            <span>
+                                Verify your membership quickly
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="search-form">
+
+                    <label for="memberId">
+                        Member ID
+                    </label>
+
+
+                    <div class="input-wrapper">
+
+                        <i class="fa-solid fa-hashtag"></i>
+
+                        <input
+                            type="text"
+                            id="memberId"
+                            placeholder="Enter Member ID"
+                            autocomplete="off"
+                            spellcheck="false"
+                            maxlength="20"
+                        >
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        id="verifyBtn"
+                    >
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+                        Verify Member
+
+                    </button>
+
+                </div>
+
+
+                <div class="scan-note">
+
+                    <div class="scan-icon">
+
+                        <i class="fa-solid fa-qrcode"></i>
+
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Have a membership card?
+                        </strong>
+
+                        <span>
+                            Scan the QR code printed on the
+                            card for instant verification.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="verification-footer">
+
+                    <i class="fa-solid fa-lock"></i>
+
+                    <span>
+                        Official Sun Shine Club Verification
+                    </span>
+
+                </div>
 
             </div>
 
-            <div class="scan-note">
 
-                <i class="fa-solid fa-qrcode"></i>
+            <!-- =========================================
+                 VERIFICATION RESULT
+            ========================================== -->
 
-                <span>Scan the QR code for instant verification.</span>
+            <div
+                id="resultSection"
+                class="result-section"
+                style="display:none;"
+            >
+
+                <div class="loading">
+
+                    <div class="loading-spinner">
+
+                        <i class="fa-solid fa-spinner fa-spin"></i>
+
+                    </div>
+
+                    <h2>
+                        Verifying Membership
+                    </h2>
+
+                    <p>
+                        Checking the member record...
+                    </p>
+
+                </div>
 
             </div>
 
-        </div>
+        </section>
 
-        <!-- Verification Result -->
-        <div id="resultSection" style="display:none;">
+    </main>
 
-            <div class="loading">
 
-                <i class="fa-solid fa-spinner fa-spin"></i>
-
-                <h2>Verifying Member...</h2>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-<script
-    type="module"
-    src="js/verify.js">
-</script>
+    <script
+        type="module"
+        src="js/verify.js"
+    ></script>
 
 </body>
 
