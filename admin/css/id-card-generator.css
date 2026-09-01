@@ -533,8 +533,8 @@ QR
 } */
  .qr-border{
 
-    width:98px;
-    height:98px;
+    width:100px;
+    height:100px;
 
     padding:2px;
     margin-right: 2px;
@@ -542,9 +542,9 @@ QR
 
     background:linear-gradient(
         135deg,
-        #ff4fa3,
-        #c99b11,
-        #2196f3
+        #ff007b,
+        #5500ff,
+        #008cff
     );
 
     border-radius:8px;
