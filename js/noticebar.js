@@ -1,3 +1,11 @@
+import { db } from "../admin/js/firebase-config.js";
+
+import {
+    collection,
+    getDocs
+} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+
+
 /* =====================================================
    NOTICE / ANNOUNCEMENT SYSTEM
 ===================================================== */
@@ -40,43 +48,160 @@ document.addEventListener("DOMContentLoaded", () => {
     ================================================= */
 
     /*
-     * Change to "or" if you want Odia by default.
-     *
-     * Later this can be connected to your
-     * website language selector.
-     */
+        Change to "or" if you want Odia by default.
+    */
 
     const language = "en";
 
 
     /* =================================================
-       LOAD NOTICES
+       FIRESTORE DATE HELPER
+    ================================================= */
+
+    function convertFirestoreDate(value) {
+
+        if (!value) {
+            return null;
+        }
+
+
+        /*
+            Firestore Timestamp
+        */
+
+        if (
+            typeof value === "object" &&
+            typeof value.toDate === "function"
+        ) {
+            return value.toDate();
+        }
+
+
+        /*
+            JavaScript Date
+        */
+
+        if (value instanceof Date) {
+            return value;
+        }
+
+
+        /*
+            Firestore timestamp object
+            { seconds, nanoseconds }
+        */
+
+        if (
+            typeof value === "object" &&
+            typeof value.seconds === "number"
+        ) {
+            return new Date(
+                value.seconds * 1000
+            );
+        }
+
+
+        /*
+            String / number
+        */
+
+        const date = new Date(value);
+
+        if (
+            Number.isNaN(
+                date.getTime()
+            )
+        ) {
+            return null;
+        }
+
+
+        return date;
+    }
+
+
+    /* =================================================
+       DATE ONLY HELPER
+    ================================================= */
+
+    function dateOnly(value) {
+
+        if (!value) {
+            return null;
+        }
+
+
+        /*
+            If Firebase Timestamp
+        */
+
+        if (
+            typeof value === "object" &&
+            typeof value.toDate === "function"
+        ) {
+            const date = value.toDate();
+
+            return new Date(
+                date.getFullYear(),
+                date.getMonth(),
+                date.getDate()
+            );
+        }
+
+
+        /*
+            If string like:
+            2026-09-01
+        */
+
+        if (
+            typeof value === "string" &&
+            /^\d{4}-\d{2}-\d{2}$/.test(value)
+        ) {
+
+            const [year, month, day] =
+                value.split("-").map(Number);
+
+            return new Date(
+                year,
+                month - 1,
+                day
+            );
+        }
+
+
+        return convertFirestoreDate(value);
+    }
+
+
+    /* =================================================
+       LOAD NOTICES FROM FIREBASE
     ================================================= */
 
     async function loadNotices() {
 
         try {
 
-            const response =
-                await fetch(
-                    "data/notices.json",
-                    {
-                        cache: "no-cache"
-                    }
+            const snapshot =
+                await getDocs(
+                    collection(
+                        db,
+                        "notices"
+                    )
                 );
 
 
-            if (!response.ok) {
-
-                throw new Error(
-                    `HTTP ${response.status}`
-                );
-
-            }
+            const notices = [];
 
 
-            const notices =
-                await response.json();
+            snapshot.forEach((docSnap) => {
+
+                notices.push({
+                    id: docSnap.id,
+                    ...docSnap.data()
+                });
+
+            });
 
 
             if (
@@ -84,8 +209,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 notices.length === 0
             ) {
 
-                return;
+                hideNotice();
 
+                return;
             }
 
 
@@ -95,27 +221,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (!activeNotice) {
 
-                return;
+                hideNotice();
 
+                return;
             }
 
 
-            displayNotice(activeNotice);
+            displayNotice(
+                activeNotice
+            );
 
 
         } catch (error) {
 
             console.error(
-                "Notice loading error:",
+                "Firebase notice loading error:",
                 error
             );
 
-            /*
-             * Hide the announcement if JSON
-             * cannot be loaded.
-             */
 
-            noticeBar.classList.remove("show");
+            /*
+                Hide announcement if
+                Firebase cannot be loaded.
+            */
+
+            hideNotice();
 
         }
 
@@ -128,95 +258,88 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function getActiveNotice(notices) {
 
-        const now =
-            new Date();
+    const now = new Date();
 
+    const active = notices.filter(notice => {
 
-        const active =
-            notices.filter(notice => {
+        // publishedAt is required
+        if (!notice.publishedAt) {
+            return false;
+        }
 
-                if (!notice.publishedAt) {
+        const published = dateOnly(notice.publishedAt);
+
+        if (!published) {
+            return false;
+        }
+
+        // Not published yet
+        if (now < published) {
+            return false;
+        }
+
+        // expiresAt is optional
+        if (notice.expiresAt) {
+
+            const expires = dateOnly(notice.expiresAt);
+
+            if (expires) {
+
+                // Active through the entire expiry date
+                expires.setHours(
+                    23,
+                    59,
+                    59,
+                    999
+                );
+
+                if (now > expires) {
                     return false;
                 }
+            }
+        }
+
+        return true;
+    });
 
 
-                const published =
-                    new Date(
-                        `${notice.publishedAt}T00:00:00`
-                    );
+    if (active.length === 0) {
+        return null;
+    }
 
 
-                /*
-                 * Expiry is optional.
-                 * If there is no expiry date,
-                 * the notice remains active.
-                 */
+    // Pinned notices first
+    active.sort((a, b) => {
 
-                let expires = null;
-
-
-                if (notice.expiresAt) {
-
-                    expires =
-                        new Date(
-                            `${notice.expiresAt}T23:59:59`
-                        );
-
-                }
-
-
-                if (now < published) {
-                    return false;
-                }
-
-
-                if (
-                    expires &&
-                    now > expires
-                ) {
-
-                    return false;
-
-                }
-
-
-                return true;
-
-            });
-
-
-        if (active.length === 0) {
-            return null;
+        if (
+            Boolean(b.pinned) !==
+            Boolean(a.pinned)
+        ) {
+            return b.pinned ? 1 : -1;
         }
 
 
-        /*
-         * Pinned notices first.
-         */
+        const dateA =
+            dateOnly(a.publishedAt);
 
-        active.sort((a, b) => {
-
-            if (
-                Boolean(b.pinned) !==
-                Boolean(a.pinned)
-            ) {
-
-                return b.pinned ? 1 : -1;
-
-            }
+        const dateB =
+            dateOnly(b.publishedAt);
 
 
+        if (dateA && dateB) {
             return (
-                new Date(b.publishedAt) -
-                new Date(a.publishedAt)
+                dateB.getTime() -
+                dateA.getTime()
             );
+        }
 
-        });
+
+        return 0;
+    });
 
 
-        return active[0];
-
-    }
+    return active[0];
+}
 
 
     /* =================================================
@@ -225,15 +348,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function displayNotice(notice) {
 
+        /*
+            Title
+        */
+
         const title =
             notice.title?.[language] ||
             notice.title?.en ||
+            notice.title?.or ||
+            notice.title ||
             "Announcement";
 
+
+        /*
+            Venue
+        */
 
         const venue =
             notice.venue?.[language] ||
             notice.venue?.en ||
+            notice.venue?.or ||
+            notice.venue ||
             "";
 
 
@@ -245,7 +380,9 @@ document.addEventListener("DOMContentLoaded", () => {
            PINNED
         ============================================== */
 
-        if (notice.pinned) {
+        if (
+            notice.pinned
+        ) {
 
             noticePinned.style.display =
                 "inline-flex";
@@ -262,7 +399,9 @@ document.addEventListener("DOMContentLoaded", () => {
            IMPORTANT LABEL
         ============================================== */
 
-        if (notice.important) {
+        if (
+            notice.important
+        ) {
 
             noticeLabel.textContent =
                 language === "or"
@@ -286,23 +425,41 @@ document.addEventListener("DOMContentLoaded", () => {
         noticeMeta.innerHTML = "";
 
 
-        if (notice.date) {
+        /*
+            Date
+        */
+
+        if (
+            notice.date
+        ) {
 
             const date =
-                formatDate(notice.date);
+                formatDate(
+                    notice.date
+                );
 
 
-            noticeMeta.appendChild(
-                createMetaItem(
-                    "fa-regular fa-calendar",
-                    date
-                )
-            );
+            if (date) {
+
+                noticeMeta.appendChild(
+                    createMetaItem(
+                        "fa-regular fa-calendar",
+                        date
+                    )
+                );
+
+            }
 
         }
 
 
-        if (notice.time) {
+        /*
+            Time
+        */
+
+        if (
+            notice.time
+        ) {
 
             noticeMeta.appendChild(
                 createMetaItem(
@@ -314,7 +471,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
 
-        if (venue) {
+        /*
+            Venue
+        */
+
+        if (
+            venue
+        ) {
 
             noticeMeta.appendChild(
                 createMetaItem(
@@ -330,7 +493,9 @@ document.addEventListener("DOMContentLoaded", () => {
            VIEW LINK
         ============================================== */
 
-        if (notice.link) {
+        if (
+            notice.link
+        ) {
 
             noticeView.href =
                 notice.link;
@@ -343,11 +508,15 @@ document.addEventListener("DOMContentLoaded", () => {
             noticeView.style.display =
                 "none";
 
+            noticeView.removeAttribute(
+                "href"
+            );
+
         }
 
 
         /* =============================================
-           SHOW
+           PROGRESS BAR
         ============================================== */
 
         noticeProgress.style.animation =
@@ -355,9 +524,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         /*
-         * Force browser reflow so the
-         * countdown restarts correctly.
-         */
+            Force browser reflow so
+            countdown restarts correctly.
+        */
 
         void noticeProgress.offsetWidth;
 
@@ -366,10 +535,18 @@ document.addEventListener("DOMContentLoaded", () => {
             "noticeCountdown 15s linear forwards";
 
 
-        noticeBar.classList.add("show");
+        /* =============================================
+           SHOW NOTICE
+        ============================================== */
+
+        noticeBar.classList.add(
+            "show"
+        );
 
 
-        clearTimeout(noticeTimer);
+        clearTimeout(
+            noticeTimer
+        );
 
 
         noticeTimer =
@@ -392,11 +569,15 @@ document.addEventListener("DOMContentLoaded", () => {
     ) {
 
         const span =
-            document.createElement("span");
+            document.createElement(
+                "span"
+            );
 
 
         const icon =
-            document.createElement("i");
+            document.createElement(
+                "i"
+            );
 
 
         icon.className =
@@ -409,7 +590,9 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
 
-        span.appendChild(icon);
+        span.appendChild(
+            icon
+        );
 
 
         span.appendChild(
@@ -428,34 +611,39 @@ document.addEventListener("DOMContentLoaded", () => {
        DATE FORMAT
     ================================================= */
 
-    function formatDate(dateString) {
+    function formatDate(
+        value
+    ) {
 
         const date =
-            new Date(
-                `${dateString}T00:00:00`
+            dateOnly(
+                value
             );
 
 
-        if (
-            Number.isNaN(
-                date.getTime()
-            )
-        ) {
+        if (!date) {
 
-            return dateString;
+            return (
+                typeof value === "string"
+                    ? value
+                    : ""
+            );
 
         }
 
 
         return date.toLocaleDateString(
+
             language === "or"
                 ? "or-IN"
                 : "en-IN",
+
             {
                 day: "numeric",
                 month: "short",
                 year: "numeric"
             }
+
         );
 
     }
@@ -467,9 +655,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function hideNotice() {
 
-        clearTimeout(noticeTimer);
+        clearTimeout(
+            noticeTimer
+        );
 
-        noticeBar.classList.remove("show");
+
+        noticeBar.classList.remove(
+            "show"
+        );
 
     }
 
