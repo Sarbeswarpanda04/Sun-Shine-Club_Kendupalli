@@ -547,7 +547,7 @@ QR
         #008cff
     );
 
-    border-radius:8px;
+    border-radius:5px;
 
     box-sizing:border-box;
 
@@ -567,7 +567,7 @@ QR
 
     background:#fff;
 
-    border-radius:6px;
+    border-radius:5px;
 
     display:flex;
 
@@ -579,9 +579,9 @@ QR
 
 .qr-box img{
 
-    width:90px !important;
+    width:88px !important;
 
-    height:90px !important;
+    height:88px !important;
 
     margin:-4px;
 
