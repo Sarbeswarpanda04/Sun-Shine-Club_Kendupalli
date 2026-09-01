@@ -750,7 +750,7 @@
         .certificate-id {
             position: absolute;
 
-            right: 28%;
+            right: 29%;
 
             bottom: 18.7%;
 
@@ -1006,6 +1006,70 @@
             .certificate-wrapper {
                 padding: 7px;
             }
+
+            .certificate-name {
+                font-size: clamp(
+                6px,
+                1.2vw,
+                18px
+            );
+            }
+
+             .certificate-event {
+                font-size: clamp(
+                6px,
+                1.2vw,
+                18px
+            );
+            }
+
+            .certificate-date {
+                font-size: clamp(
+                4px,
+                0.4vw,
+                10px
+            );
+            }
+
+             .certificate-id {
+
+            right: 27.5%;
+
+            bottom: 18.7%;
+
+            text-align: center;
+
+            font-size: clamp(
+                4px,
+                0.4vw,
+                10px
+            );
+        }
+
+
+
+        .qr-label {
+            font-size: clamp(
+                3.3px,
+                0.55vw,
+                9px
+            );
+        }
+
+        .qr-id {
+
+            font-size: clamp(
+                3px,
+                0.45vw,
+                7px
+            );
+
+  
+
+   
+
+
+        }
 
             .button-group {
                 grid-template-columns: 1fr;
@@ -1655,8 +1719,8 @@ function generateQRCode() {
         {
             text: verificationURL,
 
-            width: 300,
-            height: 300,
+            width: 500,
+            height: 500,
 
             colorDark: "#000000",
             colorLight: "#ffffff",
