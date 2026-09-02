@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#3d0cb8">
+    <title>Certificates | Admin | Sun Shine Club Kendupalli</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/certificate.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+
+<body class="admin-body">
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <aside class="admin-sidebar" id="adminSidebar">
+        <div class="sidebar-brand">
+            <img src="https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/logo/sun-shine-club-logo.png"
+                alt="Sun Shine Club Kendupalli" onerror="this.style.display='none'">
+            <div><strong>Sun Shine Club</strong><span>Kendupalli</span></div>
+        </div>
+
+        <nav class="admin-navigation">
+            <p class="nav-section-title">MAIN</p>
+            <a href="dashboard.html" class="admin-nav-link"><span class="nav-icon"><i
+                        class="fa-solid fa-chart-line"></i></span><span class="nav-text">Dashboard</span></a>
+            <a href="members.html" class="admin-nav-link"><span class="nav-icon"><i
+                        class="fa-solid fa-users"></i></span><span class="nav-text">Members</span></a>
+            <a href="id-card-generator.html" class="admin-nav-link"><span class="nav-icon"><i
+                        class="fa-solid fa-id-card"></i></span><span class="nav-text">ID Card Generator</span></a>
+            <a href="notices.html" class="admin-nav-link"><span class="nav-icon"><i
+                        class="fa-solid fa-bullhorn"></i></span><span class="nav-text">Notices</span></a>
+            <a href="events.html" class="admin-nav-link"><span class="nav-icon"><i
+                        class="fa-solid fa-calendar-days"></i></span><span class="nav-text">Events</span></a>
+            <a href="gallery.html" class="admin-nav-link"><span class="nav-icon"><i
+                        class="fa-solid fa-images"></i></span><span class="nav-text">Gallery</span></a>
+            <a href="youtube.html" class="admin-nav-link"><span class="nav-icon"><i
+                        class="fa-brands fa-youtube"></i></span><span class="nav-text">YouTube</span></a>
+            <a href="certificate.html" class="admin-nav-link active"><span class="nav-icon"><i
+                        class="fa-solid fa-certificate"></i></span><span class="nav-text">Certificate</span></a>
+            <p class="nav-section-title nav-section-space">SYSTEM</p>
+            <a href="settings.html" class="admin-nav-link"><span class="nav-icon"><i
+                        class="fa-solid fa-gear"></i></span><span class="nav-text">Settings</span></a>
+        </nav>
+
+        <div class="admin-sidebar-user">
+            <div class="user-avatar" id="sidebarAvatar">A</div>
+            <div class="sidebar-user-info">
+                <strong id="sidebarName">Administrator</strong>
+                <span id="sidebarEmail">Loading...</span>
+            </div>
+            <button type="button" class="sidebar-logout" id="sidebarLogout" aria-label="Sign out"><i
+                    class="fa-solid fa-right-from-bracket"></i></button>
+        </div>
+    </aside>
+
+    <main class="admin-main">
+        <header class="admin-topbar">
+            <button type="button" class="mobile-menu-button" id="mobileMenuBtn" aria-label="Open menu"><i
+                    class="fa-solid fa-bars"></i></button>
+            <div class="topbar-title">
+                <span>CERTIFICATE MANAGEMENT</span>
+                <h1>Certificates</h1>
+            </div>
+            <div class="topbar-user">
+                <div class="topbar-user-info"><strong id="topbarName">Administrator</strong><span>Administrator</span>
+                </div>
+                <div class="user-avatar" id="topbarAvatar">A</div>
+            </div>
+        </header>
+
+        <div class="certificate-page">
+            <section class="certificate-intro">
+                <div>
+                    <p class="page-kicker"><i class="fa-solid fa-certificate"></i> CERTIFICATE MANAGEMENT</p>
+                    <h2>Issue and manage certificates</h2>
+                    <p>Create certificates from approved templates, save the generated image to Cloudflare R2 and store
+                        the certificate record in Firebase.</p>
+                </div>
+                <button type="button" class="primary-action" id="openGenerateBtn"><i class="fa-solid fa-plus"></i>
+                    Generate Certificate</button>
+            </section>
+
+            <section class="management-section">
+                <div class="section-heading">
+                    <div>
+                        <h3>Issued Certificates</h3>
+                        <p>Recently issued certificates from Firebase.</p>
+                    </div>
+                    <div class="section-tools">
+                        <div class="certificate-search"><i class="fa-solid fa-magnifying-glass"></i><input
+                                id="certificateSearch" type="search" placeholder="Search ID, name or event..."
+                                autocomplete="off"></div>
+                        <button type="button" class="icon-action" id="refreshCertificates"
+                            title="Refresh certificates"><i class="fa-solid fa-rotate"></i></button>
+                    </div>
+                </div>
+                <div id="issuedLoading" class="section-state"><i class="fa-solid fa-spinner fa-spin"></i><span>Loading
+                        issued certificates...</span></div>
+                <div id="issuedError" class="section-state error-state" hidden></div>
+                <div id="issuedEmpty" class="section-state empty-state" hidden><i
+                        class="fa-regular fa-folder-open"></i><strong>No certificates issued yet</strong><span>Generate
+                        your first certificate using a template below.</span></div>
+                <div class="issued-scroll-wrap">
+                    <button class="scroll-control left" id="issuedScrollLeft" type="button" aria-label="Scroll left"><i
+                            class="fa-solid fa-chevron-left"></i></button>
+                    <div class="issued-scroll" id="issuedCertificates"></div>
+                    <button class="scroll-control right" id="issuedScrollRight" type="button"
+                        aria-label="Scroll right"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </section>
+
+            <section class="management-section templates-section">
+                <div class="section-heading">
+                    <div>
+                        <h3>Certificate Templates</h3>
+                        <p>Choose a certificate design to open the generator.</p>
+                    </div>
+                </div>
+                <div class="template-grid" id="templateGrid">
+                    <article class="template-card first" data-template="first">
+                        <div class="template-image-wrap"><img src="../club-certificate/certificate/template/first.png"
+                                alt="First Prize Certificate Template" class="template-image">
+                            <div class="template-overlay"><span>1st Prize</span><button type="button"
+                                    class="use-template-btn" data-template="first">Use This Template</button></div>
+                        </div>
+                        <div class="template-info">
+                            <div>
+                                <h4>First Prize</h4>
+                                <p>Certificate of Excellence</p>
+                            </div><span class="template-number">01</span>
+                        </div>
+                    </article>
+                    <article class="template-card second" data-template="second">
+                        <div class="template-image-wrap"><img src="../club-certificate/certificate/template/second.png"
+                                alt="Second Prize Certificate Template" class="template-image">
+                            <div class="template-overlay"><span>2nd Prize</span><button type="button"
+                                    class="use-template-btn" data-template="second">Use This Template</button></div>
+                        </div>
+                        <div class="template-info">
+                            <div>
+                                <h4>Second Prize</h4>
+                                <p>Certificate of Achievement</p>
+                            </div><span class="template-number">02</span>
+                        </div>
+                    </article>
+                    <article class="template-card third" data-template="third">
+                        <div class="template-image-wrap"><img src="../club-certificate/certificate/template/third.png"
+                                alt="Third Prize Certificate Template" class="template-image">
+                            <div class="template-overlay"><span>3rd Prize</span><button type="button"
+                                    class="use-template-btn" data-template="third">Use This Template</button></div>
+                        </div>
+                        <div class="template-info">
+                            <div>
+                                <h4>Third Prize</h4>
+                                <p>Certificate of Merit</p>
+                            </div><span class="template-number">03</span>
+                        </div>
+                    </article>
+                    <article class="template-card participant" data-template="participant">
+                        <div class="template-image-wrap"><img
+                                src="../club-certificate/certificate/template/participant.png"
+                                alt="Participation Certificate Template" class="template-image">
+                            <div class="template-overlay"><span>Participation</span><button type="button"
+                                    class="use-template-btn" data-template="participant">Use This Template</button>
+                            </div>
+                        </div>
+                        <div class="template-info">
+                            <div>
+                                <h4>Participation</h4>
+                                <p>Certificate of Participation</p>
+                            </div><span class="template-number">04</span>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div class="modal-backdrop" id="certificateModal" hidden>
+        <section class="generator-modal" role="dialog" aria-modal="true" aria-labelledby="generatorTitle">
+            <div class="modal-header">
+                <div><span>NEW CERTIFICATE</span>
+                    <h2 id="generatorTitle">Generate Certificate</h2>
+                </div><button type="button" class="modal-close" id="closeGenerator" aria-label="Close"><i
+                        class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="generator-body">
+                <section class="generator-controls">
+                    <div class="selected-template-box">
+                        <div><small>SELECTED TEMPLATE</small><strong id="selectedTemplateName">First Prize</strong>
+                        </div><button type="button" id="changeTemplateBtn">Change</button>
+                    </div>
+                    <div class="form-group"><label for="certificateName">Recipient Name</label><input
+                            id="certificateName" type="text" maxlength="100" placeholder="Enter recipient name"
+                            autocomplete="off"></div>
+                    <div class="form-group"><label for="certificateEvent">Event / Competition</label><input
+                            id="certificateEvent" type="text" maxlength="150"
+                            placeholder="Enter event or competition name" autocomplete="off"></div>
+
+                    <div class="form-group">
+    <label for="certificateEventImage">
+        Event Photo URL <span class="required">*</span>
+    </label>
+
+    <input
+        type="url"
+        id="certificateEventImage"
+        name="eventImage"
+        placeholder="https://example.com/event-photo.jpg"
+        autocomplete="off"
+    >
+
+    <small class="help-text">
+        Enter the public URL of the event photo. The photo will not be uploaded.
+    </small>
+</div>
+                    <div class="form-group"><label for="certificateDate">Issue Date</label><input id="certificateDate"
+                            type="date"></div>
+                    <div class="form-group"><label>Certificate ID</label>
+                        <div class="certificate-id-input"><span>SSC-CERT-<b id="certificateYear">2026</b>-</span><input
+                                id="certificateNumber" type="number" min="1" max="9999" step="1" inputmode="numeric"
+                                placeholder="001" aria-label="Certificate number"></div><small class="field-help">Choose
+                            only the certificate number. The prefix and year are generated automatically.</small>
+                    </div>
+                    <div id="duplicateMessage" class="field-message" hidden></div>
+                    <div class="generator-actions"><button type="button" class="secondary-btn"
+                            id="cancelGenerate">Cancel</button><button type="button" class="primary-action"
+                            id="generateCertificateBtn"><i class="fa-solid fa-wand-magic-sparkles"></i> Issue
+                            Certificate</button></div>
+                    <div id="generationStatus" class="generation-status" hidden></div>
+                </section>
+                <section class="generator-preview-panel">
+                    <div class="preview-heading">
+                        <div>
+                            <h3>Live Preview</h3><span>A4 Landscape</span>
+                        </div><span class="preview-quality"><i class="fa-solid fa-qrcode"></i> QR verification
+                            enabled</span>
+                    </div>
+                    <div class="certificate-preview-shell">
+                        <div class="certificate-preview" id="certificatePreview">
+                            <img id="certificateBackground" class="certificate-background"
+                                src="../club-certificate/certificate/template/first.png"
+                                alt="Selected certificate template">
+                            <div class="name-cover"></div>
+                            <div class="event-cover"></div>
+                            <div class="date-cover"></div>
+                            <div class="id-cover"></div>
+                            <div id="previewName" class="certificate-name">RECIPIENT NAME</div>
+                            <div id="previewEvent" class="certificate-event">EVENT NAME</div>
+                            <div id="previewDate" class="certificate-date">DATE</div>
+                            <div class="certificate-qr">
+                                <div id="qrCode"></div>
+                                <div class="qr-label">Scan to Verify</div>
+                                <div id="qrId" class="qr-id">CERTIFICATE ID</div>
+                            </div>
+                            <div id="previewId" class="certificate-id">CERTIFICATE ID</div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </div>
+
+    <div class="template-picker-backdrop" id="templatePicker" hidden>
+        <section class="template-picker" role="dialog" aria-modal="true" aria-labelledby="templatePickerTitle">
+            <div class="modal-header">
+                <div><span>SELECT DESIGN</span>
+                    <h2 id="templatePickerTitle">Choose Certificate Template</h2>
+                </div><button type="button" class="modal-close" id="closeTemplatePicker"><i
+                        class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="picker-grid">
+                <button type="button" class="picker-template" data-template="first"><img
+                        src="../club-certificate/certificate/template/first.png" alt="First Prize"><strong>First
+                        Prize</strong></button>
+                <button type="button" class="picker-template" data-template="second"><img
+                        src="../club-certificate/certificate/template/second.png" alt="Second Prize"><strong>Second
+                        Prize</strong></button>
+                <button type="button" class="picker-template" data-template="third"><img
+                        src="../club-certificate/certificate/template/third.png" alt="Third Prize"><strong>Third
+                        Prize</strong></button>
+                <button type="button" class="picker-template" data-template="participant"><img
+                        src="../club-certificate/certificate/template/participant.png"
+                        alt="Participation"><strong>Participation</strong></button>
+            </div>
+        </section>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script type="module" src="js/certificate.js"></script>
+</body>
+
+</html>

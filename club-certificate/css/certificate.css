@@ -418,3 +418,95 @@ p {
         min-height: 220px;
     }
 }
+
+
+
+/* =========================================================
+   DOWNLOAD CERTIFICATE BUTTON
+========================================================= */
+
+.certificate-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 22px 0;
+}
+
+.download-certificate-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    min-width: 220px;
+    padding: 13px 24px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: linear-gradient(
+        135deg,
+        #3d0cb8,
+        #6a2de2
+    );
+
+    color: #ffffff;
+
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+
+    line-height: 1;
+    text-decoration: none;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 6px 18px rgba(61, 12, 184, 0.22);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.download-certificate-btn i {
+    font-size: 15px;
+}
+
+.download-certificate-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 9px 24px rgba(61, 12, 184, 0.30);
+}
+
+.download-certificate-btn:active {
+    transform: translateY(0);
+
+    box-shadow:
+        0 4px 12px rgba(61, 12, 184, 0.20);
+}
+
+.download-certificate-btn:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+
+    .certificate-actions {
+        margin: 18px 0;
+    }
+
+    .download-certificate-btn {
+        width: 100%;
+        max-width: 300px;
+        min-width: 0;
+        padding: 13px 20px;
+    }
+}
