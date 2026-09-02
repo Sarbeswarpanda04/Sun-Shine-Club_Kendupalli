@@ -1,138 +1,486 @@
-const issuedContainer = document.getElementById("issuedCertificates");
-const searchInput = document.getElementById("issuedSearch");
-const statusMessage = document.getElementById("issuedStatus");
+import { db } from "../../admin/js/firebase-config.js";
 
-const fallbackImage = "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1200&q=80";
-const fallbackEventImage = "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80";
+import {
+    collection,
+    getDocs
+} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+
+
+let allCertificates = [];
+
+
+// ============================================
+// LOAD ISSUED CERTIFICATES
+// ============================================
 
 async function loadIssuedCertificates() {
-    if (!issuedContainer) {
+
+    const container = document.getElementById("issuedCertificates");
+    const status = document.getElementById("issuedStatus");
+
+    if (!container) {
+        console.error("issuedCertificates element not found.");
         return;
     }
 
-    issuedContainer.innerHTML = `
-        <div class="loading">
-            <div class="loader"><i class="fa-solid fa-spinner fa-spin"></i></div>
-            <h2>Loading Issued Certificates...</h2>
+    container.innerHTML = `
+        <div class="empty-state">
+            <i class="fa-solid fa-spinner fa-spin"></i>
+            <h3>Loading Certificates...</h3>
+            <p>Please wait.</p>
         </div>
     `;
 
     try {
-        const response = await fetch("data/certificates-issued.json");
-        if (!response.ok) {
-            throw new Error("Unable to load issued certificate data.");
+
+        const snapshot = await getDocs(
+            collection(db, "certificates")
+        );
+
+        allCertificates = [];
+
+        snapshot.forEach((docSnapshot) => {
+
+            const data = docSnapshot.data();
+
+            // Only show certificates that are Issued.
+            // If status does not exist, also allow the certificate
+            // because older issued records may not have status.
+            if (
+                data.status &&
+                String(data.status).trim().toLowerCase() !== "issued"
+            ) {
+                return;
+            }
+
+            allCertificates.push({
+                firestoreId: docSnapshot.id,
+                ...data
+            });
+
+        });
+
+
+        // ========================================
+        // SORT
+        // Newest issue date first
+        // ========================================
+
+        allCertificates.sort((a, b) => {
+
+            const dateA = String(a.issueDate || "");
+            const dateB = String(b.issueDate || "");
+
+            return dateB.localeCompare(dateA);
+
+        });
+
+
+        renderIssuedCertificates(allCertificates);
+
+
+        if (status) {
+
+            status.textContent =
+                `${allCertificates.length} certificate${allCertificates.length === 1 ? "" : "s"} issued`;
+
         }
 
-        const certificates = await response.json();
-        renderCertificates(certificates);
     } catch (error) {
-        console.error(error);
-        issuedContainer.innerHTML = `
-            <div class="invalid-result">
-                <h2>Unable to load certificates</h2>
-                <p>Please refresh the page or try again later.</p>
+
+        console.error(
+            "Unable to load issued certificates:",
+            error
+        );
+
+        container.innerHTML = `
+            <div class="empty-state">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <h3>Unable to Load Certificates</h3>
+                <p>Please try again later.</p>
             </div>
         `;
+
+        if (status) {
+            status.textContent = "";
+        }
+
     }
+
 }
 
-function renderCertificates(certificates) {
-    if (!Array.isArray(certificates) || certificates.length === 0) {
-        issuedContainer.innerHTML = `
-            <div class="invalid-result">
-                <h2>No issued certificates found</h2>
-                <p>The requested certificate list is currently empty.</p>
+
+// ============================================
+// RENDER CERTIFICATES
+// ============================================
+
+function renderIssuedCertificates(certificates) {
+
+    const container =
+        document.getElementById("issuedCertificates");
+
+    if (!container) return;
+
+
+    if (!certificates.length) {
+
+        container.innerHTML = `
+            <div class="empty-state">
+                <i class="fa-solid fa-certificate"></i>
+                <h3>No Certificates Available</h3>
+                <p>No issued certificates are currently available.</p>
             </div>
         `;
+
         return;
     }
 
-    const sortedCertificates = [...certificates].sort((a, b) => {
-        return new Date(b.issueDate || 0) - new Date(a.issueDate || 0);
-    });
 
-    const html = sortedCertificates.map((certificate) => {
-        const certificateTitle = certificate.certificateType || "Certificate of Appreciation";
-        const displayName = certificate.name || "Certificate Holder";
-        const displayPosition = certificate.position || "Participant";
-        const displayEvent = certificate.event || "Club Event";
-        const displayDate = certificate.issueDate || "Not Available";
-        const displayId = certificate.certificateId || "N/A";
-        const displayImage = certificate.certificateImage || fallbackImage;
-        const displayEventImage = certificate.eventImage || fallbackEventImage;
-        const displayCategory = certificate.category || "Participation";
-        const displaySecretary = certificate.secretary || "Secretary";
-        const displayStatus = certificate.status || "Issued";
+    container.innerHTML = certificates.map((certificate) => {
+
+        const certificateId =
+            certificate.certificateId ||
+            certificate.id ||
+            "";
+
+
+        const name =
+            certificate.name ||
+            "Unknown Recipient";
+
+
+        const event =
+            certificate.event ||
+            "Certificate";
+
+
+        const position =
+            certificate.position ||
+            certificate.category ||
+            "";
+
+
+        const issueDate =
+            certificate.issueDate ||
+            "";
+
+
+        const certificateImage =
+            certificate.certificateImage ||
+            "";
+
+
+        const eventImage =
+            certificate.eventImage ||
+            "";
+
 
         return `
-            <article class="issued-certificate-card">
-                <div class="issued-card-layout">
-                    <div class="issued-certificate-image-wrap">
-                        <img src="${displayImage}" alt="${displayName} certificate" class="issued-certificate-image" />
-                    </div>
 
-                    <div class="issued-candidate-details">
-                        <div class="issued-card-title">${certificateTitle}</div>
-                        <div class="issued-card-name">${displayName}</div>
-                        <div class="issued-card-row"><strong>Event:</strong> ${displayEvent}</div>
-                        <div class="issued-card-row"><strong>Position:</strong> ${displayPosition}</div>
-                        <div class="issued-card-row"><strong>Category:</strong> ${displayCategory}</div>
-                        <div class="issued-card-row"><strong>Date:</strong> ${displayDate}</div>
-                        <div class="issued-card-row"><strong>Certificate ID:</strong> ${displayId}</div>
-                        <div class="issued-card-row"><strong>Secretary:</strong> ${displaySecretary}</div>
-                        <div class="issued-card-row"><strong>Status:</strong> ${displayStatus}</div>
-                    </div>
+            <div
+                class="issued-certificate-card"
+                data-certificate-id="${escapeHtml(certificateId)}"
+            >
 
-                    <div class="issued-event-image-wrap">
-                        <img src="${displayEventImage}" alt="${displayEvent} event" class="issued-event-image" />
-                    </div>
+                <!-- CERTIFICATE IMAGE -->
+
+                <div class="certificate-image-wrapper">
+
+                    ${
+                        certificateImage
+                        ?
+                        `
+                            <img
+                                src="${escapeHtml(certificateImage)}"
+                                alt="Certificate - ${escapeHtml(name)}"
+                                loading="lazy"
+                            >
+                        `
+                        :
+                        `
+                            <div class="certificate-image-placeholder">
+                                <i class="fa-solid fa-certificate"></i>
+                            </div>
+                        `
+                    }
+
                 </div>
-            </article>
+
+
+                <!-- CERTIFICATE DETAILS -->
+
+                <div class="certificate-card-content">
+
+                    <h3>
+                        ${escapeHtml(name)}
+                    </h3>
+
+
+                    <p>
+                        ${escapeHtml(event)}
+                    </p>
+
+
+                    ${
+                        position
+                        ?
+                        `
+                            <div class="certificate-detail">
+                                <strong>Position:</strong>
+                                ${escapeHtml(position)}
+                            </div>
+                        `
+                        :
+                        ""
+                    }
+
+
+                    ${
+                        issueDate
+                        ?
+                        `
+                            <div class="certificate-detail">
+                                <strong>Issued:</strong>
+                                ${escapeHtml(formatDate(issueDate))}
+                            </div>
+                        `
+                        :
+                        ""
+                    }
+
+
+                    <span class="certificate-id">
+                        ${escapeHtml(certificateId)}
+                    </span>
+
+
+                    ${
+                        eventImage
+                        ?
+                        `
+                            <div class="certificate-event-image">
+
+                                <img
+                                    src="${escapeHtml(eventImage)}"
+                                    alt="Event photo"
+                                    loading="lazy"
+                                >
+
+                            </div>
+                        `
+                        :
+                        ""
+                    }
+
+
+                    <a
+                        href="verify.html?id=${encodeURIComponent(certificateId)}"
+                        class="verify-btn"
+                    >
+                        <i class="fa-solid fa-shield-check"></i>
+                        Verify Certificate
+                    </a>
+
+                </div>
+
+            </div>
+
         `;
+
     }).join("");
 
-    issuedContainer.innerHTML = html;
-
-    if (statusMessage) {
-        statusMessage.textContent = `${sortedCertificates.length} certificate${sortedCertificates.length === 1 ? "" : "s"} loaded from the issued database.`;
-    }
 }
 
-function getCardClass(position = "") {
-    const value = position.toLowerCase();
 
-    if (value.includes("first")) return "first";
-    if (value.includes("second")) return "second";
-    if (value.includes("third")) return "third";
-    return "participant";
-}
+// ============================================
+// SEARCH
+// ============================================
 
-function getBadge(position = "") {
-    const value = position.toLowerCase();
+function searchCertificates() {
 
-    if (value.includes("first")) return "🏆";
-    if (value.includes("second")) return "🥈";
-    if (value.includes("third")) return "🥉";
-    return "🎖️";
-}
+    const searchInput =
+        document.getElementById("issuedSearch");
 
-function handleSearchFilter() {
-    if (!searchInput || !issuedContainer) {
+    if (!searchInput) return;
+
+
+    const searchTerm =
+        searchInput.value
+            .trim()
+            .toLowerCase();
+
+
+    if (!searchTerm) {
+
+        renderIssuedCertificates(allCertificates);
+
+        updateStatus(allCertificates.length);
+
         return;
     }
 
-    const term = searchInput.value.trim().toLowerCase();
-    const cards = issuedContainer.querySelectorAll(".issued-certificate-card");
 
-    cards.forEach((card) => {
-        const text = card.textContent.toLowerCase();
-        const match = !term || text.includes(term);
-        card.style.display = match ? "block" : "none";
-    });
+    const filtered =
+        allCertificates.filter((certificate) => {
+
+            const certificateId =
+                String(
+                    certificate.certificateId ||
+                    certificate.id ||
+                    ""
+                ).toLowerCase();
+
+
+            const name =
+                String(
+                    certificate.name ||
+                    ""
+                ).toLowerCase();
+
+
+            const event =
+                String(
+                    certificate.event ||
+                    ""
+                ).toLowerCase();
+
+
+            const position =
+                String(
+                    certificate.position ||
+                    ""
+                ).toLowerCase();
+
+
+            const category =
+                String(
+                    certificate.category ||
+                    ""
+                ).toLowerCase();
+
+
+            const certificateType =
+                String(
+                    certificate.certificateType ||
+                    ""
+                ).toLowerCase();
+
+
+            return (
+                certificateId.includes(searchTerm) ||
+                name.includes(searchTerm) ||
+                event.includes(searchTerm) ||
+                position.includes(searchTerm) ||
+                category.includes(searchTerm) ||
+                certificateType.includes(searchTerm)
+            );
+
+        });
+
+
+    renderIssuedCertificates(filtered);
+
+    updateStatus(
+        filtered.length,
+        true
+    );
+
 }
 
-if (searchInput) {
-    searchInput.addEventListener("input", handleSearchFilter);
+
+// ============================================
+// STATUS TEXT
+// ============================================
+
+function updateStatus(count, searching = false) {
+
+    const status =
+        document.getElementById("issuedStatus");
+
+    if (!status) return;
+
+
+    if (searching) {
+
+        status.textContent =
+            `${count} matching certificate${count === 1 ? "" : "s"}`;
+
+    } else {
+
+        status.textContent =
+            `${count} certificate${count === 1 ? "" : "s"} issued`;
+
+    }
+
 }
 
-window.addEventListener("DOMContentLoaded", loadIssuedCertificates);
+
+// ============================================
+// FORMAT DATE
+// ============================================
+
+function formatDate(dateValue) {
+
+    if (!dateValue) return "";
+
+    const date =
+        new Date(dateValue);
+
+    if (Number.isNaN(date.getTime())) {
+        return dateValue;
+    }
+
+    return date.toLocaleDateString(
+        "en-IN",
+        {
+            day: "2-digit",
+            month: "long",
+            year: "numeric"
+        }
+    );
+
+}
+
+
+// ============================================
+// ESCAPE HTML
+// ============================================
+
+function escapeHtml(value) {
+
+    return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+// ============================================
+// SEARCH EVENT
+// ============================================
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        const searchInput =
+            document.getElementById("issuedSearch");
+
+
+        if (searchInput) {
+
+            searchInput.addEventListener(
+                "input",
+                searchCertificates
+            );
+
+        }
+
+
+        loadIssuedCertificates();
+
+    }
+);

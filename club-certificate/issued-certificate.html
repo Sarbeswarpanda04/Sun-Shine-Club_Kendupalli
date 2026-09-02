@@ -1,26 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Issued Certificates | Sun Shine Club</title>
-    <link rel="stylesheet" href="css/certificate.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-</head>
-<body class="template-page">
-    <div class="template-wrapper">
-        <h1>Issued Certificates</h1>
-        <p class="subtitle">All certificates currently issued by Sun Shine Club are listed below.</p>
 
-        <div class="search-form" style="margin:0 0 20px; max-width:420px;">
-            <input id="issuedSearch" type="text" placeholder="Search by name, event, certificate ID, or position" autocomplete="off" />
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Issued Certificates | Sun Shine Club
+    </title>
+
+
+    <link
+        rel="stylesheet"
+        href="css/issued-certificate.css"
+    >
+
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+</head>
+
+
+<body class="template-page">
+
+    <div class="template-wrapper">
+
+
+        <h1>
+            Issued Certificates
+        </h1>
+
+
+        <p class="subtitle">
+            All certificates currently issued by Sun Shine Club are listed below.
+        </p>
+
+
+        <!-- SEARCH -->
+
+        <div
+            class="search-form"
+            style="margin:0 0 20px; max-width:520px;"
+        >
+
+            <input
+                id="issuedSearch"
+                type="text"
+                placeholder="Search by name, event, certificate ID, position..."
+                autocomplete="off"
+            >
+
         </div>
 
-        <div id="issuedStatus" class="subtitle" style="margin-top:-8px; margin-bottom:20px;"></div>
 
-        <div id="issuedCertificates" class="template-grid"></div>
+        <!-- STATUS -->
+
+        <div
+            id="issuedStatus"
+            class="subtitle"
+            style="margin-top:-8px; margin-bottom:20px;"
+        ></div>
+
+
+        <!-- ISSUED CERTIFICATES -->
+
+        <div
+            id="issuedCertificates"
+            class="template-grid"
+        ></div>
+
+
     </div>
 
-    <script src="js/issued-certificate.js"></script>
+
+    <!-- FIREBASE -->
+
+    <script
+        type="module"
+        src="js/issued-certificate.js"
+    ></script>
+
+
 </body>
+
 </html>

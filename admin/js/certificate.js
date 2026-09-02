@@ -21,6 +21,8 @@ import {
     getDoc,
     doc,
     setDoc,
+    updateDoc,
+    deleteDoc,
     serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
@@ -103,6 +105,7 @@ let toastTimer =
 let generationInProgress =
     false;
 
+let editingCertificate = null;
 
 /* =========================================================
    ELEMENT HELPER
@@ -778,32 +781,34 @@ function normalizeNumber(value) {
         value === undefined ||
         value === ""
     ) {
-
         return null;
-
     }
 
+    let text = String(value).trim();
 
-    const number =
-        Number(
-            String(value)
-                .replace(/\D/g, "")
-        );
+    // If the complete certificate ID was supplied,
+    // extract only the final certificate number.
+    const certificateMatch = text.match(
+        /(?:SSC-CERT-\d{4}-)?(\d{1,4})$/i
+    );
 
+    if (!certificateMatch) {
+        return null;
+    }
+
+    const number = Number(
+        certificateMatch[1]
+    );
 
     if (
         !Number.isInteger(number) ||
         number < 1 ||
         number > MAX_CERTIFICATE_NUMBER
     ) {
-
         return null;
-
     }
 
-
     return number;
-
 }
 
 
@@ -943,10 +948,14 @@ function updatePreview() {
     const event =
         elements.event.value.trim();
 
-    const number =
-        normalizeNumber(
-            elements.number.value
-        );
+    const rawNumber =
+    elements.number?.value || "";
+
+const number =
+    normalizeNumber(rawNumber);
+
+console.log("Certificate number input:", rawNumber);
+console.log("Normalized certificate number:", number);
 
 
     const certificateId =
@@ -1167,6 +1176,8 @@ function clearGenerationState() {
 function openGenerator(
     type = "first"
 ) {
+    editingCertificate =
+        null;
 
     selectTemplate(
         type
@@ -1200,6 +1211,12 @@ function openGenerator(
 
     }
 
+    if (elements.generate) {
+
+        elements.generate.innerHTML =
+            `<i class="fa-solid fa-certificate"></i>
+             Issue Certificate`;
+    }
 
     updatePreview();
 
@@ -1252,7 +1269,15 @@ function closeGenerator() {
         elements.picker.style.display = "none";
     }
 
-    document.body.classList.remove("modal-open");
+    document.body.classList.remove(
+        "modal-open"
+    );
+
+    /*
+       Clear edit mode after closing.
+    */
+
+    editingCertificate = null;
 }
 
 
@@ -1322,16 +1347,49 @@ function showDuplicateMessage(
 
 /* =========================================================
    CHECK CERTIFICATE EXISTENCE
+   ---------------------------------------------------------
+   New certificate:
+   - Existing ID = duplicate
+
+   Edit certificate:
+   - Same current ID = allowed
+   - Different existing ID = duplicate
 ========================================================= */
 
 async function certificateExists(
-    certificateId
+    certificateId,
+    ignoreCurrentCertificate = false
 ) {
 
     if (!certificateId) {
-
         return false;
+    }
 
+
+    /*
+     * EDIT MODE
+     *
+     * If the ID belongs to the certificate
+     * currently being edited, it is NOT a duplicate.
+     */
+
+    if (
+        ignoreCurrentCertificate &&
+        editingCertificate
+    ) {
+
+        const editingId =
+            editingCertificate.certificateId ||
+            editingCertificate.id ||
+            "";
+
+        if (
+            String(editingId).trim().toUpperCase() ===
+            String(certificateId).trim().toUpperCase()
+        ) {
+
+            return false;
+        }
     }
 
 
@@ -1350,12 +1408,18 @@ async function certificateExists(
 
 
     return snapshot.exists();
-
 }
 
 
 /* =========================================================
    CHECK SELECTED NUMBER
+   ---------------------------------------------------------
+   New certificate:
+   - Existing number = duplicate
+
+   Edit certificate:
+   - Current certificate number = allowed
+   - Another existing number = duplicate
 ========================================================= */
 
 async function checkSelectedNumber() {
@@ -1365,36 +1429,27 @@ async function checkSelectedNumber() {
             elements.number?.value
         );
 
-
     if (!number) {
 
         if (elements.duplicate) {
 
-            elements.duplicate.hidden =
-                true;
+            elements.duplicate.hidden = true;
 
             elements.duplicate.style.display =
                 "none";
-
         }
 
         return false;
-
     }
 
 
-    const formatted =
-        formatCertificateNumber(
-            number
-        );
+    /*
+       IMPORTANT:
+       Do NOT modify elements.number.value here.
 
-
-    if (elements.number) {
-
-        elements.number.value =
-            formatted;
-
-    }
+       If user entered 001,
+       it must remain 001 in the input.
+    */
 
 
     const certificateId =
@@ -1404,6 +1459,46 @@ async function checkSelectedNumber() {
 
 
     try {
+
+        /* -------------------------------------------------
+           EDIT MODE
+           -------------------------------------------------
+           If the certificate being edited already has
+           this same certificate ID, it is NOT a duplicate.
+        ------------------------------------------------- */
+
+        if (editingCertificate) {
+
+            const editingId =
+                editingCertificate.certificateId ||
+                editingCertificate.id ||
+                "";
+
+
+            const normalizedEditingId =
+                String(editingId)
+                    .trim()
+                    .toUpperCase();
+
+
+            if (
+                normalizedEditingId ===
+                certificateId.toUpperCase()
+            ) {
+
+                showDuplicateMessage(
+                    `${certificateId} is the current certificate.`,
+                    true
+                );
+
+                return false;
+            }
+        }
+
+
+        /* -------------------------------------------------
+           CHECK FIRESTORE
+        ------------------------------------------------- */
 
         const exists =
             await certificateExists(
@@ -1419,17 +1514,20 @@ async function checkSelectedNumber() {
             );
 
             return true;
-
         }
 
+
+        /* -------------------------------------------------
+           AVAILABLE
+        ------------------------------------------------- */
 
         showDuplicateMessage(
             `${certificateId} is available.`,
             true
         );
 
-
         return false;
+
 
     } catch (error) {
 
@@ -1446,9 +1544,7 @@ async function checkSelectedNumber() {
 
 
         return true;
-
     }
-
 }
 
 
@@ -2013,14 +2109,18 @@ function buildCertificateData(
             currentUser.email || "",
 
         createdAt:
-            serverTimestamp(),
+            editingCertificate
+                ? (
+                    editingCertificate.createdAt ||
+                    serverTimestamp()
+                )
+                : serverTimestamp(),
 
         updatedAt:
             serverTimestamp()
 
     };
 }
-
 
 /* =========================================================
    ISSUE CERTIFICATE
@@ -2147,18 +2247,16 @@ async function issueCertificate() {
     }
 
 
-    if (!number) {
+   if (!number) {
+    showToast(
+        "Choose a certificate number from 1 to 9999.",
+        "error"
+    );
 
-        showToast(
-            "Choose a certificate number from 1 to 9999.",
-            "error"
-        );
+    elements.number?.focus();
 
-        elements.number?.focus();
-
-        return;
-
-    }
+    return;
+}
 
 
     const certificateNumber =
@@ -2214,37 +2312,37 @@ async function issueCertificate() {
     try {
 
         /* =================================================
-           STEP 1 — DUPLICATE CHECK
-        ================================================= */
+   STEP 1 — DUPLICATE CHECK
+================================================= */
 
-        showGenerationStatus(
-            `Checking ${certificateId}...`
-        );
-
-
-        const exists =
-            await certificateExists(
-                certificateId
-            );
+showGenerationStatus(
+    `Checking ${certificateId}...`
+);
 
 
-        if (exists) {
-
-            showDuplicateMessage(
-                `${certificateId} has already been issued. Please choose another certificate number.`,
-                false
-            );
-
-
-            showGenerationStatus(
-                "Certificate number is already in use.",
-                "error"
-            );
+const exists =
+    await certificateExists(
+        certificateId,
+        Boolean(editingCertificate)
+    );
 
 
-            return;
+if (exists) {
 
-        }
+    showDuplicateMessage(
+        `${certificateId} has already been issued. Please choose another certificate number.`,
+        false
+    );
+
+
+    showGenerationStatus(
+        "Certificate number is already in use.",
+        "error"
+    );
+
+
+    return;
+}
 
 
         /* =================================================
@@ -2298,44 +2396,52 @@ async function issueCertificate() {
 
 
         /* =================================================
-           STEP 4 — FINAL DUPLICATE CHECK
-        ================================================= */
+   STEP 4 — FINAL DUPLICATE CHECK
+   -------------------------------------------------
+   In EDIT mode, the existing certificate is expected.
+================================================= */
 
-        showGenerationStatus(
-            "Performing final certificate ID check..."
-        );
-
-
-        const finalCheck =
-            await getDoc(
-                doc(
-                    db,
-                    CERTIFICATE_COLLECTION,
-                    certificateId
-                )
-            );
+showGenerationStatus(
+    "Performing final certificate ID check..."
+);
 
 
-        if (
-            finalCheck.exists()
-        ) {
-
-            /*
-               Another admin created the same
-               certificate while this one was
-               being generated.
-            */
-
-            await deleteFromR2(
-                uploadedObject.key
-            );
+const finalCheck =
+    await getDoc(
+        doc(
+            db,
+            CERTIFICATE_COLLECTION,
+            certificateId
+        )
+    );
 
 
-            throw new Error(
-                `${certificateId} was just issued by another admin. The generated image was removed. Please choose another number.`
-            );
+const isEditingSameCertificate =
+    editingCertificate &&
+    (
+        editingCertificate.certificateId ||
+        editingCertificate.id
+    ) === certificateId;
 
-        }
+
+if (
+    finalCheck.exists() &&
+    !isEditingSameCertificate
+) {
+
+    /*
+     * Another certificate has claimed this ID.
+     */
+
+    await deleteFromR2(
+        uploadedObject.key
+    );
+
+
+    throw new Error(
+        `${certificateId} was just issued by another admin. The generated image was removed. Please choose another number.`
+    );
+}
 
 
         /* =================================================
@@ -2348,25 +2454,47 @@ async function issueCertificate() {
 
 
         const certificateData =
-            buildCertificateData(
-                certificateId,
-                certificateNumber,
-                issueDate,
-                name,
-                event,
-                eventImage,
-                uploadedObject
-            );
+    buildCertificateData(
+        certificateId,
+        certificateNumber,
+        issueDate,
+        name,
+        event,
+        eventImage,
+        uploadedObject
+    );
+
+        const certificateRef =
+    doc(
+        db,
+        CERTIFICATE_COLLECTION,
+        certificateId
+    );
 
 
-        await setDoc(
-            doc(
-                db,
-                CERTIFICATE_COLLECTION,
-                certificateId
-            ),
-            certificateData
-        );
+if (editingCertificate) {
+
+    /*
+     * UPDATE EXISTING CERTIFICATE
+     */
+
+    await updateDoc(
+        certificateRef,
+        certificateData
+    );
+
+} else {
+
+    /*
+     * CREATE NEW CERTIFICATE
+     */
+
+    await setDoc(
+        certificateRef,
+        certificateData
+    );
+
+}
 
 
         /* =================================================
@@ -2895,47 +3023,61 @@ function renderIssuedCertificates(
 
                     <div class="issued-actions">
 
-                        <button
-                            type="button"
-                            class="issued-action primary"
-                            data-action="view"
-                            data-id="${safe(
-                    certificateId
-                )}"
-                        >
-                            <i class="fa-solid fa-eye"></i>
-                            View
-                        </button>
+    <button
+        type="button"
+        class="issued-action primary"
+        data-action="view"
+        data-id="${safe(certificateId)}"
+    >
+        <i class="fa-solid fa-eye"></i>
+        View
+    </button>
 
 
-                        <button
-                            type="button"
-                            class="issued-action"
-                            data-action="share"
-                            data-id="${safe(
-                    certificateId
-                )}"
-                        >
-                            <i class="fa-solid fa-share-nodes"></i>
-                            Share
-                        </button>
+    <button
+        type="button"
+        class="issued-action"
+        data-action="edit"
+        data-id="${safe(certificateId)}"
+    >
+        <i class="fa-solid fa-pen-to-square"></i>
+        Edit
+    </button>
 
 
-                        <button
-                            type="button"
-                            class="issued-action"
-                            data-action="download"
-                            data-id="${safe(
-                    certificateId
-                )}"
-                        >
-                            <i class="fa-solid fa-download"></i>
-                            Download
-                        </button>
+    <button
+        type="button"
+        class="issued-action"
+        data-action="share"
+        data-id="${safe(certificateId)}"
+    >
+        <i class="fa-solid fa-share-nodes"></i>
+        Share
+    </button>
 
-                    </div>
 
-                </div>
+    <button
+        type="button"
+        class="issued-action"
+        data-action="download"
+        data-id="${safe(certificateId)}"
+    >
+        <i class="fa-solid fa-download"></i>
+        Download
+    </button>
+
+
+    <button
+        type="button"
+        class="issued-action danger"
+        data-action="delete"
+        data-id="${safe(certificateId)}"
+    >
+        <i class="fa-solid fa-trash"></i>
+        Delete
+    </button>
+
+</div>
 
             `;
 
@@ -2947,6 +3089,143 @@ function renderIssuedCertificates(
         }
     );
 
+}
+
+
+/* =========================================================
+   EDIT CERTIFICATE
+========================================================= */
+
+function openEditGenerator(certificate) {
+
+    if (!certificate) {
+        return;
+    }
+
+
+    editingCertificate =
+        certificate;
+
+
+    const certificateId =
+        certificate.certificateId ||
+        certificate.id ||
+        "";
+
+
+    /*
+       Select existing template
+    */
+
+    selectTemplate(
+        certificate.template ||
+        "first"
+    );
+
+
+    /*
+       Fill existing data
+    */
+
+    if (elements.name) {
+
+        elements.name.value =
+            certificate.name ||
+            "";
+    }
+
+
+    if (elements.event) {
+
+        elements.event.value =
+            certificate.event ||
+            "";
+    }
+
+
+    if (elements.eventImage) {
+
+        elements.eventImage.value =
+            certificate.eventImage ||
+            "";
+    }
+
+
+    if (elements.date) {
+
+        elements.date.value =
+            certificate.issueDate ||
+            "";
+    }
+
+
+    if (elements.number) {
+
+        const number =
+            certificate.certificateNumber ||
+            String(certificateId)
+                .match(/(\d+)$/)?.[1] ||
+            "";
+
+        elements.number.value =
+            formatCertificateNumber(
+                Number(number)
+            );
+
+        /*
+           Certificate number cannot be
+           changed during edit.
+        */
+
+        elements.number.disabled =
+            true;
+    }
+
+
+    /*
+       Change button text
+    */
+
+    if (elements.generate) {
+
+        elements.generate.innerHTML =
+            `<i class="fa-solid fa-save"></i>
+             Update Certificate`;
+    }
+
+
+    clearGenerationState();
+
+    updatePreview();
+
+
+    /*
+       Open modal
+    */
+
+    if (elements.modal) {
+
+        elements.modal.hidden =
+            false;
+
+        elements.modal.style.display =
+            "flex";
+    }
+
+
+    document.body.classList.add(
+        "modal-open"
+    );
+
+
+    setTimeout(
+        () => {
+
+            elements.name?.focus();
+
+        },
+        100
+    );
 }
 
 
@@ -3230,6 +3509,151 @@ async function shareCertificate(
 
 }
 
+/* =========================================================
+   DELETE CERTIFICATE
+========================================================= */
+
+async function deleteCertificate(
+    certificate
+) {
+
+    if (!certificate) {
+        return;
+    }
+
+
+    const certificateId =
+        certificate.certificateId ||
+        certificate.id ||
+        "";
+
+
+    if (!certificateId) {
+
+        showToast(
+            "Certificate ID is unavailable.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    const confirmed =
+        window.confirm(
+            `Delete certificate ${certificateId}?\n\n` +
+            `This will permanently remove the certificate record.`
+        );
+
+
+    if (!confirmed) {
+        return;
+    }
+
+
+    const cardButton =
+        document.querySelector(
+            `[data-action="delete"][data-id="${CSS.escape(certificateId)}"]`
+        );
+
+
+    if (cardButton) {
+        cardButton.disabled = true;
+    }
+
+
+    try {
+
+        showToast(
+            `Deleting ${certificateId}...`
+        );
+
+
+        /*
+           First attempt to remove the
+           certificate image from R2.
+        */
+
+        let r2Deleted = true;
+
+
+        if (certificate.r2Key) {
+
+            r2Deleted =
+                await deleteFromR2(
+                    certificate.r2Key
+                );
+        }
+
+
+        /*
+           Delete Firebase record.
+        */
+
+        await deleteDoc(
+            doc(
+                db,
+                CERTIFICATE_COLLECTION,
+                certificateId
+            )
+        );
+
+
+        /*
+           Remove from local array.
+        */
+
+        allCertificates =
+            allCertificates.filter(
+                item =>
+                    (item.certificateId ||
+                     item.id) !==
+                    certificateId
+            );
+
+
+        renderIssuedCertificates(
+            allCertificates
+        );
+
+
+        if (r2Deleted === false) {
+
+            showToast(
+                `${certificateId} deleted from Firebase, but the R2 image could not be removed.`,
+                "error"
+            );
+
+        } else {
+
+            showToast(
+                `${certificateId} deleted successfully.`,
+                "success"
+            );
+        }
+
+
+    } catch (error) {
+
+        console.error(
+            "Delete certificate error:",
+            error
+        );
+
+
+        showToast(
+            error?.message ||
+            "Unable to delete certificate.",
+            "error"
+        );
+
+
+        if (cardButton) {
+            cardButton.disabled = false;
+        }
+    }
+}
+
 
 /* =========================================================
    DOWNLOAD CERTIFICATE
@@ -3492,6 +3916,21 @@ document.addEventListener(
             );
 
         }
+
+        if (action === "edit") {
+
+    openEditGenerator(certificate);
+
+    return;
+}
+
+
+if (action === "delete") {
+
+    await deleteCertificate(certificate);
+
+    return;
+}
 
 
         if (action === "share") {
@@ -3892,6 +4331,20 @@ elements.number?.addEventListener(
     "blur",
     async () => {
 
+        /*
+         * Don't perform duplicate checking
+         * when the number field is disabled
+         * during Edit mode.
+         */
+
+        if (
+            elements.number.disabled
+        ) {
+
+            return;
+        }
+
+
         const duplicate =
             await checkSelectedNumber();
 
@@ -3909,6 +4362,19 @@ elements.number?.addEventListener(
 elements.number?.addEventListener(
     "change",
     async () => {
+
+        /*
+         * Don't perform duplicate checking
+         * when editing an existing certificate.
+         */
+
+        if (
+            elements.number.disabled
+        ) {
+
+            return;
+        }
+
 
         const duplicate =
             await checkSelectedNumber();

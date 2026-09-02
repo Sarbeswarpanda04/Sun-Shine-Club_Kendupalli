@@ -315,6 +315,23 @@
     border-color: #3d0cb8
 }
 
+.issued-action.danger {
+    color: #dc2626;
+    border-color: #fecaca;
+    background: #fff;
+}
+
+.issued-action.danger:hover {
+    background: #fef2f2;
+    border-color: #ef4444;
+    color: #b91c1c;
+}
+
+.issued-action:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
 .scroll-control {
     position: absolute;
     top: 43%;
