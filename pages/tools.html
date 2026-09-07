@@ -20,6 +20,7 @@
     <!-- Your root variables -->
     <link rel="stylesheet" href="../css/root.css">
     <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/footer.css">
 
     <style>
         /* =========================================
@@ -57,9 +58,57 @@
                     #b8b8ff);
 
             color: #fff;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .tools-hero::before {
+            content: "";
+
+            position: absolute;
+
+            top: -50%;
+            right: -20%;
+
+            width: 600px;
+            height: 600px;
+
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+
+            border-radius: 50%;
+
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .tools-hero::after {
+            content: "";
+
+            position: absolute;
+
+            bottom: -30%;
+            left: -10%;
+
+            width: 400px;
+            height: 400px;
+
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+
+            border-radius: 50%;
+
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
         }
 
         .tools-hero .hero-icon {
+            position: relative;
+            z-index: 1;
+
             width: 75px;
             height: 75px;
 
@@ -76,15 +125,28 @@
             font-size: 34px;
 
             backdrop-filter: blur(10px);
+
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
 
         .tools-hero h1 {
+            position: relative;
+            z-index: 1;
+
             font-size: clamp(2.2rem, 5vw, 3.5rem);
             font-weight: 800;
             margin-bottom: 15px;
         }
 
         .tools-hero p {
+            position: relative;
+            z-index: 1;
+
             max-width: 700px;
             margin: auto;
 
@@ -157,13 +219,124 @@
 
 
         /* =========================================
-           TOOL CARD
+           FILTER SECTION
         ========================================= */
 
+        .tools-filter {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 20px;
+
+            margin-bottom: 40px;
+        }
+
+        .filter-search {
+            position: relative;
+
+            max-width: 500px;
+
+            margin: 0 auto;
+
+            width: 100%;
+        }
+
+        .filter-search i {
+            position: absolute;
+
+            left: 18px;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            color: #999;
+
+            font-size: 16px;
+        }
+
+        .filter-search input {
+            width: 100%;
+
+            padding: 14px 18px 14px 48px;
+
+            border: 2px solid #e0e0e0;
+
+            border-radius: 14px;
+
+            font-size: 15px;
+
+            font-family: "Poppins", sans-serif;
+
+            background: #fff;
+
+            transition: 0.3s ease;
+        }
+
+        .filter-search input:focus {
+            outline: none;
+
+            border-color: var(--primary, #1479ff);
+
+            box-shadow: 0 0 0 4px rgba(20, 121, 255, 0.1);
+        }
+
+        .filter-buttons {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+            justify-content: center;
+        }
+
+        .filter-btn {
+            padding: 10px 22px;
+
+            border: 2px solid #e0e0e0;
+
+            border-radius: 30px;
+
+            background: #fff;
+
+            color: #555;
+
+            font-size: 14px;
+
+            font-weight: 500;
+
+            cursor: pointer;
+
+            transition: 0.3s ease;
+
+            font-family: "Poppins", sans-serif;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--primary, #1479ff);
+
+            color: var(--primary, #1479ff);
+        }
+
+        .filter-btn.active {
+            background: var(--primary, #1479ff);
+
+            border-color: var(--primary, #1479ff);
+
+            color: #fff;
+        }
+
+
+        /* =========================================
+           TOOL CARD
+        ========================================= */
         .tool-card {
             position: relative;
 
             display: flex;
+
             flex-direction: column;
 
             padding: 30px;
@@ -181,7 +354,8 @@
 
             transition:
                 transform 0.35s ease,
-                box-shadow 0.35s ease;
+                box-shadow 0.35s ease,
+                opacity 0.3s ease;
         }
 
         .tool-card::before {
@@ -312,6 +486,64 @@
             font-weight: 700;
 
             text-transform: uppercase;
+        }
+
+        .tool-status.coming-soon-badge {
+            background: #fff3e0;
+            color: #e65100;
+        }
+
+
+        /* =========================================
+           CATEGORY TAG
+        ========================================= */
+
+        .tool-category {
+            display: inline-block;
+
+            margin-bottom: 12px;
+
+            padding: 5px 14px;
+
+            border-radius: 20px;
+
+            background: #f0f4ff;
+            color: var(--primary, #1479ff);
+
+            font-size: 11px;
+            font-weight: 600;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.5px;
+        }
+
+
+        /* =========================================
+           COMING SOON CARD
+        ========================================= */
+
+        .tool-card.coming-soon {
+            opacity: 0.75;
+        }
+
+        .tool-card.coming-soon .tool-icon {
+            background: #fff8e1;
+            color: #ff9800;
+        }
+
+        .tool-card.coming-soon .tool-btn {
+            background: #bdbdbd;
+            cursor: not-allowed;
+        }
+
+        .tool-card.coming-soon .tool-btn:hover {
+            background: #bdbdbd;
+            transform: none;
+        }
+
+        .tool-card.coming-soon h3 {
+            color: #777;
         }
 
 
@@ -599,6 +831,48 @@
 
 
 
+            <div class="tools-filter">
+
+                <div class="filter-search">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input type="text" id="toolSearch" placeholder="Search tools...">
+
+                </div>
+
+                <div class="filter-buttons">
+
+                    <button class="filter-btn active" data-filter="all">
+
+                        All
+
+                    </button>
+
+                    <button class="filter-btn" data-filter="verification">
+
+                        Verification
+
+                    </button>
+
+                    <button class="filter-btn" data-filter="generator">
+
+                        Generator
+
+                    </button>
+
+                    <button class="filter-btn" data-filter="members">
+
+                        Members
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
             <div class="tools-grid">
 
 
@@ -606,10 +880,14 @@
                  ID CARD VERIFICATION
             ================================== -->
 
-                <article class="tool-card">
+                <article class="tool-card" data-category="verification">
 
                     <span class="tool-status">
                         Available
+                    </span>
+
+                    <span class="tool-category">
+                        Verification
                     </span>
 
                     <div class="tool-icon">
@@ -640,10 +918,14 @@
                  ID CARD GENERATOR
             ================================== -->
 
-                <article class="tool-card">
+                <article class="tool-card" data-category="generator">
 
                     <span class="tool-status">
                         Available
+                    </span>
+
+                    <span class="tool-category">
+                        Generator
                     </span>
 
                     <div class="tool-icon">
@@ -673,10 +955,14 @@
                  CERTIFICATE VERIFICATION
             ================================== -->
 
-                <article class="tool-card">
+                <article class="tool-card" data-category="verification">
 
                     <span class="tool-status">
                         Available
+                    </span>
+
+                    <span class="tool-category">
+                        Verification
                     </span>
 
                     <div class="tool-icon">
@@ -707,10 +993,14 @@
                  CERTIFICATE TEMPLATE
             ================================== -->
 
-                <article class="tool-card">
+                <article class="tool-card" data-category="generator">
 
                     <span class="tool-status">
                         Available
+                    </span>
+
+                    <span class="tool-category">
+                        Template
                     </span>
 
                     <div class="tool-icon">
@@ -741,10 +1031,14 @@
                  ISSUED CERTIFICATES
             ================================== -->
 
-                <article class="tool-card">
+                <article class="tool-card" data-category="verification">
 
                     <span class="tool-status">
                         Available
+                    </span>
+
+                    <span class="tool-category">
+                        Records
                     </span>
 
                     <div class="tool-icon">
@@ -774,10 +1068,14 @@
                  MEMBER DIRECTORY
             ================================== -->
 
-                <article class="tool-card">
+                <article class="tool-card" data-category="members">
 
                     <span class="tool-status">
                         Available
+                    </span>
+
+                    <span class="tool-category">
+                        Members
                     </span>
 
                     <div class="tool-icon">
@@ -803,6 +1101,44 @@
                 </article>
 
 
+
+                <!-- =================================
+                 EVENT CALENDAR - COMING SOON
+            ================================== -->
+
+                <article class="tool-card coming-soon" data-category="members">
+
+                    <span class="tool-status coming-soon-badge">
+                        Coming Soon
+                    </span>
+
+                    <span class="tool-category">
+                        Events
+                    </span>
+
+                    <div class="tool-icon">
+                        <i class="fa-solid fa-calendar-days"></i>
+                    </div>
+
+                    <h3>
+                        Event Calendar
+                    </h3>
+
+                    <p>
+                        View upcoming club events,
+                        festivals and important dates
+                        in an interactive calendar.
+                    </p>
+
+                    <button class="tool-btn" disabled>
+                        Notify Me
+
+                        <i class="fa-solid fa-bell"></i>
+                    </button>
+
+                </article>
+
+
             </div>
 
         </div>
@@ -811,23 +1147,281 @@
 
 
 
-    <!-- =========================================
-     FOOTER
-========================================= -->
+    <!--=========================================
+                FOOTER
+==========================================-->
 
-    <footer class="tools-footer">
+    <footer class="footer">
+        <div class="footer-container">
+            <!--==============================
+                    ABOUT
+            ==============================-->
 
-        <p>
-            © 2026 Sun Shine Club, Kendupalli.
-            All Rights Reserved.
-        </p>
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <img src="https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/logo/sun-shine-club-logo.png"
+                        alt="Sun Shine Club Logo" width="48" height="48" />
 
+                    <div>
+                        <h2>Sun Shine Club</h2>
+                        <span>Kendupalli, Odisha</span>
+                    </div>
+                </div>
+
+                <p>
+                    Sun Shine Club is a community organization committed to promoting
+                    cultural heritage, social service, youth empowerment, sports,
+                    education, environmental awareness, and community development in
+                    Kendupalli.
+                </p>
+            </div>
+
+            <!--==============================
+                    MAP
+            ==============================-->
+
+            <div class="footer-map">
+                <h3>Our Location</h3>
+
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3698.6226394507444!2d85.25195597510138!3d20.280392413061342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a188b003c73005b%3A0x96a924c6031760e6!2sSunshine%20Club%20Kendupalli!5e1!3m2!1sen!2sin!4v1784922621286!5m2!1sen!2sin"
+                    loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+                    title="Sun Shine Club Kendupalli location on Google Maps">
+                </iframe>
+            </div>
+
+            <!--==============================
+                QUICK LINKS
+            ==============================-->
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="members.html">Members</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="festivals.html">Festivals</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="donate.html">Donate</a></li>
+                    <li><a href="../club-id-card/verify.html">Verify ID</a></li>
+                    <li><a href="../club-id-card/id-generator.html">ID-Card Generator</a></li>
+                    <li><a href="../club-certificate/verify.html">Verify Certificate</a></li>
+                    <li><a href="../club-certificate/issued-certificate.html">Issued Certificate</a></li>
+                </ul>
+            </div>
+
+            <!--==============================
+                CONTACT DETAILS
+            ==============================-->
+
+            <div class="footer-contact">
+                <h3>Contact</h3>
+
+                <ul>
+                    <li>
+                        <i class="fas fa-location-dot"></i>
+                        <span>Kendupalli, Barabati, Bhapur, Nayagarh, Odisha – 752077</span>
+                    </li>
+
+                    <li>
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:+918260916384">8260916384 Sarbeswar</a>
+                        <a href="tel:+917853987250">7853987250 Suryakanta</a>
+                    </li>
+
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:admin@sunshineclubkendupalli.in">admin@sunshineclubkendupalli.in</a>
+                    </li>
+
+                    <li>
+                        <i class="fas fa-clock"></i>
+                        <span>Mon – Sun<br />9:00 AM – 7:00 PM</span>
+                    </li>
+                </ul>
+
+                <!--==============================
+                            SOCIAL
+                ==============================-->
+
+                <div class="footer-social">
+                    <a href="https://qrc-ai.com/gdYDY" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+
+                    <a href="https://qrc-ai.com/Zxm-k" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+
+                    <a href="https://qrc-ai.com/uLECj" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+
+                    <a href="https://whatsapp.com/channel/0029VbAjZHDAu3aLZOPCjC26" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+
+                    <a href="mailto:admin@sunshineclubkendupalli.in" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+
+                    <div class="social-qr">
+                        <img src="../assets/images/social qr/instagram-qr.png" alt="Instagram QR">
+                        <img src="../assets/images/social qr/facebook-qr.png" alt="Facebook QR">
+                        <img src="../assets/images/social qr/youtube-qr.png" alt="Youtube QR">
+                        <img src="../assets/images/social qr/whatsapp-qr.png" alt="Whatsapp QR">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="visitor-counter">
+            <i class="fa-solid fa-eye"></i>
+            <span>Visitors</span>
+            <strong id="visitorCount">...</strong>
+        </div>
+
+        <!--==============================
+                FOOTER BOTTOM
+        ==============================-->
+
+        <div class="footer-bottom">
+            <p>
+                © <span id="year"></span> <strong>Sun Shine Club</strong>. All Rights
+                Reserved.
+            </p>
+
+            <p>
+                Designed & Developed with
+                <i class="fas fa-heart"></i>
+                by
+                <a href="https://sarbeswarpanda.me" target="_blank" rel="noopener noreferrer">Sarbeswar Panda</a>
+            </p>
+        </div>
     </footer>
 
+    <!--==============================
+            BACK TO TOP
+==============================-->
+    <button class="back-to-top" aria-label="Back to Top">
 
+        <svg class="progress-ring" width="60" height="60">
 
-    
+            <circle
+                class="progress-bg"
+                cx="30"
+                cy="30"
+                r="26">
+            </circle>
+
+            <circle
+                class="progress-bar"
+                cx="30"
+                cy="30"
+                r="26">
+            </circle>
+
+        </svg>
+
+        <i class="fa-solid fa-arrow-up"></i>
+
+    </button>
+
+    <!-- JavaScript -->
     <script src="../js/navbar.js"></script>
+    <script src="../js/footer.js"></script>
+    <!--Visitor Counter-->
+    <script src="https://cdn.jsdelivr.net/npm/counterapi/dist/counter.browser.min.js"></script>
+    <script src="../js/visitor-count.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            const searchInput = document.getElementById('toolSearch');
+
+            const filterButtons = document.querySelectorAll('.filter-btn');
+
+            const toolCards = document.querySelectorAll('.tool-card');
+
+
+
+            function filterTools() {
+
+                const searchTerm = searchInput.value.toLowerCase();
+
+                const activeFilter = document.querySelector('.filter-btn.active')?.dataset.filter || 'all';
+
+
+
+                toolCards.forEach(card => {
+
+                    const title = card.querySelector('h3')?.textContent.toLowerCase() || '';
+
+                    const description = card.querySelector('p')?.textContent.toLowerCase() || '';
+
+                    const category = card.dataset.category || '';
+
+                    const matchesSearch = title.includes(searchTerm) || description.includes(searchTerm);
+
+                    const matchesFilter = activeFilter === 'all' || category === activeFilter;
+
+
+
+                    if (matchesSearch && matchesFilter) {
+
+                        card.style.display = 'flex';
+
+                        setTimeout(() => {
+
+                            card.style.opacity = '1';
+
+                            card.style.transform = 'translateY(0)';
+
+                        }, 50);
+
+                    } else {
+
+                        card.style.opacity = '0';
+
+                        card.style.transform = 'translateY(20px)';
+
+                        setTimeout(() => {
+
+                            card.style.display = 'none';
+
+                        }, 300);
+
+                    }
+
+                });
+
+            }
+
+
+
+            searchInput?.addEventListener('input', filterTools);
+
+
+
+            filterButtons.forEach(btn => {
+
+                btn.addEventListener('click', function () {
+
+                    filterButtons.forEach(b => b.classList.remove('active'));
+
+                    this.classList.add('active');
+
+                    filterTools();
+
+                });
+
+            });
+
+        });
+    </script>
 
 </body>
 
