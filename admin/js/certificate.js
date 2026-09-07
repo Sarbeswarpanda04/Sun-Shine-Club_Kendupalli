@@ -968,7 +968,7 @@ console.log("Normalized certificate number:", number);
 
         elements.previewName.textContent =
             name ||
-            "RECIPIENT NAME";
+            "";
 
     }
 
@@ -977,7 +977,7 @@ console.log("Normalized certificate number:", number);
 
         elements.previewEvent.textContent =
             event ||
-            "EVENT NAME";
+            "";
 
     }
 
@@ -1716,7 +1716,7 @@ async function renderCertificatePNG() {
             elements.certificatePreview,
             {
 
-                scale: 4,
+                scale: 8,
 
                 useCORS: true,
 
