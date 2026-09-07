@@ -1,0 +1,1396 @@
+/* =========================================================
+   SUN SHINE CLUB — CERTIFICATE VERIFICATION
+   White • Gold • Soft Pastel Glass
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
+
+:root {
+    --white: #ffffff;
+    --off-white: #fffdf8;
+
+    --gold: #d4a72c;
+    --gold-dark: #a97c12;
+    --gold-light: #f4dc8a;
+    --gold-soft: #fff7dc;
+
+    --text: #292929;
+    --text-light: #747474;
+
+    --border: rgba(196, 151, 32, 0.20);
+
+    --glass: rgba(255, 255, 255, 0.72);
+
+    --shadow:
+        0 25px 70px rgba(50, 50, 70, 0.10),
+        0 8px 25px rgba(50, 50, 70, 0.06);
+
+    --radius-xl: 30px;
+    --radius-lg: 20px;
+    --radius-md: 14px;
+
+    --success: #29965c;
+    --danger: #d9535f;
+}
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+
+    font-family: "Inter", sans-serif;
+
+    color: var(--text);
+
+    background:
+        radial-gradient(
+            circle at 5% 5%,
+            rgba(203, 232, 255, 0.65),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 95% 10%,
+            rgba(255, 220, 234, 0.55),
+            transparent 27%
+        ),
+        radial-gradient(
+            circle at 80% 95%,
+            rgba(255, 236, 185, 0.35),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #ffffff 0%,
+            #fffdfa 45%,
+            #ffffff 100%
+        );
+
+    background-attachment: fixed;
+
+    overflow-x: hidden;
+}
+
+/* =========================================================
+   DECORATIVE BACKGROUND BLOBS
+========================================================= */
+
+body::before,
+body::after {
+    content: "";
+
+    position: fixed;
+
+    z-index: -1;
+
+    border-radius: 50%;
+
+    filter: blur(80px);
+
+    pointer-events: none;
+}
+
+body::before {
+    width: 300px;
+    height: 300px;
+
+    left: -120px;
+    top: 20%;
+
+    background:
+        rgba(187, 224, 255, 0.45);
+}
+
+body::after {
+    width: 330px;
+    height: 330px;
+
+    right: -130px;
+    bottom: 5%;
+
+    background:
+        rgba(255, 211, 229, 0.40);
+}
+
+/* =========================================================
+   PAGE SHELL
+========================================================= */
+
+.verify-shell {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 45px 20px;
+}
+
+/* =========================================================
+   MAIN GLASS CARD
+========================================================= */
+
+.verify-card {
+    position: relative;
+
+    width: min(100%, 1050px);
+
+    padding: 46px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.88),
+            rgba(255,255,255,0.64)
+        );
+
+    border:
+        1px solid rgba(255,255,255,0.95);
+
+    border-radius: var(--radius-xl);
+
+    box-shadow:
+        var(--shadow),
+        inset 0 0 0 1px rgba(212,167,44,0.07);
+
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+
+    overflow: hidden;
+}
+
+/* Elegant gold line */
+
+.verify-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 10%;
+    right: 10%;
+
+    height: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #d4a72c,
+            #f4dc8a,
+            #d4a72c,
+            transparent
+        );
+}
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.search-section {
+    position: relative;
+    z-index: 2;
+
+    max-width: 720px;
+
+    margin: auto;
+
+    text-align: center;
+}
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.club-logo {
+    display: block;
+
+    width: 105px;
+    height: 105px;
+
+    object-fit: contain;
+
+    margin: 0 auto 17px;
+
+    filter:
+        drop-shadow(0 8px 14px rgba(0,0,0,0.08));
+}
+
+.search-section .club-logo {
+    animation: logoFloat 4s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* =========================================================
+   HEADINGS
+========================================================= */
+
+.search-section h1,
+.valid-result h1,
+.invalid-result h1 {
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(2rem, 5vw, 3rem);
+
+    font-weight: 700;
+
+    color: var(--gold-dark);
+
+    letter-spacing: 0.3px;
+
+    margin-bottom: 6px;
+}
+
+.search-section h2 {
+    color: #303030;
+
+    font-size: clamp(1.15rem, 3vw, 1.5rem);
+
+    font-weight: 700;
+
+    margin-bottom: 13px;
+}
+
+.search-section p {
+    max-width: 570px;
+
+    margin:
+        0 auto
+        28px;
+
+    color: var(--text-light);
+
+    font-size: 0.94rem;
+
+    line-height: 1.7;
+}
+
+/* =========================================================
+   SEARCH FORM
+========================================================= */
+
+.search-form {
+    width: 100%;
+    max-width: 660px;
+
+    display: flex;
+
+    gap: 11px;
+
+    margin: auto;
+}
+
+/* =========================================================
+   INPUT
+========================================================= */
+
+.search-form input {
+    flex: 1;
+
+    min-width: 0;
+
+    height: 58px;
+
+    padding:
+        0 19px;
+
+    font-family: inherit;
+
+    font-size: 0.92rem;
+
+    color: #252525;
+
+    outline: none;
+
+    background:
+        rgba(255,255,255,0.85);
+
+    border:
+        1px solid rgba(212,167,44,0.25);
+
+    border-radius: var(--radius-md);
+
+    box-shadow:
+        0 6px 20px rgba(40,40,60,0.05),
+        inset 0 1px 3px rgba(0,0,0,0.02);
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.search-form input::placeholder {
+    color: #aaa;
+}
+
+.search-form input:focus {
+    background: #ffffff;
+
+    border-color: var(--gold);
+
+    box-shadow:
+        0 0 0 4px rgba(212,167,44,0.09),
+        0 10px 30px rgba(40,40,60,0.07);
+}
+
+/* =========================================================
+   VERIFY BUTTON
+========================================================= */
+
+#verifyBtn {
+    height: 58px;
+
+    padding:
+        0 25px;
+
+    border: none;
+
+    border-radius: var(--radius-md);
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    font-size: 0.9rem;
+
+    font-weight: 800;
+
+    color: #ffffff;
+
+    white-space: nowrap;
+
+    background:
+        linear-gradient(
+            135deg,
+            #b88a18 0%,
+            #d9b13d 48%,
+            #b58212 100%
+        );
+
+    box-shadow:
+        0 9px 22px rgba(174,127,14,0.22);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+}
+
+#verifyBtn i {
+    margin-right: 7px;
+}
+
+#verifyBtn:hover {
+    transform: translateY(-2px);
+
+    filter: brightness(1.05);
+
+    box-shadow:
+        0 13px 28px rgba(174,127,14,0.27);
+}
+
+#verifyBtn:active {
+    transform: translateY(0);
+}
+
+/* =========================================================
+   NOTE
+========================================================= */
+
+.scan-note {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-top: 18px;
+
+    color: #888;
+
+    font-size: 0.8rem;
+}
+
+.scan-note i {
+    color: var(--gold);
+}
+
+/* =========================================================
+   RESULT
+========================================================= */
+
+.result-section {
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+}
+
+.valid-result,
+.invalid-result {
+    width: 100%;
+
+    max-width: 950px;
+
+    margin: auto;
+
+    text-align: center;
+}
+
+.club-logo-wrap {
+    display: flex;
+
+    justify-content: center;
+}
+
+.club-logo-wrap .club-logo {
+    width: 82px;
+    height: 82px;
+
+    margin-bottom: 10px;
+}
+
+.valid-result > h1,
+.invalid-result > h1 {
+    font-size:
+        clamp(1.8rem, 4vw, 2.6rem);
+}
+
+.valid-result > h2 {
+    margin-top: 5px;
+
+    font-size: 1.05rem;
+}
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.status-valid {
+    color: var(--success) !important;
+}
+
+.status-invalid {
+    color: var(--danger) !important;
+}
+
+/* =========================================================
+   CERTIFICATE VISUALS
+========================================================= */
+
+.certificate-visuals {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 20px;
+
+    margin-top: 28px;
+}
+
+/* =========================================================
+   CERTIFICATE IMAGE CARD
+========================================================= */
+
+.certificate-image-card {
+    position: relative;
+
+    padding: 14px;
+
+    background:
+        rgba(255,255,255,0.78);
+
+    border:
+        1px solid rgba(212,167,44,0.18);
+
+    border-radius: var(--radius-lg);
+
+    box-shadow:
+        0 12px 35px rgba(50,50,70,0.08);
+
+    overflow: hidden;
+}
+
+.certificate-image-card::before {
+    content: "";
+
+    position: absolute;
+
+    left: 15%;
+    right: 15%;
+    top: 0;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--gold),
+            transparent
+        );
+}
+
+/* =========================================================
+   SECTION LABEL
+========================================================= */
+
+.section-label {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-bottom: 11px;
+
+    color: var(--gold-dark);
+
+    font-size: 0.74rem;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1.1px;
+}
+
+.section-label::before,
+.section-label::after {
+    content: "";
+
+    width: 22px;
+    height: 1px;
+
+    background:
+        rgba(212,167,44,0.45);
+}
+
+/* =========================================================
+   IMAGES
+========================================================= */
+
+.certificate-main-image,
+.certificate-event-image {
+    display: block;
+
+    width: 100%;
+
+    max-height: 530px;
+
+    object-fit: contain;
+
+    border-radius: 11px;
+
+    background: #fafafa;
+
+    box-shadow:
+        0 8px 24px rgba(0,0,0,0.08);
+
+    transition:
+        transform 0.25s ease;
+}
+
+.certificate-main-image:hover,
+.certificate-event-image:hover {
+    transform: scale(1.01);
+}
+
+/* =========================================================
+   NO IMAGE
+========================================================= */
+
+.no-image {
+    min-height: 180px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    color: #999;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffdf7,
+            #ffffff
+        );
+
+    border:
+        1px dashed rgba(212,167,44,0.35);
+
+    border-radius: 11px;
+
+    font-size: 0.86rem;
+}
+
+/* =========================================================
+   CERTIFICATE INFORMATION
+========================================================= */
+
+.result-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 9px;
+
+    margin-top: 23px;
+}
+
+.result-row {
+    min-height: 62px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding:
+        13px 15px;
+
+    text-align: left;
+
+    background:
+        rgba(255,255,255,0.72);
+
+    border:
+        1px solid rgba(212,167,44,0.13);
+
+    border-radius: 13px;
+
+    box-shadow:
+        0 5px 18px rgba(40,40,60,0.035);
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.result-row:hover {
+    transform: translateY(-2px);
+
+    border-color:
+        rgba(212,167,44,0.32);
+
+    box-shadow:
+        0 8px 22px rgba(40,40,60,0.06);
+}
+
+.result-row strong {
+    flex-shrink: 0;
+
+    color: var(--gold-dark);
+
+    font-size: 0.72rem;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.5px;
+}
+
+.result-row span {
+    color: #343434;
+
+    font-size: 0.86rem;
+
+    font-weight: 600;
+
+    text-align: right;
+
+    word-break: break-word;
+}
+
+/* =========================================================
+   STATUS BADGE
+========================================================= */
+
+.status-badge {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 160px;
+
+    margin-top: 21px;
+
+    padding:
+        10px 21px;
+
+    border-radius: 50px;
+
+    font-size: 0.82rem;
+
+    font-weight: 800;
+}
+
+.status-badge.status-valid {
+    color: #278754 !important;
+
+    background:
+        rgba(45, 164, 98, 0.08);
+
+    border:
+        1px solid rgba(45,164,98,0.23);
+}
+
+.status-badge.status-invalid {
+    color: #d64f5b !important;
+
+    background:
+        rgba(217,83,95,0.07);
+
+    border:
+        1px solid rgba(217,83,95,0.22);
+}
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.certificate-actions {
+    display: flex;
+
+    justify-content: center;
+
+    margin-top: 18px;
+}
+
+.download-certificate-btn,
+.search-again-btn {
+    min-height: 49px;
+
+    padding:
+        0 23px;
+
+    font-family: inherit;
+
+    font-size: 0.86rem;
+
+    font-weight: 750;
+
+    border-radius: 13px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+/* DOWNLOAD */
+
+.download-certificate-btn {
+    color: #ffffff;
+
+    border: none;
+
+    background:
+        linear-gradient(
+            135deg,
+            #b78918,
+            #d9b13d,
+            #b37f10
+        );
+
+    box-shadow:
+        0 8px 22px rgba(174,127,14,0.20);
+}
+
+.download-certificate-btn i {
+    margin-right: 7px;
+}
+
+.download-certificate-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 27px rgba(174,127,14,0.26);
+}
+
+.download-certificate-btn:disabled {
+    opacity: 0.65;
+
+    cursor: wait;
+
+    transform: none;
+}
+
+/* =========================================================
+   QR
+========================================================= */
+
+.qr-section {
+    width: min(100%, 250px);
+
+    margin:
+        28px auto 0;
+
+    padding: 18px;
+
+    background:
+        rgba(255,255,255,0.78);
+
+    border:
+        1px solid rgba(212,167,44,0.18);
+
+    border-radius: var(--radius-lg);
+
+    box-shadow:
+        0 10px 30px rgba(40,40,60,0.07);
+}
+
+.qr-code-image {
+    display: block;
+
+    width: 180px;
+    height: 180px;
+
+    max-width: 100%;
+
+    margin:
+        7px auto 0;
+
+    padding: 7px;
+
+    background: #ffffff;
+
+    border:
+        1px solid rgba(212,167,44,0.15);
+
+    border-radius: 12px;
+}
+
+/* =========================================================
+   SEARCH AGAIN
+========================================================= */
+
+.search-again-btn {
+    color: var(--gold-dark);
+
+    background: #ffffff;
+
+    border:
+        1px solid rgba(212,167,44,0.32);
+
+    box-shadow:
+        0 6px 18px rgba(40,40,60,0.05);
+}
+
+.search-again-btn:hover {
+    transform: translateY(-2px);
+
+    background: var(--gold-soft);
+
+    border-color: var(--gold);
+}
+
+/* =========================================================
+   INVALID RESULT
+========================================================= */
+
+.invalid-result {
+    padding:
+        10px 5px;
+}
+
+.invalid-result > h2 {
+    margin:
+        8px 0 17px;
+
+    color: var(--danger);
+
+    font-size: 1.3rem;
+}
+
+.invalid-result > p {
+    max-width: 620px;
+
+    margin:
+        0 auto 11px;
+
+    color: var(--text-light);
+
+    font-size: 0.9rem;
+
+    line-height: 1.7;
+}
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.loading {
+    min-height: 400px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.loader {
+    width: 68px;
+    height: 68px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 20px;
+
+    background:
+        rgba(255,255,255,0.85);
+
+    border:
+        1px solid rgba(212,167,44,0.20);
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 10px 30px rgba(40,40,60,0.07);
+}
+
+.loader i {
+    color: var(--gold);
+
+    font-size: 1.7rem;
+}
+
+.loading h2 {
+    margin-bottom: 8px;
+
+    color: var(--gold-dark);
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 1.4rem;
+}
+
+.loading p {
+    color: var(--text-light);
+
+    font-size: 0.86rem;
+}
+
+/* =========================================================
+   TEXT SELECTION
+========================================================= */
+
+::selection {
+    color: #5e4300;
+
+    background:
+        var(--gold-light);
+}
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #fafafa;
+}
+
+::-webkit-scrollbar-thumb {
+    background:
+        linear-gradient(
+            #e3c15d,
+            #b98a17
+        );
+
+    border-radius: 20px;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .verify-shell {
+        padding:
+            28px 14px;
+    }
+
+    .verify-card {
+        padding:
+            35px 24px;
+    }
+
+    .certificate-visuals {
+        grid-template-columns: 1fr;
+    }
+
+    .result-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+@media (max-width: 600px) {
+
+    body {
+        background-attachment: scroll;
+    }
+
+    .verify-card {
+        width: 100%;
+        padding: 27px 14px;
+        border-radius: 22px;
+
+        backdrop-filter: blur(17px);
+        -webkit-backdrop-filter: blur(17px);
+    }
+
+    /* Logo */
+
+    .search-section .club-logo {
+        width: 82px;
+        height: 82px;
+        margin-bottom: 10px;
+    }
+
+    /* Heading */
+
+    .search-section h1,
+    .valid-result h1,
+    .invalid-result h1 {
+        font-size: 1.9rem;
+    }
+
+    .search-section h2 {
+        font-size: 1.08rem;
+    }
+
+    .search-section p {
+        margin-bottom: 21px;
+        font-size: 0.84rem;
+        line-height: 1.6;
+    }
+
+    /* Search */
+
+    .search-form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 19px;
+    }
+
+    /* Certificate ID Input */
+
+    .search-form input {
+        display: block;
+
+        width: 100%;
+        height: 53px;
+
+        min-height: 53px;
+        max-height: 53px;
+
+        padding: 0 15px;
+
+        margin: 0;
+
+        border: 1px solid rgba(197, 151, 31, 0.23);
+        border-radius: 15px;
+
+        font-family: inherit;
+        font-size: 1rem;
+        line-height: normal;
+
+        box-sizing: border-box;
+
+        outline: none;
+
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+    /* Verify Button */
+
+    #verifyBtn {
+        display: block;
+
+        width: 100%;
+        height: 53px;
+
+        min-height: 53px;
+        max-height: 53px;
+
+        padding: 0 15px;
+
+        margin: 0;
+
+        box-sizing: border-box;
+
+        border-radius: 15px;
+    }
+
+    /* Scan Note */
+
+    .scan-note {
+        align-items: flex-start;
+
+        margin-top: 15px;
+
+        font-size: 0.74rem;
+        line-height: 1.45;
+    }
+
+
+    /* Result logo */
+
+    .club-logo-wrap .club-logo {
+        width: 70px;
+        height: 70px;
+    }
+
+    /* Images */
+
+    .certificate-visuals {
+        gap: 13px;
+
+        margin-top: 20px;
+    }
+
+    .certificate-image-card {
+        padding: 9px;
+
+        border-radius: 16px;
+    }
+
+    .certificate-main-image,
+    .certificate-event-image {
+        max-height: 450px;
+
+        border-radius: 9px;
+    }
+
+    .section-label {
+        margin-bottom: 9px;
+
+        font-size: 0.68rem;
+    }
+
+    /* Info */
+
+    .result-grid {
+        gap: 7px;
+
+        margin-top: 17px;
+    }
+
+    .result-row {
+        min-height: auto;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 5px;
+
+        padding:
+            12px 13px;
+    }
+
+    .result-row strong {
+        font-size: 0.66rem;
+    }
+
+    .result-row span {
+        width: 100%;
+
+        text-align: left;
+
+        font-size: 0.84rem;
+    }
+
+    /* Status */
+
+    .status-badge {
+        width: 100%;
+
+        margin-top: 16px;
+    }
+
+    /* Buttons */
+
+    .certificate-actions {
+        width: 100%;
+    }
+
+    .download-certificate-btn,
+    .search-again-btn {
+        width: 100%;
+
+        min-height: 51px;
+    }
+
+    /* QR */
+
+    .qr-section {
+        width: 100%;
+
+        margin-top: 20px;
+
+        padding: 15px;
+    }
+
+    .qr-code-image {
+        width: 165px;
+        height: 165px;
+    }
+
+    /* Loading */
+
+    .loading {
+        min-height: 330px;
+    }
+}
+
+/* =========================================================
+   EXTRA SMALL MOBILE
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .verify-shell {
+        padding:
+            8px 6px 20px;
+    }
+
+    .verify-card {
+        padding:
+            24px 11px;
+    }
+
+    .search-section h1,
+    .valid-result h1,
+    .invalid-result h1 {
+        font-size: 1.7rem;
+    }
+
+    .search-section h2 {
+        font-size: 0.98rem;
+    }
+
+    .qr-code-image {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+
+#floatingShareBtn {
+    position: fixed !important;
+    right: 24px !important;
+    bottom: 24px !important;
+    left: auto !important;
+    top: auto !important;
+
+    width: 58px !important;
+    height: 58px !important;
+
+    z-index: 2147483647 !important;
+
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.8);
+
+    cursor: pointer;
+
+    color: #fff;
+
+    background: linear-gradient(
+        135deg,
+        #b78918,
+        #e0b947,
+        #b27d0d
+    );
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.18),
+        0 0 0 5px rgba(255,255,255,0.75);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+#floatingShareBtn:hover {
+    transform: translateY(-4px) scale(1.05);
+}
+
+#floatingShareBtn:active {
+    transform: scale(0.96);
+}

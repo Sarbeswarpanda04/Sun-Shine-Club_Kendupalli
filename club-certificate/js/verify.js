@@ -22,6 +22,12 @@ const searchSection =
 const resultSection =
     document.getElementById("resultSection");
 
+const floatingShareBtn =
+    document.getElementById("floatingShareBtn");
+
+const shareTooltip =
+    document.getElementById("shareTooltip");
+
 
 /* =========================================================
    WEBSITE
@@ -29,6 +35,540 @@ const resultSection =
 
 const WEBSITE =
     "https://sunshineclubkendupalli.in";
+
+
+/* =========================================================
+   SHARE TOOLTIP TIMER
+========================================================= */
+
+let shareTooltipTimer = null;
+
+
+/* =========================================================
+   HIDE SHARE BUTTON INITIALLY
+========================================================= */
+
+hideShareButton();
+
+
+/* =========================================================
+   FLOATING SHARE BUTTON
+========================================================= */
+
+if (floatingShareBtn) {
+
+    floatingShareBtn.addEventListener(
+        "click",
+        handleShare
+    );
+
+}
+
+
+/* =========================================================
+   HANDLE SHARE
+========================================================= */
+
+async function handleShare() {
+
+    if (!floatingShareBtn) {
+        return;
+    }
+
+
+    const verificationUrl =
+        floatingShareBtn.dataset.url ||
+        window.location.href;
+
+
+    const certificateName =
+        floatingShareBtn.dataset.name ||
+        "Certificate";
+
+
+    const certificateId =
+        floatingShareBtn.dataset.certificateId ||
+        "";
+
+
+    const certificateImage =
+        floatingShareBtn.dataset.image ||
+        "";
+
+
+    const shareText =
+        `Certificate of ${certificateName}\n` +
+        `Certificate ID: ${certificateId}\n` +
+        `Verified by Sun Shine Club`;
+
+
+    /*
+    =====================================================
+    1. TRY TO SHARE THE ACTUAL CERTIFICATE IMAGE
+
+    If the browser supports Web Share file sharing,
+    the certificate image itself is attached.
+
+    The verification URL is included in the text.
+    =====================================================
+    */
+
+    if (
+        certificateImage &&
+        navigator.share &&
+        navigator.canShare
+    ) {
+
+        try {
+
+            const response =
+                await fetch(
+                    certificateImage,
+                    {
+                        method: "GET",
+                        mode: "cors",
+                        credentials: "omit"
+                    }
+                );
+
+
+            if (response.ok) {
+
+                const blob =
+                    await response.blob();
+
+
+                const mimeType =
+                    blob.type ||
+                    "image/png";
+
+
+                const extension =
+                    getImageExtension(
+                        mimeType,
+                        certificateImage
+                    );
+
+
+                const certificateFile =
+                    new File(
+                        [blob],
+                        `${certificateId || "certificate"}.${extension}`,
+                        {
+                            type: mimeType
+                        }
+                    );
+
+
+                const fileShareData = {
+
+                    title:
+                        `Verified Certificate | ${certificateName}`,
+
+                    text:
+                        `${shareText}\n\n${verificationUrl}`,
+
+                    files:
+                        [
+                            certificateFile
+                        ]
+
+                };
+
+
+                if (
+                    navigator.canShare(
+                        fileShareData
+                    )
+                ) {
+
+                    await navigator.share(
+                        fileShareData
+                    );
+
+                    return;
+
+                }
+
+            }
+
+        } catch (error) {
+
+            /*
+             * Closing the native share dialog
+             * is not an error.
+             */
+
+            if (
+                error &&
+                error.name === "AbortError"
+            ) {
+
+                return;
+
+            }
+
+
+            console.warn(
+                "Certificate image sharing unavailable:",
+                error
+            );
+
+        }
+
+    }
+
+
+    /*
+    =====================================================
+    2. NORMAL WEB SHARE
+
+    The Cloudflare Worker handles the verification URL
+    and injects the certificate's R2 image as:
+
+        og:image
+
+    This allows supported social platforms to create
+    a certificate-image preview.
+    =====================================================
+    */
+
+    if (
+        navigator.share &&
+        typeof navigator.share === "function"
+    ) {
+
+        try {
+
+            await navigator.share({
+
+                title:
+                    `Verified Certificate | ${certificateName}`,
+
+                text:
+                    shareText,
+
+                url:
+                    verificationUrl
+
+            });
+
+
+            return;
+
+        } catch (error) {
+
+            if (
+                error &&
+                error.name === "AbortError"
+            ) {
+
+                return;
+
+            }
+
+
+            console.error(
+                "Native share error:",
+                error
+            );
+
+        }
+
+    }
+
+
+    /*
+    =====================================================
+    3. CLIPBOARD FALLBACK
+    =====================================================
+    */
+
+    try {
+
+        if (
+            navigator.clipboard &&
+            typeof navigator.clipboard.writeText ===
+                "function"
+        ) {
+
+            await navigator.clipboard.writeText(
+                verificationUrl
+            );
+
+
+            showShareTooltip(
+                "Verification link copied!"
+            );
+
+
+            return;
+
+        }
+
+    } catch (error) {
+
+        console.error(
+            "Clipboard error:",
+            error
+        );
+
+    }
+
+
+    /*
+    =====================================================
+    4. LAST RESORT
+    =====================================================
+    */
+
+    window.prompt(
+        "Copy this verification link:",
+        verificationUrl
+    );
+
+}
+
+
+/* =========================================================
+   GET IMAGE EXTENSION
+========================================================= */
+
+function getImageExtension(
+    mimeType,
+    imageUrl
+) {
+
+    const type =
+        (mimeType || "")
+            .toLowerCase();
+
+
+    if (
+        type.includes("jpeg") ||
+        type.includes("jpg")
+    ) {
+
+        return "jpg";
+
+    }
+
+
+    if (
+        type.includes("webp")
+    ) {
+
+        return "webp";
+
+    }
+
+
+    if (
+        type.includes("gif")
+    ) {
+
+        return "gif";
+
+    }
+
+
+    if (
+        type.includes("avif")
+    ) {
+
+        return "avif";
+
+    }
+
+
+    const cleanUrl =
+        String(
+            imageUrl || ""
+        )
+            .split("?")[0]
+            .split("#")[0];
+
+
+    const extension =
+        cleanUrl
+            .split(".")
+            .pop()
+            ?.toLowerCase();
+
+
+    if (
+        extension &&
+        /^[a-z0-9]{2,5}$/.test(
+            extension
+        )
+    ) {
+
+        return extension;
+
+    }
+
+
+    return "png";
+
+}
+
+
+/* =========================================================
+   SHOW SHARE TOOLTIP
+========================================================= */
+
+function showShareTooltip(
+    message = "Link copied!"
+) {
+
+    if (!shareTooltip) {
+        return;
+    }
+
+
+    shareTooltip.textContent =
+        message;
+
+
+    shareTooltip.classList.add(
+        "show"
+    );
+
+
+    clearTimeout(
+        shareTooltipTimer
+    );
+
+
+    shareTooltipTimer =
+        setTimeout(
+            () => {
+
+                shareTooltip.classList.remove(
+                    "show"
+                );
+
+            },
+            1800
+        );
+
+}
+
+
+/* =========================================================
+   SHOW SHARE BUTTON
+========================================================= */
+
+function showShareButton(
+    verificationUrl,
+    certificate
+) {
+
+    if (!floatingShareBtn) {
+        return;
+    }
+
+
+    /*
+    * Verification URL.
+    *
+    * This is also the URL processed by the
+    * Cloudflare Worker.
+    */
+
+    floatingShareBtn.dataset.url =
+        verificationUrl ||
+        window.location.href;
+
+
+    /*
+    * Certificate name.
+    */
+
+    floatingShareBtn.dataset.name =
+        certificate?.name ||
+        "Certificate";
+
+
+    /*
+    * Certificate ID.
+    */
+
+    floatingShareBtn.dataset.certificateId =
+        certificate?.certificateId ||
+        "";
+
+
+    /*
+    * Actual certificate image URL.
+    *
+    * This is the Cloudflare R2 URL stored in
+    * Firestore.
+    */
+
+    floatingShareBtn.dataset.image =
+        certificate?.certificateImage ||
+        "";
+
+
+    /*
+    * Show button.
+    */
+
+    floatingShareBtn.style.display =
+        "flex";
+
+}
+
+
+/* =========================================================
+   HIDE SHARE BUTTON
+========================================================= */
+
+function hideShareButton() {
+
+    if (floatingShareBtn) {
+
+        floatingShareBtn.style.display =
+            "none";
+
+
+        floatingShareBtn.removeAttribute(
+            "data-url"
+        );
+
+
+        floatingShareBtn.removeAttribute(
+            "data-name"
+        );
+
+
+        floatingShareBtn.removeAttribute(
+            "data-certificate-id"
+        );
+
+
+        floatingShareBtn.removeAttribute(
+            "data-image"
+        );
+
+    }
+
+
+    if (shareTooltip) {
+
+        shareTooltip.classList.remove(
+            "show"
+        );
+
+    }
+
+
+    clearTimeout(
+        shareTooltipTimer
+    );
+
+}
 
 
 /* =========================================================
@@ -40,23 +580,39 @@ const params =
         window.location.search
     );
 
+
 const urlId =
-    params.get("id")
+    params
+        .get("id")
         ?.trim()
         .toUpperCase();
 
 
 if (urlId) {
 
+    hideShareButton();
+
+
     if (searchSection) {
-        searchSection.style.display = "none";
+
+        searchSection.style.display =
+            "none";
+
     }
+
 
     if (resultSection) {
-        resultSection.style.display = "block";
+
+        resultSection.style.display =
+            "block";
+
     }
 
-    loadCertificate(urlId);
+
+    loadCertificate(
+        urlId
+    );
+
 }
 
 
@@ -84,8 +640,13 @@ if (certificateInput) {
         "keypress",
         (event) => {
 
-            if (event.key === "Enter") {
+            if (
+                event.key ===
+                "Enter"
+            ) {
+
                 verifyCertificate();
+
             }
 
         }
@@ -104,6 +665,7 @@ function verifyCertificate() {
         return;
     }
 
+
     const id =
         certificateInput.value
             .trim()
@@ -116,49 +678,75 @@ function verifyCertificate() {
             "Please enter the Certificate ID."
         );
 
+
         certificateInput.focus();
 
+
         return;
+
     }
 
 
     /*
-     * Certificate ID format:
-     *
-     * SSC-CERT-2026-001
-     *
-     * Prefix = SSC-CERT
-     * Year   = 2026
-     * Number = 001
-     */
+    =====================================================
+    CERTIFICATE ID FORMAT
+
+    SSC-CERT-2026-001
+    =====================================================
+    */
 
     const certificateIdPattern =
         /^SSC-CERT-\d{4}-\d{3}$/;
 
 
-    if (!certificateIdPattern.test(id)) {
+    if (
+        !certificateIdPattern.test(
+            id
+        )
+    ) {
 
         alert(
             "Invalid Certificate ID.\n\n" +
             "Use the format: SSC-CERT-YYYY-NNN"
         );
 
+
         certificateInput.focus();
 
+
         return;
+
     }
+
+
+    /*
+    * Hide old share information while
+    * loading another certificate.
+    */
+
+    hideShareButton();
 
 
     if (searchSection) {
-        searchSection.style.display = "none";
+
+        searchSection.style.display =
+            "none";
+
     }
+
 
     if (resultSection) {
-        resultSection.style.display = "block";
+
+        resultSection.style.display =
+            "block";
+
     }
 
 
-    loadCertificate(id);
+    loadCertificate(
+        id
+    );
+
 }
 
 
@@ -166,19 +754,27 @@ function verifyCertificate() {
    LOAD CERTIFICATE FROM FIRESTORE
 ========================================================= */
 
-async function loadCertificate(id) {
+async function loadCertificate(
+    id
+) {
 
     if (!resultSection) {
         return;
     }
 
 
+    /*
+    * Loading screen.
+    */
+
     resultSection.innerHTML = `
 
         <div class="loading">
 
             <div class="loader">
+
                 <i class="fa-solid fa-spinner fa-spin"></i>
+
             </div>
 
             <h2>
@@ -197,14 +793,16 @@ async function loadCertificate(id) {
     try {
 
         /*
-         * Certificate document ID is the same as
-         * the certificateId.
-         *
-         * Example:
-         *
-         * certificates/
-         * SSC-CERT-2026-001
-         */
+        =====================================================
+        FIRESTORE DOCUMENT
+
+        Collection:
+            certificates
+
+        Document:
+            SSC-CERT-2026-001
+        =====================================================
+        */
 
         const certificateRef =
             doc(
@@ -220,23 +818,31 @@ async function loadCertificate(id) {
             );
 
 
-        /* =================================================
-           CERTIFICATE NOT FOUND
-        ================================================= */
+        /*
+        =====================================================
+        CERTIFICATE NOT FOUND
+        =====================================================
+        */
 
-        if (!certificateSnapshot.exists()) {
+        if (
+            !certificateSnapshot.exists()
+        ) {
 
             showError(
                 "Certificate ID not found in the official certificate database."
             );
 
+
             return;
+
         }
 
 
-        /* =================================================
-           GET FIRESTORE DATA
-        ================================================= */
+        /*
+        =====================================================
+        GET CERTIFICATE DATA
+        =====================================================
+        */
 
         const certificate = {
 
@@ -254,9 +860,11 @@ async function loadCertificate(id) {
         );
 
 
-        /* =================================================
-           CHECK CERTIFICATE ID
-        ================================================= */
+        /*
+        =====================================================
+        CHECK CERTIFICATE ID
+        =====================================================
+        */
 
         if (
             certificate.certificateId &&
@@ -267,13 +875,17 @@ async function loadCertificate(id) {
                 "Certificate information does not match the requested Certificate ID."
             );
 
+
             return;
+
         }
 
 
-        /* =================================================
-           SHOW CERTIFICATE
-        ================================================= */
+        /*
+        =====================================================
+        SHOW CERTIFICATE
+        =====================================================
+        */
 
         showCertificate(
             certificate
@@ -288,9 +900,11 @@ async function loadCertificate(id) {
         );
 
 
-        /* =================================================
-           FIRESTORE PERMISSION ERROR
-        ================================================= */
+        /*
+        =====================================================
+        FIRESTORE PERMISSION ERROR
+        =====================================================
+        */
 
         if (
             error.code ===
@@ -301,7 +915,9 @@ async function loadCertificate(id) {
                 "Certificate verification is currently unavailable because the verification database is not publicly accessible."
             );
 
+
             return;
+
         }
 
 
@@ -310,6 +926,7 @@ async function loadCertificate(id) {
         );
 
     }
+
 }
 
 
@@ -331,7 +948,8 @@ function showCertificate(
     ===================================================== */
 
     const isValid =
-        certificate.status === "Issued";
+        certificate.status ===
+        "Issued";
 
 
     const statusClass =
@@ -348,7 +966,7 @@ function showCertificate(
 
     /* =====================================================
        CERTIFICATE IMAGE
-       Stored in Cloudflare R2
+       STORED IN CLOUDFLARE R2
     ===================================================== */
 
     const certificateImage =
@@ -358,7 +976,7 @@ function showCertificate(
 
     /* =====================================================
        EVENT IMAGE
-       URL ONLY — NOT UPLOADED
+       URL ONLY
     ===================================================== */
 
     const eventImage =
@@ -368,6 +986,18 @@ function showCertificate(
 
     /* =====================================================
        VERIFICATION URL
+
+       IMPORTANT:
+       The Cloudflare Worker receives this URL.
+
+       Example:
+
+       /club-certificate/verify.html?id=SSC-CERT-2026-001
+
+       Worker reads the ID, gets certificateImage
+       from Firestore, and injects:
+
+       og:image = certificateImage
     ===================================================== */
 
     const verificationUrl =
@@ -393,7 +1023,9 @@ function showCertificate(
                     </div>
 
                     <img
-                        src="${escapeHTML(certificateImage)}"
+                        src="${escapeHTML(
+                            certificateImage
+                        )}"
                         alt="Certificate of ${escapeHTML(
                             certificate.name || ""
                         )}"
@@ -438,7 +1070,9 @@ function showCertificate(
                     </div>
 
                     <img
-                        src="${escapeHTML(eventImage)}"
+                        src="${escapeHTML(
+                            eventImage
+                        )}"
                         alt="${escapeHTML(
                             certificate.event ||
                             "Event"
@@ -654,6 +1288,7 @@ function showCertificate(
 
                 ${
                     certificate.secretary
+
                         ? `
 
                             <div class="result-row">
@@ -671,6 +1306,7 @@ function showCertificate(
                             </div>
 
                         `
+
                         : ""
                 }
 
@@ -694,7 +1330,9 @@ function showCertificate(
 
             <!-- STATUS -->
 
-            <div class="status-badge ${statusClass}">
+            <div
+                class="status-badge ${statusClass}"
+            >
 
                 ${
                     isValid
@@ -709,6 +1347,7 @@ function showCertificate(
 
             ${
                 certificateImage
+
                     ? `
 
                         <div class="certificate-actions">
@@ -718,13 +1357,17 @@ function showCertificate(
                                 class="download-certificate-btn"
                                 id="downloadCertificateBtn"
                             >
+
                                 <i class="fa-solid fa-download"></i>
+
                                 Download Certificate
+
                             </button>
 
                         </div>
 
                     `
+
                     : ""
             }
 
@@ -769,6 +1412,21 @@ function showCertificate(
         </div>
 
     `;
+
+
+    /* =====================================================
+       CONFIGURE FLOATING SHARE BUTTON
+
+       The button itself is in the main HTML,
+       outside .verify-card.
+
+       We only attach the current certificate data here.
+    ===================================================== */
+
+    showShareButton(
+        verificationUrl,
+        certificate
+    );
 
 
     /* =====================================================
@@ -835,7 +1493,9 @@ async function downloadCertificate(
             "Certificate image is not available."
         );
 
+
         return;
+
     }
 
 
@@ -855,7 +1515,9 @@ async function downloadCertificate(
 
         if (button) {
 
-            button.disabled = true;
+            button.disabled =
+                true;
+
 
             button.innerHTML =
                 `
@@ -867,19 +1529,25 @@ async function downloadCertificate(
 
 
         /*
-         * Fetch image from Cloudflare R2.
-         *
-         * R2 CORS must allow GET from
-         * sunshineclubkendupalli.in.
-         */
+        =====================================================
+        FETCH IMAGE FROM CLOUDFLARE R2
+
+        R2 CORS must allow GET from your website.
+        =====================================================
+        */
 
         const response =
             await fetch(
                 imageUrl,
                 {
-                    method: "GET",
-                    mode: "cors",
-                    credentials: "omit"
+                    method:
+                        "GET",
+
+                    mode:
+                        "cors",
+
+                    credentials:
+                        "omit"
                 }
             );
 
@@ -898,8 +1566,10 @@ async function downloadCertificate(
 
 
         /*
-         * Create temporary local URL.
-         */
+        =====================================================
+        CREATE TEMPORARY LOCAL URL
+        =====================================================
+        */
 
         const blobUrl =
             URL.createObjectURL(
@@ -908,8 +1578,10 @@ async function downloadCertificate(
 
 
         /*
-         * Create temporary download link.
-         */
+        =====================================================
+        CREATE DOWNLOAD LINK
+        =====================================================
+        */
 
         const link =
             document.createElement(
@@ -938,21 +1610,27 @@ async function downloadCertificate(
 
 
         /*
-         * Remove temporary link.
-         */
+        =====================================================
+        REMOVE TEMPORARY LINK
+        =====================================================
+        */
 
         link.remove();
 
 
         /*
-         * Release object URL.
-         */
+        =====================================================
+        RELEASE OBJECT URL
+        =====================================================
+        */
 
         setTimeout(
             () => {
+
                 URL.revokeObjectURL(
                     blobUrl
                 );
+
             },
             1000
         );
@@ -978,6 +1656,7 @@ async function downloadCertificate(
             button.disabled =
                 false;
 
+
             button.innerHTML =
                 originalHTML;
 
@@ -999,6 +1678,14 @@ function showError(
     if (!resultSection) {
         return;
     }
+
+
+    /*
+    * Never show share button for an invalid
+    * or missing certificate.
+    */
+
+    hideShareButton();
 
 
     resultSection.innerHTML = `
@@ -1027,7 +1714,9 @@ function showError(
 
 
             <p>
-                ${escapeHTML(message)}
+                ${escapeHTML(
+                    message
+                )}
             </p>
 
 
@@ -1075,6 +1764,13 @@ function showError(
 
 function goBack() {
 
+    /*
+    * Hide floating share button.
+    */
+
+    hideShareButton();
+
+
     if (resultSection) {
 
         resultSection.style.display =
@@ -1096,15 +1792,18 @@ function goBack() {
         certificateInput.value =
             "";
 
+
         certificateInput.focus();
 
     }
 
 
     /*
-     * Remove ?id=...
-     * without reloading.
-     */
+    =====================================================
+    REMOVE ?id=...
+    WITHOUT RELOADING PAGE
+    =====================================================
+    */
 
     const cleanURL =
         window.location.pathname;
@@ -1135,15 +1834,27 @@ function escapeHTML(
 
             const map = {
 
-                "&": "&amp;",
-                "<": "&lt;",
-                ">": "&gt;",
-                "'": "&#39;",
-                '"': "&quot;"
+                "&":
+                    "&amp;",
+
+                "<":
+                    "&lt;",
+
+                ">":
+                    "&gt;",
+
+                "'":
+                    "&#39;",
+
+                '"':
+                    "&quot;"
 
             };
 
-            return map[character];
+
+            return map[
+                character
+            ];
 
         }
     );
