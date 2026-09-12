@@ -1704,10 +1704,11 @@ async function renderCertificatePNG() {
     }
 
 
-/*
-        scale 2 gives a high-quality source image
-        while keeping the PNG under Cloudflare's
-        upload size limits (~25 MB).
+    /*
+       scale 4 gives a much better source image.
+
+       The certificate itself can therefore be
+       displayed smaller while retaining quality.
     */
 
     const canvas =
@@ -1715,7 +1716,7 @@ async function renderCertificatePNG() {
             elements.certificatePreview,
             {
 
-                scale: 2,
+                scale: 8,
 
                 useCORS: true,
 
@@ -2336,7 +2337,7 @@ if (exists) {
             );
 
 
-console.log(
+        console.log(
             "Certificate PNG:",
             {
                 width:
@@ -2348,39 +2349,11 @@ console.log(
                 size:
                     blob.size
             }
-        )
-
-
-        /*
-            Cloudflare Workers / R2 have a practical
-            upload size limit. Reject oversized images
-            before attempting the network upload so the
-            user gets a clear, actionable error.
-        */
-
-        const MAX_UPLOAD_BYTES =
-            20 *
-            1024 *
-            1024;
-
-        if (
-            blob.size >
-            MAX_UPLOAD_BYTES
-        ) {
-
-            throw new Error(
-                `Certificate image is too large (${(
-                    blob.size /
-                    1024 /
-                    1024
-                ).toFixed(1)} MB). The maximum allowed is 20 MB. Please reduce the canvas scale or image complexity.`
-            );
-
-        }
+        );
 
 
         /* =================================================
-            STEP 3 — UPLOAD TO R2
+           STEP 3 — UPLOAD TO R2
         ================================================= */
 
         showGenerationStatus(
