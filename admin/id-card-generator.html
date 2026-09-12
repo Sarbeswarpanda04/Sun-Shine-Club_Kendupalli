@@ -5,20 +5,11 @@
 
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="robots"
-        content="noindex, nofollow"
-    >
+    <meta name="robots" content="noindex, nofollow">
 
-    <meta
-        name="theme-color"
-        content="#3d0cb8"
-    >
+    <meta name="theme-color" content="#3d0cb8">
 
     <title>
         ID Card Generator | Admin | Sun Shine Club Kendupalli
@@ -29,48 +20,35 @@
          ADMIN CSS
     ====================================================== -->
 
-    <link
-        rel="stylesheet"
-        href="css/admin.css"
-    >
+    <link rel="stylesheet" href="css/admin.css">
 
 
     <!-- =====================================================
          ID CARD GENERATOR CSS
     ====================================================== -->
 
-    <link
-        rel="stylesheet"
-        href="css/id-card-generator.css"
-    >
+    <link rel="stylesheet" href="css/id-card-generator.css">
 
 
     <!-- =====================================================
          FONT AWESOME
     ====================================================== -->
 
-    <script
-        src="https://kit.fontawesome.com/3761b78600.js"
-        crossorigin="anonymous"
-    ></script>
+    <script src="https://kit.fontawesome.com/3761b78600.js" crossorigin="anonymous"></script>
 
 
     <!-- =====================================================
          QR CODE
     ====================================================== -->
 
-    <script
-        src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"
-    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
 
 
     <!-- =====================================================
          HTML2CANVAS
     ====================================================== -->
 
-    <script
-        src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"
-    ></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 
 </head>
 
@@ -82,30 +60,21 @@
          MOBILE SIDEBAR OVERLAY
     ====================================================== -->
 
-    <div
-        class="sidebar-overlay"
-        id="sidebarOverlay"
-    ></div>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
 
     <!-- =====================================================
          SIDEBAR
     ====================================================== -->
 
-    <aside
-        class="admin-sidebar"
-        id="adminSidebar"
-    >
+    <aside class="admin-sidebar" id="adminSidebar">
 
         <!-- BRAND -->
 
         <div class="sidebar-brand">
 
-            <img
-                src="https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/logo/sun-shine-club-logo.png"
-                alt="Sun Shine Club Kendupalli"
-                onerror="this.style.display='none'"
-            >
+            <img src="https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/logo/sun-shine-club-logo.png"
+                alt="Sun Shine Club Kendupalli" onerror="this.style.display='none'">
 
             <div>
 
@@ -136,10 +105,7 @@
 
             <!-- Dashboard -->
 
-            <a
-                href="dashboard.html"
-                class="admin-nav-link"
-            >
+            <a href="dashboard.html" class="admin-nav-link">
 
                 <span class="nav-icon">
 
@@ -156,10 +122,7 @@
 
             <!-- Members -->
 
-            <a
-                href="members.html"
-                class="admin-nav-link"
-            >
+            <a href="members.html" class="admin-nav-link">
 
                 <span class="nav-icon">
 
@@ -176,10 +139,7 @@
 
             <!-- ID Card Generator -->
 
-            <a
-                href="id-card-generator.html"
-                class="admin-nav-link active"
-            >
+            <a href="id-card-generator.html" class="admin-nav-link active">
 
                 <span class="nav-icon">
 
@@ -196,10 +156,7 @@
 
             <!-- Notices -->
 
-            <a
-                href="notices.html"
-                class="admin-nav-link"
-            >
+            <a href="notices.html" class="admin-nav-link">
 
                 <span class="nav-icon">
 
@@ -216,10 +173,7 @@
 
             <!-- Events -->
 
-            <a
-                href="events.html"
-                class="admin-nav-link"
-            >
+            <a href="events.html" class="admin-nav-link">
 
                 <span class="nav-icon">
 
@@ -236,10 +190,7 @@
 
             <!-- Gallery -->
 
-            <a
-                href="gallery.html"
-                class="admin-nav-link"
-            >
+            <a href="gallery.html" class="admin-nav-link">
 
                 <span class="nav-icon">
 
@@ -256,10 +207,7 @@
 
             <!-- YouTube -->
 
-            <a
-                href="youtube.html"
-                class="admin-nav-link"
-            >
+            <a href="youtube.html" class="admin-nav-link">
 
                 <span class="nav-icon">
 
@@ -280,13 +228,12 @@
                 SYSTEM
             </p>
 
+            <a href="certificate.html" class="admin-nav-link"><span class="nav-icon"><i
+                        class="fa-solid fa-certificate"></i></span><span class="nav-text">Certificate</span></a>
 
             <!-- Settings -->
 
-            <a
-                href="settings.html"
-                class="admin-nav-link"
-            >
+            <a href="settings.html" class="admin-nav-link">
 
                 <span class="nav-icon">
 
@@ -309,10 +256,7 @@
 
         <div class="admin-sidebar-user">
 
-            <div
-                class="user-avatar"
-                id="sidebarAvatar"
-            >
+            <div class="user-avatar" id="sidebarAvatar">
                 A
             </div>
 
@@ -330,12 +274,7 @@
             </div>
 
 
-            <button
-                type="button"
-                class="sidebar-logout"
-                id="sidebarLogout"
-                aria-label="Sign out"
-            >
+            <button type="button" class="sidebar-logout" id="sidebarLogout" aria-label="Sign out">
 
                 <i class="fa-solid fa-right-from-bracket"></i>
 
@@ -360,13 +299,8 @@
         <header class="admin-topbar">
 
 
-            <button
-                type="button"
-                class="mobile-menu-btn"
-                id="mobileMenuButton"
-                aria-label="Open menu"
-                aria-expanded="false"
-            >
+            <button type="button" class="mobile-menu-btn" id="mobileMenuButton" aria-label="Open menu"
+                aria-expanded="false">
 
                 <i class="fa-solid fa-bars"></i>
 
@@ -401,10 +335,7 @@
                 </div>
 
 
-                <div
-                    class="user-avatar"
-                    id="topbarAvatar"
-                >
+                <div class="user-avatar" id="topbarAvatar">
                     A
                 </div>
 
@@ -461,11 +392,7 @@
             <div class="id-generator-toolbar">
 
 
-                <button
-                    type="button"
-                    id="downloadAll"
-                    class="generator-action primary"
-                >
+                <button type="button" id="downloadAll" class="generator-action primary">
 
                     <i class="fa-solid fa-download"></i>
 
@@ -474,11 +401,7 @@
                 </button>
 
 
-                <button
-                    type="button"
-                    id="printAll"
-                    class="generator-action"
-                >
+                <button type="button" id="printAll" class="generator-action">
 
                     <i class="fa-solid fa-print"></i>
 
@@ -494,15 +417,9 @@
                  LOADING
             ================================================== -->
 
-            <div
-                id="cardsLoading"
-                class="cards-loading"
-                hidden
-            >
+            <div id="cardsLoading" class="cards-loading" hidden>
 
-                <i
-                    class="fa-solid fa-spinner fa-spin"
-                ></i>
+                <i class="fa-solid fa-spinner fa-spin"></i>
 
                 <span>
                     Loading members from Firebase...
@@ -515,23 +432,16 @@
                  ERROR
             ================================================== -->
 
-            <div
-                id="cardsError"
-                class="cards-error"
-                hidden
-            ></div>
+            <div id="cardsError" class="cards-error" hidden></div>
 
 
             <!-- =================================================
                  ID CARDS
             ================================================== -->
 
-            <div
-                id="cardsContainer"
-                class="cards-grid"
-            ></div>
+            <div id="cardsContainer" class="cards-grid"></div>
 
-            
+
         </div>
 
     </main>
@@ -541,10 +451,7 @@
          GENERATOR JS
     ====================================================== -->
 
-    <script
-        type="module"
-        src="js/id-card-generator.js"
-    ></script>
+    <script type="module" src="js/id-card-generator.js"></script>
 
 
 </body>

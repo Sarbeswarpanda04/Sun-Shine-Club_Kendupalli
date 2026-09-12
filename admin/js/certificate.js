@@ -2175,33 +2175,6 @@ async function issueCertificate() {
        VALIDATION
     ----------------------------------------------------- */
 
-    if (!name) {
-
-        showToast(
-            "Enter the recipient name.",
-            "error"
-        );
-
-        elements.name?.focus();
-
-        return;
-
-    }
-
-
-    if (!event) {
-
-        showToast(
-            "Enter the event or competition name.",
-            "error"
-        );
-
-        elements.event?.focus();
-
-        return;
-
-    }
-
     if (!eventImage) {
 
         showToast(
