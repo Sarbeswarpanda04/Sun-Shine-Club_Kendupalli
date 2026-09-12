@@ -1716,7 +1716,7 @@ async function renderCertificatePNG() {
             elements.certificatePreview,
             {
 
-                scale: 6,
+                scale: 5,
 
                 useCORS: true,
 
