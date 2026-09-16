@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ================= STATUS STORY ================= */
   const storyData = [
     {
-      image: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2026/IMG_20260914_111942~2.jpg",
+      image: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2026/IMG_20260914_111942~2.webp",
       alt: "Ganesh Puja celebration at Kendupalli",
       enTitle: "Ganesh Puja Celebration",
       orTitle: "ଗଣେଶ ପୂଜା ଉତ୍ସବ",
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
       orText: "ଭକ୍ତି, ସାମୁଦାୟିକ ଏକତା ଓ ଆନନ୍ଦମୟ ଅଂଶଗ୍ରହଣରେ ଭରପୂର ଏକ ଉତ୍ସବ।"
     },
     {
-      image: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2026/IMG_20260914_205541.jpg",
+      image: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2026/IMG_20260914_205541.webp",
       alt: "Prize and certificate presentation",
       enTitle: "Recognition Moment",
       orTitle: "ସମ୍ମାନର ମୁହୂର୍ତ୍ତ",
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
       orText: "ଅଂଶଗ୍ରହଣ ଓ ସଫଳତା ପାଇଁ ଛାତ୍ରଛାତ୍ରୀମାନେ ସମ୍ମାନ ପାଇଥିଲେ।"
     },
     {
-      image: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2026/IMG_20260914_163943.jpg",
+      image: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2026/IMG_20260914_163943.webp",
       alt: "Students taking part in the competition",
       enTitle: "Students Take Centre Stage",
       orTitle: "ଛାତ୍ରଛାତ୍ରୀଙ୍କ ଅଂଶଗ୍ରହଣ",
@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
       orText: "ଯୁବ ପ୍ରତିଯୋଗୀମାନେ ଉତ୍ସାହ ଓ ଏକାଗ୍ରତାର ସହ ପ୍ରତିଯୋଗିତାରେ ଭାଗ ନେଇଥିଲେ।"
     },
     {
-      image: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2026/IMG_20260914_162430.jpg",
+      image: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2026/IMG_20260914_162430.webp",
       alt: "Students working on competition entries",
       enTitle: "Creativity in Progress",
       orTitle: "ସୃଜନଶୀଳତାର ମୁହୂର୍ତ୍ତ",
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
       orText: "ଛାତ୍ରଛାତ୍ରୀମାନେ ନିଜର ସୃଜନଶୀଳ ପ୍ରତିଯୋଗିତା କାମ ପ୍ରସ୍ତୁତ କରୁଥିଲେ।"
     },
     {
-      image: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2026/IMG_20260914_205631.jpg",
+      image: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2026/IMG_20260914_205631.webp",
       alt: "Young participants at the event",
       enTitle: "Young Talent",
       orTitle: "ଯୁବ ପ୍ରତିଭା",
@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
       orText: "ଯୁବ ପ୍ରତିଭାମାନଙ୍କୁ ନିଜ ଦକ୍ଷତା ପ୍ରକାଶ ପାଇଁ ଏକ ସାମୁଦାୟିକ ମଞ୍ଚ ମିଳିଥିଲା।"
     },
     {
-      image: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2026/IMG_20260914_165439.jpg",
+      image: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2026/IMG_20260914_165439.webp",
       alt: "Students seated during competition",
       enTitle: "Competition Day",
       orTitle: "ପ୍ରତିଯୋଗିତା ଦିବସ",
@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
       orText: "ସାମୁଦାୟିକ ପରିବେଶ ପ୍ରତିଯୋଗିତାକୁ ଏକ ସ୍ମରଣୀୟ ଅନୁଭୂତିରେ ପରିଣତ କରିଥିଲା।"
     },
     {
-      image: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2026/IMG_20260914_112413.jpg",
+      image: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2026/IMG_20260914_112413.webp",
       alt: "Ganesh Puja decoration at Kendupalli",
       enTitle: "Festive Kendupalli",
       orTitle: "ଉତ୍ସବମୁଖର କେନ୍ଦୁପଲ୍ଲୀ",
@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
       orText: "ରଙ୍ଗିନ ସାଜସଜ୍ଜା ଓ ଆତିଥ୍ୟପୂର୍ଣ୍ଣ ପରିବେଶ ଉତ୍ସବକୁ ଆହୁରି ସୁନ୍ଦର କରିଥିଲା।"
     },
     {
-      image: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2026/IMG_20260914_105111.jpg",
+      image: "https://pub-0ea4b0b9de9b4d6db5c369669418e7ef.r2.dev/gallery/ganesh/2026/IMG_20260914_105111.webp",
       alt: "Community gathering during Ganesh Puja",
       enTitle: "Together as a Community",
       orTitle: "ଏକତାରେ ସମୁଦାୟ",
